@@ -1,5 +1,7 @@
 # Public API intent (draft; not implemented yet)
 
+Historical proposal. The implemented, versioned surface is now documented in [CURRENT_API_V0_1.md](CURRENT_API_V0_1.md); use that document for adoption and migration decisions. The proposal below is preserved to make the original intent recoverable.
+
 ## Lowest common denominator
 Use a stylesheet and semantic HTML. Provisional names below MUST be finalized with tests and versioning before promising stability.
 

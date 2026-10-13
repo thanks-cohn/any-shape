@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://any-shape.invalid/diagnostic-0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "viewport", "findings"],
+  "properties": {
+    "schemaVersion": { "const": "0.1" },
+    "viewport": {
+      "type": "object", "additionalProperties": false, "required": ["width", "height"],
+      "properties": { "width": { "type": "number", "minimum": 0 }, "height": { "type": "number", "minimum": 0 } }
+    },
+    "findings": { "type": "array", "items": { "$ref": "#/definitions/finding" } }
+  },
+  "definitions": {
+    "selector": { "type": "string", "pattern": "^[a-z][a-z0-9-]*:nth-child\\([1-9][0-9]*\\)( > [a-z][a-z0-9-]*:nth-child\\([1-9][0-9]*\\))*$" },
+    "box": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y", "width", "height"],
+      "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "width": { "type": "number", "minimum": 0 }, "height": { "type": "number", "minimum": 0 } }
+    },
+    "css": {
+      "type": "object", "additionalProperties": false, "required": ["display", "overflowX", "overflowY", "whiteSpace", "minInlineSize"],
+      "properties": {
+        "display": { "enum": ["block","inline","inline-block","flex","inline-flex","grid","inline-grid","none","contents","other"] },
+        "overflowX": { "enum": ["visible","hidden","clip","auto","scroll","other"] },
+        "overflowY": { "enum": ["visible","hidden","clip","auto","scroll","other"] },
+        "whiteSpace": { "enum": ["normal","nowrap","pre","pre-wrap","pre-line","break-spaces","other"] },
+        "minInlineSize": { "type": "number", "minimum": 0 }
+      }
+    },
+    "ancestor": {
+      "type": "object", "additionalProperties": false, "required": ["selector", "box", "css"],
+      "properties": { "selector": { "$ref": "#/definitions/selector" }, "box": { "$ref": "#/definitions/box" }, "css": { "$ref": "#/definitions/css" } }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false, "required": ["code", "severity", "confidence", "selector", "evidence"],
+      "properties": {
+        "code": { "enum": ["overflow-x", "overflow-y", "clipping", "clipped-control", "layout-mode", "container-mismatch"] },
+        "severity": { "enum": ["info", "warning", "error"] },
+        "confidence": { "enum": ["measured", "authored", "heuristic"] },
+        "selector": { "$ref": "#/definitions/selector" },
+        "evidence": {
+          "type": "object", "additionalProperties": false,
+          "required": ["box", "scrollWidth", "scrollHeight", "css", "ancestors", "reason"],
+          "properties": {
+            "box": { "$ref": "#/definitions/box" },
+            "scrollWidth": { "type": "number", "minimum": 0 },
+            "scrollHeight": { "type": "number", "minimum": 0 },
+            "css": { "$ref": "#/definitions/css" },
+            "ancestors": { "type": "array", "maxItems": 8, "items": { "$ref": "#/definitions/ancestor" } },
+            "reason": { "enum": ["hidden-overflow", "scroll-extent-exceeds-box", "control-outside-clipping-ancestor", "authored-css-marker", "missing-query-container"] },
+            "ancestor": { "$ref": "#/definitions/selector" },
+            "mode": { "enum": ["stack", "split", "unknown"] },
+            "container": { "anyOf": [{ "$ref": "#/definitions/box" }, { "type": "null" }] }
+          }
+        }
+      }
+    }
+  }
+}

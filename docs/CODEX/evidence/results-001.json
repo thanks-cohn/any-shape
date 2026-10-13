@@ -1,0 +1,498 @@
+{
+  "observed_at_utc": "2026-10-13T23:20:15.296Z",
+  "node": "24.19.0",
+  "engines": {
+    "chromium": "156.0.8078.4",
+    "firefox": "157.0",
+    "webkit": "27.2"
+  },
+  "unit": {
+    "passed": 4,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "browser": {
+    "startTime": "2026-10-13T23:20:15.296Z",
+    "duration": 37116.827,
+    "expected": 87,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "checks": [
+    {
+      "test": "AS-002/010 matrix 320x640",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 360x780",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 667x375",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 768x1024",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1024x768",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1366x768",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1920x1080",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 3440x1440",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 280x280",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 375x320",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 480x400",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 600x360",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 900x400",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1200x400",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 713x333",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-001/013 cards respond to their containers, not the viewport",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-004/005 200% and 400% equivalent reflow and enlarged translated content",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-006 keyboard order, focus, navigation and form submission",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-007/015 no JavaScript and missing diagnostics preserve native interactions",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-015 remove diagnostics only, keep enhancement working",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-008/009 reduced motion, RTL and touch targets",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "touch interaction works without hover",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-011 removing container rules leaves a usable baseline",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-012/014 broken fixtures are diagnosed and reports redact sensitive data",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "overlay lifecycle is opt-in, click-through and fully reversible",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "accessibility audit: showcase at narrow and wide widths",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-003 screenshots for human review, never auto-approved goldens",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 320x640",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 360x780",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 667x375",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 768x1024",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1024x768",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1366x768",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1920x1080",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 3440x1440",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 280x280",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 375x320",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 480x400",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 600x360",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 900x400",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1200x400",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 713x333",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-001/013 cards respond to their containers, not the viewport",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-004/005 200% and 400% equivalent reflow and enlarged translated content",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-006 keyboard order, focus, navigation and form submission",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-007/015 no JavaScript and missing diagnostics preserve native interactions",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-015 remove diagnostics only, keep enhancement working",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-008/009 reduced motion, RTL and touch targets",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "touch interaction works without hover",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-011 removing container rules leaves a usable baseline",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-012/014 broken fixtures are diagnosed and reports redact sensitive data",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "overlay lifecycle is opt-in, click-through and fully reversible",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "accessibility audit: showcase at narrow and wide widths",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-003 screenshots for human review, never auto-approved goldens",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 320x640",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 360x780",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 667x375",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 768x1024",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1024x768",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1366x768",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1920x1080",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 3440x1440",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 280x280",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 375x320",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 480x400",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 600x360",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 900x400",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 1200x400",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-002/010 matrix 713x333",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-001/013 cards respond to their containers, not the viewport",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-004/005 200% and 400% equivalent reflow and enlarged translated content",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-006 keyboard order, focus, navigation and form submission",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-007/015 no JavaScript and missing diagnostics preserve native interactions",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-015 remove diagnostics only, keep enhancement working",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-008/009 reduced motion, RTL and touch targets",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "touch interaction works without hover",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-011 removing container rules leaves a usable baseline",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-012/014 broken fixtures are diagnosed and reports redact sensitive data",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "overlay lifecycle is opt-in, click-through and fully reversible",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "accessibility audit: showcase at narrow and wide widths",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "AS-003 screenshots for human review, never auto-approved goldens",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "independent static primitives preserve geometry without lab styles or scripts",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "diagnostic cost and read-only behavior on the actual showcase",
+      "engine": "chromium",
+      "status": "passed"
+    },
+    {
+      "test": "independent static primitives preserve geometry without lab styles or scripts",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "diagnostic cost and read-only behavior on the actual showcase",
+      "engine": "firefox",
+      "status": "passed"
+    },
+    {
+      "test": "independent static primitives preserve geometry without lab styles or scripts",
+      "engine": "webkit",
+      "status": "passed"
+    },
+    {
+      "test": "diagnostic cost and read-only behavior on the actual showcase",
+      "engine": "webkit",
+      "status": "passed"
+    }
+  ],
+  "diagnostic_timing": {
+    "chromium": {
+      "elements": 85,
+      "medianMs": 3.400000000023283,
+      "maxMs": 5.700000000069849,
+      "mutated": false
+    },
+    "firefox": {
+      "elements": 85,
+      "medianMs": 12,
+      "maxMs": 36,
+      "mutated": false
+    },
+    "webkit": {
+      "elements": 85,
+      "medianMs": 4,
+      "maxMs": 13,
+      "mutated": false
+    }
+  },
+  "source_sha256": {
+    "src/any-shape.css": "2cf4cead8135dc65417e7d5eea3fd8fd797ca8905b9938aae31b7d70712d8401",
+    "src/diagnostic.schema.json": "547243434ad2a5eb66c801e0c590da79fa3bb27edffdc5ec5e73e3d19c735b26",
+    "src/diagnostics.d.ts": "c07c414bb2e474d6e25b4744e2a63076fdf6bca9d262e4df8edbc874bbcfd881",
+    "src/diagnostics.js": "67a7412371717bc0e95d75bd75fa5ac62db28bab0383d9b4d1445e9983bbb2c1",
+    "examples/broken.css": "fa78c1b92e84ff874c87a44eb60962dec2f61d149312b275a25155fcbdbc014e",
+    "examples/broken.html": "e5211b50b7587bbfa1ef5db863923f11ca7c60b6175e6974a1bcb50e7abc47e1",
+    "examples/broken.js": "b73ec0c07d52fa732f590049c6f0b8567f6db9d95ee46fdc4ecf217a4474b295",
+    "examples/index.html": "e06cefdcf581aabf4d4b2db17b3342021776f4ee55d2e707b5947e70ce5039b2",
+    "examples/lab.css": "4b93012f1cf586cda5b354591d843211e564a18d80fdcee0f271b73d0dde3c6c",
+    "examples/lab.js": "f00d9147a5679c3eb2ca1ace5a8802b481f32ca0a2cc69304f097173b3d372ce",
+    "tests/browser/contracts.spec.js": "e23ea92d9a02d1172ede013788e0d707bbf63a604ae5e77103b60334886a08be",
+    "tests/browser/primitives.spec.js": "b146f4074b3490630daaf69137bc3c43ed74b25ae4b2252cca7af5a4f43f4320",
+    "tests/consumer.ts": "96eb4a0bfb4e32a6babdac866bcb2f94fa8db638a825bf0360cf0691ade7b01a",
+    "tests/server.test.js": "d5f374c3f90d089a0089b223ad6825cd0273a75c49680466f24123fed236b417",
+    "tests/unit.test.js": "13adba54e04d52b6b468594b98976ff1db5d6a9ec61ff1859581937c34ac662c"
+  },
+  "hosted_ci": "not run",
+  "visual_goldens": "not human-approved"
+}

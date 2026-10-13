@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Any-Shape: adaptive interfaces that keep their identity.">
+  <title>Any-Shape — Adaptive interface laboratory</title>
+  <link rel="stylesheet" href="../src/any-shape.css">
+  <link rel="stylesheet" href="./lab.css">
+  <script type="module" src="./lab.js"></script>
+</head>
+<body>
+  <a class="as-skip as-button" href="#main">Skip to content</a>
+  <header class="as-center">
+    <nav class="as-nav" aria-label="Main">
+      <a class="brand" href="./">Any-Shape<span aria-hidden="true">◈</span></a>
+      <ul class="as-cluster">
+        <li><a href="#lab">Laboratory</a></li>
+        <li><a href="#preferences">Preferences</a></li>
+        <li><a href="./broken.html">Broken fixtures</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1" class="as-center as-stack">
+    <section class="hero as-stack" aria-labelledby="hero-title">
+      <p class="eyebrow">Standards first · Identity always</p>
+      <h1 id="hero-title">The form may change.<br>The identity must remain.</h1>
+      <p class="lead">A living laboratory for interfaces that adapt to their available space. The same content, the same purpose, a shape that makes sense.</p>
+      <div class="as-cluster"><a class="as-button" href="#lab">Explore the lab</a><a href="#principles">See the principles</a></div>
+    </section>
+    <section id="lab" class="as-stack" aria-labelledby="lab-title">
+      <div class="section-heading as-stack"><p class="eyebrow">01 / Container awareness</p><h2 id="lab-title">One card. Two contexts.</h2><p>Both cards share identical markup and styling. Their containers decide when art and content sit beside one another.</p></div>
+      <div class="comparison as-sidebar">
+        <div id="narrow-panel" class="as-stack"><p class="context-label">Narrow panel</p><div class="as-panel">
+          <article class="as-card" data-as-requires-container>
+            <div class="as-card__art as-frame" aria-hidden="true"><svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="90" r="55" fill="#125c4d"/><rect x="150" y="35" width="105" height="110" rx="20" fill="#b96731"/><circle cx="172" cy="90" r="25" fill="#fffefa"/></svg></div>
+            <div class="as-card__body as-stack"><p class="eyebrow">Learning, reshaped</p><h3>Make room for curiosity</h3><p>Small questions. Thoughtful answers. A clear next step, wherever you read.</p><a class="as-button" href="#preferences">Choose your reading style</a></div>
+          </article>
+        </div></div>
+        <div id="wide-panel" class="as-stack"><p class="context-label">Wide panel</p><div class="as-panel">
+          <article class="as-card" data-as-requires-container>
+            <div class="as-card__art as-frame" aria-hidden="true"><svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="90" r="55" fill="#125c4d"/><rect x="150" y="35" width="105" height="110" rx="20" fill="#b96731"/><circle cx="172" cy="90" r="25" fill="#fffefa"/></svg></div>
+            <div class="as-card__body as-stack"><p class="eyebrow">Learning, reshaped</p><h3>Make room for curiosity</h3><p>Small questions. Thoughtful answers. A clear next step, wherever you read.</p><a class="as-button" href="#preferences">Choose your reading style</a></div>
+          </article>
+        </div></div>
+      </div>
+      <div class="lab-controls as-cluster" hidden>
+        <button id="stress" type="button" aria-pressed="false">Expand content</button>
+        <button id="rtl" type="button" aria-pressed="false">Right-to-left</button>
+        <button id="inspect" type="button">Inspect layout</button>
+      </div>
+      <pre id="report" aria-label="Local layout report" tabindex="0" hidden></pre>
+      <noscript><p>The layout works without JavaScript. Interactive stress tools are optional.</p></noscript>
+    </section>
+    <section id="principles" class="as-stack" aria-labelledby="principles-title">
+      <p class="eyebrow">02 / Durable relationships</p><h2 id="principles-title">Built to keep its meaning.</h2>
+      <div class="as-grid">
+        <article class="principle as-stack"><span class="number" aria-hidden="true">01</span><h3>Content leads</h3><p>Intrinsic sizing and wrapping make room for real words, longer labels, and changing contexts.</p></article>
+        <article class="principle as-stack"><span class="number" aria-hidden="true">02</span><h3>Controls stay reachable</h3><p>Semantic links and form controls preserve reading order, touch targets, and visible keyboard focus.</p></article>
+        <article class="principle as-stack"><span class="number" aria-hidden="true">03</span><h3>Evidence stays local</h3><p>Optional measurements expose geometry and uncertainty, without collecting your text or transmitting reports.</p></article>
+      </div>
+    </section>
+    <section id="preferences" class="as-stack" aria-labelledby="preferences-title">
+      <p class="eyebrow">03 / Useful at every size</p><h2 id="preferences-title">Make it comfortable.</h2>
+      <p>This sample form applies reading density locally. Without JavaScript it uses native GET navigation; no account or storage is required.</p>
+      <form class="as-form as-stack" method="get" action="./#preferences">
+        <div class="as-switcher">
+          <div class="as-field"><label for="display-name">Display name</label><input id="display-name" autocomplete="nickname" required maxlength="80" placeholder="Your name (not submitted)"></div>
+          <div class="as-field"><label for="density">Reading density</label><select id="density" name="density"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select></div>
+        </div>
+        <div><button type="submit">Apply preferences</button></div>
+        <p role="status" aria-live="polite"></p>
+      </form>
+      <details><summary>How adaptation works</summary><p>Grid and flex layouts wrap around content. Named CSS containers change the card composition above 32rem; browsers without container queries keep a readable single-column card.</p></details>
+    </section>
+  </main>
+  <footer class="as-center"><p>Any-Shape · Portable by design. No runtime dependencies.</p></footer>
+</body>
+</html>

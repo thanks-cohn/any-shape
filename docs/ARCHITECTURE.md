@@ -2,6 +2,8 @@
 
 Status: **target design; not evidence of implementation**.
 
+Implementation note: the 0.1 source follows these seams in `src/any-shape.css`, `src/diagnostics.js`, declarations and JSON Schema; static consumers live in `examples/`. No bundler or framework adapter is required. Exact evidence and remaining limits are in `docs/CODEX/IMPLEMENTATION_REPORT_001.md`; the target design below is retained as foundational intent.
+
 ## Layering
 1. **Contracts** (markdown fixtures / tests): what should happen and why.
 2. **Tokens** (portable CSS custom properties): semantic color, type, spacing, radius, motion, density.

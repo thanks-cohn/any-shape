@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Any-Shape — Deliberately broken fixtures</title><link rel="stylesheet" href="../src/any-shape.css"><link rel="stylesheet" href="./broken.css"><script type="module" src="./broken.js"></script></head>
+<body class="as-center as-stack">
+  <header><a href="./">Return to the healthy laboratory</a><h1>Deliberately broken fixtures</h1><p>These examples intentionally violate layout contracts. Do not copy their styles.</p></header>
+  <main class="as-stack">
+    <section class="as-stack"><h2>Intrinsic text overflow</h2><div class="broken-text" id="PRIVATE_ATTRIBUTE_CANARY">PRIVATE_TEXT_CANARY_overlylongunbrokencontentthatcannotfitthissmallcontainer</div></section>
+    <section class="as-stack"><h2>Clipped action</h2><div class="broken-clip"><button type="button">This action is clipped</button></div></section>
+    <section class="as-stack"><h2>Container mismatch</h2><article class="as-card" data-as-requires-container><h3>A card without its query container</h3><p>It remains stacked because its intended container is absent.</p></article></section>
+    <section><h2>Privacy canaries</h2><label for="canary">Private input</label><input id="canary" value="PRIVATE_TOKEN_CANARY"><a href="https://example.invalid/PRIVATE_URL_CANARY">Private destination (do not follow)</a></section>
+  </main>
+  <aside class="as-stack" aria-label="Local diagnostic tools"><button id="inspect" type="button">Inspect broken fixtures</button><button id="overlay" type="button" aria-pressed="false">Show geometry overlay</button><pre id="report" tabindex="0" aria-label="Diagnostic report" hidden></pre></aside>
+</body>
+</html>

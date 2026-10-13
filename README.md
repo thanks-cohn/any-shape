@@ -16,7 +16,7 @@ It is **not** a collection of device-specific CSS breakpoints or a replacement f
 2. [CONTRACTS](docs/FOUNDATION/CONTRACTS.md): observable behavior and acceptance criteria.
 3. [ARCHITECTURE](docs/ARCHITECTURE.md): replaceable technical choices, modules, stable seams.
 4. [RECOVERY](docs/RECOVERY.md): rebuilding from purpose if dependencies or code disappear.
-5. [PUBLIC API](docs/API/README.md): intended minimal adopter surface (proposal until implemented).
+5. [PUBLIC API](docs/API/CURRENT_API_V0_1.md): implemented 0.1 classes, tokens, diagnostics and limitations.
 6. [CODEX HANDOFF](docs/CODEX/CODEX_HANDOFF_001.md): implementation request, priorities, proof requirements.
 
 ## Foundational axioms
@@ -45,7 +45,28 @@ It is **not** a collection of device-specific CSS breakpoints or a replacement f
 - Omitting necessary controls or hiding real information just to avoid scrolling.
 
 ## Status
-**Specification and implementation handoff established.** Working source, published package and passing validation are NOT asserted here. See the CodeX handoff for actual implementation milestones and evidence requirements. Do not report hypothetical tests as completed.
+**Core 0.1 implemented:** portable CSS primitives, container-aware cards, semantic navigation and form examples, and opt-in privacy-safe diagnostics. No runtime dependencies or build step. Package publication is not asserted. See [implementation evidence](docs/CODEX/IMPLEMENTATION_REPORT_001.md) for exact tests, engines, failed attempts and remaining manual checks.
+
+## Develop and adopt
+
+Requires Node >=22 (CI uses 24):
+
+```sh
+npm ci
+npx playwright install --with-deps chromium firefox webkit
+npm run check
+npm run test:recovery
+npm run test:package
+npm run dev
+```
+
+The static laboratory is served on port 4173 at `/examples/`; `/examples/broken.html` contains intentional failures. The server binds to loopback and serves only consumer assets. Without any Node tooling, serve `examples/` and `src/` together with any static server. No account, remote assets or diagnostic module is required by the CSS layout.
+
+On the Debian amd64 cloud host without root, use `npm run prepare:cloud` instead of `install --with-deps`, then use the browser-cache variables documented in [DEPENDENCIES](docs/DEPENDENCIES.md). Firefox needs an execution sandbox exception on this host; this is a host restriction, not an application failure.
+
+Copy `src/any-shape.css` into an HTML project or import `@any-shape/core/css` from a locally installed tarball. Optional ESM diagnostics are exported from `@any-shape/core`; type declarations and a closed JSON Schema ship with the package. `npm run test:package` builds a tarball and tests it in an external consumer, without publishing it.
+
+Tests produce JSON, screenshots and failure traces under ignored `artifacts/` and `test-results/`. Screenshots are review candidates; do not blindly approve them as goldens. Read the [dependency and recovery register](docs/DEPENDENCIES.md) for browser caches, system-library requirements and runner replacement. New agents should begin with [NEXT_AGENT](docs/CODEX/NEXT_AGENT.md), then the foundational reading order above.
 
 ## Agent entrypoint
 Read `AGENTS.md` before editing. Implement against behavior contracts; keep docs synchronized with observed reality.
