@@ -1,0 +1,21 @@
+{
+  "implementation_commit": "86f7409570ed65f8ff22c63aad142e72f2917201",
+  "method": "Local clean clone without hardlinks; new npm ci installation; retained verified browser toolchain reused. Not a new cloud machine.",
+  "unit": {
+    "passed": 4,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "browser": {
+    "startTime": "2026-10-13T23:26:34.064Z",
+    "duration": 37937.422000000006,
+    "expected": 87,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "package": "passed: external JS/CSS/schema/TypeScript and static adopter",
+  "recovery": "passed: physical module removal and replacement Node harness",
+  "working_tree": "clean after replay",
+  "source_hashes_match_initial_evidence": true
+}

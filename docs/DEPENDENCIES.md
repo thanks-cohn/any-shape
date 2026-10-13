@@ -38,6 +38,22 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.browser-tools/browsers" npm run test:package
 
 The host-validation override addresses Playwright's `ldconfig -p` presence heuristic, which cannot see rootless GLES libraries. The helper first loads the libraries with `ctypes`, then actually starts and renders each engine. It does not bypass TLS, signature or artifact-checksum validation. WebKit's shipped launcher overwrites `LD_LIBRARY_PATH`, so the helper adds symlinks to verified dependencies in its local `sys/lib` directory while preserving shipped browser artifacts. Rootless system packages track the host's signed repository snapshot and may need adjustment if the base image changes; they are infrastructure dependencies, not consumer runtime dependencies.
 
+Rootless packages actually observed from the host's Debian snapshot (development/browser infrastructure only; no source imports and none shipped in the Any-Shape npm archive):
+
+| Package / Debian version | Role / principal upstream license |
+|---|---|
+| `libgtk-4-1` 4.18.6+ds-2 | WebKit GTK host toolkit / LGPL-2.1+ with additional component licenses |
+| `libgraphene-1.0-0` 1.10.8-5 | GTK geometry / Expat (MIT) |
+| `libharfbuzz-icu0` 10.2.0-1+deb13u1 | WebKit font shaping/ICU bridge / permissive MIT-style, additional component licenses |
+| `libmanette-0.2-0` 0.2.12-1 | WebKit input support / LGPL-2.1+ |
+| `libhyphen0` 2.8.8-7+b2 | Text hyphenation / GPL-2+ or LGPL-2.1+ or MPL-1.1+ |
+| `libgles2`, `libglvnd0` 1.7.0-1+b2 | GLES dispatch / MIT, additional component licenses |
+| `libcairo-script-interpreter2` 1.18.4-1+b1 | GTK graphics prerequisite / Cairo LGPL/MPL and permissive component terms |
+| `libhidapi-hidraw0` 0.14.0-1+b2 | Manette input prerequisite / GPL-3.0 or BSD-3-Clause or HIDAPI |
+| `liblzo2-2` 2.10-3+b1 | Cairo compression prerequisite / GPL-2+ |
+
+Exact copyright notices and component terms are retained in `.browser-tools/libs/usr/share/doc/<package>/copyright`; the table is not a replacement for those files. Standard supported system installation can replace local extraction. A compatible system engine or alternate driver can replace WebKit tooling, but its missing browser coverage must stay unrun until equivalent contracts execute. Browser distributions retain their upstream licenses (Chromium BSD-style and third-party terms, Firefox MPL-2.0 and third-party terms, WebKit LGPL/BSD and third-party terms); they are not consumer dependencies. Package versions above are observed infrastructure versions, not a claim that every future base image supplies the same snapshot.
+
 Recovery copies core and lab into a temporary directory, removes the actual diagnostic artifact, serves it, and checks container layout, 320px reflow, form operation, accessibility, and graceful diagnostic failure using a replacement Node assertion harness. Original files remain intact; scratch cleanup occurs in `finally`. Tests separately disable all JS and strip the container enhancement layer. These exercises demonstrate the core seam survives optional module loss. They do not prove a total rebuild from nothing; follow `RECOVERY.md` for that larger exercise.
 
 ## Browser capabilities and gaps
