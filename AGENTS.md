@@ -60,3 +60,8 @@ Consult **Reference Corpus 0.2 — Beyond Forms** in `docs/ROADMAP/ANY_SHAPE_AGE
 ## Cloudflare Pages deployment inheritance (proposed reference)
 
 Read [the Cloudflare Pages Golden Export Reference proposal](docs/PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md) before changing any public website export. Owner intent: **GitHub repository → Cloudflare Pages through `npx wrangler` → real configured HTTPS webhooks**. Produce respondent-only published apps, without editor/branding, plus a minimal same-origin Pages Function when needed. Preserve owner-configured permitted webhook destinations; no default D1/R2/database/account/queue system. **One deeply verified working reference** teaches agents more than many half-working examples. An exported static frontend alone is not a proven working server-side Pages export. Verify a clean deploy and actual POST receipts; never assert functionality based on file generation alone.
+
+
+### Optional storage examples and reusable record URLs
+
+The Cloudflare Pages reference includes two **optional, separately testable** storage examples: write a unique JSON object to R2 and insert a verified SQL row into D1. These are **not mandatory backend dependencies** for ordinary webhook-forwarding exports. The owner's priority is that a stored JSON submission can have a stable, independently retrievable **record URL** and a portable versioned response, so completely unrelated future applications can consume it. Default to private authenticated retrieval; never equate a hard-to-guess URL with adequate access control. See the golden reference proposal before implementing either adapter.
