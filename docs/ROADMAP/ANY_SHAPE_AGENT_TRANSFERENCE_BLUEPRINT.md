@@ -182,3 +182,33 @@ Do not claim the standard is established by merely writing RFCs. The proof is th
 **Project identity to preserve:** Any-Shape is a foundation for enduring graphical software, not a form-only project, an Avalonia-only project, or a screenshot converter. The owner's lifetime horizon is self-sustaining software whose identity and legitimate behavior can survive its own tools and authors.
 
 **Handoff rule:** If this conversation is lost, this blueprint and its companion vision should suffice to recover the intended destination, the order of operations, the priority tradeoffs, the limitations of today's implementation, and how to verify real progress.
+
+## New cross-platform handoff gate — Conventional IDE outputs and mobile reference candidates (2026-10-14)
+
+**Why this belongs in the core roadmap:** Any-Shape should enable a cold agent to turn an unfamiliar project into a *normal, editable and testable application* for the chosen target. The reference corpus needs **enough breadth to explain the transfer principle**, not a hardcoded implementation for every target/framework.
+
+**Avalonia deliverable contract (proposed):** generate a standard .NET solution and project (`.sln` or `.slnx`, `.csproj`), compilable C#/XAML (`.axaml`), ordinary IDE layout, pinned NuGet/.NET versions, human-readable README, `dotnet restore/build/test/run` commands, Linux and Windows packaging instructions, and test fixtures plus actual conformance traces. Explicitly verify that a human can open, edit and debug the output in Visual Studio or a supported .NET IDE. Do not rely upon paid IDE tooling, a closed generator or an embedded webpage. The official Visual Studio Avalonia editor/previewer is optional convenience, not a core dependency. Reference: https://docs.avaloniaui.net/tools/visual-studio-extension .
+
+**Mobile capability requirement:** the general agent continuity model must accommodate real phone application targets, native/mobile navigation, touch, small and variable viewport, safe areas, soft keyboard, state suspension/resume, file/storage sandboxes, permission prompts, offline effects, notifications where relevant, app packaging and target OS diagnostics. **React Native/Expo/TypeScript** and **Flutter/Dart** are the two primary initial evaluation candidates; **Avalonia Android/iOS** can be a further .NET-aligned candidate if proven appropriate. Sources for technology capability, not Any-Shape success claims: https://docs.expo.dev/get-started/create-a-project/ , https://reactnative.dev/docs/environment-setup , https://docs.flutter.dev/reference/supported-platforms .
+
+**Target-selection experiment rather than premature stack choice:**
+1. Establish verified browser baselines and shared operation/effect fixtures first.
+2. Pick **one bounded form** for the first mobile comparison; do not port all three into both frameworks up front.
+3. Build an ordinary editable React Native + Expo TypeScript prototype and an ordinary editable Flutter/Dart prototype, each using the same neutral fixtures, if resources permit. Assess which yields clearer agent generation, maintainability, visual adaptation, fewer unsupported semantics and lower real tool/dependency cost.
+4. Pin an explicit Android SDK/API level, emulator size/profile, framework/SDK version, architecture and toolchain. Verify actual touch, navigation, persistence, permission differences and network effects on an emulator/device.
+5. To certify iOS output, specify a macOS/Xcode/iOS Simulator/device runner and provisioning/signing limits. Do not mark iOS PASS based only on Android tests or shared-source claims.
+6. Choose the first canonical mobile reference from observed outcomes. Retain the other case as a comparative experiment or future adapter; don't permanently burden the minimal core with both dependencies.
+
+**Cross-platform truth model:** separate `sourceObserved`, `contractAccepted`, `targetImplemented`, `targetExecuted`, `platformVerified`, `visualReviewed` and `needsHumanVerification`. A reproducible generated source tree counts as deliverable evidence, not as proof it behaves correctly on untested operating systems.
+
+**Distributable "cold agent" bundle (candidate, not yet produced):**
+- one concise launch/readme/agent entrypoint;
+- versioned Forever Works-compatible semantic contracts and open Any-Shape UI/effect extensions;
+- indexed small corpus of capability-rich examples, acceptance fixtures and failures;
+- an inspect/plan/trace/verify CLI or equivalent transport-neutral interface;
+- optional independent target adapters and generator templates;
+- recorded environment pins, licenses and test commands.
+
+Packaging choices (npm, Python, portable CLI archive, ZIP, multi-language adapters) are **deliberately undecided**. Select by measured cold-agent adoption experience rather than personal language preference. The package must be operable offline for meaningful local examples and should not demand cloud inference, proprietary services or full mobile/desktop toolchains merely to *inspect* a project.
+
+**Next precedence rule:** The new desktop/mobile output contracts are not permission to leap over the existing verification gates. Source browser applications and webhook effects must be observed and frozen as acceptance fixtures before claiming cross-target equivalence. Add mobile as a tracked M9 cross-medium branch and Avalonia/IDE interoperability as an acceptance condition on the desktop transference gate. Add an unseen-source mobile or desktop project to the later generalization evaluation.
