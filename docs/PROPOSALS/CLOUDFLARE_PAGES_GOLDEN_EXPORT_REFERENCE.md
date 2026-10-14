@@ -119,3 +119,8 @@ For R2, use a safe unique object key of the form `submissions/<safe-form-id>/sub
 **Future interoperability proof:** A *second unrelated test application* retrieves a permitted submission by URL, validates the versioned JSON contract, and processes an answer field without invoking the form or its editor. Include independent HTTP retrieval, access-denial, wrong-ID, and persistence/restart tests. This proves the owner's deeper intent: one application may generate reusable structured data upon which other independent products can build.
 
 **Status:** Design requirement for the proposed reference, not a currently implemented or verified public URL feature.
+
+
+### Quick-start assumption: preconfigured R2 bucket
+
+The owner prefers minimal setup and may provide an **existing R2 bucket with public development access already configured**. The lab should accept that bucket rather than recreate infrastructure. If the user wants direct public raw-object URLs, show how to enable public access/custom domain and test those URLs using **synthetic submissions only**. If direct browser access to R2 is used, explain CORS for the *real webpage origin* (Cloudflare Pages host/custom domain); a GitHub repository alone is not an R2 browser origin. For the standard recommended flow, the Pages Function reads/writes through an R2 binding, which requires **neither public bucket access nor R2 CORS**. The canonical `/api/submissions/<id>` record URL can be served by that Function from a private bucket. Keep public object URL testing explicitly optional and do not block the normal deployment lab on that setting.
