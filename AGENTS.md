@@ -72,3 +72,6 @@ The Cloudflare Pages reference includes two **optional, separately testable** st
 ## Preserved future research: Keepsake multiplatform agent economy
 
 Read [Keepsake Cross-Platform Agent Economics](docs/RESEARCH/KEEPSAKE_CROSS_PLATFORM_AGENT_ECONOMICS.md) for the owner's longer-term flagship: verified original Chrome Keepsake → Android (React Native/Expo), plus **one shared Avalonia/C# desktop implementation** independently verified on Windows and Linux. Measure agent runs, human intervention, fidelity, regression evidence and long-term agent-led maintenance. Standardize independently reproducible release verification; do not hardcode Keepsake as the ontology. **Do not detour current three-form Cloudflare acceptance work for this research yet.**
+
+
+**Attachment persistence requirement:** The Cloudflare Pages reference now contains actual `multipart/form-data` upload handling to R2 `Submitted-Files/<Category>/<formId>/<submissionId>/...` with JSON metadata references. R2 prefixes need no pre-creation. This does **not** mean the current static Studio/Flow/Schema ZIP outputs upload bytes. Implement exported-form integration and verify real cloud persistence before marking file transfer as supported. See `examples/cloudflare-pages-reference/README.md`.
