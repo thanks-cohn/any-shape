@@ -1,0 +1,22 @@
+{
+  "foreverVersion": "0.1",
+  "id": "invariant.accessibility",
+  "kind": "invariant",
+  "name": "Access preserved across shape changes",
+  "statement": "Keyboard focus, semantic order, accessible names, contrast, reduced motion and reflow must not be sacrificed to layout aesthetics.",
+  "scope": [
+    "intent.any-shape"
+  ],
+  "verification": [],
+  "changePolicy": "foundational",
+  "severity": "critical",
+  "relatedCapabilities": [
+    "capability.semantic-interaction"
+  ],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
