@@ -142,7 +142,7 @@ This progression is explanatory, not a claim that responsive CSS by itself solve
 
 This addendum establishes why overflow and window-size behavior are the starting point of Any-Shape's philosophy—not its ultimate limit.
 
-## Addendum — The Cold-Agent Miracle, Conventional Projects, and Mobile Reach
+## Addendum — Cold-Agent Reconstruction, Conventional Projects, and Mobile Reach
 
 **Owner clarification, 2026-10-14.** The elegance of Any-Shape lies in the possibility that **one compact repository or installable continuity package can teach an unfamiliar AI agent how to understand, reconstruct, and verify an entirely unfamiliar application**. Give an agent an arbitrary repository and Any-Shape's meaning contracts, corpus index, API and working precedents; it should have a concrete, economical procedure for creating a professional, functioning application in another language or toolkit—without the user having to describe each window, button, integration and desired consequence.
 
