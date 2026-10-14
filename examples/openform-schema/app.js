@@ -1,3 +1,4 @@
+import {downloadWebsite} from "../shared/website-export.js";
 // Generated browser runtime from app.ts. Regenerate with TypeScript compiler when available.
 import {createDestinationSettings,dispatchDestinations,formatDeliveryResults} from "../shared/destinations.js";
 const $=(id)=>document.getElementById(id);
@@ -77,3 +78,5 @@ $("importConfig").addEventListener("change",async e=>{const file=(e.target).file
 const connections=createDestinationSettings({getConfig:()=>config.connections,onSave:value=>{config.connections=value;save();announce("Connections saved.")}});$("connections").replaceWith(connections);
 async function init(){try{const r=await fetch("./form.config.json");if(!r.ok)throw Error("Cannot load form config");config=validate(await r.json());try{const saved=JSON.parse(localStorage.getItem(DRAFT)||"null");if(saved){config=validate(saved.config);state=saved.state}}catch{}if(new URLSearchParams(location.search).get("edit")==="1"){state.published=false;save()}render()}catch(err){announce("Failed to start: "+String(err))}}
 init();
+
+document.getElementById("exportWebsite").addEventListener("click",()=>downloadWebsite(config,config.connections));document.getElementById("exportWebsiteJson").addEventListener("click",()=>downloadWebsite(config,config.connections,"json"));
