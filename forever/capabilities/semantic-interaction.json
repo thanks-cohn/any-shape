@@ -1,0 +1,24 @@
+{
+  "foreverVersion": "0.1",
+  "id": "capability.semantic-interaction",
+  "kind": "capability",
+  "name": "Reachable semantic interaction",
+  "statement": "Preserve reading order, focus, labels and operable actions through viewport, orientation, language, and zoom variation, including when optional JavaScript is absent.",
+  "relatedInvariants": [
+    "invariant.no-loss",
+    "invariant.no-js",
+    "invariant.accessibility"
+  ],
+  "relatedImplementations": [
+    "implementation.css-core"
+  ],
+  "verification": [],
+  "criticality": "essential",
+  "status": "active",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
