@@ -214,3 +214,8 @@ The Any-Shape bundle should teach *how to reconstruct* through:
 **Success criterion:** the agent demonstrates *transferable understanding* of a previously unfamiliar application, not memorization of a known conversion. The agent may adapt platform-specific mechanisms appropriately and must label unsupported or unobservable source capabilities rather than pretend complete parity.
 
 > **The flagship is not the demonstration app. The flagship is Any-Shape enabling a cold agent to reconstruct that app faithfully and independently.**
+
+
+## Operationally complete exports: the Cloudflare Pages golden reference
+
+The owner's objective is a **deployable, respondent-only product**, not just an abstract JSON or pretty HTML. The initial concrete target is a GitHub-hosted exported repository deployable through **Cloudflare Pages and `npx wrangler`**, carrying minimal server-side webhook forwarding when required and preserving independently chosen permitted HTTPS destinations. Avoid D1/R2/database infrastructure unless a future separate need demonstrates it. Maintain a **single, deeply tested working reference** rather than proliferating shallow templates. See [Cloudflare Pages Golden Export Reference](../PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md). Future agents should infer generally applicable deployment invariants from this reference and verify actual behavior, not memorize source-specific export recipes.
