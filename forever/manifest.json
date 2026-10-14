@@ -1,0 +1,48 @@
+{
+  "foreverVersion": "0.1",
+  "projectId": "any-shape",
+  "records": {
+    "intent": [
+      "project.intent.json"
+    ],
+    "capabilities": [
+      "capabilities/contextual-reflow.json",
+      "capabilities/layout-observability.json",
+      "capabilities/portable-adoption.json",
+      "capabilities/semantic-interaction.json"
+    ],
+    "invariants": [
+      "invariants/accessibility.json",
+      "invariants/context.json",
+      "invariants/identity.json",
+      "invariants/language-neutral.json",
+      "invariants/measured-truth.json",
+      "invariants/no-js.json",
+      "invariants/no-loss.json",
+      "invariants/privacy.json"
+    ],
+    "constraints": [
+      "constraints/accessible-fallback.json",
+      "constraints/offline-core.json"
+    ],
+    "dependencies": [
+      "dependencies/browser-css.json",
+      "dependencies/playwright.json"
+    ],
+    "decisions": [
+      "decisions/native-first.json"
+    ],
+    "compatibility": [
+      "compatibility/public-api-v01.json"
+    ],
+    "migrations": [],
+    "implementations": [
+      "implementations/browser-tests.json",
+      "implementations/css-core.json",
+      "implementations/diagnostics.json"
+    ],
+    "evidence": [
+      "evidence/original-implementation.json"
+    ]
+  }
+}
