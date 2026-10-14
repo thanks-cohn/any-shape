@@ -5,7 +5,7 @@ const DRAFT="anyshape.schema.draft.v1",RESP="anyshape.schema.responses.v1";
 let config:SchemaConfig;
 let state:QuoteState={answers:{},items:[{id:"item1",description:"",quantity:1,unitPrice:0}],stage:0,published:false};
 const newId=()=>crypto.randomUUID?.()??"id-"+Date.now().toString(36)+Math.random().toString(36).slice(2);
-const node=(tag:string,text?:string)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;return e};
+const node=<K extends keyof HTMLElementTagNameMap>(tag:K,text?:string):HTMLElementTagNameMap[K]=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;return e};
 const announce=(s:string)=>{$("status").textContent=s;$("status").hidden=false};
 const save=()=>{try{localStorage.setItem(DRAFT,JSON.stringify({config,state}))}catch{announce("Could not save draft; export your configuration.")}};
 const allRecords=():unknown[]=>{try{const x=JSON.parse(localStorage.getItem(RESP)||"[]");return Array.isArray(x)?x:[]}catch{return []}};
