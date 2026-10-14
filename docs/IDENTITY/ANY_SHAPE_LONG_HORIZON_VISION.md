@@ -115,3 +115,29 @@ The repository has three browser-form **source implementations** and a shared lo
 This document retains the owner's deep principles so they can be recovered if the original conversation is lost. It must be updated when owner intent changes, without rewriting proposed features into past accomplishments.
 
 **North star: an unfamiliar agent can inherit software, understand what must endure, make it work in a new form, discover its errors, repair them, verify what it actually preserved, and hand it on.**
+
+## Addendum — Presentational Continuity Is the First Visible Proof
+
+**Owner clarification, 2026-10-14.** Any-Shape's original emphasis on overflow, responsive layout and professional presentation is not incidental styling work. It is the **smallest immediately observable demonstration of the entire enterprise**.
+
+When someone resizes a browser window, the application's available geometry changes. Columns may stack, menus may move, controls may reflow, text may wrap, and spatial relationships may be expressed differently. Yet its **purpose, meaning, usable controls, orientation, visual hierarchy and aesthetic coherence should remain recognizable**. This is the foundational example of transformation without needless loss of identity.
+
+> **The Principle of Presentational Continuity**
+>
+> An application shall retain its intelligibility, utility, orientation, and aesthetic coherence as the conditions of its presentation change.
+>
+> Its geometry may be rearranged, its components adapted, and its rendering mechanisms replaced, but these transformations must not needlessly diminish the user's ability to understand, trust, and operate it.
+>
+> **Presentational adaptation is the first visible proof of software continuity.**
+
+An application that clips actions, overlaps labels, hides essential information, or looks chaotic at common window sizes forfeits user confidence. People cannot be expected to trust deeper functionality when the interface appears broken. A responsive implementation is thus both a usability obligation and a teaching instrument: it demonstrates that **relationships, roles and interactions matter more than arbitrary coordinates**. Good transference does not preserve pixel positions when those positions no longer make sense.
+
+The first Any-Shape experience for students, professors, developers and unfamiliar agents should ideally be a **live, verifiable demonstration of one application at multiple window widths and scaling conditions**. The observer sees a polished, working interface in each form, then learns that the same reasoning generalizes:
+
+**Responsive layout → Adaptive interface → Cross-renderer continuity → Cross-language reconstruction → Long-term software preservation.**
+
+This progression is explanatory, not a claim that responsive CSS by itself solves language migration. The proof grows stronger at each stage only when behavior, state, output, effect wiring, accessibility and visual orientation are independently verified. For Avalonia and Python reconstruction, agents must carry forward the *obligation to adapt professionally*, not simply reproduce one source screenshot.
+
+**Testing obligation:** evaluate narrow, intermediate, wide and maximized windows; font scaling/zoom, long labels, focus, keyboard operation, navigation, responsive hierarchy and absence of page-level overflow that makes ordinary tasks inaccessible. Record automated evidence, observed limitations and targeted human aesthetic-review requirements. The result must remain sensible and presentable even as its geometry changes.
+
+This addendum establishes why overflow and window-size behavior are the starting point of Any-Shape's philosophy—not its ultimate limit.
