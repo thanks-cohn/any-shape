@@ -35,7 +35,9 @@
     "test:forever": "node --test tests/forever.test.mjs",
     "prepack": "npm run test:unit && npm run typecheck",
     "build:openform-schema": "node scripts/build-openform-schema.mjs",
-    "check:openform-schema": "npm run build:openform-schema && node --check examples/openform-schema/app.js"
+    "check:openform-schema": "npm run build:openform-schema && node --check examples/openform-schema/app.js",
+    "dev:webhook-lab": "node scripts/webhook-lab.mjs",
+    "test:webhook-lab": "node --test tests/webhook-lab.test.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0",
