@@ -65,3 +65,6 @@ Read [the Cloudflare Pages Golden Export Reference proposal](docs/PROPOSALS/CLOU
 ### Optional storage examples and reusable record URLs
 
 The Cloudflare Pages reference includes two **optional, separately testable** storage examples: write a unique JSON object to R2 and insert a verified SQL row into D1. These are **not mandatory backend dependencies** for ordinary webhook-forwarding exports. The owner's priority is that a stored JSON submission can have a stable, independently retrievable **record URL** and a portable versioned response, so completely unrelated future applications can consume it. Default to private authenticated retrieval; never equate a hard-to-guess URL with adequate access control. See the golden reference proposal before implementing either adapter.
+
+
+**Cloudflare R2 test prerequisite nuance:** For the default Pages Function → R2 binding path, an existing bound bucket is enough; public bucket access and browser CORS are not required. A separately chosen public raw-object test may use an existing public bucket, and direct browser R2 requests must allow the actual deployed Pages origin (not the GitHub code-hosting repository). Keep setup minimal, prefer synthetic data, and distinguish a Pages `/api/submissions/<id>` URL from a public R2 object URL. See the golden reference and deployment lab README.
