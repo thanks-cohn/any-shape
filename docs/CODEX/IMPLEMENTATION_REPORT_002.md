@@ -2,6 +2,8 @@
 
 Starting main: `0feb784` after fast-forwarding the initially clean checkout to the owner-authored handoff/model commits. Evidence contains UTC execution timestamps. No production universal agent API or native/3D product is asserted.
 
+Implementation/evidence commit: `a487612`. Before delivery, five concurrent remote commits through `670d254` added dual-API/project-continuity proposals, a milestone roadmap and endurance vision. They were preserved by a normal main integration merge (`33a5223`), not a PR merge or overwrite. These future-oriented documents were reviewed after the trial and were **not** retroactively included in its frozen reconstruction inputs. No roadmap milestone is automatically marked complete: owner ratification, human-only reconstruction, production dual APIs, downstream continuity packs and strict isolated trials remain distinct future gates.
+
 ## Delivered meaning and documentation
 
 Any-Shape is now documented first as preservation of **human and agent comprehension, essential authorized operations and trust across changing forms, media and resources**. Browser resizing/overflow remains an illustrative, protected implementation, not the universal mission. README, AGENTS and foundational purpose point to that explicit owner correction; old browser obligations and historical evidence remain intact.

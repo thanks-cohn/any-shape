@@ -27,6 +27,8 @@ Use canonical `explain`, `trace`, `evaluate-replacement` and `verify-migration` 
 
 ## Remaining work and decisions
 
+Concurrent owner additions in `docs/VISION/SOFTWARE_BUILT_TO_ENDURE.md`, `docs/ROADMAP/MILESTONES.md` and RFC-003/RFC-004 under `docs/PROPOSALS/` were preserved after this trial. Read them when selecting future production milestones. They are future direction, not evidence of implemented Developer SDK/Universal Agent API, downstream continuity-pack generation, human-only reconstruction or literal infinite upkeep. This handoff's procedural Python proof does not complete those milestones automatically.
+
 Technical proposals stay unreviewed until explicit acceptance. Obtain host/owner policy before production authentication, consent durability, distributed revisions, persistent storage, resource budgets and target accessibility certification. Human visual approval, native zoom, screen readers, physical hardware, genuine enforced blind isolation, complete driver replacement and literally every-language portability remain unproved.
 
 For a future strict trial, build the allowlisted bundle, review it, and mount it into a separate enforced filesystem/network boundary. Keep old mechanisms/evidence with an evaluator. Record understanding before code, test independently, retain failures, and issue separate semantic/function/drop-in verdicts. Follow the phased future handoff rather than silently adopting this proof as the library.
