@@ -39,3 +39,7 @@ No collection of page content, user text or screenshots by default. Debug snapsh
 
 ## Implementation conduct
 Default branch is main. Follow repository settings and user direction; avoid unsolicited PR merging. No decorative scaffolding posing as functionality. Commit verifiable vertical slices.
+
+## Owner's long-range intent and next-agent recovery
+
+Before undertaking broad architecture, Avalonia/Python conversion, or new examples, read [docs/IDENTITY/ANY_SHAPE_LONG_HORIZON_VISION.md](docs/IDENTITY/ANY_SHAPE_LONG_HORIZON_VISION.md) and [docs/ROADMAP/ANY_SHAPE_AGENT_TRANSFERENCE_BLUEPRINT.md](docs/ROADMAP/ANY_SHAPE_AGENT_TRANSFERENCE_BLUEPRINT.md). These documents preserve the owner's agent-first, low-bloat, responsive-UI, behavior-and-effect continuity mission and stage gates if chat history is unavailable. Never treat stated future goals as completed work. Test original browser sources and real webhook effects independently before asserting native transference.
