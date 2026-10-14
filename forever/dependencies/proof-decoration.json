@@ -1,0 +1,31 @@
+{
+  "compatibilityObligations": [],
+  "currentImplementation": "implementation.python-proof",
+  "dependencyName": "Optional Python proof decoration and inspection artifacts",
+  "dependencyType": "optional-module",
+  "extensions": {
+    "org.any-shape": {
+      "scope": "Python proof only; no production renderer claim"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "dependency.proof-decoration",
+  "kind": "dependency",
+  "protectedInvariants": [
+    "invariant.no-js",
+    "invariant.privacy"
+  ],
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "purpose": "Support visual styling and opt-in diagnosis without owning domain meaning or transitions.",
+  "reasonSelected": "Small separate local artifacts permit controlled disappearance.",
+  "replacementClassification": "OPTIONAL",
+  "replacementRequirements": [],
+  "requiredCapabilities": [
+    "capability.semantic-interaction"
+  ]
+}

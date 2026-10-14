@@ -1,0 +1,70 @@
+{
+  "issueCount": 13,
+  "issues": [
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.agent-action"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.agent-introspection"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.behavioral-equivalence"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.composition-navigation"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.content-representation"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.graceful-fallback"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.interoperability"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.multi-medium"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.permission-checking"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.same-test-coverage"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.semantic-model"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.state-synchronization"
+    },
+    {
+      "code": "capability-no-implementation",
+      "message": "capability has no implementation",
+      "path": "capability.structured-forms"
+    }
+  ]
+}

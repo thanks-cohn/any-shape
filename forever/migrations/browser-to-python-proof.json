@@ -1,0 +1,91 @@
+{
+  "claims": [
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.context",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.no-js",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.privacy",
+      "status": "pass"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.contextual-reflow",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.semantic-interaction",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.portable-adoption",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.identity",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.recoverability",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "compatibility.public-api-v01",
+      "status": "unknown"
+    }
+  ],
+  "compatibilityImpact": [
+    "compatibility.public-api-v01"
+  ],
+  "foreverVersion": "0.1",
+  "id": "migration.browser-to-python-proof",
+  "kind": "migration",
+  "preservedCapabilities": [
+    "capability.contextual-reflow",
+    "capability.semantic-interaction",
+    "capability.portable-adoption"
+  ],
+  "preservedInvariants": [
+    "invariant.context",
+    "invariant.no-js",
+    "invariant.privacy",
+    "invariant.identity",
+    "invariant.recoverability"
+  ],
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "reason": "Evaluate a different authoring architecture from neutral meaning; do not replace production package automatically.",
+  "rollbackNotes": "Keep existing 0.1 source and consumer boundary; scoped semantic observations do not establish drop-in or guaranteed blind recovery.",
+  "sourceImplementation": "implementation.css-core",
+  "status": "evaluated-not-adopted",
+  "targetImplementation": "implementation.python-proof",
+  "verification": [
+    "evidence.reconstruction-002",
+    "evidence.trial-inputs-002"
+  ]
+}

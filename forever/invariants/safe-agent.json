@@ -1,0 +1,30 @@
+{
+  "changePolicy": "Owner approval required for semantic changes; proposals do not supersede web compatibility.",
+  "foreverVersion": "0.1",
+  "id": "invariant.safe-agent",
+  "kind": "invariant",
+  "name": "Authorized operation",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "relatedCapabilities": [
+    "capability.agent-introspection",
+    "capability.agent-action",
+    "capability.permission-checking"
+  ],
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "Discoverability MUST NOT grant permission. Unauthorized or unconsented mutations MUST reject without changing state.",
+  "verification": [
+    {
+      "command": "node scripts/evaluate-reconstruction.mjs",
+      "expected": "Independent positive and negative checks; human accessibility and aesthetic approval kept separate.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

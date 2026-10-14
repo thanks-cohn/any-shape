@@ -1,47 +1,74 @@
 {
+  "extensions": {
+    "org.any-shape": {
+      "graphMappingProvenance": {
+        "confidence": 0.85,
+        "reviewStatus": "unreviewed",
+        "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+        "sourceType": "agent-proposed"
+      },
+      "supportStatus": "Universal mission is explicit; implementation support and technical schemas remain separately evaluated."
+    }
+  },
   "foreverVersion": "0.1",
   "id": "intent.any-shape",
   "kind": "intent",
   "name": "Any-Shape purpose",
-  "statement": "Preserve the meaning, usability and recognizable visual identity of an interface while its geometry and environment change.",
-  "purpose": [
-    "Enable context-sensitive reflow rather than fixed screen templates.",
-    "Keep content and actions understandable, accessible and reachable across practical display shapes.",
-    "Provide observable, privacy-safe evidence of layout failures so independent implementations can be evaluated.",
-    "Make behavior recoverable independently of the original language, tools, library and author."
+  "nonGoals": [
+    "Universal aesthetic perfection",
+    "Literal portability in every language without evidence",
+    "Browser resizing as the entire mission",
+    "Opaque mandatory vendor, telemetry or hosted service"
   ],
   "priorities": [
-    "meaning and interaction over pixel positions",
-    "accessible reflow and intrinsic composition",
-    "language-neutral behavioral conformance",
-    "browser-native operation with graceful fallback",
-    "low resource cost and no mandatory telemetry"
+    "semantic identity before appearance",
+    "functional preservation and shared trust",
+    "accessible human presentation and first-class agent affordances",
+    "honest resource-aware degradation",
+    "time survival and portable meaning"
   ],
-  "nonGoals": [
-    "guarantee aesthetic perfection under all geometries",
-    "replicate exactly matching pixels on different rendering systems",
-    "replace HTML or the browser layout engine",
-    "require a specific frontend framework or runtime",
-    "conceal primary content to satisfy a viewport"
+  "provenance": {
+    "confidence": 1,
+    "reviewStatus": "accepted",
+    "sourceReference": "User instruction in this task and owner-authored CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md section 1 at 0feb784",
+    "sourceType": "explicit"
+  },
+  "purpose": [
+    "The form may change; meaning, essential functions and trustworthiness must remain.",
+    "Human and agent faces must not diverge in domain meaning, validation or authorization."
   ],
-  "supportedEnvironments": [
-    "standards-compliant browsers and equivalent interface-rendering systems; implementation adapters may vary"
-  ],
-  "status": "active",
   "relatedCapabilities": [
+    "capability.agent-action",
+    "capability.agent-introspection",
+    "capability.behavioral-equivalence",
+    "capability.composition-navigation",
+    "capability.content-representation",
+    "capability.graceful-fallback",
+    "capability.interoperability",
+    "capability.multi-medium",
+    "capability.permission-checking",
+    "capability.same-test-coverage",
+    "capability.semantic-model",
+    "capability.state-synchronization",
+    "capability.structured-forms",
     "capability.contextual-reflow",
-    "capability.semantic-interaction",
     "capability.layout-observability",
-    "capability.portable-adoption"
+    "capability.portable-adoption",
+    "capability.semantic-interaction"
   ],
   "relatedConstraints": [
     "constraint.accessible-fallback",
-    "constraint.offline-core"
+    "constraint.offline-core",
+    "constraint.space-aspect",
+    "constraint.locale-input",
+    "constraint.rendering-capability",
+    "constraint.compute-memory-network",
+    "constraint.security-privacy",
+    "constraint.api-compatibility"
   ],
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "statement": "Any-Shape enables information and operations to remain comprehensible, accessible, attractive where practical, and functionally available to humans AND programmatic agents even as the medium, geometry, constraints, input methods, and computational resources change.",
+  "status": "active",
+  "supportedEnvironments": [
+    "Browser, desktop, text, structured agent and 3D/editor realizations are allowed; only declared and tested scopes are supported."
+  ]
 }

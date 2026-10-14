@@ -1,0 +1,29 @@
+{
+  "changePolicy": "Owner approval required for semantic changes; proposals do not supersede web compatibility.",
+  "foreverVersion": "0.1",
+  "id": "invariant.unsupported",
+  "kind": "invariant",
+  "name": "Honest capability limits",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "relatedCapabilities": [
+    "capability.multi-medium",
+    "capability.graceful-fallback"
+  ],
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "Unsupported operations or realizations MUST report a precise limitation and feasible fallback or deferral; silence is not preservation.",
+  "verification": [
+    {
+      "command": "node scripts/evaluate-reconstruction.mjs",
+      "expected": "Independent positive and negative checks; human accessibility and aesthetic approval kept separate.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

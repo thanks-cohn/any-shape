@@ -1,22 +1,28 @@
 {
+  "changePolicy": "foundational",
   "foreverVersion": "0.1",
   "id": "invariant.measured-truth",
   "kind": "invariant",
   "name": "Do not confuse observation with inference",
-  "statement": "Layout diagnostic measurements, authored mode declarations, and uncertain root-cause hypotheses must be separately identified; missing evidence never proves success.",
-  "scope": [
-    "intent.any-shape"
-  ],
-  "verification": [],
-  "changePolicy": "foundational",
-  "severity": "high",
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "sourceType": "agent-proposed"
+  },
   "relatedCapabilities": [
     "capability.layout-observability"
   ],
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "high",
+  "statement": "Layout diagnostic measurements, authored mode declarations, and uncertain root-cause hypotheses must be separately identified; missing evidence never proves success.",
+  "verification": [
+    {
+      "command": "npm run check; node scripts/evaluate-reconstruction.mjs",
+      "expected": "Check neutral conformance fixtures and preserve AS-001 through AS-016 within web scope; report unknown for untested scope.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

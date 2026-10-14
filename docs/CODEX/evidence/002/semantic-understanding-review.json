@@ -1,0 +1,78 @@
+{
+  "project": "any-shape",
+  "reviewedAt": "2026-10-14T00:53:20.855924+00:00",
+  "reviewerRole": "Independent evaluator; post-runtime semantic document reviewer",
+  "artifact": "reconstruction/python-proof/UNDERSTANDING.md",
+  "artifactSha256": "cc927f32becec8ef1907fe154bed802f7f930489098da334f0b3f5fdea36f933",
+  "reviewType": "Semantic understanding against neutral mission/conformance intent and universal-v01.json; not runtime evaluation",
+  "criteria": [
+    {
+      "id": "purpose-beyond-resizing",
+      "status": "PASS",
+      "quote": "Any-Shape preserves comprehensible information, authorized operations and trust as form, geometry, resources, input and medium change. Browser resizing is an example, not the mission.",
+      "observation": "Explicitly distinguishes enduring information/operations/trust from one geometric stimulus."
+    },
+    {
+      "id": "human-agent-parity",
+      "status": "PASS",
+      "quote": "Both channels use one validator and dispatcher, including permission, strict parameters, consent, revision conflicts and actor-scoped retry keys.",
+      "observation": "Describes shared domain semantics for browser/human and newline JSON/agent channels; prose does not itself establish implementation parity."
+    },
+    {
+      "id": "stable-meaning",
+      "status": "PASS",
+      "quote": "The stable surface is surface.preferences; its fields are field.display-name and field.density and its mutation is action.apply.",
+      "observation": "Identifies stable semantic IDs, transient displayName, density enum, initial state, and failure/retry invariants matching neutral fixture."
+    },
+    {
+      "id": "authority-versus-discovery",
+      "status": "PASS",
+      "quote": "Discovery grants no authority.",
+      "observation": "Explicit boundary; named principals described as trusted fixture infrastructure rather than production authentication."
+    },
+    {
+      "id": "explicit-unsupported-scope",
+      "status": "PASS",
+      "quote": "Desktop, editor/3D and universal platform support remain proposed/unknown.",
+      "observation": "Explicitly limits proof to preferences, excludes production authentication and durable persistence, and distinguishes migration from historical drop-in compatibility."
+    },
+    {
+      "id": "mechanism-replaceability",
+      "status": "PASS",
+      "quote": "an optional decoration module whose disappearance leaves plain semantic HTML plus a separate terminal renderer.",
+      "observation": "Explains replaceable appearance/diagnostic mechanisms, native semantic fallback and separate presentation; this does not prove arbitrary dependency/platform reconstruction."
+    },
+    {
+      "id": "evidence-honesty",
+      "status": "PASS",
+      "quote": "Functional parity, human accessibility, aesthetic quality and historical drop-in compatibility are separate judgments.",
+      "observation": "Separates fixture proposals from ratified policy and names unknowns; blind-isolation and preimplementation-authoring claims remain author statements, not verified facts."
+    }
+  ],
+  "overall": {
+    "status": "PASS",
+    "scope": "Written understanding coherently covers the seven specified semantic criteria; not a universal application or source-compatibility approval"
+  },
+  "unverifiedClaims": [
+    {
+      "id": "preimplementation-authorship",
+      "status": "UNKNOWN",
+      "reason": "Understanding says written before implementation; this review was performed after runtime evaluator completed and does not independently establish authoring chronology."
+    },
+    {
+      "id": "technical-blind-isolation",
+      "status": "UNKNOWN",
+      "reason": "Shared filesystem and procedural instruction; author self-report is not a technical source-denial guarantee."
+    }
+  ],
+  "limitations": [
+    "Reviewed understanding is not runtime proof, complete accessibility proof, aesthetic approval or historical CSS/ESM/schema compatibility.",
+    "No candidate implementation source, candidate self-tests or original test code read.",
+    "Review cannot establish guaranteed blind isolation or independence of underlying agent training/context."
+  ],
+  "runtimeReportRelationship": {
+    "runtimeReport": "docs/CODEX/evidence/002/reconstruction-evaluation.json",
+    "modified": false,
+    "note": "Runtime report deliberately deferred semanticUnderstanding to parent/human review. This separate post-runtime review supplies that external semantic result; runtime runner did not review understanding."
+  }
+}

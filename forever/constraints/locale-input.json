@@ -1,0 +1,23 @@
+{
+  "category": "human-access",
+  "classification": "hard",
+  "foreverVersion": "0.1",
+  "id": "constraint.locale-input",
+  "kind": "constraint",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "scope": [
+    "intent.any-shape"
+  ],
+  "statement": "Labels, localization, text scaling, direction and alternate input modes constrain human realizations; scripts or pointer-only affordances cannot be essential for the web baseline.",
+  "verification": [
+    {
+      "expected": "Verify in declared environment and record untested dimensions as unknown.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "confidence": 1,
+  "foreverVersion": "0.1",
+  "id": "evidence.browser-002",
+  "immutableReference": "sha256:98ef598e5a29d30962c94af4a3626d8f5b5a5b76ec55bab1bf1ffe3b708b72bb",
+  "kind": "evidence",
+  "provenance": {
+    "confidence": 1,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/evidence/002/browser-results-002.json",
+    "sourceType": "imported"
+  },
+  "source": "docs/CODEX/evidence/002/browser-results-002.json",
+  "statementSupported": "Fresh unit/type and 87 browser checks protect the existing web specialization, not universal agent/3D support.",
+  "type": "scoped-observation"
+}

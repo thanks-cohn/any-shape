@@ -1,6 +1,14 @@
 # Agent operating protocol — Any-Shape
 
-Read in order: README.md → docs/FOUNDATION/PURPOSE.md → docs/FOUNDATION/CONTRACTS.md → docs/ARCHITECTURE.md → docs/RECOVERY.md → docs/CODEX/CODEX_HANDOFF_001.md.
+Read in order: README.md → docs/IDENTITY/PROJECT_ESSENCE.md → docs/IDENTITY/ONTOLOGY_AND_SEMANTICS.md → docs/IDENTITY/HUMAN_AND_AGENT_FACES.md → docs/IDENTITY/TRANSFORMATION_AND_DEGRADATION.md → docs/RECONSTRUCTION/CONFORMANCE_AND_ACCEPTANCE.md → docs/RECONSTRUCTION/NEXT_AGENT_HANDOFF.md → forever/manifest.json and provenance → docs/FOUNDATION/PURPOSE.md and CONTRACTS.md → docs/API/CURRENT_API_V0_1.md → docs/ARCHITECTURE.md → docs/RECOVERY.md → applicable Codex handoff.
+
+## Universal identity and evidence
+
+Any-Shape preserves human and agent comprehension, authorized operation and trust across changing forms, media and resources. Browser resizing is an illustrative, implemented specialization, not the universal purpose. Handoff 002 explicitly establishes that mission. Keep the existing 0.1 web behavior protected while broader domain/transport/renderer capabilities remain proposed or scoped proofs.
+
+Use the actual pinned Forever Works standard, schemas and CLI in `vendor/forever-works/`; verify `UPSTREAM.json` hashes. Run `npm run check:forever` and inspect both JSON validity and audit findings; CLI exit zero does not imply no issues. `pending` is not a canonical review status: agent proposals use `agent-proposed` and `unreviewed`. Do not promote inferred technical detail because it was serialized or tests passed. Exact record references, scoped claims and closed-world unknowns are required.
+
+For blind reconstruction, follow `COLD_START_RECONSTRUCTION.md` and its allowlisted bundle; withhold mechanisms, source, original tests/screenshots/reports and history. Separate reconstructor and evaluator contexts. Shared-host instruction-only withholding is procedural, not technically guaranteed isolation; report the strict-isolation lane UNKNOWN. Agents may be delegated these explicitly required reconstruction/evaluation roles. Semantic understanding, functional proof, aesthetics and drop-in compatibility remain separate judgments.
 
 ## Operating mandate
 A capable agent inheriting this repository cold must be able to: understand why it exists; enumerate invariants; reproduce present behavior; repair faults; replace broken dependencies; demonstrate behavioral equivalence or documented improvement; record evidence and decisions; leave the repository understandable to the next agent.

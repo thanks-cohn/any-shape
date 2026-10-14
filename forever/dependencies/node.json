@@ -1,0 +1,28 @@
+{
+  "compatibilityObligations": [],
+  "currentImplementation": "implementation.browser-tests",
+  "dependencyName": "Node standard-library development tools",
+  "dependencyType": "development-tool",
+  "foreverVersion": "0.1",
+  "historicalContext": "See docs/DEPENDENCIES.md and reconstruction failure atlas for concrete replacement proof.",
+  "id": "dependency.node",
+  "kind": "dependency",
+  "protectedInvariants": [
+    "invariant.measured-truth"
+  ],
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "purpose": "Preserve portable-adoption in the declared scope.",
+  "reasonSelected": "Current implementation convenience or fundamental meaning; classification does not freeze a vendor.",
+  "replacementClassification": "CAPABILITY",
+  "replacementRequirements": [
+    "capability.behavioral-equivalence"
+  ],
+  "requiredCapabilities": [
+    "capability.portable-adoption"
+  ]
+}

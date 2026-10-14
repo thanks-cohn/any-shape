@@ -1,0 +1,33 @@
+{
+  "fixtureVersion": "0.1-proposed",
+  "authority": "agent-proposed; unreviewed technical fixture derived from handoff 002",
+  "scope": "preferences proof, not a universal production agent API",
+  "surface": "surface.preferences",
+  "fields": {
+    "displayName": { "id": "field.display-name", "type": "string", "required": true, "minLength": 1, "maxLength": 80, "trimBeforeValidation": true, "persistence": "none" },
+    "density": { "id": "field.density", "type": "string", "enum": ["comfortable", "compact"], "required": true }
+  },
+  "initialState": { "revision": 0, "density": "comfortable" },
+  "roles": { "owner": ["describe", "read", "apply"], "observer": ["describe", "read"] },
+  "protocol": {
+    "transport": "Proof adapter: newline JSON on stdin with --protocol; optional HTTP POST /agent and native form share one in-process domain object.",
+    "security": "Named actors are evaluator-controlled fixtures, not real authentication. Production requires a trusted principal binding.",
+    "result": "Every request returns {ok:boolean,state:{revision,density},...}; failures include error:{code:string}. Describe also returns surface,fields and actions. No displayName persistence.",
+    "mutation": "Apply requires operation:'apply', actor, params:{displayName,density}, consent:true, requestId:string and expectedRevision:integer. Unknown parameters reject. Idempotency key scoped by actor, identical accepted retry returns original result before stale revision rejection; different reuse rejects.",
+    "web": "--serve PORT binds loopback; GET / is a native labeled preferences form; POST /agent accepts the same requests. The human form calls the same domain dispatcher. No arbitrary remote assets."
+  },
+  "sequence": [
+    { "id": "U-01", "request": { "operation": "describe", "actor": "owner" }, "expect": { "ok": true, "state": { "revision": 0, "density": "comfortable" } } },
+    { "id": "U-02", "request": { "operation": "apply", "actor": "observer", "params": { "displayName": "Ada", "density": "compact" }, "consent": true, "requestId": "denied", "expectedRevision": 0 }, "expect": { "ok": false, "errorCode": "permission-denied", "state": { "revision": 0, "density": "comfortable" } } },
+    { "id": "U-03", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "invalid" }, "consent": true, "requestId": "invalid", "expectedRevision": 0 }, "expect": { "ok": false, "errorCode": "validation-error", "state": { "revision": 0, "density": "comfortable" } } },
+    { "id": "U-04", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "", "density": "compact" }, "consent": true, "requestId": "missing", "expectedRevision": 0 }, "expect": { "ok": false, "errorCode": "validation-error", "state": { "revision": 0, "density": "comfortable" } } },
+    { "id": "U-05", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "compact" }, "consent": false, "requestId": "consent", "expectedRevision": 0 }, "expect": { "ok": false, "errorCode": "consent-required", "state": { "revision": 0, "density": "comfortable" } } },
+    { "id": "U-06", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "compact" }, "consent": true, "requestId": "success", "expectedRevision": 0 }, "expect": { "ok": true, "state": { "revision": 1, "density": "compact" } } },
+    { "id": "U-07", "request": { "operation": "read", "actor": "observer" }, "expect": { "ok": true, "state": { "revision": 1, "density": "compact" } } },
+    { "id": "U-08", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "compact" }, "consent": true, "requestId": "success", "expectedRevision": 0 }, "expect": { "ok": true, "state": { "revision": 1, "density": "compact" } } },
+    { "id": "U-09", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "comfortable" }, "consent": true, "requestId": "success", "expectedRevision": 1 }, "expect": { "ok": false, "errorCode": "idempotency-conflict", "state": { "revision": 1, "density": "compact" } } },
+    { "id": "U-10", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "comfortable" }, "consent": true, "requestId": "stale", "expectedRevision": 0 }, "expect": { "ok": false, "errorCode": "revision-conflict", "state": { "revision": 1, "density": "compact" } } },
+    { "id": "U-11", "request": { "operation": "apply", "actor": "owner", "params": { "displayName": "Ada", "density": "comfortable", "extra": true }, "consent": true, "requestId": "unknown-param", "expectedRevision": 1 }, "expect": { "ok": false, "errorCode": "validation-error", "state": { "revision": 1, "density": "compact" } } },
+    { "id": "U-12", "request": { "operation": "unknown", "actor": "owner" }, "expect": { "ok": false, "errorCode": "unsupported-operation", "state": { "revision": 1, "density": "compact" } } }
+  ]
+}

@@ -1,14 +1,31 @@
 {
+  "alternativesConsidered": [
+    "Freeze web mechanisms as universal purpose",
+    "Discard established web compatibility"
+  ],
+  "context": "Initial scope used browser-native execution; handoff 002 explicitly identifies that as one realization.",
+  "decision": "Retain the current web baseline; allow alternate authoring languages, targets and transports when their obligations are independently verified.",
   "foreverVersion": "0.1",
   "id": "decision.native-first",
   "kind": "decision",
-  "name": "Use standards-native layout before scripting",
-  "statement": "CSS and semantic HTML are the execution baseline; diagnostics are optional.",
-  "rationale": "Native flow provides resilient, portable and accessible behavior with less state and lower overhead.",
+  "mustSurvive": [
+    "Essential meaning, access, authorized operations and truthful evidence"
+  ],
   "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "rationale": "Preserves working adopters while distinguishing meaning from machinery.",
+  "relatedEntities": [
+    "intent.any-shape",
+    "implementation.css-core",
+    "compatibility.public-api-v01"
+  ],
+  "revisitConditions": [
+    "A new target provides equivalence and explicit migration evidence"
+  ],
+  "status": "implemented-web; universal scope clarification proposed",
+  "title": "Native-first web realization, not universal identity"
 }

@@ -1,0 +1,23 @@
+{
+  "category": "security",
+  "classification": "hard",
+  "foreverVersion": "0.1",
+  "id": "constraint.security-privacy",
+  "kind": "constraint",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "scope": [
+    "intent.any-shape"
+  ],
+  "statement": "Agent transports require a trusted principal binding; caller-supplied roles are not production authorization. Diagnostics remain local and redacted by default.",
+  "verification": [
+    {
+      "expected": "Verify in declared environment and record untested dimensions as unknown.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

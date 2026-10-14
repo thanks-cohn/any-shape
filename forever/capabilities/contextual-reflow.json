@@ -1,24 +1,33 @@
 {
+  "criticality": "essential",
   "foreverVersion": "0.1",
   "id": "capability.contextual-reflow",
   "kind": "capability",
   "name": "Context-dependent composition",
-  "statement": "Rearrange components by available containing-space and intrinsic content needs while retaining hierarchy and visual identity.",
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "sourceType": "agent-proposed"
+  },
+  "relatedImplementations": [
+    "implementation.css-core"
+  ],
   "relatedInvariants": [
     "invariant.identity",
     "invariant.context",
     "invariant.no-loss"
   ],
-  "relatedImplementations": [
-    "implementation.css-core"
-  ],
-  "verification": [],
-  "criticality": "essential",
-  "status": "active",
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "statement": "Rearrange components by available containing-space and intrinsic content needs while retaining hierarchy and visual identity.",
+  "status": "implemented-browser-scope",
+  "verification": [
+    {
+      "command": "npm run check",
+      "evidence": [
+        "evidence.original-implementation"
+      ],
+      "expected": "Preserve the scoped AS browser contracts.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

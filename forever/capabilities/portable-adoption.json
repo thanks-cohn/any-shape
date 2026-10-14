@@ -1,24 +1,33 @@
 {
+  "criticality": "essential",
   "foreverVersion": "0.1",
   "id": "capability.portable-adoption",
   "kind": "capability",
   "name": "Portable adopter experience",
-  "statement": "Allow use from semantic HTML and styles without mandatory framework, hosted service, or runtime dependency; optionally provide enhanced diagnostics.",
-  "relatedInvariants": [
-    "invariant.no-js",
-    "invariant.language-neutral"
-  ],
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "sourceType": "agent-proposed"
+  },
   "relatedImplementations": [
     "implementation.css-core",
     "implementation.diagnostics"
   ],
-  "verification": [],
-  "criticality": "essential",
-  "status": "active",
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "relatedInvariants": [
+    "invariant.no-js",
+    "invariant.language-neutral"
+  ],
+  "statement": "Allow use from semantic HTML and styles without mandatory framework, hosted service, or runtime dependency; optionally provide enhanced diagnostics.",
+  "status": "implemented-browser-scope",
+  "verification": [
+    {
+      "command": "npm run check",
+      "evidence": [
+        "evidence.original-implementation"
+      ],
+      "expected": "Preserve the scoped AS browser contracts.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

@@ -1,0 +1,126 @@
+{
+  "claims": [
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.context",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.no-js",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.privacy",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002",
+        "evidence.human-parity-002"
+      ],
+      "reason": "Preferences fixture domain and native/agent paths, not production policy or distributed consistency.",
+      "requirement": "invariant.shared-rules",
+      "status": "pass"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.contextual-reflow",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.semantic-interaction",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.portable-adoption",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.semantic-model",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.structured-forms",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.identity",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.accessibility",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.safe-agent",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.recoverability",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "compatibility.public-api-v01",
+      "status": "unknown"
+    }
+  ],
+  "constrainedByInvariants": [
+    "invariant.shared-rules",
+    "invariant.safe-agent",
+    "invariant.no-js",
+    "invariant.privacy"
+  ],
+  "extensions": {
+    "org.any-shape": {
+      "dropIn": "Not adopted; no verified CSS/ESM/schema consumer adapter",
+      "isolation": "Procedural; strict technical isolation unknown",
+      "supportStatus": "Scoped proof, not production universal implementation"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "implementation.python-proof",
+  "kind": "implementation",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "replaceability": "CAPABILITY",
+  "runtimeRequirements": [
+    "Python 3",
+    "A browser for web observations; no vendor service"
+  ],
+  "satisfiesCapabilities": [
+    "capability.contextual-reflow",
+    "capability.semantic-interaction",
+    "capability.agent-action",
+    "capability.structured-forms"
+  ],
+  "sourceLocations": [
+    "reconstruction/python-proof"
+  ],
+  "technology": "Python standard-library domain plus browser/text/JSON adapters",
+  "type": "reconstruction-proof",
+  "version": "handoff-002"
+}

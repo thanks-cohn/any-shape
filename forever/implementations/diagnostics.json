@@ -1,0 +1,31 @@
+{
+  "claims": [],
+  "compatibilityContracts": [
+    "compatibility.public-api-v01"
+  ],
+  "extensions": {
+    "org.any-shape": {
+      "evidenceScope": "Historical report is not universal or reconstruction evidence.",
+      "status": "implemented-browser-only"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "implementation.diagnostics",
+  "kind": "implementation",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "replaceability": "SEMANTIC",
+  "satisfiesCapabilities": [
+    "capability.layout-observability"
+  ],
+  "sourceLocations": [
+    "src/diagnostics.js"
+  ],
+  "technology": "Optional browser ESM diagnostics",
+  "type": "module",
+  "version": "0.1.0"
+}

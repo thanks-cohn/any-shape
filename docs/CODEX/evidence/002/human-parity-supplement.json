@@ -1,0 +1,205 @@
+{
+  "project": "any-shape",
+  "reviewerRole": "Independent public-surface evaluator",
+  "evaluatedAt": "2026-10-14T00:57:53.290Z",
+  "sourceConsulted": false,
+  "selfTestsConsulted": false,
+  "publicSurface": {
+    "route": "/",
+    "agentRoute": "/agent",
+    "labels": [
+      "Fixture actor",
+      "Display name",
+      "Density",
+      "I consent to apply this density change.",
+      "Apply preferences"
+    ]
+  },
+  "environment": {
+    "node": "v24.19.0",
+    "chromium": "156.0.8078.4"
+  },
+  "tests": [
+    {
+      "id": "human-observer-denial",
+      "status": "PASS",
+      "interaction": {
+        "actor": "observer",
+        "displayName": "Observer evaluator",
+        "density": "compact",
+        "consent": true
+      },
+      "before": {
+        "ok": true,
+        "state": {
+          "revision": 0,
+          "density": "comfortable"
+        }
+      },
+      "observed": {
+        "url": "http://127.0.0.1:43975/apply",
+        "visibleText": "Preferences, in any available shape\n\nLocal proof. Owner and observer are trusted fixture actors, not production authentication.\n\nPreferences\nState and explanation\nRight-to-left view\nLong labels\nText view\n\npermission-denied: Fixture actor is not permitted to perform this operation.\n\nApply preferences\nFixture actor\nOwner\nObserver (read only)\nDisplay name — required, transient, never saved\n\n1–80 characters after trimming. Not persisted.\n\nDensity\nComfortable\nCompact\n\nApplies to the shared preferences state.\n\nI consent to apply this density change.\nApply preferences\nShared state\n\nDensity: comfortable\n\nRevision: 0\n\nRules and available routes\nLocal optional geometry diagnostics\n\nOptional decoration available.",
+        "nativeFields": [
+          {
+            "name": "actor",
+            "id": "actor",
+            "value": "observer",
+            "valid": true,
+            "validationMessage": ""
+          },
+          {
+            "name": "displayName",
+            "id": "field.display-name",
+            "value": "",
+            "valid": false,
+            "validationMessage": "Please fill out this field."
+          },
+          {
+            "name": "density",
+            "id": "field.density",
+            "value": "comfortable",
+            "valid": true,
+            "validationMessage": ""
+          },
+          {
+            "name": "consent",
+            "id": "consent",
+            "value": "true",
+            "valid": true,
+            "validationMessage": ""
+          }
+        ],
+        "agentRead": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        }
+      }
+    },
+    {
+      "id": "human-missing-consent",
+      "status": "PASS",
+      "interaction": {
+        "actor": "owner",
+        "displayName": "Owner evaluator",
+        "density": "compact",
+        "consent": false
+      },
+      "before": {
+        "ok": true,
+        "state": {
+          "revision": 0,
+          "density": "comfortable"
+        }
+      },
+      "observed": {
+        "url": "http://127.0.0.1:43975/apply",
+        "visibleText": "Preferences, in any available shape\n\nLocal proof. Owner and observer are trusted fixture actors, not production authentication.\n\nPreferences\nState and explanation\nRight-to-left view\nLong labels\nText view\n\nconsent-required: Explicit consent is required.\n\nApply preferences\nFixture actor\nOwner\nObserver (read only)\nDisplay name — required, transient, never saved\n\n1–80 characters after trimming. Not persisted.\n\nDensity\nComfortable\nCompact\n\nApplies to the shared preferences state.\n\nI consent to apply this density change.\nApply preferences\nShared state\n\nDensity: comfortable\n\nRevision: 0\n\nRules and available routes\nLocal optional geometry diagnostics\n\nOptional decoration available.",
+        "nativeFields": [
+          {
+            "name": "actor",
+            "id": "actor",
+            "value": "owner",
+            "valid": true,
+            "validationMessage": ""
+          },
+          {
+            "name": "displayName",
+            "id": "field.display-name",
+            "value": "",
+            "valid": false,
+            "validationMessage": "Please fill out this field."
+          },
+          {
+            "name": "density",
+            "id": "field.density",
+            "value": "comfortable",
+            "valid": true,
+            "validationMessage": ""
+          },
+          {
+            "name": "consent",
+            "id": "consent",
+            "value": "true",
+            "valid": true,
+            "validationMessage": ""
+          }
+        ],
+        "agentRead": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        }
+      }
+    },
+    {
+      "id": "human-whitespace-domain-validation",
+      "status": "PASS",
+      "interaction": {
+        "actor": "owner",
+        "displayName": "   ",
+        "density": "compact",
+        "consent": true
+      },
+      "nativeValidBefore": true,
+      "before": {
+        "ok": true,
+        "state": {
+          "revision": 0,
+          "density": "comfortable"
+        }
+      },
+      "observed": {
+        "url": "http://127.0.0.1:43975/apply",
+        "visibleText": "Preferences, in any available shape\n\nLocal proof. Owner and observer are trusted fixture actors, not production authentication.\n\nPreferences\nState and explanation\nRight-to-left view\nLong labels\nText view\n\nvalidation-error: Review the invalid fields.\n\nApply preferences\nFixture actor\nOwner\nObserver (read only)\nDisplay name — required, transient, never saved\n\n1–80 characters after trimming. Not persisted.\n\nEnter a name of 1–80 characters after trimming.\n\nDensity\nComfortable\nCompact\n\nApplies to the shared preferences state.\n\nI consent to apply this density change.\nApply preferences\nShared state\n\nDensity: comfortable\n\nRevision: 0\n\nRules and available routes\nLocal optional geometry diagnostics\n\nOptional decoration available.",
+        "nativeFields": [
+          {
+            "name": "actor",
+            "id": "actor",
+            "value": "owner",
+            "valid": true,
+            "validationMessage": ""
+          },
+          {
+            "name": "displayName",
+            "id": "field.display-name",
+            "value": "",
+            "valid": false,
+            "validationMessage": "Please fill out this field."
+          },
+          {
+            "name": "density",
+            "id": "field.density",
+            "value": "comfortable",
+            "valid": true,
+            "validationMessage": ""
+          },
+          {
+            "name": "consent",
+            "id": "consent",
+            "value": "true",
+            "valid": true,
+            "validationMessage": ""
+          }
+        ],
+        "agentRead": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Named actors are trusted fixture principals, not production authentication.",
+    "Chromium only; native validationMessage is observed programmatically, not visual approval of browser tooltip."
+  ],
+  "unexpectedFailures": 0,
+  "status": "PASS"
+}

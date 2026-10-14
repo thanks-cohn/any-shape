@@ -1,5 +1,9 @@
 # Any-Shape — cold reconstruction charter
 
+This earlier browser charter is retained as historical specialization. Handoff 002's universal mission and [COLD_START_RECONSTRUCTION](COLD_START_RECONSTRUCTION.md) now govern the neutral reconstruction protocol. Do not define the project solely by shape/overflow.
+
+For a current blind trial, use the semantic-only canonical projection and allowlisted new identity documents produced by `scripts/create-reconstruction-bundle.py`; keep original mechanism/evidence records with the evaluator. The legacy paragraph below names full foundation/model inputs that can reveal implementation context; do not use that unfiltered selection as a strict blind bundle. Shared-host procedural restrictions do not establish enforced isolation.
+
 ## Purpose, without naming implementation tools
 Any-Shape preserves comprehensible information hierarchy, useful interaction, legibility, accessibility and recognizable visual identity while the space available to an interface and the user's environment change. Rearrangement is allowed and expected; loss of meaning is not. It is an adaptive interface system, not a breakpoint table, screenshot clone, framework, or runtime dependency.
 

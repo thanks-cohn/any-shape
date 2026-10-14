@@ -1,5 +1,7 @@
 # Any-Shape — language-neutral conformance specification
 
+Scope: retained **browser specialization** AS-001…AS-016, not the whole universal mission. The independent domain/human-agent fixture and broader acceptance lanes are defined in `CONFORMANCE_AND_ACCEPTANCE.md` and `conformance/universal-v01.json`. Native desktop, dataset and 3D behaviors require their own declared evidence.
+
 The test runner is replaceable. Observe outputs without prescribing implementation algorithms. Report every result as PASS, FAIL or UNKNOWN, including evidence and environment. No missing claim becomes a PASS.
 
 ## Neutral fixture and outcome definitions

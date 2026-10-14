@@ -1,0 +1,60 @@
+{
+  "candidate": "migration.browser-to-python-proof",
+  "checks": [
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.contextual-reflow",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.semantic-interaction",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "capability.portable-adoption",
+      "status": "unknown"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.context",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.no-js",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.reconstruction-002"
+      ],
+      "reason": "Scoped candidate fixtures only; no universal target certification.",
+      "requirement": "invariant.privacy",
+      "status": "pass"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.identity",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "invariant.recoverability",
+      "status": "unknown"
+    },
+    {
+      "reason": "Full declared/general/production/manual or legacy consumer scope is not established by this bounded proof.",
+      "requirement": "compatibility.public-api-v01",
+      "status": "unknown"
+    }
+  ],
+  "result": "partial"
+}

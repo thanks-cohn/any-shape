@@ -20,6 +20,9 @@
     "test:recovery": "node scripts/recovery.js",
     "test:package": "node scripts/package-smoke.js",
     "prepare:cloud": "bash scripts/prepare-cloud-browsers.sh",
+    "check:forever": "node scripts/validate-forever.mjs",
+    "test:browser:isolated": "playwright test --config scripts/browser-isolated.config.mjs",
+    "test:forever": "node --test tests/forever.test.mjs",
     "prepack": "npm run test:unit && npm run typecheck"
   },
   "devDependencies": {

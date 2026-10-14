@@ -12,6 +12,11 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run check
+      - run: npm run check:forever
+      - run: npm run test:forever
+      - run: node scripts/evaluate-reconstruction.mjs
+      - run: node scripts/evaluate-human-parity.mjs
+      - run: node scripts/evaluate-candidate-accessibility.mjs
       - run: npm run test:recovery
       - run: npm run test:package
       - run: npm pack --dry-run
@@ -22,3 +27,4 @@ jobs:
           path: |
             artifacts/
             test-results/
+            docs/CODEX/evidence/002/

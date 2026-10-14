@@ -1,0 +1,18 @@
+{
+  "project": "any-shape",
+  "status": "FAIL",
+  "command": "node scripts/evaluate-reconstruction.mjs",
+  "exitCode": 1,
+  "unexpectedRequiredFailures": 1,
+  "check": "candidateDiagnosticTeardown",
+  "expected": {
+    "globalRemoved": true,
+    "triggerRemoved": true
+  },
+  "observed": {
+    "globalRemoved": true,
+    "triggerRemoved": false
+  },
+  "provenance": "Exact observation recorded by independent evaluator terminal output and evaluator-to-parent messages before candidate correction. Full failing JSON was overwritten by final rerun before the preservation request arrived; this file preserves the recorded observation excerpt, not an invented full historical report.",
+  "resolution": "Subsequent independent rerun observed globalRemoved:true, triggerRemoved:true and exitCode:0."
+}

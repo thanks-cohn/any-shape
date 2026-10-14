@@ -1,0 +1,16 @@
+{
+  "confidence": 1,
+  "foreverVersion": "0.1",
+  "id": "evidence.understanding-002",
+  "immutableReference": "sha256:1a2ba8387db2e6ef45a6c4945a6efab7407052e6b6ea76af85789859d7ea32c2",
+  "kind": "evidence",
+  "provenance": {
+    "confidence": 1,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/evidence/002/semantic-understanding-review.json",
+    "sourceType": "imported"
+  },
+  "source": "docs/CODEX/evidence/002/semantic-understanding-review.json",
+  "statementSupported": "Seven externally reviewed written-understanding criteria pass; chronology/isolation and runtime conclusions are not inferred from prose.",
+  "type": "scoped-observation"
+}

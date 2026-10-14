@@ -1,0 +1,99 @@
+{
+  "upstreamRepository": "https://github.com/thanks-cohn/forever-works",
+  "upstreamCommit": "55c81544a5ae3cfa08959c95d805a677db07d43f",
+  "upstreamIntegrity": "pass",
+  "commands": {
+    "validate": {
+      "command": "vendor/forever-works/packages/cli/bin/forever --root forever validate",
+      "exitCode": 0,
+      "stdout": "{\n  \"errors\": [],\n  \"valid\": true\n}\n",
+      "stderr": ""
+    },
+    "audit": {
+      "command": "vendor/forever-works/packages/cli/bin/forever --root forever audit",
+      "exitCode": 0,
+      "stdout": "{\n  \"issueCount\": 13,\n  \"issues\": [\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.agent-action\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.agent-introspection\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.behavioral-equivalence\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.composition-navigation\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.content-representation\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.graceful-fallback\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.interoperability\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.multi-medium\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.permission-checking\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.same-test-coverage\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.semantic-model\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.state-synchronization\"\n    },\n    {\n      \"code\": \"capability-no-implementation\",\n      \"message\": \"capability has no implementation\",\n      \"path\": \"capability.structured-forms\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    }
+  },
+  "schemaValidation": {
+    "valid": true,
+    "records": 68,
+    "errors": []
+  },
+  "graphSupplement": "Includes replacement requirements, scopes, claim requirement IDs and verification evidence.",
+  "audit": {
+    "issueCount": 13,
+    "issues": [
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.agent-action"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.agent-introspection"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.behavioral-equivalence"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.composition-navigation"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.content-representation"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.graceful-fallback"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.interoperability"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.multi-medium"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.permission-checking"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.same-test-coverage"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.semantic-model"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.state-synchronization"
+      },
+      {
+        "code": "capability-no-implementation",
+        "message": "capability has no implementation",
+        "path": "capability.structured-forms"
+      }
+    ]
+  },
+  "limitations": [
+    "Audit issues are inspected, not erased by inventing future implementations.",
+    "Schema/graph validity does not prove product behavior or ratify proposed architecture."
+  ]
+}

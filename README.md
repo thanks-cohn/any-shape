@@ -1,17 +1,21 @@
 # Any-Shape
 
-**A framework-independent, purpose-preserving adaptive interface system.**
+**Preserve human and agent comprehension and operation across changing forms, media and resources.**
 
 > The form may change. The identity must remain.
 
 ## Mission
-Any-Shape makes web interfaces remain sensible, coherent, accessible, and aesthetically recognizable across different viewport sizes, aspect ratios, containers, browser zoom settings, content lengths, languages, input modes, and device capabilities.
+Any-Shape enables information and operations to remain comprehensible, accessible, attractive where practical, and functionally available to humans and programmatic agents as medium, geometry, constraints, input methods and computational resources change. The form may change; meaning, essential functions and trustworthiness must remain.
 
-It is **not** a collection of device-specific CSS breakpoints or a replacement for the browser layout engine. It is a standards-first system of design contracts, fluid primitives, composition patterns, diagnostics, and verifiable acceptance tests. The same underlying component must be free to reorganize while preserving its meaning and visual identity.
+Browser resizing/overflow is an implemented example, not the mission or permanent technological boundary. Logical fields, records, objects and authorized operations may have browser, desktop, text, agent or editor realizations; each must preserve meaning and declare unsupported scope. Human and programmatic actions must obey the same validation, authority and state transitions. The current browser library remains protected; broader capabilities are proposals or scoped reconstruction proofs, not production support claims.
 
 **First intended adopter:** Pop-Quiz.ai. **Ownership:** standalone general-purpose library, never coupled to Pop-Quiz.ai. Other prospective adopters may use plain HTML/CSS/JS, TypeScript, or framework wrappers.
 
 ## Start here — reading order for humans and agents
+
+Begin with [project essence](docs/IDENTITY/PROJECT_ESSENCE.md), [ontology](docs/IDENTITY/ONTOLOGY_AND_SEMANTICS.md), [human and agent faces](docs/IDENTITY/HUMAN_AND_AGENT_FACES.md), [transformation](docs/IDENTITY/TRANSFORMATION_AND_DEGRADATION.md), and [acceptance](docs/RECONSTRUCTION/CONFORMANCE_AND_ACCEPTANCE.md). The [next-agent handoff](docs/RECONSTRUCTION/NEXT_AGENT_HANDOFF.md) gives exact status and commands. Then inspect the [canonical model](forever/manifest.json), [capability map](docs/IDENTITY/CAPABILITY_AND_INVARIANT_MAP.md), [mechanisms](docs/IDENTITY/MECHANISMS_VS_MEANING.md) and [cold reconstruction handbook](docs/RECONSTRUCTION/COLD_START_RECONSTRUCTION.md).
+
+For the protected browser specialization, retain this reading path:
 1. [PURPOSE](docs/FOUNDATION/PURPOSE.md): why the project must exist, permanent promises, boundaries.
 2. [CONTRACTS](docs/FOUNDATION/CONTRACTS.md): observable behavior and acceptance criteria.
 3. [ARCHITECTURE](docs/ARCHITECTURE.md): replaceable technical choices, modules, stable seams.
@@ -45,9 +49,13 @@ It is **not** a collection of device-specific CSS breakpoints or a replacement f
 - Omitting necessary controls or hiding real information just to avoid scrolling.
 
 ## Status
+
+**Universal identity and preservation model:** owner-stated mission, canonical Forever Works records and extensive cold reconstruction documentation. [Handoff 002 evidence](docs/CODEX/IMPLEMENTATION_REPORT_002.md) records actual upstream validation/audit, a separate Python proof and independent evaluation. The proof is not a production universal engine; technical proposals remain unreviewed and strict blind isolation/manual aesthetics remain unknown.
 **Core 0.1 implemented:** portable CSS primitives, container-aware cards, semantic navigation and form examples, and opt-in privacy-safe diagnostics. No runtime dependencies or build step. Package publication is not asserted. See [implementation evidence](docs/CODEX/IMPLEMENTATION_REPORT_001.md) for exact tests, engines, failed attempts and remaining manual checks.
 
 ## Develop and adopt
+
+Model validation: `npm run check:forever`. Independent proof evaluation: `node scripts/evaluate-reconstruction.mjs`. The unmodified upstream standard/schemas/CLI are pinned and licensed in `vendor/forever-works/`; [dependency atlas](docs/RECONSTRUCTION/DEPENDENCY_AND_FAILURE_ATLAS.md) explains replacement proof. The full preservation corpus is in the source repository; the npm package remains the browser slice, not an assertion of universal agent support.
 
 Requires Node >=22 (CI uses 24):
 

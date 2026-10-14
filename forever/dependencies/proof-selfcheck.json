@@ -1,0 +1,30 @@
+{
+  "compatibilityObligations": [],
+  "currentImplementation": "implementation.python-selfcheck",
+  "dependencyName": "Python proof selfcheck harness",
+  "dependencyType": "development-tool",
+  "extensions": {
+    "org.any-shape": {
+      "coverageScope": "12 requests; no promise to replace a full browser driver"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "dependency.proof-selfcheck",
+  "kind": "dependency",
+  "protectedInvariants": [
+    "invariant.measured-truth"
+  ],
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "purpose": "Run the 12 proposed preferences fixture requests without making self-tests independent proof.",
+  "reasonSelected": "Local sanity checks using the authoring runtime; the independent evaluator remains separate.",
+  "replacementClassification": "CAPABILITY",
+  "replacementRequirements": [],
+  "requiredCapabilities": [
+    "capability.same-test-coverage"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "extensions": {
+    "org.any-shape": {
+      "scope": "12 neutral requests; self-tests are not independent reconstruction proof"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "implementation.python-selfcheck",
+  "kind": "implementation",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "replaceability": "CAPABILITY",
+  "satisfiesCapabilities": [
+    "capability.same-test-coverage"
+  ],
+  "sourceLocations": [
+    "reconstruction/python-proof/selfcheck.py"
+  ],
+  "technology": "Python candidate-local fixture assertions",
+  "type": "test-harness"
+}

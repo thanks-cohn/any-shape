@@ -1,0 +1,45 @@
+{
+  "claims": [
+    {
+      "evidence": [
+        "evidence.dependency-loss-002"
+      ],
+      "reason": "Executed all 12 declared fixture cases after opaque selfcheck.py loss; retained Python/domain and browser driver; untested dimensions explicit.",
+      "requirement": "capability.same-test-coverage",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.dependency-loss-002"
+      ],
+      "reason": "Executed all 12 declared fixture cases after opaque selfcheck.py loss; retained Python/domain and browser driver; untested dimensions explicit.",
+      "requirement": "invariant.measured-truth",
+      "status": "pass"
+    }
+  ],
+  "extensions": {
+    "org.any-shape": {
+      "scope": "Named fixture and bounded Chromium probes; full driver/manual scope unknown"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "implementation.independent-evaluator",
+  "kind": "implementation",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "replaceability": "CAPABILITY",
+  "satisfiesCapabilities": [
+    "capability.same-test-coverage",
+    "capability.behavioral-equivalence"
+  ],
+  "sourceLocations": [
+    "scripts/evaluate-reconstruction.mjs",
+    "scripts/evaluate-human-parity.mjs"
+  ],
+  "technology": "Independently authored Node/Playwright black-box evaluator",
+  "type": "test-harness"
+}

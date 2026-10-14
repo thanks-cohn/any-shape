@@ -1,0 +1,16 @@
+{
+  "confidence": 1,
+  "foreverVersion": "0.1",
+  "id": "evidence.human-parity-002",
+  "immutableReference": "sha256:cc0d98bdce1e2d348dd364d9b02c44fb2bb18819be270e7f83ec236bc6dc926f",
+  "kind": "evidence",
+  "provenance": {
+    "confidence": 1,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/evidence/002/human-parity-supplement.json",
+    "sourceType": "imported"
+  },
+  "source": "docs/CODEX/evidence/002/human-parity-supplement.json",
+  "statementSupported": "Native human observer/consent/whitespace rejection preserves the agent-readable state within the fixture realm.",
+  "type": "scoped-observation"
+}

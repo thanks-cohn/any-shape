@@ -2,14 +2,73 @@
   "foreverVersion": "0.1",
   "projectId": "any-shape",
   "records": {
+    "capabilities": [
+      "capabilities/agent-action.json",
+      "capabilities/agent-introspection.json",
+      "capabilities/behavioral-equivalence.json",
+      "capabilities/composition-navigation.json",
+      "capabilities/content-representation.json",
+      "capabilities/contextual-reflow.json",
+      "capabilities/graceful-fallback.json",
+      "capabilities/interoperability.json",
+      "capabilities/layout-observability.json",
+      "capabilities/multi-medium.json",
+      "capabilities/permission-checking.json",
+      "capabilities/portable-adoption.json",
+      "capabilities/same-test-coverage.json",
+      "capabilities/semantic-interaction.json",
+      "capabilities/semantic-model.json",
+      "capabilities/state-synchronization.json",
+      "capabilities/structured-forms.json"
+    ],
+    "compatibility": [
+      "compatibility/public-api-v01.json"
+    ],
+    "constraints": [
+      "constraints/accessible-fallback.json",
+      "constraints/api-compatibility.json",
+      "constraints/compute-memory-network.json",
+      "constraints/locale-input.json",
+      "constraints/offline-core.json",
+      "constraints/rendering-capability.json",
+      "constraints/security-privacy.json",
+      "constraints/space-aspect.json"
+    ],
+    "decisions": [
+      "decisions/native-first.json"
+    ],
+    "dependencies": [
+      "dependencies/axe.json",
+      "dependencies/browser-css.json",
+      "dependencies/forever-works.json",
+      "dependencies/logical-semantics.json",
+      "dependencies/node.json",
+      "dependencies/optional-diagnostics.json",
+      "dependencies/playwright.json",
+      "dependencies/proof-decoration.json",
+      "dependencies/proof-selfcheck.json",
+      "dependencies/schema-validation.json",
+      "dependencies/typescript.json"
+    ],
+    "evidence": [
+      "evidence/browser-002.json",
+      "evidence/dependency-loss-002.json",
+      "evidence/human-parity-002.json",
+      "evidence/original-implementation.json",
+      "evidence/reconstruction-002.json",
+      "evidence/trial-inputs-002.json",
+      "evidence/understanding-002.json"
+    ],
+    "implementations": [
+      "implementations/browser-tests.json",
+      "implementations/css-core.json",
+      "implementations/diagnostics.json",
+      "implementations/independent-evaluator.json",
+      "implementations/python-proof.json",
+      "implementations/python-selfcheck.json"
+    ],
     "intent": [
       "project.intent.json"
-    ],
-    "capabilities": [
-      "capabilities/contextual-reflow.json",
-      "capabilities/layout-observability.json",
-      "capabilities/portable-adoption.json",
-      "capabilities/semantic-interaction.json"
     ],
     "invariants": [
       "invariants/accessibility.json",
@@ -19,30 +78,17 @@
       "invariants/measured-truth.json",
       "invariants/no-js.json",
       "invariants/no-loss.json",
-      "invariants/privacy.json"
+      "invariants/privacy.json",
+      "invariants/recoverability.json",
+      "invariants/resource-resilience.json",
+      "invariants/safe-agent.json",
+      "invariants/shared-rules.json",
+      "invariants/unsupported.json",
+      "invariants/web-compatibility.json"
     ],
-    "constraints": [
-      "constraints/accessible-fallback.json",
-      "constraints/offline-core.json"
-    ],
-    "dependencies": [
-      "dependencies/browser-css.json",
-      "dependencies/playwright.json"
-    ],
-    "decisions": [
-      "decisions/native-first.json"
-    ],
-    "compatibility": [
-      "compatibility/public-api-v01.json"
-    ],
-    "migrations": [],
-    "implementations": [
-      "implementations/browser-tests.json",
-      "implementations/css-core.json",
-      "implementations/diagnostics.json"
-    ],
-    "evidence": [
-      "evidence/original-implementation.json"
+    "migrations": [
+      "migrations/browser-to-python-proof.json",
+      "migrations/proof-harness-to-independent.json"
     ]
   }
 }

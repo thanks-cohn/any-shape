@@ -1,5 +1,13 @@
 # Purpose, scope, identity and permanent invariants
 
+## Explicit universal scope clarification
+
+Owner handoff 002 defines the enduring mission: information and operations remain comprehensible, accessible, attractive where practical, and available to humans and programmatic agents as medium, geometry, constraints, input methods and resources change. Meaning, essential functions and trustworthiness must survive. Browser resizing/overflow is one example, not the universal definition. Human and agent faces share domain validation, authority and state.
+
+The canonical current explanation is [PROJECT_ESSENCE](../IDENTITY/PROJECT_ESSENCE.md), with vocabulary and scope in the identity/reconstruction collection. This clarification is explicitly authorized by the handoff; it does not discard existing browser obligations. Native HTML/CSS is a web execution mechanism, not a requirement forbidding alternate media. Broader implementations remain proposed or scoped proofs until independent evidence exists.
+
+## Historical browser specialization (retained obligations)
+
 ## Problem statement
 Traditional viewport breakpoints can create brittle interfaces: cards overflow when embedded, typography scales poorly, actions become unreachable, important information disappears on mobile, and the product's visual identity fragments. A user may resize a window, rotate a device, enlarge type, translate copy, or put a component inside a narrow panel. None of these should turn a coherent application into nonsense.
 

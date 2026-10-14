@@ -1,0 +1,44 @@
+{
+  "claims": [
+    {
+      "evidence": [
+        "evidence.dependency-loss-002"
+      ],
+      "reason": "Executed all 12 declared fixture cases after opaque selfcheck.py loss; retained Python/domain and browser driver; untested dimensions explicit.",
+      "requirement": "capability.same-test-coverage",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.dependency-loss-002"
+      ],
+      "reason": "Executed all 12 declared fixture cases after opaque selfcheck.py loss; retained Python/domain and browser driver; untested dimensions explicit.",
+      "requirement": "invariant.measured-truth",
+      "status": "pass"
+    }
+  ],
+  "compatibilityImpact": [],
+  "foreverVersion": "0.1",
+  "id": "migration.proof-harness-to-independent",
+  "kind": "migration",
+  "preservedCapabilities": [
+    "capability.same-test-coverage"
+  ],
+  "preservedInvariants": [
+    "invariant.measured-truth"
+  ],
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "reason": "Controlled loss of candidate-local harness; recover the declared 12 fixture requests via independent Node evaluation.",
+  "rollbackNotes": "Scratch only; original candidate/selfcheck retained. Full driver replacement remains unknown.",
+  "sourceImplementation": "implementation.python-selfcheck",
+  "status": "verified-scoped-exercise; not product adoption",
+  "targetImplementation": "implementation.independent-evaluator",
+  "verification": [
+    "evidence.dependency-loss-002"
+  ]
+}

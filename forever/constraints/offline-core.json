@@ -1,13 +1,23 @@
 {
+  "category": "operational",
+  "classification": "hard",
   "foreverVersion": "0.1",
   "id": "constraint.offline-core",
   "kind": "constraint",
-  "name": "Offline, unhosted baseline",
-  "statement": "Core adopter behavior cannot require a live network service, account or proprietary runtime.",
   "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "scope": [
+    "intent.any-shape"
+  ],
+  "statement": "Established core use MUST NOT require remote services, accounts or proprietary runtimes; a transport requiring a network must declare its availability boundary.",
+  "verification": [
+    {
+      "expected": "Verify in declared environment and record untested dimensions as unknown.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

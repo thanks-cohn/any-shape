@@ -1,22 +1,28 @@
 {
+  "changePolicy": "foundational; owner-approved intent change only",
   "foreverVersion": "0.1",
   "id": "invariant.identity",
   "kind": "invariant",
   "name": "Identity survives transformation",
-  "statement": "A component may rearrange its geometry but must preserve hierarchy, semantic meaning, and recognizable style tokens.",
-  "scope": [
-    "intent.any-shape"
-  ],
-  "verification": [],
-  "changePolicy": "foundational; owner-approved intent change only",
-  "severity": "critical",
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "sourceType": "agent-proposed"
+  },
   "relatedCapabilities": [
     "capability.contextual-reflow"
   ],
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "Logical objects, fields, relationships and operations retain identity and meaning across realizations; visual tokens preserve the established web identity where applicable.",
+  "verification": [
+    {
+      "command": "npm run check; node scripts/evaluate-reconstruction.mjs",
+      "expected": "Check neutral conformance fixtures and preserve AS-001 through AS-016 within web scope; report unknown for untested scope.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

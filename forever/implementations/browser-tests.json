@@ -1,29 +1,29 @@
 {
+  "constrainedByInvariants": [
+    "invariant.measured-truth"
+  ],
   "foreverVersion": "0.1",
   "id": "implementation.browser-tests",
   "kind": "implementation",
-  "type": "test-harness",
-  "technology": "Node.js and Playwright",
-  "version": "0.1.0",
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Any-Shape documentation; owner review pending",
+    "sourceType": "agent-proposed"
+  },
+  "replaceability": "CAPABILITY",
+  "runtimeRequirements": [
+    "development only"
+  ],
   "satisfiesCapabilities": [
     "capability.contextual-reflow",
     "capability.semantic-interaction"
   ],
-  "constrainedByInvariants": [
-    "invariant.measured-truth"
-  ],
-  "replaceability": "CAPABILITY",
   "sourceLocations": [
     "tests/",
     "playwright.config.js"
   ],
-  "runtimeRequirements": [
-    "development only"
-  ],
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "Any-Shape documentation; owner review pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "technology": "Node.js and Playwright",
+  "type": "test-harness",
+  "version": "0.1.0"
 }

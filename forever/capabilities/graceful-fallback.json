@@ -1,0 +1,38 @@
+{
+  "criticality": "essential",
+  "extensions": {
+    "org.any-shape": {
+      "acceptance": "Owner review required for technical protocol details.",
+      "fixture": "conformance/universal-v01.json",
+      "status": "proposed"
+    }
+  },
+  "foreverVersion": "0.1",
+  "id": "capability.graceful-fallback",
+  "kind": "capability",
+  "name": "Honest adaptation",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "relatedImplementations": [],
+  "relatedInvariants": [
+    "invariant.unsupported",
+    "invariant.resource-resilience",
+    "invariant.no-loss"
+  ],
+  "statement": "Select fallback or deferred interaction under capability and resource limits without silently removing essential meaning.",
+  "status": "proposed",
+  "verification": [
+    {
+      "command": "node scripts/evaluate-reconstruction.mjs",
+      "environment": [
+        "Scoped reconstruction fixture; not universal product coverage"
+      ],
+      "expected": "Evaluate declared scope using independent fixtures; missing or incomplete behavior is unknown, never pass.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

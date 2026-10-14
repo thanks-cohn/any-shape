@@ -1,0 +1,29 @@
+{
+  "changePolicy": "Owner approval required for semantic changes; proposals do not supersede web compatibility.",
+  "foreverVersion": "0.1",
+  "id": "invariant.recoverability",
+  "kind": "invariant",
+  "name": "Reconstruction from meaning",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "relatedCapabilities": [
+    "capability.interoperability",
+    "capability.behavioral-equivalence"
+  ],
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "A cold inheritor MUST be able to derive obligations and evaluate a new realization without original source; unproved portability remains unknown.",
+  "verification": [
+    {
+      "command": "node scripts/evaluate-reconstruction.mjs",
+      "expected": "Independent positive and negative checks; human accessibility and aesthetic approval kept separate.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

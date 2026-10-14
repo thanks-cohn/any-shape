@@ -1,0 +1,16 @@
+{
+  "confidence": 1,
+  "foreverVersion": "0.1",
+  "id": "evidence.trial-inputs-002",
+  "immutableReference": "sha256:1f159e31906f6bb72ccdba8fbd7f5984c7ab1d14a5bd977c4be6791a1bc2a634",
+  "kind": "evidence",
+  "provenance": {
+    "confidence": 1,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/evidence/002/trial-artifact-inventory.json",
+    "sourceType": "imported"
+  },
+  "source": "docs/CODEX/evidence/002/trial-artifact-inventory.json",
+  "statementSupported": "Frozen neutral inputs and candidate/evaluator source hashes; this records procedural withholding, not technically guaranteed isolation.",
+  "type": "scoped-observation"
+}

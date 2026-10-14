@@ -1,0 +1,30 @@
+
+> @any-shape/core@0.1.0 check
+> npm run test:unit && npm run typecheck && npm run test:browser
+
+
+> @any-shape/core@0.1.0 test:unit
+> node --test tests/unit.test.js tests/server.test.js
+
+✔ static server delivers consumer assets and rejects metadata and writes (57.91612ms)
+✔ import has no browser side effects and rejects invalid roots (1.958758ms)
+✔ geometry classification uses tolerance and explicit clipping context (1.097392ms)
+✔ schema rejects extra fields that could carry sensitive text (76.645948ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 282.217904
+
+> @any-shape/core@0.1.0 typecheck
+> tsc --noEmit
+
+
+> @any-shape/core@0.1.0 test:browser
+> playwright test
+
+Error: http://127.0.0.1:4173/examples/ is already used, make sure that nothing is running on the port/url or set reuseExistingServer:true in config.webServer.
+

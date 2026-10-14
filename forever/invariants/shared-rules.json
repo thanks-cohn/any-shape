@@ -1,0 +1,31 @@
+{
+  "changePolicy": "Owner approval required for semantic changes; proposals do not supersede web compatibility.",
+  "foreverVersion": "0.1",
+  "id": "invariant.shared-rules",
+  "kind": "invariant",
+  "name": "Shared rules and transitions",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "relatedCapabilities": [
+    "capability.agent-action",
+    "capability.state-synchronization",
+    "capability.permission-checking",
+    "capability.structured-forms"
+  ],
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "Human and agent channels MUST apply the same domain validation, authority checks and state transitions; neither channel may bypass them.",
+  "verification": [
+    {
+      "command": "node scripts/evaluate-reconstruction.mjs",
+      "expected": "Independent positive and negative checks; human accessibility and aesthetic approval kept separate.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

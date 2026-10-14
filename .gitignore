@@ -5,3 +5,5 @@ artifacts/
 *.tgz
 .npm-cache/
 .browser-tools/
+__pycache__/
+*.pyc

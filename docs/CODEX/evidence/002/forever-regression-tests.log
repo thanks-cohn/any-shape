@@ -1,0 +1,16 @@
+
+> @any-shape/core@0.1.0 test:forever
+> node --test tests/forever.test.mjs
+
+✔ published schema rejects noncanonical pending provenance even when CLI misses it (473.55586ms)
+✔ supplementary graph check rejects orphan replacement requirements (526.737231ms)
+✔ candidate blind bundle omits machinery and history and remains schema-valid (407.522264ms)
+✔ proof fixture copy is identical to canonical neutral fixture (2.432252ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1511.159178

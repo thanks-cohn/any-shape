@@ -1,22 +1,28 @@
 {
+  "changePolicy": "foundational",
   "foreverVersion": "0.1",
   "id": "invariant.context",
   "kind": "invariant",
   "name": "Context outranks device taxonomy",
-  "statement": "An embedded component's adaptation is based on containing-space and content constraints, not only viewport-width buckets.",
-  "scope": [
-    "intent.any-shape"
-  ],
-  "verification": [],
-  "changePolicy": "foundational",
-  "severity": "critical",
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "sourceType": "agent-proposed"
+  },
   "relatedCapabilities": [
     "capability.contextual-reflow"
   ],
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "An embedded component's adaptation is based on containing-space and content constraints, not only viewport-width buckets.",
+  "verification": [
+    {
+      "command": "npm run check; node scripts/evaluate-reconstruction.mjs",
+      "expected": "Check neutral conformance fixtures and preserve AS-001 through AS-016 within web scope; report unknown for untested scope.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

@@ -1,0 +1,16 @@
+{
+  "confidence": 1,
+  "foreverVersion": "0.1",
+  "id": "evidence.dependency-loss-002",
+  "immutableReference": "sha256:4f12ad1994fd85f12b98bec15be0ad10820ea7c4a700584f7eb651deb35dbf78",
+  "kind": "evidence",
+  "provenance": {
+    "confidence": 1,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/evidence/002/reconstruction-evaluation-final.json",
+    "sourceType": "imported"
+  },
+  "source": "docs/CODEX/evidence/002/reconstruction-evaluation-final.json",
+  "statementSupported": "Opaque decoration and inspection artifacts plus Python selfcheck were physically removed in scratch; independent operations/12 fixture probes still pass. Browser driver retained.",
+  "type": "scoped-observation"
+}

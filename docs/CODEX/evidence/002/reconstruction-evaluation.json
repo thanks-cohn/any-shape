@@ -1,0 +1,4769 @@
+{
+  "project": "any-shape",
+  "evaluatedAt": "2026-10-14T00:56:09.275Z",
+  "sourcesConsulted": [
+    "AGENTS.md and foundational reading",
+    "neutral conformance fixture/spec",
+    "current public API",
+    "original public HTML and server entry"
+  ],
+  "sourcesExcluded": [
+    "original tests",
+    "candidate source",
+    "candidate self-tests",
+    "candidate understanding"
+  ],
+  "candidateSourceConsulted": false,
+  "originalTestsConsulted": false,
+  "limitations": [
+    "Chromium only; Firefox/WebKit not evaluated here",
+    "Bounded geometry and first-keyboard probes do not certify WCAG or human reading order",
+    "Original 87 tests are a separate parent-run lane",
+    "Full browser-driver replacement and production authentication are not established"
+  ],
+  "environment": {
+    "playwright": "1.64.0",
+    "node": "v24.19.0",
+    "python": "Python 3.12.14",
+    "protocolExit": 0,
+    "protocolStderr": "",
+    "browser": "156.0.8078.4",
+    "chromiumPath": "/workspace/any-shape/.browser-tools/browsers/chromium-1248/chrome-linux64/chrome",
+    "chromiumSelection": "retained repository cache"
+  },
+  "protocol": [
+    {
+      "id": "U-01",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        },
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "surface": "surface.preferences",
+          "schemaVersion": "0.1-proposed",
+          "fields": {
+            "displayName": {
+              "id": "field.display-name",
+              "type": "string",
+              "required": true,
+              "minLength": 1,
+              "maxLength": 80,
+              "trimBeforeValidation": true,
+              "persistence": "none"
+            },
+            "density": {
+              "id": "field.density",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "comfortable",
+                "compact"
+              ]
+            }
+          },
+          "actions": [
+            {
+              "id": "action.describe",
+              "operation": "describe",
+              "available": true,
+              "parameters": {},
+              "preconditions": []
+            },
+            {
+              "id": "action.read",
+              "operation": "read",
+              "available": true,
+              "parameters": {},
+              "preconditions": []
+            },
+            {
+              "id": "action.apply",
+              "operation": "apply",
+              "available": true,
+              "parameters": {
+                "displayName": {
+                  "id": "field.display-name",
+                  "type": "string",
+                  "required": true,
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "trimBeforeValidation": true,
+                  "persistence": "none"
+                },
+                "density": {
+                  "id": "field.density",
+                  "type": "string",
+                  "required": true,
+                  "enum": [
+                    "comfortable",
+                    "compact"
+                  ]
+                }
+              },
+              "preconditions": [
+                "permission",
+                "valid parameters",
+                "consent:true",
+                "requestId",
+                "expectedRevision"
+              ]
+            }
+          ],
+          "errors": [
+            "permission-denied",
+            "validation-error",
+            "consent-required",
+            "idempotency-conflict",
+            "revision-conflict",
+            "unsupported-operation"
+          ],
+          "presentations": [
+            "native-html",
+            "terminal-text",
+            "newline-json"
+          ],
+          "security": "Named fixture actors are not production authentication."
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-02",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "permission-denied",
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "permission-denied",
+            "message": "Fixture actor is not permitted to perform this operation."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-03",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "validation-error",
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Review the invalid fields.",
+            "fields": {
+              "density": "Choose comfortable or compact."
+            }
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-04",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "validation-error",
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Review the invalid fields.",
+            "fields": {
+              "displayName": "Enter a name of 1–80 characters after trimming."
+            }
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-05",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "consent-required",
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "consent-required",
+            "message": "Explicit consent is required."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-06",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-07",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-08",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-09",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "idempotency-conflict",
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "idempotency-conflict",
+            "message": "Retry key was used with a different request."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-10",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "revision-conflict",
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "revision-conflict",
+            "message": "State changed. Reread and review before applying."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-11",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "validation-error",
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Exactly displayName and density parameters are required."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-12",
+      "status": "PASS",
+      "observed": {
+        "expected": {
+          "ok": false,
+          "errorCode": "unsupported-operation",
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        },
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "unsupported-operation",
+            "message": "Use describe, read or apply."
+          }
+        }
+      },
+      "limitations": []
+    }
+  ],
+  "http": [
+    {
+      "id": "U-01",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "surface": "surface.preferences",
+          "schemaVersion": "0.1-proposed",
+          "fields": {
+            "displayName": {
+              "id": "field.display-name",
+              "type": "string",
+              "required": true,
+              "minLength": 1,
+              "maxLength": 80,
+              "trimBeforeValidation": true,
+              "persistence": "none"
+            },
+            "density": {
+              "id": "field.density",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "comfortable",
+                "compact"
+              ]
+            }
+          },
+          "actions": [
+            {
+              "id": "action.describe",
+              "operation": "describe",
+              "available": true,
+              "parameters": {},
+              "preconditions": []
+            },
+            {
+              "id": "action.read",
+              "operation": "read",
+              "available": true,
+              "parameters": {},
+              "preconditions": []
+            },
+            {
+              "id": "action.apply",
+              "operation": "apply",
+              "available": true,
+              "parameters": {
+                "displayName": {
+                  "id": "field.display-name",
+                  "type": "string",
+                  "required": true,
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "trimBeforeValidation": true,
+                  "persistence": "none"
+                },
+                "density": {
+                  "id": "field.density",
+                  "type": "string",
+                  "required": true,
+                  "enum": [
+                    "comfortable",
+                    "compact"
+                  ]
+                }
+              },
+              "preconditions": [
+                "permission",
+                "valid parameters",
+                "consent:true",
+                "requestId",
+                "expectedRevision"
+              ]
+            }
+          ],
+          "errors": [
+            "permission-denied",
+            "validation-error",
+            "consent-required",
+            "idempotency-conflict",
+            "revision-conflict",
+            "unsupported-operation"
+          ],
+          "presentations": [
+            "native-html",
+            "terminal-text",
+            "newline-json"
+          ],
+          "security": "Named fixture actors are not production authentication."
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-02",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "permission-denied",
+            "message": "Fixture actor is not permitted to perform this operation."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-03",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Review the invalid fields.",
+            "fields": {
+              "density": "Choose comfortable or compact."
+            }
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-04",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Review the invalid fields.",
+            "fields": {
+              "displayName": "Enter a name of 1–80 characters after trimming."
+            }
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-05",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "consent-required",
+            "message": "Explicit consent is required."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-06",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-07",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-08",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-09",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "idempotency-conflict",
+            "message": "Retry key was used with a different request."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-10",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "revision-conflict",
+            "message": "State changed. Reread and review before applying."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-11",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Exactly displayName and density parameters are required."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "U-12",
+      "status": "PASS",
+      "observed": {
+        "httpStatus": 200,
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "unsupported-operation",
+            "message": "Use describe, read or apply."
+          }
+        }
+      },
+      "limitations": []
+    },
+    {
+      "id": "human-invalid",
+      "status": "PASS",
+      "observed": {
+        "before": {
+          "ok": true,
+          "state": {
+            "revision": 2,
+            "density": "compact"
+          }
+        },
+        "after": {
+          "ok": true,
+          "state": {
+            "revision": 2,
+            "density": "compact"
+          }
+        },
+        "validity": false
+      },
+      "limitations": []
+    },
+    {
+      "id": "human-valid-agent-coherence",
+      "status": "PASS",
+      "observed": {
+        "before": {
+          "ok": true,
+          "state": {
+            "revision": 2,
+            "density": "compact"
+          }
+        },
+        "after": {
+          "ok": true,
+          "state": {
+            "revision": 3,
+            "density": "comfortable"
+          }
+        },
+        "pageText": "Shared state\n\nDensity: comfortable\n\nRevision: 3\n\nRules and available routes\nLocal optional geometry diagnostics\n\nOptional decoration available."
+      },
+      "limitations": []
+    }
+  ],
+  "implementations": {
+    "original": {
+      "url": "http://127.0.0.1:43971/examples/",
+      "checks": [
+        {
+          "id": "AS-001",
+          "status": "PASS",
+          "observed": {
+            "before": [
+              {
+                "width": 280,
+                "columns": "238px",
+                "mode": "stack"
+              },
+              {
+                "width": 720,
+                "columns": "219.328px 438.672px",
+                "mode": "split"
+              }
+            ],
+            "after": [
+              {
+                "width": 600,
+                "columns": "179.328px 358.672px"
+              },
+              {
+                "width": 720,
+                "columns": "219.328px 438.672px"
+              }
+            ]
+          },
+          "limitations": []
+        },
+        {
+          "id": "AS-002",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "width": 280,
+                "height": 44,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 280,
+                "height": 44,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 169.609375,
+                "height": 47.59375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 280,
+                "height": 45.59375,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": []
+        },
+        {
+          "id": "AS-003",
+          "status": "UNKNOWN",
+          "observed": {
+            "screenshots": [
+              "/workspace/any-shape/docs/CODEX/evidence/002/original-1366.png",
+              "/workspace/any-shape/docs/CODEX/evidence/002/original-1920.png"
+            ]
+          },
+          "limitations": [
+            "Automated geometry cannot approve aesthetics"
+          ]
+        },
+        {
+          "id": "AS-004",
+          "status": "PASS",
+          "observed": [
+            {
+              "viewport": {
+                "width": 683,
+                "height": 768
+              },
+              "width": 683,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 308,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 308,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 643,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            {
+              "viewport": {
+                "width": 342,
+                "height": 768
+              },
+              "width": 342,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 302,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 302,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 302,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 240,
+                  "height": 88,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 240,
+                  "height": 88,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 240,
+                  "height": 195.5625,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 240,
+                  "height": 193.5625,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Equivalent viewport squeeze, not browser UI zoom"
+          ]
+        },
+        {
+          "id": "AS-005",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "width": 240,
+                "height": 88,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 240,
+                "height": 88,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 240,
+                "height": 195.5625,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 240,
+                "height": 193.5625,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": [
+            "Checks horizontal reachability; not all text fragmentation"
+          ]
+        },
+        {
+          "id": "AS-006",
+          "status": "PASS",
+          "observed": {
+            "focus": {
+              "tag": "A",
+              "text": "Skip to content",
+              "outline": "solid",
+              "outlineWidth": "3px",
+              "boxShadow": "none"
+            },
+            "urlAfterEnter": "http://127.0.0.1:43971/examples/#main"
+          },
+          "limitations": [
+            "First Tab/Enter checked; full keyboard usability and focus order require review"
+          ]
+        },
+        {
+          "id": "AS-007",
+          "status": "PASS",
+          "observed": {
+            "geometry": {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 280,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 280,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 280,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            "url": "http://127.0.0.1:43971/examples/?density=compact#preferences"
+          },
+          "limitations": [
+            "Native form navigation observed; domain coherence separately tested"
+          ]
+        },
+        {
+          "id": "AS-008",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "width": 280,
+                "height": 44,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 280,
+                "height": 44,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 169.609375,
+                "height": 47.59375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 280,
+                "height": 45.59375,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": [
+            "Meaning checked through controls and geometry; animation timing not exhaustive"
+          ]
+        },
+        {
+          "id": "AS-009",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "width": 280,
+                "height": 44,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 280,
+                "height": 44,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 169.609375,
+                "height": 47.59375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 280,
+                "height": 45.59375,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": [
+            "Geometry only; understandable reading order needs review"
+          ]
+        },
+        {
+          "id": "AS-010",
+          "status": "PASS",
+          "observed": [
+            {
+              "viewport": {
+                "width": 667,
+                "height": 375
+              },
+              "width": 667,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 627,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 627,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 627,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            {
+              "viewport": {
+                "width": 280,
+                "height": 280
+              },
+              "width": 280,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 240,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 240,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 240,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "AS-011",
+          "status": "PASS",
+          "observed": {
+            "rulesRemoved": 1,
+            "geometry": {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 280,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 280,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 280,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          },
+          "limitations": [
+            "Rule removal approximates absence of advanced adaptation"
+          ]
+        },
+        {
+          "id": "AS-012",
+          "status": "PASS",
+          "observed": {
+            "report": {
+              "schemaVersion": "0.1",
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "findings": [
+                {
+                  "code": "overflow-x",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 231.15625,
+                      "width": 280,
+                      "height": 550.0625
+                    },
+                    "scrollWidth": 628,
+                    "scrollHeight": 550,
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "overflow-x",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 231.15625,
+                      "width": 280,
+                      "height": 78.390625
+                    },
+                    "scrollWidth": 628,
+                    "scrollHeight": 78,
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "overflow-y",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1) > h2:nth-child(1)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 231.15625,
+                      "width": 280,
+                      "height": 28.796875
+                    },
+                    "scrollWidth": 280,
+                    "scrollHeight": 30,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 78.390625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "overflow-x",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1) > div:nth-child(2)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 279.953125,
+                      "width": 192,
+                      "height": 29.59375
+                    },
+                    "scrollWidth": 626,
+                    "scrollHeight": 26,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "nowrap",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 78.390625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "overflow-y",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > h2:nth-child(1)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 329.546875,
+                      "width": 280,
+                      "height": 28.796875
+                    },
+                    "scrollWidth": 280,
+                    "scrollHeight": 30,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 329.546875,
+                          "width": 280,
+                          "height": 80.796875
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "overflow-y",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 378.34375,
+                      "width": 192,
+                      "height": 32
+                    },
+                    "scrollWidth": 188,
+                    "scrollHeight": 97,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "hidden",
+                      "overflowY": "hidden",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 329.546875,
+                          "width": 280,
+                          "height": 80.796875
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "clipping",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 378.34375,
+                      "width": 192,
+                      "height": 32
+                    },
+                    "scrollWidth": 188,
+                    "scrollHeight": 97,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "hidden",
+                      "overflowY": "hidden",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 329.546875,
+                          "width": 280,
+                          "height": 80.796875
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "hidden-overflow"
+                  }
+                },
+                {
+                  "code": "clipped-control",
+                  "severity": "error",
+                  "confidence": "heuristic",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2) > button:nth-child(1)",
+                  "evidence": {
+                    "box": {
+                      "x": 22,
+                      "y": 404.34375,
+                      "width": 188,
+                      "height": 73.1875
+                    },
+                    "scrollWidth": 186,
+                    "scrollHeight": 71,
+                    "css": {
+                      "display": "inline-flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 378.34375,
+                          "width": 192,
+                          "height": 32
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "hidden",
+                          "overflowY": "hidden",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 329.546875,
+                          "width": 280,
+                          "height": 80.796875
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "control-outside-clipping-ancestor",
+                    "ancestor": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)"
+                  }
+                },
+                {
+                  "code": "overflow-y",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3) > h2:nth-child(1)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 430.34375,
+                      "width": 280,
+                      "height": 28.796875
+                    },
+                    "scrollWidth": 280,
+                    "scrollHeight": 30,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3)",
+                        "box": {
+                          "x": 20,
+                          "y": 430.34375,
+                          "width": 280,
+                          "height": 206.890625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                },
+                {
+                  "code": "layout-mode",
+                  "severity": "info",
+                  "confidence": "authored",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3) > article:nth-child(2)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 479.140625,
+                      "width": 280,
+                      "height": 158.09375
+                    },
+                    "scrollWidth": 278,
+                    "scrollHeight": 156,
+                    "css": {
+                      "display": "grid",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3)",
+                        "box": {
+                          "x": 20,
+                          "y": 430.34375,
+                          "width": 280,
+                          "height": 206.890625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "mode": "stack",
+                    "reason": "authored-css-marker",
+                    "container": null
+                  }
+                },
+                {
+                  "code": "container-mismatch",
+                  "severity": "warning",
+                  "confidence": "heuristic",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3) > article:nth-child(2)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 479.140625,
+                      "width": 280,
+                      "height": 158.09375
+                    },
+                    "scrollWidth": 278,
+                    "scrollHeight": 156,
+                    "css": {
+                      "display": "grid",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3)",
+                        "box": {
+                          "x": 20,
+                          "y": 430.34375,
+                          "width": 280,
+                          "height": 206.890625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "mode": "stack",
+                    "reason": "missing-query-container",
+                    "container": null
+                  }
+                },
+                {
+                  "code": "overflow-y",
+                  "severity": "warning",
+                  "confidence": "measured",
+                  "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(4) > h2:nth-child(1)",
+                  "evidence": {
+                    "box": {
+                      "x": 20,
+                      "y": 657.234375,
+                      "width": 280,
+                      "height": 28.796875
+                    },
+                    "scrollWidth": 280,
+                    "scrollHeight": 30,
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    },
+                    "ancestors": [
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(4)",
+                        "box": {
+                          "x": 20,
+                          "y": 657.234375,
+                          "width": 280,
+                          "height": 123.984375
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(2)",
+                        "box": {
+                          "x": 20,
+                          "y": 231.15625,
+                          "width": 280,
+                          "height": 550.0625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1) > body:nth-child(2)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "flex",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      },
+                      {
+                        "selector": "html:nth-child(1)",
+                        "box": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 320,
+                          "height": 948.40625
+                        },
+                        "css": {
+                          "display": "block",
+                          "overflowX": "visible",
+                          "overflowY": "visible",
+                          "whiteSpace": "normal",
+                          "minInlineSize": 0
+                        }
+                      }
+                    ],
+                    "reason": "scroll-extent-exceeds-box"
+                  }
+                }
+              ]
+            },
+            "nonmutating": true
+          },
+          "limitations": []
+        },
+        {
+          "id": "AS-013",
+          "status": "PASS",
+          "observed": [
+            {
+              "code": "layout-mode",
+              "severity": "info",
+              "confidence": "authored",
+              "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > article:nth-child(1)",
+              "evidence": {
+                "box": {
+                  "x": 20,
+                  "y": 1098.71875,
+                  "width": 280,
+                  "height": 437.09375
+                },
+                "scrollWidth": 278,
+                "scrollHeight": 435,
+                "css": {
+                  "display": "grid",
+                  "overflowX": "visible",
+                  "overflowY": "visible",
+                  "whiteSpace": "normal",
+                  "minInlineSize": 0
+                },
+                "ancestors": [
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 1098.71875,
+                      "width": 280,
+                      "height": 437.09375
+                    },
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1)",
+                    "box": {
+                      "x": 20,
+                      "y": 1052.328125,
+                      "width": 280,
+                      "height": 483.484375
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 1052.328125,
+                      "width": 280,
+                      "height": 990.96875
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 821.96875,
+                      "width": 280,
+                      "height": 1436.109375
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3)",
+                    "box": {
+                      "x": 0,
+                      "y": 211.84375,
+                      "width": 320,
+                      "height": 3658.203125
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2)",
+                    "box": {
+                      "x": 0,
+                      "y": 0,
+                      "width": 320,
+                      "height": 3970.234375
+                    },
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1)",
+                    "box": {
+                      "x": 0,
+                      "y": 0,
+                      "width": 320,
+                      "height": 3970.234375
+                    },
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  }
+                ],
+                "mode": "stack",
+                "reason": "authored-css-marker",
+                "container": {
+                  "x": 20,
+                  "y": 1098.71875,
+                  "width": 280,
+                  "height": 437.09375
+                }
+              }
+            },
+            {
+              "code": "layout-mode",
+              "severity": "info",
+              "confidence": "authored",
+              "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > article:nth-child(1)",
+              "evidence": {
+                "box": {
+                  "x": 20,
+                  "y": 1606.203125,
+                  "width": 280,
+                  "height": 437.09375
+                },
+                "scrollWidth": 278,
+                "scrollHeight": 435,
+                "css": {
+                  "display": "grid",
+                  "overflowX": "visible",
+                  "overflowY": "visible",
+                  "whiteSpace": "normal",
+                  "minInlineSize": 0
+                },
+                "ancestors": [
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 1606.203125,
+                      "width": 280,
+                      "height": 437.09375
+                    },
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 1559.8125,
+                      "width": 280,
+                      "height": 483.484375
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2) > div:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 1052.328125,
+                      "width": 280,
+                      "height": 990.96875
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3) > section:nth-child(2)",
+                    "box": {
+                      "x": 20,
+                      "y": 821.96875,
+                      "width": 280,
+                      "height": 1436.109375
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2) > main:nth-child(3)",
+                    "box": {
+                      "x": 0,
+                      "y": 211.84375,
+                      "width": 320,
+                      "height": 3658.203125
+                    },
+                    "css": {
+                      "display": "flex",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1) > body:nth-child(2)",
+                    "box": {
+                      "x": 0,
+                      "y": 0,
+                      "width": 320,
+                      "height": 3970.234375
+                    },
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  },
+                  {
+                    "selector": "html:nth-child(1)",
+                    "box": {
+                      "x": 0,
+                      "y": 0,
+                      "width": 320,
+                      "height": 3970.234375
+                    },
+                    "css": {
+                      "display": "block",
+                      "overflowX": "visible",
+                      "overflowY": "visible",
+                      "whiteSpace": "normal",
+                      "minInlineSize": 0
+                    }
+                  }
+                ],
+                "mode": "stack",
+                "reason": "authored-css-marker",
+                "container": {
+                  "x": 20,
+                  "y": 1606.203125,
+                  "width": 280,
+                  "height": 437.09375
+                }
+              }
+            }
+          ],
+          "limitations": [
+            "Snapshot mode evidence; independent CSS explanation remains bounded"
+          ]
+        },
+        {
+          "id": "AS-014",
+          "status": "PASS",
+          "observed": {
+            "outbound": [],
+            "logs": [
+              "Failed to load resource: the server responded with a status of 404 (Not Found)"
+            ],
+            "serializedDiagnostic": "{\"schemaVersion\":\"0.1\",\"viewport\":{\"width\":320,\"height\":640},\"findings\":[{\"code\":\"overflow-x\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"evidence\":{\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"scrollWidth\":628,\"scrollHeight\":550,\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"overflow-x\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1)\",\"evidence\":{\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":78.390625},\"scrollWidth\":628,\"scrollHeight\":78,\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"overflow-y\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1) > h2:nth-child(1)\",\"evidence\":{\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":28.796875},\"scrollWidth\":280,\"scrollHeight\":30,\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":78.390625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"overflow-x\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1) > div:nth-child(2)\",\"evidence\":{\"box\":{\"x\":20,\"y\":279.953125,\"width\":192,\"height\":29.59375},\"scrollWidth\":626,\"scrollHeight\":26,\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"nowrap\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(1)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":78.390625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"overflow-y\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > h2:nth-child(1)\",\"evidence\":{\"box\":{\"x\":20,\"y\":329.546875,\"width\":280,\"height\":28.796875},\"scrollWidth\":280,\"scrollHeight\":30,\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)\",\"box\":{\"x\":20,\"y\":329.546875,\"width\":280,\"height\":80.796875},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"overflow-y\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)\",\"evidence\":{\"box\":{\"x\":20,\"y\":378.34375,\"width\":192,\"height\":32},\"scrollWidth\":188,\"scrollHeight\":97,\"css\":{\"display\":\"block\",\"overflowX\":\"hidden\",\"overflowY\":\"hidden\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)\",\"box\":{\"x\":20,\"y\":329.546875,\"width\":280,\"height\":80.796875},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"clipping\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)\",\"evidence\":{\"box\":{\"x\":20,\"y\":378.34375,\"width\":192,\"height\":32},\"scrollWidth\":188,\"scrollHeight\":97,\"css\":{\"display\":\"block\",\"overflowX\":\"hidden\",\"overflowY\":\"hidden\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)\",\"box\":{\"x\":20,\"y\":329.546875,\"width\":280,\"height\":80.796875},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"hidden-overflow\"}},{\"code\":\"clipped-control\",\"severity\":\"error\",\"confidence\":\"heuristic\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2) > button:nth-child(1)\",\"evidence\":{\"box\":{\"x\":22,\"y\":404.34375,\"width\":188,\"height\":73.1875},\"scrollWidth\":186,\"scrollHeight\":71,\"css\":{\"display\":\"inline-flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)\",\"box\":{\"x\":20,\"y\":378.34375,\"width\":192,\"height\":32},\"css\":{\"display\":\"block\",\"overflowX\":\"hidden\",\"overflowY\":\"hidden\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2)\",\"box\":{\"x\":20,\"y\":329.546875,\"width\":280,\"height\":80.796875},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"control-outside-clipping-ancestor\",\"ancestor\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(2) > div:nth-child(2)\"}},{\"code\":\"overflow-y\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3) > h2:nth-child(1)\",\"evidence\":{\"box\":{\"x\":20,\"y\":430.34375,\"width\":280,\"height\":28.796875},\"scrollWidth\":280,\"scrollHeight\":30,\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3)\",\"box\":{\"x\":20,\"y\":430.34375,\"width\":280,\"height\":206.890625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}},{\"code\":\"layout-mode\",\"severity\":\"info\",\"confidence\":\"authored\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3) > article:nth-child(2)\",\"evidence\":{\"box\":{\"x\":20,\"y\":479.140625,\"width\":280,\"height\":158.09375},\"scrollWidth\":278,\"scrollHeight\":156,\"css\":{\"display\":\"grid\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3)\",\"box\":{\"x\":20,\"y\":430.34375,\"width\":280,\"height\":206.890625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"mode\":\"stack\",\"reason\":\"authored-css-marker\",\"container\":null}},{\"code\":\"container-mismatch\",\"severity\":\"warning\",\"confidence\":\"heuristic\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3) > article:nth-child(2)\",\"evidence\":{\"box\":{\"x\":20,\"y\":479.140625,\"width\":280,\"height\":158.09375},\"scrollWidth\":278,\"scrollHeight\":156,\"css\":{\"display\":\"grid\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(3)\",\"box\":{\"x\":20,\"y\":430.34375,\"width\":280,\"height\":206.890625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"mode\":\"stack\",\"reason\":\"missing-query-container\",\"container\":null}},{\"code\":\"overflow-y\",\"severity\":\"warning\",\"confidence\":\"measured\",\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(4) > h2:nth-child(1)\",\"evidence\":{\"box\":{\"x\":20,\"y\":657.234375,\"width\":280,\"height\":28.796875},\"scrollWidth\":280,\"scrollHeight\":30,\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0},\"ancestors\":[{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2) > section:nth-child(4)\",\"box\":{\"x\":20,\"y\":657.234375,\"width\":280,\"height\":123.984375},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2) > main:nth-child(2)\",\"box\":{\"x\":20,\"y\":231.15625,\"width\":280,\"height\":550.0625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1) > body:nth-child(2)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"flex\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}},{\"selector\":\"html:nth-child(1)\",\"box\":{\"x\":0,\"y\":0,\"width\":320,\"height\":948.40625},\"css\":{\"display\":\"block\",\"overflowX\":\"visible\",\"overflowY\":\"visible\",\"whiteSpace\":\"normal\",\"minInlineSize\":0}}],\"reason\":\"scroll-extent-exceeds-box\"}}]}"
+          },
+          "limitations": []
+        },
+        {
+          "id": "AS-015",
+          "status": "PASS",
+          "observed": {
+            "removed": "opaque scratch src/diagnostics.js",
+            "geometry": {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "INPUT",
+                  "width": 288,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 288,
+                  "height": 44,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 169.609375,
+                  "height": 47.59375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 288,
+                  "height": 45.59375,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            "nativeSubmissionUrl": "http://127.0.0.1:43974/examples/",
+            "statusText": "Preferences applied locally.",
+            "nativeValidity": true
+          },
+          "limitations": [
+            "Optional module physically missing; local preference confirmation observed, not production agent domain"
+          ]
+        },
+        {
+          "id": "AS-016",
+          "status": "UNKNOWN",
+          "observed": {},
+          "limitations": [
+            "Independent runner exists; development dependency disappearance not exercised"
+          ]
+        }
+      ]
+    },
+    "candidate": {
+      "url": "http://127.0.0.1:43972/",
+      "checks": [
+        {
+          "id": "AS-001",
+          "status": "PASS",
+          "observed": {
+            "before": [
+              {
+                "host": "host-narrow",
+                "width": 280,
+                "object": "record.delivery",
+                "columns": "246px",
+                "display": "grid",
+                "mode": "stack",
+                "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                "controls": [
+                  "Review options"
+                ]
+              },
+              {
+                "host": "host-wide",
+                "width": 720,
+                "object": "record.delivery",
+                "columns": "446.656px 223.328px",
+                "display": "grid",
+                "mode": "side-by-side",
+                "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                "controls": [
+                  "Review options"
+                ]
+              }
+            ],
+            "after": [
+              {
+                "host": "host-narrow",
+                "width": 600,
+                "object": "record.delivery",
+                "columns": "366.656px 183.328px",
+                "display": "grid",
+                "mode": "side-by-side",
+                "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                "controls": [
+                  "Review options"
+                ]
+              },
+              {
+                "host": "host-wide",
+                "width": 720,
+                "object": "record.delivery",
+                "columns": "446.656px 223.328px",
+                "display": "grid",
+                "mode": "side-by-side",
+                "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                "controls": [
+                  "Review options"
+                ]
+              }
+            ],
+            "viewport": {
+              "width": 1366,
+              "height": 768
+            }
+          },
+          "limitations": []
+        },
+        {
+          "id": "AS-002",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "SELECT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 13,
+                "height": 13,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 266.8125,
+                "height": 24,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 266.8125,
+                "height": 48,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": []
+        },
+        {
+          "id": "AS-003",
+          "status": "UNKNOWN",
+          "observed": {
+            "screenshots": [
+              "/workspace/any-shape/docs/CODEX/evidence/002/candidate-1366.png",
+              "/workspace/any-shape/docs/CODEX/evidence/002/candidate-1920.png"
+            ]
+          },
+          "limitations": [
+            "Automated geometry cannot approve aesthetics"
+          ]
+        },
+        {
+          "id": "AS-004",
+          "status": "PASS",
+          "observed": [
+            {
+              "viewport": {
+                "width": 683,
+                "height": 768
+              },
+              "width": 683,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 383.34375,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 383.34375,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 383.34375,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 383.34375,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 174.671875,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 174.671875,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            {
+              "viewport": {
+                "width": 342,
+                "height": 768
+              },
+              "width": 342,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 287.5,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 287.5,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 287.5,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 287.5,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 287.5,
+                  "height": 24,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 287.5,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 222,
+                  "height": 85.375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 222,
+                  "height": 88.375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 222,
+                  "height": 85.375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 222,
+                  "height": 136.375,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 222,
+                  "height": 144,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 222,
+                  "height": 192,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          ],
+          "limitations": [
+            "Equivalent viewport squeeze, not browser UI zoom"
+          ]
+        },
+        {
+          "id": "AS-005",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "SELECT",
+                "width": 222,
+                "height": 85.375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 222,
+                "height": 88.375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 222,
+                "height": 85.375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 13,
+                "height": 13,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 222,
+                "height": 136.375,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 222,
+                "height": 144,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 222,
+                "height": 192,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": [
+            "Checks horizontal reachability; not all text fragmentation"
+          ]
+        },
+        {
+          "id": "AS-006",
+          "status": "PASS",
+          "observed": {
+            "focus": {
+              "tag": "A",
+              "text": "Preferences",
+              "outline": "solid",
+              "outlineWidth": "3px",
+              "boxShadow": "none"
+            },
+            "urlAfterEnter": "http://127.0.0.1:43972/#card.preferences"
+          },
+          "limitations": [
+            "First Tab/Enter checked; full keyboard usability and focus order require review"
+          ]
+        },
+        {
+          "id": "AS-007",
+          "status": "PASS",
+          "observed": {
+            "geometry": {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 266.8125,
+                  "height": 24,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 266.8125,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            "url": "http://127.0.0.1:43972/apply"
+          },
+          "limitations": [
+            "Native form navigation observed; domain coherence separately tested"
+          ]
+        },
+        {
+          "id": "AS-008",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "SELECT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 13,
+                "height": 13,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 266.8125,
+                "height": 24,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 266.8125,
+                "height": 48,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": [
+            "Meaning checked through controls and geometry; animation timing not exhaustive"
+          ]
+        },
+        {
+          "id": "AS-009",
+          "status": "PASS",
+          "observed": {
+            "viewport": {
+              "width": 320,
+              "height": 640
+            },
+            "width": 320,
+            "overflow": false,
+            "heading": true,
+            "controls": [
+              {
+                "tag": "SELECT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SELECT",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "INPUT",
+                "width": 13,
+                "height": 13,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "BUTTON",
+                "width": 266.8125,
+                "height": 45.1875,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 266.8125,
+                "height": 24,
+                "visible": true,
+                "horizontal": true
+              },
+              {
+                "tag": "SUMMARY",
+                "width": 266.8125,
+                "height": 48,
+                "visible": true,
+                "horizontal": true
+              }
+            ]
+          },
+          "limitations": [
+            "Geometry only; understandable reading order needs review"
+          ]
+        },
+        {
+          "id": "AS-010",
+          "status": "PASS",
+          "observed": [
+            {
+              "viewport": {
+                "width": 667,
+                "height": 375
+              },
+              "width": 667,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 373.328125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 373.328125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 373.328125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 373.328125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 169.671875,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 169.671875,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            },
+            {
+              "viewport": {
+                "width": 280,
+                "height": 280
+              },
+              "width": 280,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 229.21875,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 229.21875,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 229.21875,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 229.21875,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 229.21875,
+                  "height": 24,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 229.21875,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "AS-011",
+          "status": "PASS",
+          "observed": {
+            "rulesRemoved": 3,
+            "geometry": {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 266.8125,
+                  "height": 45.1875,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 266.8125,
+                  "height": 24,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 266.8125,
+                  "height": 48,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          },
+          "limitations": [
+            "Rule removal approximates absence of advanced adaptation"
+          ]
+        },
+        {
+          "id": "AS-012",
+          "status": "PASS",
+          "observed": {
+            "report": [
+              {
+                "target": "card.preferences",
+                "measured": {
+                  "width": 789.33,
+                  "height": 445.38,
+                  "clientWidth": 787,
+                  "scrollWidth": 787,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "card.state",
+                "measured": {
+                  "width": 394.66,
+                  "height": 445.38,
+                  "clientWidth": 393,
+                  "scrollWidth": 393,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "broken.intrinsic",
+                "measured": {
+                  "width": 262,
+                  "height": 121.52,
+                  "clientWidth": 262,
+                  "scrollWidth": 4106,
+                  "containerWidth": 280
+                },
+                "authored": {
+                  "declaredMode": "stack",
+                  "containerType": "inline-size"
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": [
+                  {
+                    "code": "intrinsic-overflow",
+                    "evidence": {
+                      "clientWidth": 262,
+                      "scrollWidth": 4106
+                    },
+                    "hypothesis": {
+                      "cause": "Intrinsic content may resist available width.",
+                      "certainty": "uncertain"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": "broken.clipped-action",
+                "measured": {
+                  "width": 1200,
+                  "height": 80,
+                  "clientWidth": 1198,
+                  "scrollWidth": 1214,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": [
+                  {
+                    "code": "intrinsic-overflow",
+                    "evidence": {
+                      "clientWidth": 1198,
+                      "scrollWidth": 1214
+                    },
+                    "hypothesis": {
+                      "cause": "Intrinsic content may resist available width.",
+                      "certainty": "uncertain"
+                    }
+                  },
+                  {
+                    "code": "clipped-action",
+                    "evidence": {
+                      "controlWidth": 1198,
+                      "controlHeight": 45.19,
+                      "ancestorWidth": 1200,
+                      "ancestorHeight": 80
+                    },
+                    "hypothesis": {
+                      "cause": "A clipping ancestor may hide an action.",
+                      "certainty": "uncertain"
+                    }
+                  }
+                ]
+              },
+              {
+                "target": "broken.action",
+                "measured": {
+                  "width": 1198,
+                  "height": 45.19,
+                  "clientWidth": 1196,
+                  "scrollWidth": 1196,
+                  "containerWidth": 1200
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": "inline-size"
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "broken.missing-container",
+                "measured": {
+                  "width": 262,
+                  "height": 273.52,
+                  "clientWidth": 262,
+                  "scrollWidth": 262,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": "stack",
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": [
+                  {
+                    "code": "missing-intended-container",
+                    "evidence": {
+                      "foundQueryContainer": false
+                    },
+                    "hypothesis": {
+                      "cause": "Intended local container may be absent or configured incorrectly.",
+                      "certainty": "uncertain"
+                    }
+                  }
+                ]
+              }
+            ],
+            "nonmutating": true
+          },
+          "limitations": [
+            "Coded measured findings; causal hypotheses retained for review, not proof of full cascade"
+          ]
+        },
+        {
+          "id": "AS-013",
+          "status": "PASS",
+          "observed": {
+            "diagnosticBefore": [
+              {
+                "target": "card.preferences",
+                "measured": {
+                  "width": 789.33,
+                  "height": 445.38,
+                  "clientWidth": 787,
+                  "scrollWidth": 787,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "card.state",
+                "measured": {
+                  "width": 394.66,
+                  "height": 445.38,
+                  "clientWidth": 393,
+                  "scrollWidth": 393,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "demo.narrow",
+                "measured": {
+                  "width": 262,
+                  "height": 273.52,
+                  "clientWidth": 262,
+                  "scrollWidth": 262,
+                  "containerWidth": 280
+                },
+                "authored": {
+                  "declaredMode": "stack",
+                  "containerType": "inline-size"
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "demo.wide",
+                "measured": {
+                  "width": 702,
+                  "height": 153.52,
+                  "clientWidth": 702,
+                  "scrollWidth": 702,
+                  "containerWidth": 720
+                },
+                "authored": {
+                  "declaredMode": "side-by-side",
+                  "containerType": "inline-size"
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "demo.stress",
+                "measured": {
+                  "width": 1200,
+                  "height": 275.52,
+                  "clientWidth": 1198,
+                  "scrollWidth": 1198,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              }
+            ],
+            "diagnosticAfter": [
+              {
+                "target": "card.preferences",
+                "measured": {
+                  "width": 789.33,
+                  "height": 445.38,
+                  "clientWidth": 787,
+                  "scrollWidth": 787,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "card.state",
+                "measured": {
+                  "width": 394.66,
+                  "height": 445.38,
+                  "clientWidth": 393,
+                  "scrollWidth": 393,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "demo.narrow",
+                "measured": {
+                  "width": 582,
+                  "height": 153.52,
+                  "clientWidth": 582,
+                  "scrollWidth": 582,
+                  "containerWidth": 600
+                },
+                "authored": {
+                  "declaredMode": "side-by-side",
+                  "containerType": "inline-size"
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "demo.wide",
+                "measured": {
+                  "width": 702,
+                  "height": 153.52,
+                  "clientWidth": 702,
+                  "scrollWidth": 702,
+                  "containerWidth": 720
+                },
+                "authored": {
+                  "declaredMode": "side-by-side",
+                  "containerType": "inline-size"
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              },
+              {
+                "target": "demo.stress",
+                "measured": {
+                  "width": 1200,
+                  "height": 275.52,
+                  "clientWidth": 1198,
+                  "scrollWidth": 1198,
+                  "containerWidth": null
+                },
+                "authored": {
+                  "declaredMode": null,
+                  "containerType": null
+                },
+                "explanation": {
+                  "modeSource": "Computed authored CSS declaration, distinct from measured geometry.",
+                  "rootCause": "Unknown; findings are observations and hypotheses."
+                },
+                "findings": []
+              }
+            ],
+            "independentGeometry": {
+              "before": [
+                {
+                  "host": "host-narrow",
+                  "width": 280,
+                  "object": "record.delivery",
+                  "columns": "246px",
+                  "display": "grid",
+                  "mode": "stack",
+                  "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                  "controls": [
+                    "Review options"
+                  ]
+                },
+                {
+                  "host": "host-wide",
+                  "width": 720,
+                  "object": "record.delivery",
+                  "columns": "446.656px 223.328px",
+                  "display": "grid",
+                  "mode": "side-by-side",
+                  "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                  "controls": [
+                    "Review options"
+                  ]
+                }
+              ],
+              "after": [
+                {
+                  "host": "host-narrow",
+                  "width": 600,
+                  "object": "record.delivery",
+                  "columns": "366.656px 183.328px",
+                  "display": "grid",
+                  "mode": "side-by-side",
+                  "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                  "controls": [
+                    "Review options"
+                  ]
+                },
+                {
+                  "host": "host-wide",
+                  "width": 720,
+                  "object": "record.delivery",
+                  "columns": "446.656px 223.328px",
+                  "display": "grid",
+                  "mode": "side-by-side",
+                  "text": "Delivery optionsReview delivery preferences before making a choice. This same logical record keeps its meaning, order and operation in each host.Review optionsOptions are disclosed locally. Preferences remain in the native form above.",
+                  "controls": [
+                    "Review options"
+                  ]
+                }
+              ]
+            }
+          },
+          "limitations": [
+            "Authored mode and measured geometry observed; arbitrary CSS-cascade explanation not claimed"
+          ]
+        },
+        {
+          "id": "AS-014",
+          "status": "PASS",
+          "observed": {
+            "serializedDiagnostic": "[{\"target\":\"card.preferences\",\"measured\":{\"width\":789.33,\"height\":445.38,\"clientWidth\":787,\"scrollWidth\":787,\"containerWidth\":null},\"authored\":{\"declaredMode\":null,\"containerType\":null},\"explanation\":{\"modeSource\":\"Computed authored CSS declaration, distinct from measured geometry.\",\"rootCause\":\"Unknown; findings are observations and hypotheses.\"},\"findings\":[]},{\"target\":\"card.state\",\"measured\":{\"width\":394.66,\"height\":445.38,\"clientWidth\":393,\"scrollWidth\":393,\"containerWidth\":null},\"authored\":{\"declaredMode\":null,\"containerType\":null},\"explanation\":{\"modeSource\":\"Computed authored CSS declaration, distinct from measured geometry.\",\"rootCause\":\"Unknown; findings are observations and hypotheses.\"},\"findings\":[]},{\"target\":\"broken.intrinsic\",\"measured\":{\"width\":262,\"height\":121.52,\"clientWidth\":262,\"scrollWidth\":4106,\"containerWidth\":280},\"authored\":{\"declaredMode\":\"stack\",\"containerType\":\"inline-size\"},\"explanation\":{\"modeSource\":\"Computed authored CSS declaration, distinct from measured geometry.\",\"rootCause\":\"Unknown; findings are observations and hypotheses.\"},\"findings\":[{\"code\":\"intrinsic-overflow\",\"evidence\":{\"clientWidth\":262,\"scrollWidth\":4106},\"hypothesis\":{\"cause\":\"Intrinsic content may resist available width.\",\"certainty\":\"uncertain\"}}]},{\"target\":\"broken.clipped-action\",\"measured\":{\"width\":1200,\"height\":80,\"clientWidth\":1198,\"scrollWidth\":1214,\"containerWidth\":null},\"authored\":{\"declaredMode\":null,\"containerType\":null},\"explanation\":{\"modeSource\":\"Computed authored CSS declaration, distinct from measured geometry.\",\"rootCause\":\"Unknown; findings are observations and hypotheses.\"},\"findings\":[{\"code\":\"intrinsic-overflow\",\"evidence\":{\"clientWidth\":1198,\"scrollWidth\":1214},\"hypothesis\":{\"cause\":\"Intrinsic content may resist available width.\",\"certainty\":\"uncertain\"}},{\"code\":\"clipped-action\",\"evidence\":{\"controlWidth\":1198,\"controlHeight\":45.19,\"ancestorWidth\":1200,\"ancestorHeight\":80},\"hypothesis\":{\"cause\":\"A clipping ancestor may hide an action.\",\"certainty\":\"uncertain\"}}]},{\"target\":\"broken.action\",\"measured\":{\"width\":1198,\"height\":45.19,\"clientWidth\":1196,\"scrollWidth\":1196,\"containerWidth\":1200},\"authored\":{\"declaredMode\":null,\"containerType\":\"inline-size\"},\"explanation\":{\"modeSource\":\"Computed authored CSS declaration, distinct from measured geometry.\",\"rootCause\":\"Unknown; findings are observations and hypotheses.\"},\"findings\":[]},{\"target\":\"broken.missing-container\",\"measured\":{\"width\":262,\"height\":273.52,\"clientWidth\":262,\"scrollWidth\":262,\"containerWidth\":null},\"authored\":{\"declaredMode\":\"stack\",\"containerType\":null},\"explanation\":{\"modeSource\":\"Computed authored CSS declaration, distinct from measured geometry.\",\"rootCause\":\"Unknown; findings are observations and hypotheses.\"},\"findings\":[{\"code\":\"missing-intended-container\",\"evidence\":{\"foundQueryContainer\":false},\"hypothesis\":{\"cause\":\"Intended local container may be absent or configured incorrectly.\",\"certainty\":\"uncertain\"}}]}]",
+            "outbound": [],
+            "logs": []
+          },
+          "limitations": [
+            "Explicit local diagnostics; no outbound request observed"
+          ]
+        },
+        {
+          "id": "AS-015",
+          "status": "PASS",
+          "observed": {
+            "removed": [
+              "opaque scratch decoration.py",
+              "opaque scratch inspection.js"
+            ],
+            "primaryForm": {
+              "status": "PASS",
+              "observed": {
+                "ok": true,
+                "state": {
+                  "revision": 1,
+                  "density": "compact"
+                }
+              }
+            },
+            "textRenderer": {
+              "status": "PASS"
+            },
+            "geometry": {
+              "viewport": {
+                "width": 320,
+                "height": 640
+              },
+              "width": 320,
+              "overflow": false,
+              "heading": true,
+              "controls": [
+                {
+                  "tag": "SELECT",
+                  "width": 145,
+                  "height": 19,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 185,
+                  "height": 21,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SELECT",
+                  "width": 95,
+                  "height": 19,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "INPUT",
+                  "width": 13,
+                  "height": 13,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "BUTTON",
+                  "width": 123.4375,
+                  "height": 21,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 304,
+                  "height": 18,
+                  "visible": true,
+                  "horizontal": true
+                },
+                {
+                  "tag": "SUMMARY",
+                  "width": 304,
+                  "height": 18,
+                  "visible": true,
+                  "horizontal": true
+                }
+              ]
+            }
+          },
+          "limitations": [
+            "Scratch opaque module removal; replacement decoration not visually approved"
+          ]
+        },
+        {
+          "id": "AS-016",
+          "status": "PASS",
+          "observed": {
+            "removed": "opaque scratch selfcheck.py (contents never read)",
+            "replacement": "Independent Node JSON sequence evaluator",
+            "retained": "Python domain adapter and Playwright Chromium driver",
+            "exit": 0,
+            "results": [
+              {
+                "id": "U-01",
+                "status": "PASS",
+                "actual": {
+                  "ok": true,
+                  "state": {
+                    "revision": 0,
+                    "density": "comfortable"
+                  },
+                  "surface": "surface.preferences",
+                  "schemaVersion": "0.1-proposed",
+                  "fields": {
+                    "displayName": {
+                      "id": "field.display-name",
+                      "type": "string",
+                      "required": true,
+                      "minLength": 1,
+                      "maxLength": 80,
+                      "trimBeforeValidation": true,
+                      "persistence": "none"
+                    },
+                    "density": {
+                      "id": "field.density",
+                      "type": "string",
+                      "required": true,
+                      "enum": [
+                        "comfortable",
+                        "compact"
+                      ]
+                    }
+                  },
+                  "actions": [
+                    {
+                      "id": "action.describe",
+                      "operation": "describe",
+                      "available": true,
+                      "parameters": {},
+                      "preconditions": []
+                    },
+                    {
+                      "id": "action.read",
+                      "operation": "read",
+                      "available": true,
+                      "parameters": {},
+                      "preconditions": []
+                    },
+                    {
+                      "id": "action.apply",
+                      "operation": "apply",
+                      "available": true,
+                      "parameters": {
+                        "displayName": {
+                          "id": "field.display-name",
+                          "type": "string",
+                          "required": true,
+                          "minLength": 1,
+                          "maxLength": 80,
+                          "trimBeforeValidation": true,
+                          "persistence": "none"
+                        },
+                        "density": {
+                          "id": "field.density",
+                          "type": "string",
+                          "required": true,
+                          "enum": [
+                            "comfortable",
+                            "compact"
+                          ]
+                        }
+                      },
+                      "preconditions": [
+                        "permission",
+                        "valid parameters",
+                        "consent:true",
+                        "requestId",
+                        "expectedRevision"
+                      ]
+                    }
+                  ],
+                  "errors": [
+                    "permission-denied",
+                    "validation-error",
+                    "consent-required",
+                    "idempotency-conflict",
+                    "revision-conflict",
+                    "unsupported-operation"
+                  ],
+                  "presentations": [
+                    "native-html",
+                    "terminal-text",
+                    "newline-json"
+                  ],
+                  "security": "Named fixture actors are not production authentication."
+                }
+              },
+              {
+                "id": "U-02",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 0,
+                    "density": "comfortable"
+                  },
+                  "error": {
+                    "code": "permission-denied",
+                    "message": "Fixture actor is not permitted to perform this operation."
+                  }
+                }
+              },
+              {
+                "id": "U-03",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 0,
+                    "density": "comfortable"
+                  },
+                  "error": {
+                    "code": "validation-error",
+                    "message": "Review the invalid fields.",
+                    "fields": {
+                      "density": "Choose comfortable or compact."
+                    }
+                  }
+                }
+              },
+              {
+                "id": "U-04",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 0,
+                    "density": "comfortable"
+                  },
+                  "error": {
+                    "code": "validation-error",
+                    "message": "Review the invalid fields.",
+                    "fields": {
+                      "displayName": "Enter a name of 1–80 characters after trimming."
+                    }
+                  }
+                }
+              },
+              {
+                "id": "U-05",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 0,
+                    "density": "comfortable"
+                  },
+                  "error": {
+                    "code": "consent-required",
+                    "message": "Explicit consent is required."
+                  }
+                }
+              },
+              {
+                "id": "U-06",
+                "status": "PASS",
+                "actual": {
+                  "ok": true,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  }
+                }
+              },
+              {
+                "id": "U-07",
+                "status": "PASS",
+                "actual": {
+                  "ok": true,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  }
+                }
+              },
+              {
+                "id": "U-08",
+                "status": "PASS",
+                "actual": {
+                  "ok": true,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  }
+                }
+              },
+              {
+                "id": "U-09",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  },
+                  "error": {
+                    "code": "idempotency-conflict",
+                    "message": "Retry key was used with a different request."
+                  }
+                }
+              },
+              {
+                "id": "U-10",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  },
+                  "error": {
+                    "code": "revision-conflict",
+                    "message": "State changed. Reread and review before applying."
+                  }
+                }
+              },
+              {
+                "id": "U-11",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  },
+                  "error": {
+                    "code": "validation-error",
+                    "message": "Exactly displayName and density parameters are required."
+                  }
+                }
+              },
+              {
+                "id": "U-12",
+                "status": "PASS",
+                "actual": {
+                  "ok": false,
+                  "state": {
+                    "revision": 1,
+                    "density": "compact"
+                  },
+                  "error": {
+                    "code": "unsupported-operation",
+                    "message": "Use describe, read or apply."
+                  }
+                }
+              }
+            ],
+            "fullBrowserDriverReplacement": {
+              "status": "UNKNOWN",
+              "reason": "Browser driver retained"
+            }
+          },
+          "limitations": [
+            "Proof harness replaced only; full browser driver replacement UNKNOWN"
+          ]
+        }
+      ]
+    }
+  },
+  "lanes": {
+    "semanticUnderstanding": {
+      "status": "UNKNOWN",
+      "reason": "Separate human/parent review"
+    },
+    "dropInCompatibility": {
+      "status": "UNKNOWN",
+      "reason": "Python proof is not presumed to preserve CSS classes/tokens, ESM exports, types or diagnostic schema; no package consumer proof"
+    },
+    "aestheticApproval": {
+      "status": "UNKNOWN",
+      "reason": "Human visual approval required"
+    },
+    "technicalBlindIsolation": {
+      "status": "UNKNOWN",
+      "reason": "Separate agent instructions on a shared filesystem are procedural isolation, not technical denial"
+    },
+    "semanticFunctionalReconstruction": {
+      "status": "PASS",
+      "scope": "Executed protocol, HTTP and bounded browser probes; UNKNOWN contracts remain unresolved"
+    }
+  },
+  "candidateDiagnosticTeardown": {
+    "status": "PASS",
+    "observed": {
+      "globalRemoved": true,
+      "triggerRemoved": true
+    },
+    "expected": {
+      "globalRemoved": true,
+      "triggerRemoved": true
+    }
+  },
+  "harnessReplacement": {
+    "removed": "opaque scratch selfcheck.py (contents never read)",
+    "replacement": "Independent Node JSON sequence evaluator",
+    "retained": "Python domain adapter and Playwright Chromium driver",
+    "exit": 0,
+    "results": [
+      {
+        "id": "U-01",
+        "status": "PASS",
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "surface": "surface.preferences",
+          "schemaVersion": "0.1-proposed",
+          "fields": {
+            "displayName": {
+              "id": "field.display-name",
+              "type": "string",
+              "required": true,
+              "minLength": 1,
+              "maxLength": 80,
+              "trimBeforeValidation": true,
+              "persistence": "none"
+            },
+            "density": {
+              "id": "field.density",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "comfortable",
+                "compact"
+              ]
+            }
+          },
+          "actions": [
+            {
+              "id": "action.describe",
+              "operation": "describe",
+              "available": true,
+              "parameters": {},
+              "preconditions": []
+            },
+            {
+              "id": "action.read",
+              "operation": "read",
+              "available": true,
+              "parameters": {},
+              "preconditions": []
+            },
+            {
+              "id": "action.apply",
+              "operation": "apply",
+              "available": true,
+              "parameters": {
+                "displayName": {
+                  "id": "field.display-name",
+                  "type": "string",
+                  "required": true,
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "trimBeforeValidation": true,
+                  "persistence": "none"
+                },
+                "density": {
+                  "id": "field.density",
+                  "type": "string",
+                  "required": true,
+                  "enum": [
+                    "comfortable",
+                    "compact"
+                  ]
+                }
+              },
+              "preconditions": [
+                "permission",
+                "valid parameters",
+                "consent:true",
+                "requestId",
+                "expectedRevision"
+              ]
+            }
+          ],
+          "errors": [
+            "permission-denied",
+            "validation-error",
+            "consent-required",
+            "idempotency-conflict",
+            "revision-conflict",
+            "unsupported-operation"
+          ],
+          "presentations": [
+            "native-html",
+            "terminal-text",
+            "newline-json"
+          ],
+          "security": "Named fixture actors are not production authentication."
+        }
+      },
+      {
+        "id": "U-02",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "permission-denied",
+            "message": "Fixture actor is not permitted to perform this operation."
+          }
+        }
+      },
+      {
+        "id": "U-03",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Review the invalid fields.",
+            "fields": {
+              "density": "Choose comfortable or compact."
+            }
+          }
+        }
+      },
+      {
+        "id": "U-04",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Review the invalid fields.",
+            "fields": {
+              "displayName": "Enter a name of 1–80 characters after trimming."
+            }
+          }
+        }
+      },
+      {
+        "id": "U-05",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 0,
+            "density": "comfortable"
+          },
+          "error": {
+            "code": "consent-required",
+            "message": "Explicit consent is required."
+          }
+        }
+      },
+      {
+        "id": "U-06",
+        "status": "PASS",
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      {
+        "id": "U-07",
+        "status": "PASS",
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      {
+        "id": "U-08",
+        "status": "PASS",
+        "actual": {
+          "ok": true,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          }
+        }
+      },
+      {
+        "id": "U-09",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "idempotency-conflict",
+            "message": "Retry key was used with a different request."
+          }
+        }
+      },
+      {
+        "id": "U-10",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "revision-conflict",
+            "message": "State changed. Reread and review before applying."
+          }
+        }
+      },
+      {
+        "id": "U-11",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "validation-error",
+            "message": "Exactly displayName and density parameters are required."
+          }
+        }
+      },
+      {
+        "id": "U-12",
+        "status": "PASS",
+        "actual": {
+          "ok": false,
+          "state": {
+            "revision": 1,
+            "density": "compact"
+          },
+          "error": {
+            "code": "unsupported-operation",
+            "message": "Use describe, read or apply."
+          }
+        }
+      }
+    ],
+    "fullBrowserDriverReplacement": {
+      "status": "UNKNOWN",
+      "reason": "Browser driver retained"
+    }
+  },
+  "dependencyRemoval": {
+    "removed": [
+      "opaque scratch decoration.py",
+      "opaque scratch inspection.js"
+    ],
+    "primaryForm": {
+      "status": "PASS",
+      "observed": {
+        "ok": true,
+        "state": {
+          "revision": 1,
+          "density": "compact"
+        }
+      }
+    },
+    "textRenderer": {
+      "status": "PASS"
+    },
+    "geometry": {
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "width": 320,
+      "overflow": false,
+      "heading": true,
+      "controls": [
+        {
+          "tag": "SELECT",
+          "width": 145,
+          "height": 19,
+          "visible": true,
+          "horizontal": true
+        },
+        {
+          "tag": "INPUT",
+          "width": 185,
+          "height": 21,
+          "visible": true,
+          "horizontal": true
+        },
+        {
+          "tag": "SELECT",
+          "width": 95,
+          "height": 19,
+          "visible": true,
+          "horizontal": true
+        },
+        {
+          "tag": "INPUT",
+          "width": 13,
+          "height": 13,
+          "visible": true,
+          "horizontal": true
+        },
+        {
+          "tag": "BUTTON",
+          "width": 123.4375,
+          "height": 21,
+          "visible": true,
+          "horizontal": true
+        },
+        {
+          "tag": "SUMMARY",
+          "width": 304,
+          "height": 18,
+          "visible": true,
+          "horizontal": true
+        },
+        {
+          "tag": "SUMMARY",
+          "width": 304,
+          "height": 18,
+          "visible": true,
+          "horizontal": true
+        }
+      ]
+    }
+  },
+  "unexpectedRequiredFailures": 0,
+  "originalAgentAction": {
+    "status": "UNKNOWN",
+    "reason": "Original production API has no agent preferences action concept"
+  }
+}

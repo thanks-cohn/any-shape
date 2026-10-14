@@ -1,0 +1,5 @@
+
+> @any-shape/core@0.1.0 test:package
+> node scripts/package-smoke.js
+
+Package passed: 84 files, 1317297 packed bytes; external JS/CSS/schema/type resolution and static adopter smoke verified with no runtime dependencies.

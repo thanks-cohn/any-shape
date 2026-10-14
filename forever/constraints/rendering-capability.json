@@ -1,0 +1,23 @@
+{
+  "category": "platform",
+  "classification": "hard",
+  "foreverVersion": "0.1",
+  "id": "constraint.rendering-capability",
+  "kind": "constraint",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "scope": [
+    "intent.any-shape"
+  ],
+  "statement": "A realization must declare available rendering primitives and unsupported media rather than claim every renderer is equivalent.",
+  "verification": [
+    {
+      "expected": "Verify in declared environment and record untested dimensions as unknown.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

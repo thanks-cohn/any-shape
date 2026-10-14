@@ -1,23 +1,32 @@
 {
+  "criticality": "important",
   "foreverVersion": "0.1",
   "id": "capability.layout-observability",
   "kind": "capability",
   "name": "Explain layout faults",
-  "statement": "Return structured, repeatable, redacted evidence of overflow, clipping, container geometry and uncertain root-cause hypotheses.",
+  "provenance": {
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "sourceType": "agent-proposed"
+  },
+  "relatedImplementations": [
+    "implementation.diagnostics"
+  ],
   "relatedInvariants": [
     "invariant.privacy",
     "invariant.measured-truth"
   ],
-  "relatedImplementations": [
-    "implementation.diagnostics"
-  ],
-  "verification": [],
-  "criticality": "important",
-  "status": "active",
-  "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+  "statement": "Return structured, repeatable, redacted evidence of overflow, clipping, container geometry and uncertain root-cause hypotheses.",
+  "status": "implemented-browser-scope",
+  "verification": [
+    {
+      "command": "npm run check",
+      "evidence": [
+        "evidence.original-implementation"
+      ],
+      "expected": "Preserve the scoped AS browser contracts.",
+      "type": "external-conformance-suite"
+    }
+  ]
 }

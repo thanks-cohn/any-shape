@@ -1,0 +1,5 @@
+
+> @any-shape/core@0.1.0 test:recovery
+> node scripts/recovery.js
+
+Recovery passed: diagnostic artifact removed; replacement Node assertion harness proved container modes, narrow reflow, form behavior, graceful diagnostic failure and axe accessibility.

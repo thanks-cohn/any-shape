@@ -1,13 +1,28 @@
 {
+  "boundary": "Any-Shape 0.1 CSS classes/tokens, ESM exports/types and diagnostic schema",
+  "contractType": "API",
   "foreverVersion": "0.1",
   "id": "compatibility.public-api-v01",
   "kind": "compatibility",
-  "name": "Current consumer-facing v0.1 compatibility",
-  "statement": "Preserve documented CSS classes, tokens, package entry points and diagnostic JSON behavior or provide an explicit tested migration.",
+  "mayChange": [
+    "Implementation language and internal algorithms subject to compatibility proof"
+  ],
+  "migrationPolicy": "Version and test explicit migration; semantic equivalence does not imply drop-in compatibility.",
+  "mustPreserve": [
+    "Documented classes and tokens",
+    "Package entry points and diagnostic behavior",
+    "AS-001 through AS-016 browser obligations"
+  ],
   "provenance": {
-    "sourceType": "agent-proposed",
-    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
-    "confidence": 0.9,
-    "reviewStatus": "pending"
-  }
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "validationReferences": [
+    "docs/API/CURRENT_API_V0_1.md",
+    "tests/consumer.ts",
+    "scripts/package-smoke.js"
+  ],
+  "version": "0.1"
 }

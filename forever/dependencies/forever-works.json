@@ -1,0 +1,32 @@
+{
+  "compatibilityObligations": [],
+  "dependencyName": "Forever Works v0.1 standard, schemas and CLI",
+  "dependencyType": "preservation-standard-and-development-tool",
+  "extensions": {
+    "org.any-shape": {
+      "cliLimitation": "Upstream Python CLI is partial and narrower than published schemas; Ajv2020 is an additional canonical-schema gate."
+    }
+  },
+  "foreverVersion": "0.1",
+  "historicalContext": "Unmodified MIT upstream at 55c81544a5ae3cfa08959c95d805a677db07d43f; byte hashes in vendor/forever-works/UPSTREAM.json.",
+  "id": "dependency.forever-works",
+  "kind": "dependency",
+  "protectedInvariants": [
+    "invariant.measured-truth"
+  ],
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "Handoff 002 technical extraction and scoped reconstruction; owner acceptance not implied.",
+    "sourceType": "agent-proposed"
+  },
+  "purpose": "Preserve machine-readable intent/provenance and conservative replacement verification.",
+  "reasonSelected": "The owner explicitly requests the actual standard rather than a private substitute.",
+  "replacementClassification": "SEMANTIC",
+  "replacementRequirements": [
+    "capability.behavioral-equivalence"
+  ],
+  "requiredCapabilities": [
+    "capability.interoperability"
+  ]
+}

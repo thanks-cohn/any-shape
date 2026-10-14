@@ -1,0 +1,26 @@
+{
+  "changePolicy": "Owner approval required for semantic changes; proposals do not supersede web compatibility.",
+  "foreverVersion": "0.1",
+  "id": "invariant.web-compatibility",
+  "kind": "invariant",
+  "name": "Established web obligations",
+  "provenance": {
+    "confidence": 0.85,
+    "reviewStatus": "unreviewed",
+    "sourceReference": "docs/CODEX/CODEX_HANDOFF_002_UNIVERSAL_IDENTITY.md; derived technical mapping, not owner-ratified",
+    "sourceType": "agent-proposed"
+  },
+  "relatedCapabilities": [],
+  "scope": [
+    "intent.any-shape"
+  ],
+  "severity": "critical",
+  "statement": "The current v0.1 browser behavior and public consumer contract MUST remain protected independently of proposed universal extensions.",
+  "verification": [
+    {
+      "command": "node scripts/evaluate-reconstruction.mjs",
+      "expected": "Independent positive and negative checks; human accessibility and aesthetic approval kept separate.",
+      "type": "external-conformance-suite"
+    }
+  ]
+}

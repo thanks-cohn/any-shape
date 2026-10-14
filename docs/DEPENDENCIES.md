@@ -58,4 +58,8 @@ Recovery copies core and lab into a temporary directory, removes the actual diag
 
 ## Browser capabilities and gaps
 
+Preservation work retains the actual Forever Works v0.1 standard/schemas/CLI/binding/example from MIT-licensed upstream commit `55c81544a5ae3cfa08959c95d805a677db07d43f`, with immutable source pin and byte hashes in `vendor/forever-works/UPSTREAM.json`. The CLI uses standard-library Python; independent schema validation uses the already pinned Ajv 8.20.0 draft-2020-12 module. No new npm dependency was added. Upstream is unmodified; see `docs/RECONSTRUCTION/DEPENDENCY_AND_FAILURE_ATLAS.md` for its role and tooling limitations.
+
+The Python proof uses only Python 3 standard-library domain/server/text modules and optional local decoration/inspection artifacts; its test realm is not production authentication. Its independent Node evaluator uses the existing Playwright installation and retains that driver. These are source-repository reconstruction tools, not browser consumer runtime dependencies or new public exports.
+
 Core uses grid, flex, logical properties, clamp, aspect-ratio, layers and fluid `vi` units. Target recent evergreen engines. Named container queries enhance a usable stacked baseline. Engines lacking cascade layers or modern intrinsic sizing are outside the verified baseline; removing query rules tests fallback behavior, not an actual obsolete browser. No-JS, RTL, reduced-motion, pointer/touch and CSS viewport squeeze are distinct tested dimensions. Native browser UI zoom, assistive technologies, mobile hardware, forced colors, print and human aesthetic review require additional evidence. See the implementation report for actual engines and results.

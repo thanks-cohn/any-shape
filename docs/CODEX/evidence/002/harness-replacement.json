@@ -1,0 +1,22 @@
+{
+  "candidate": "implementation.independent-evaluator",
+  "checks": [
+    {
+      "evidence": [
+        "evidence.dependency-loss-002"
+      ],
+      "reason": "Executed all 12 declared fixture cases after opaque selfcheck.py loss; retained Python/domain and browser driver; untested dimensions explicit.",
+      "requirement": "capability.same-test-coverage",
+      "status": "pass"
+    },
+    {
+      "evidence": [
+        "evidence.dependency-loss-002"
+      ],
+      "reason": "Executed all 12 declared fixture cases after opaque selfcheck.py loss; retained Python/domain and browser driver; untested dimensions explicit.",
+      "requirement": "invariant.measured-truth",
+      "status": "pass"
+    }
+  ],
+  "result": "pass"
+}
