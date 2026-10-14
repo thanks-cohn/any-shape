@@ -39,3 +39,34 @@ test('R2-only stable record URL fetches original JSON',async()=>{
  assert.equal(loaded.status,200);
  assert.equal((await loaded.json()).answers.count,2);
 });
+
+test('multipart image and text files are saved by category and referenced by JSON',async()=>{
+ const stored=new Map();
+ const env={SUBMISSIONS_R2:{
+  async put(key,value){stored.set(key,value)},
+  async get(key){const value=stored.get(key);return value==null?null:{async json(){return JSON.parse(value)},async text(){return String(value)}}}
+ }};
+ const fd=new FormData();
+ fd.append('submission',JSON.stringify({formId:'studio',answers:{note:'attached'}}));
+ fd.append('files',new File(['fake-png'],'photo.png',{type:'image/png'}));
+ fd.append('files',new File(['hello'],'readme.txt',{type:'text/plain'}));
+ const response=await onRequestPost({request:new Request('https://example.test/api/submit',{method:'POST',body:fd}),env});
+ assert.equal(response.status,200);
+ const receipt=await response.json();
+ const keys=[...stored.keys()];
+ assert.ok(keys.some(x=>x.startsWith('Submitted-Files/Images/studio/')));
+ assert.ok(keys.some(x=>x.startsWith('Submitted-Files/Text/studio/')));
+ const result=await onRequestGet({params:{id:receipt.submissionId},env});
+ assert.equal(result.status,200);
+ const record=await result.json();
+ assert.equal(record.files.length,2);
+ assert.ok(record.files.every(x=>stored.has(x.r2Key)));
+ assert.equal(record.answers.note,'attached');
+});
+test('files cannot be accepted without R2 binding',async()=>{
+ const fd=new FormData();
+ fd.append('submission',JSON.stringify({formId:'studio',answers:{}}));
+ fd.append('files',new File(['x'],'file.txt',{type:'text/plain'}));
+ const response=await onRequestPost({request:new Request('https://example.test/api/submit',{method:'POST',body:fd}),env:{SUBMISSIONS_DB:{}}});
+ assert.equal(response.status,503);
+});
