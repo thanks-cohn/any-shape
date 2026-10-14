@@ -1,0 +1,23 @@
+{
+  "foreverVersion": "0.1",
+  "id": "invariant.no-js",
+  "kind": "invariant",
+  "name": "Optional runtime may fail independently",
+  "statement": "Core layout, native form controls, navigation and disclosure remain usable if optional diagnostic JavaScript is unavailable.",
+  "scope": [
+    "intent.any-shape"
+  ],
+  "verification": [],
+  "changePolicy": "foundational",
+  "severity": "critical",
+  "relatedCapabilities": [
+    "capability.semantic-interaction",
+    "capability.portable-adoption"
+  ],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
