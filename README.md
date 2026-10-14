@@ -118,3 +118,7 @@ The browser-side first reference is now source-implemented: a standalone, **20-q
 ## The wiring must survive
 
 [RFC-010 — Event–Effect Continuity](docs/PROPOSALS/EVENT_EFFECT_CONTINUITY_RFC_010.md) makes **a press here means the same thing there** a formal reconstruction requirement. The intended standard maps browser DOM gestures and native Python GUI signals to stable logical actions, typed arguments, guards, state transitions, declared and **observed** storage/HTTP/file effects and user-visible outcomes. An unfamiliar agent should be able to trace each control → action → effect → test fixture → Python counterpart without the original author's explanation. The API and three native implementations are **proposed future work**, not claimed shipped functionality.
+
+## Plug-and-play response destinations (initial browser implementation)
+
+The advanced [OpenForm Flow](examples/openform-flow/) now includes a **Destinations** settings dialog for local response saving, direct JSON POST to a configurable permitted HTTPS endpoint, or both, with an explicit test request and visible delivery status. Destination configuration travels in exported form JSON. These are public-browser-capable adapters, **not** private credential storage, guaranteed webhook delivery or public hosting. The architectural standard is [RFC-012](docs/PROPOSALS/PORTABLE_DESTINATIONS_CONTRACT_RFC_012.md), specifying future transport-neutral effects, security, receipts, idempotency, and language-specific adapters. Native Python and TypeScript reference counterparts remain to be built.
