@@ -36,7 +36,7 @@ This is a **suggested reference**, not a mandate to add empty infrastructure fil
 
 The public form contains **no editor, admin settings, original studio controls, or Any-Shape branding**. After export, an owner can edit `form.json` directly and redeploy. Owner-defined webhook destinations are preserved in a portable documented structure. Browser-local response storage is not a required production component.
 
-The Pages Function is a **small, ordinary JSON receiver and forwarding adapter**. It is *not* a D1/R2/database platform, account service, submission dashboard, queue framework, or proprietary runtime. A successful HTTP receipt must not be misrepresented as downstream persistence or processing.
+The Pages Function is a **small, ordinary JSON receiver and forwarding adapter**. The base reference remains minimal. **R2 and D1 are two deliberately scoped, separately testable storage adapters** (see below), not requirements for every exported app; this does not authorize an account service, dashboard, queue framework, or proprietary runtime. A successful HTTP receipt must not be misrepresented as downstream persistence or processing.
 
 ## Reference execution and proof
 
@@ -65,7 +65,7 @@ Because the browser posts **to its own Pages Function**, third-party cross-origi
 
 ## Strict scope discipline
 
-**Do not add D1, R2, extra databases, queues, account systems, analytics, storage indexes or competing deployment backends to prove this reference.** They are separate future products or optional extensions, not prerequisites for the owner's simple GitHub → Pages → arbitrary permitted webhook objective.
+**Keep a minimal Pages + webhook-forwarding baseline**, and add exactly two *opt-in storage exemplars*: R2 object persistence and D1 row persistence. Test each independently. Neither is required for ordinary forwarding-only exports; avoid queues, account systems, analytics, generalized storage frameworks or competing deployment backends.
 
 **Do not handcraft flagship conversions.** Build one small, valid Pages reference whose behavior and deployment have been independently checked; teach the agent the general export and deployment invariants. Additional examples must justify themselves by revealing genuinely different capabilities, not by duplicating boilerplate.
 
@@ -79,6 +79,28 @@ This is the same deeper Forever Works principle: preserve the capability's ident
 
 ## Future questions (not blockers to the reference)
 
-Hosting services, deployment procedures, and APIs may evolve. Agents should discover the currently supported Cloudflare Pages/Wrangler conventions rather than blindly replay obsolete commands. Any future database, store or advanced delivery layer must be justified by a separately scoped application need and corresponding test evidence.
+Hosting services, deployment procedures, and APIs may evolve. Agents should discover the currently supported Cloudflare Pages/Wrangler conventions rather than blindly replay obsolete commands. The two specified R2 and D1 adapters below are the bounded storage examples. Further storage services or advanced delivery layers require their own scoped justification and evidence.
 
 **Success statement:** A cold agent can inspect one reference, export a respondent-only application with the required Pages Function, commit conventional files to GitHub, deploy through Wrangler, and demonstrate end-to-end webhook delivery without guessing or introducing unnecessary infrastructure.
+
+## Owner addendum — two Cloudflare persistence exemplars (2026-10-14)
+
+The owner wants the reference to teach agents **how an actual Pages Function can persist a form submission in either R2 or D1**. This expands the evidence corpus without changing the standard's minimal architecture. Do not make storage mandatory for every exported product. Preserve independent owner-configured external HTTPS webhooks.
+
+The same `POST /api/submit` contract should work with three clearly declared deployment modes:
+
+| Mode | Actual effect | Verification |
+| --- | --- | --- |
+| **Webhook-only baseline** | Forward authorized validated JSON to a configured permitted HTTPS endpoint | Receiver captures actual request/response |
+| **R2 example** | Persist the JSON body as an object via a Pages R2 binding, e.g. `submissions/<form-id>/submission-<random-uuid>-<UTC-timestamp>.json` | Independently fetch the object and byte/semantic-compare |
+| **D1 example** | Insert normalized receipt metadata and the submission JSON (or explicitly documented payload subset) via a Pages D1 binding and parameterized SQL | Independently query the row by submission ID and verify payload |
+
+The R2 object key should use a cryptographically generated identifier (e.g. UUID) **plus a collision-resistant UTC timestamp**, not a timestamp alone. Sanitize the form ID before using it in paths. Preserve a separate stable submission ID to support de-duplication checks; a random object key alone does **not** provide idempotency. Set appropriate content type, validate payload sizes, avoid accidentally exposing a public bucket, and document how data is retained or deleted.
+
+For D1, ship a **small, explicit SQL schema/migration**, binding declaration and setup instructions. State whether a record's stable ID is a unique key and what a duplicate submission returns. No pretense that tables exist without provisioning and applying the migration. All SQL values must be parameterized. Credentials and binding resources belong to the deployer's environment/configuration rather than public `form.json`.
+
+**Testing:** Locally exercise each mode using Wrangler and reproducible synthetic submissions; verify HTTP acknowledgments **only after the intended persistence/forwarding effect is confirmed**. Test duplicate IDs, invalid JSON, schema failure, storage unavailability and HTTP failures. Then, once appropriate Cloudflare resources are configured by an authorized owner, repeat real remote checks. If testing a combination (R2 + D1, or storage + outbound webhook), record partial results accurately: these operations are **not one atomic transaction**, so document retry and reconciliation behavior. Never claim D1 and R2 have identical operational semantics.
+
+**Minimal configuration doctrine:** Two small working adapter examples in one indexed reference corpus are better than building a general-purpose database abstraction or introducing mandatory storage into every exported app. An agent should understand when and why to select R2, D1, both, or neither, and apply the documented Pages/Wrangler pattern in an unfamiliar app.
+
+**Implementation status:** Proposed and documented here only. Neither the R2 nor D1 persistence example has been implemented and independently exercised as part of the current website export ZIP.
