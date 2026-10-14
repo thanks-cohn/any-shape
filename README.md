@@ -219,3 +219,7 @@ The intended **default deployment target** for a complete exported application i
 
 
 **Optional research examples:** The Cloudflare Pages golden reference also proposes two separately verified storage integrations—R2 JSON objects and D1 SQL rows—with a **stable individually retrievable JSON URL per submission**. The goal is to let independent future applications consume the same form data through a portable contract. Storage is optional; private/authenticated access is the default. These are documented goals, **not current export functionality**; see the [golden reference proposal](docs/PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md).
+
+## Future flagship: Keepsake verified transference research
+
+The [Keepsake Cross-Platform Agent Economics research charter](docs/RESEARCH/KEEPSAKE_CROSS_PLATFORM_AGENT_ECONOMICS.md) preserves the intended next phase after verified form deployment: reconstruct the original Chrome extension into an Android application and a **shared C# / Avalonia desktop application** for Windows and Linux, with real independent per-platform acceptance tests. Its research measures agent runs, duplicated work, behavioral parity, human verification burden, and agent-led long-term release maintenance. This is a **future research target, not a completed multiplatform port**.
