@@ -74,3 +74,8 @@ The owner expects **Cloudflare Pages + `npx wrangler`**, with source files commi
 ### Proposed optional Cloudflare storage and cross-app JSON retrieval examples
 
 The golden Pages reference now proposes **both** an R2 JSON-object storage example and a D1 SQL-row example, with independent tests and no mandatory database for webhook-only exports. A core research use case is a stable **URL per submitted JSON record**, retrievable through a documented versioned JSON interface by other authorized applications. A stored object is not automatically publicly accessible; authentication, sharing policy, retention and data minimization must be explicit. See [the golden reference proposal](../PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md). These capabilities are **not yet implemented** in the current static export.
+
+
+## File attachment routing — reference implemented, generated exporter pending
+
+The [Cloudflare Pages reference](../../examples/cloudflare-pages-reference/README.md) now supports actual multipart uploads into the existing bound R2 bucket, grouped by extension/MIME category beneath `Submitted-Files/`, and records R2 object keys in the submission JSON. R2 object prefixes appear automatically upon upload and do not require separate folders to be created. This is an executable **reference handler** plus automated test cases, **not yet functionality of the website ZIP created by Studio, Flow or Schema**. Before claiming those exported forms support uploads, their generated JavaScript must send real file bytes, the Cloudflare backend must ship with each export, and live attachment tests must pass.
