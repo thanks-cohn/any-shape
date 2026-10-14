@@ -19,9 +19,10 @@ test('Pages reference stores identical JSON in R2 and D1 and retrieves by URL', 
  assert.match(sql,/INSERT INTO submissions/);
  const got=await onRequestGet({params:{id:receipt.submissionId},env,request:new Request('https://example.test')});
  assert.equal(got.status,200);
- assert.deepEqual(await got.json(),JSON.parse(object.body));\n assert.match(sql,/SELECT payload_json/);
+ assert.deepEqual(await got.json(),JSON.parse(object.body));
+ assert.match(sql,/SELECT payload_json/);
 });
-test('rejects malformed payload and honestly reports R2-only retrieval limitation',async()=>{
+test('rejects malformed payload and honestly reports missing lookup backend',async()=>{
  const r=await onRequestPost({request:new Request('https://example.test',{method:'POST',body:'garbage'}),env:{}});
  assert.equal(r.status,400);
  const missing=await onRequestGet({params:{id:'00000000-0000-4000-8000-000000000000'},env:{},request:new Request('https://example.test')});
