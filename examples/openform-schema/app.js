@@ -35,7 +35,7 @@ $("back").addEventListener("click",()=>{if(state.stage>0){state.stage--;save();r
 $("next").addEventListener("click",async()=>{if(!state.published){announce("Publish locally to enable submissions.");return}if(!check())return;if(state.stage<config.sections.length-1){state.stage++;save();render()}else await submit()});
 $("theme").addEventListener("click",()=>{config.appearance.theme=config.appearance.theme==="light"?"dark":"light";save();render()});
 $("appearance").addEventListener("change",()=>{config.appearance.theme=($("appearance")).value;save();render()});
-$("publish").addEventListener("click",()=>{state.published=true;state.stage=0;save();render();announce("Published locally. This page shows the finished respondent form; open ?edit=1 for settings.")});
+$("publish").addEventListener("click",()=>{state.published=true;state.stage=0;save();render();announce("Your form is ready to receive responses.")});
 $("saveDraft").addEventListener("click",()=>{save();announce("Draft saved.")});
 $("clearDraft").addEventListener("click",()=>{if(confirm("Clear draft answers?")){state.answers={};state.items=[{id:newId(),description:"",quantity:1,unitPrice:0}];state.stage=0;save();render()}});
 $("exportConfig").addEventListener("click",()=>download("openform-schema.config.json",JSON.stringify(config,null,2)));
