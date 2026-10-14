@@ -114,3 +114,7 @@ The browser-side first reference is now source-implemented: a standalone, **20-q
 ## Next proof: three-form JavaScript/TypeScript → native Python ladder
 
 [RFC-009](docs/PROPOSALS/THREE_FORM_TRANSFERENCE_LADDER_RFC_009.md) defines three escalating source applications and three separate **native Python/Qt** counterparts: (1) vanilla JS OpenForm Studio (standard intake), (2) vanilla JS OpenForm Flow (no-code authoring, branches, matrices and repeaters), (3) proposed TypeScript OpenForm Schema (typed schema-driven calculations, nested structured data, validation and endpoint contracts). The third form and all three native equivalents are **future implementation work**, not shipped. Its purpose is to teach cold agents transferable semantics, native UX reconstruction and independently testable API/data/state continuity while preserving the lightweight v0.1 library.
+
+## The wiring must survive
+
+[RFC-010 — Event–Effect Continuity](docs/PROPOSALS/EVENT_EFFECT_CONTINUITY_RFC_010.md) makes **a press here means the same thing there** a formal reconstruction requirement. The intended standard maps browser DOM gestures and native Python GUI signals to stable logical actions, typed arguments, guards, state transitions, declared and **observed** storage/HTTP/file effects and user-visible outcomes. An unfamiliar agent should be able to trace each control → action → effect → test fixture → Python counterpart without the original author's explanation. The API and three native implementations are **proposed future work**, not claimed shipped functionality.
