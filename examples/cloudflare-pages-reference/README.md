@@ -41,3 +41,10 @@ A human or agent should capture real HTTP status, stable submission ID, GET resu
 ## Scope and caution
 
 This is a deliberately small **experimental harness**. Production use requires authentication and authorization for raw records, webhook target restrictions, idempotency and retention policy. Do not expose real responses through the unauthenticated GET reference.
+
+
+## Minimal account setup: existing bucket assumption
+
+For the simplest **controlled synthetic-data experiment**, assume the owner already has an R2 bucket and can bind it to the Cloudflare Pages project as `SUBMISSIONS_R2`. The test then needs only the configured Pages R2 binding and the D1 database setup (if testing D1). No browser-to-R2 CORS configuration or public bucket is necessary for the recommended flow: browser → same-origin Pages Function → R2 binding → same-origin JSON retrieval endpoint.
+
+If deliberately testing **direct browser-to-R2** fetching or uploading, configure CORS for the actual requesting web origin (usually the deployed `*.pages.dev` domain or custom domain, **not GitHub simply because GitHub hosts the repository**). For **public object URL** testing, separately enable R2's public access/custom domain and verify the actual object URL, but only with clearly synthetic non-sensitive data. Public buckets are **optional** and not required for the stable `/api/submissions/<id>` URL in this reference. Do not present a raw R2 object URL as the same thing as the Pages API's canonical record URL.
