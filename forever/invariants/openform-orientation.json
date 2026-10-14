@@ -1,0 +1,29 @@
+{
+  "foreverVersion": "0.1",
+  "id": "invariant.openform-orientation",
+  "kind": "invariant",
+  "name": "OpenForm adaptive aesthetic and orientational continuity",
+  "statement": "The form preserves recognizable title, section grouping, question order, full field meaning, readable standard typography, keyboard-reachable primary actions, portable light/dark color intent and answer integrity as the browser or future native window changes shape. Rich media sections retain a recognizable accessible alternative if a native renderer lacks an embed mechanism.",
+  "severity": "high",
+  "scope": [
+    "intent.any-shape"
+  ],
+  "changePolicy": "Owner-reviewed continuity principle; change with documented evidence",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "User request for generic 20-question editor, monochrome themes, adaptive aesthetics and Python transference; docs/EXAMPLES/OPENFORM_CONTINUITY.md; implementation mapping pending owner review",
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed"
+  },
+  "relatedCapabilities": [
+    "capability.openform-reference",
+    "capability.contextual-reflow"
+  ],
+  "verification": [
+    {
+      "type": "manual-probe",
+      "expected": "Review light and dark, 320px/intermediate/wide, keyboard, long input, resize, embedded provider fallback and native Python once implemented. No executed test result is claimed.",
+      "command": "npm run dev; open /examples/openform/"
+    }
+  ]
+}
