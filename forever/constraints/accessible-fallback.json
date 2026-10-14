@@ -1,0 +1,13 @@
+{
+  "foreverVersion": "0.1",
+  "id": "constraint.accessible-fallback",
+  "kind": "constraint",
+  "name": "Degrade with meaning intact",
+  "statement": "When space or browser features are inadequate, preserve access with reflow, wrapping or explicit scroll rather than unrecoverable clipping.",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
