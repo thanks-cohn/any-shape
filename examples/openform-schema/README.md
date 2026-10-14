@@ -29,3 +29,7 @@ Line items use quantity and unit amount, with subtotal/tax/total calculated in c
 An unfamiliar agent should use the portable configuration, RFC-009 through RFC-012 and the source tests to reproduce a **native Python/Qt implementation**, including actual controls, input validation, calculated totals, section navigation, local drafts, theme identity and same destination HTTP payload and error behavior. A WebView wrapper is not sufficient proof.
 
 The Python counterpart is **not yet built**, and cross-browser/manual visual tests of this newly built third example remain to be executed. Keep design intent, actions, and observed effects distinct from unsupported functionality.
+
+## Respondent view has zero editing controls
+
+Published mode at `/examples/openform-schema/` hides the author header and sidebar completely. Only the application title, description, sections and respondent navigation remain. Open `/examples/openform-schema/?edit=1` explicitly to access configuration and connections; this is a convenience route, not an authenticated permissions boundary. Deployment to other users requires separating author permissions from respondent access on the server.
