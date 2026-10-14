@@ -49,3 +49,7 @@ This example should be a **second, harder reconstruction benchmark**, using acce
 - Clearly scoped submission and storage (local-only unless a real server API is provided and verified).
 
 The browser already implements a useful authoring experience; **the native Python implementation is future work**. See [human/agent continuity specification](../../docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md), RFC-006/RFC-007 and the root Forever Works manifest for intended portability. Do not call demo-only file metadata a complete upload or local Publish an internet publishing service.
+
+## Destination settings (implemented browser slice)
+
+Click **Destinations** in the top toolbar. Select **Save on this device**, **Send to URL (POST)**, or **Save locally and send to URL**, then save. You can optionally send a **real synthetic test request** to an endpoint you control. Endpoint URLs must be HTTPS (or localhost HTTP for development), allow browser CORS, and accept a JSON POST with the standard response envelope. If endpoint delivery fails, a visible error is displayed; partial delivery can occur in dual mode. Do not put secret tokens in the exported form JSON or send sensitive personal information to a public test webhook. For secured webhooks, use a backend relay. Local Publish still does not host the form publicly. See [RFC-012 portable destinations](../../docs/PROPOSALS/PORTABLE_DESTINATIONS_CONTRACT_RFC_012.md).
