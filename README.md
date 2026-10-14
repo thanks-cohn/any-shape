@@ -216,3 +216,6 @@ Only configured **HTTP JSON POST webhook** destinations are included in the publ
 ### Planned Cloudflare Pages golden deployment example
 
 The intended **default deployment target** for a complete exported application is a normal GitHub project deployed to **Cloudflare Pages with `npx wrangler`**. The owner wants a respondent-only form and a **small Pages Function forwarding JSON submissions to permitted owner-selected webhooks**, with no mandatory D1/R2/database. **This server-side export is still proposed, not implemented or verified by the current static-only ZIP.** Read [the golden reference proposal](docs/PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md) before adding hosting infrastructure; it calls for one reproducible, empirically verified example rather than many templates.
+
+
+**Optional research examples:** The Cloudflare Pages golden reference also proposes two separately verified storage integrations—R2 JSON objects and D1 SQL rows—with a **stable individually retrievable JSON URL per submission**. The goal is to let independent future applications consume the same form data through a portable contract. Storage is optional; private/authenticated access is the default. These are documented goals, **not current export functionality**; see the [golden reference proposal](docs/PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md).
