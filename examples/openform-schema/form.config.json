@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "openform-schema-reference",
+  "title": "Project Proposal & Estimate",
+  "description": "A configurable project application with repeating expenses, automated estimates and review before submission.",
+  "currency": "USD",
+  "taxRate": 0,
+  "appearance": {
+    "theme": "light"
+  },
+  "sections": [
+    {
+      "id": "request",
+      "title": "About your request",
+      "fields": [
+        {
+          "id": "contactName",
+          "label": "Your name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "contactEmail",
+          "label": "Email for updates",
+          "type": "email",
+          "required": true
+        },
+        {
+          "id": "category",
+          "label": "Project category",
+          "type": "select",
+          "options": [
+            "Education",
+            "Community",
+            "Technology",
+            "Creative",
+            "Services",
+            "Other"
+          ],
+          "required": true
+        },
+        {
+          "id": "summary",
+          "label": "Describe your request",
+          "type": "textarea",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "estimate",
+      "title": "Build your estimate",
+      "fields": [
+        {
+          "id": "startDate",
+          "label": "Desired start date",
+          "type": "date",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "title": "Review and submit",
+      "fields": []
+    }
+  ],
+  "connections": {
+    "version": 1,
+    "targets": [
+      {
+        "id": "local",
+        "label": "Save on this device",
+        "kind": "local",
+        "url": "",
+        "enabled": true,
+        "required": true
+      }
+    ]
+  }
+}
