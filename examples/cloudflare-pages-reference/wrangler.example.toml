@@ -1,0 +1,15 @@
+# Copy to wrangler.toml and supply YOUR real Cloudflare IDs.
+name = "any-shape-deployment-lab"
+pages_build_output_dir = "./public"
+compatibility_date = "2026-10-14"
+
+[[r2_buckets]]
+binding = "SUBMISSIONS_R2"
+bucket_name = "any-shape-test-submissions"
+
+[[d1_databases]]
+binding = "SUBMISSIONS_DB"
+database_name = "any-shape-test-submissions"
+database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"
+
+# Optional external webhook: set via the Pages environment, not a real secret in this template.
