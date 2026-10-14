@@ -98,3 +98,11 @@ The proposed production-oriented examples progress from **JavaScript ↔ native 
 ## First copyable reference app — OpenForm Studio (planned)
 
 A standalone, attractive, **15-question configurable HTML/CSS/JavaScript form** (comfortably supporting 10–20 questions), with working local answers/JSON/CSV export and optional API POST. Default appearance: **black text on white**; set `appearance.theme` in the simple JSON config to `dark` for **white text on black**, with a standard system font. Its independent native Python form will prove actual UI/input/API/adaptation parity. Full Codex implementation brief: [Handoff 004](docs/CODEX/CODEX_HANDOFF_004_OPENFORM_REFERENCE_AND_PYTHON_TRANSFERENCE.md). Not yet implemented.
+
+## Working browser example — OpenForm Studio
+
+[Launch through the local static server](examples/openform/) · [User and copy guide](examples/openform/README.md) · [Human/agent design and continuity guide](docs/EXAMPLES/OPENFORM_CONTINUITY.md)
+
+The browser-side first reference is now source-implemented: a standalone, **20-question** configurable general intake form with radio circles, multiple-choice checkboxes, dropdowns, short/long text, date, URL, numeric and range inputs; right-click and visible accessible Edit controls; `+ Add question` and `+ Add section / embed`; JSON import/export; black-on-white and white-on-black themes driven by configuration; local-only Publish and response JSON/CSV export. Layout reflows from two columns to one at constrained widths, preserving readable section headings and controls. External embed sections use a strict HTTPS player allowlist and sandbox. `npm run dev`, then open `/examples/openform/`.
+
+**Evidence boundary:** Source and configuration passed static parsing checks (20 questions). New browser tests are committed at `tests/browser/openform.spec.js`, but have not yet been executed in this work session; full cross-browser usability and manual aesthetic approval remain pending. No native Python OpenForm implementation or verified API-endpoint transference has yet been delivered. The canonical Forever Works records `capability.openform-reference`, `invariant.openform-orientation` and `implementation.openform-browser` preserve purpose, design identity and scoped implementation status.
