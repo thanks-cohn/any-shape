@@ -237,3 +237,29 @@ A hand-ported Android/desktop copy presented as an agent conversion; source-tail
 **Progression:** verified forms and webhook/side-effect evidence -> minimal semantic discovery/continuity package -> cold Chrome extension trial -> Android proof -> Avalonia Windows/Linux proof -> independent generalization and drift/repair evaluation. The original milestone map's M0–M11 gates still apply; do not leapfrog baseline verification.
 
 **Interpretation rule:** The showcase product may change or even be replaced. The transferable, independently verifiable method is what Any-Shape exists to demonstrate.
+
+
+## Evidence-driven standard evolution — learning from every reconstruction
+
+**Owner-directed long-term principle (2026-10-14):** The reconstructed applications are more than artifacts or demonstrations. They are controlled experiments that can expose missing abstractions in **Any-Shape and the canonical Forever Works standard**. Each verified conversion, failed conversion, debugging session, native-platform mismatch, UI adaptation and maintenance event should leave durable **lessons learned**. Evaluate whether a lesson is a generalizable semantic or diagnostic principle, rather than accumulating app-specific special cases.
+
+**Feedback loop:** independently verified source behavior → cold agent reconstructs on a pinned target → evaluators compare real UI, state, lifecycle and authorized effects → record failures/repairs and constraints → identify candidate generalizable invariants/adapters/model extensions → propose a versioned Forever Works-compatible change → validate across multiple unrelated applications and environments → human/maintainer review and backwards compatibility → adopt or reject explicitly → next agent/corpus release inherits accepted knowledge.
+
+### Proposed lesson record (illustrative; not yet a canonical Forever Works record)
+
+A compact machine-readable lesson should identify: source and target app/commit/environment pins; originating operation or invariant IDs; inputs and actual outputs; expected and observed effects; responsive/visual findings; PASS/FAIL/UNKNOWN/UNSUPPORTED and uncertainty; failure class and root-cause confidence; attempted repairs; independent test/trace references; implementation-level workaround versus genuinely new general obligation; suggested schema/API/adapter improvement; cross-project supporting/counter evidence; provenance and human-review status. Store lessons as proposed extension records only where permitted by the pinned canonical spec; **never invent new Forever Works record types and call them upstream standards**.
+
+### Controls against corpus and schema bloat
+
+- Prefer repairing an implementation or adapter before changing the neutral ontology.
+- Prefer a general principle supported by at least two distinct application types or a compelling independently replicated counterexample.
+- Keep failed experiments: they teach the boundary of the current standard.
+- Version accepted changes, test backward compatibility, and preserve historical releases and evidence.
+- An agent may **draft proposals** for standards evolution; it may not silently make its inferred explanation authoritative or self-approve a fundamental invariant.
+- Benchmark whether proposed changes genuinely improve a **new cold-agent reconstruction** instead of only the original case.
+
+### Why this matters
+
+The experiment measures more than whether one Chrome extension can yield Android and Avalonia projects in one or a few agent runs. Over successive unfamiliar projects, it should test whether an accumulating but **small, curated, evidence-backed corpus** measurably improves reconstruction accuracy, diagnostic quality, portability and human maintenance cost. This provides a credible avenue for reproducible software-engineering and HCI research, including comparisons against a cold agent without the package and with ordinary project documentation.
+
+**Recovery priority:** If chat history is lost, do **not** start by manually porting a flagship app. First verify the three existing browser forms and webhook/effect test laboratory, repair current CI and layout failures, build minimal general semantic inspection and evidence tooling, freeze a genuine independent extension, and only then run a cold-agent reconstruction with independently measured outcomes. Feed confirmed lessons back to Forever Works through reviewable proposals.
