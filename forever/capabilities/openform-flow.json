@@ -1,0 +1,29 @@
+{
+  "foreverVersion": "0.1",
+  "id": "capability.openform-flow",
+  "kind": "capability",
+  "name": "No-code advanced form editing and local publishing",
+  "statement": "Provide a configurable general-purpose multi-step form with diverse field types, accessible question and section editing/reordering, conditional visibility, repeatable groups, appearance modes, usable local publishing and response export without requiring a hosted service.",
+  "status": "browser-source-implemented; independently-unverified",
+  "criticality": "important",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "User request for second broadly usable no-code form with advanced answer types, add/remove/edit until satisfied, publish locally; docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md",
+    "confidence": 0.88,
+    "reviewStatus": "unreviewed"
+  },
+  "relatedInvariants": [
+    "invariant.openform-flow-continuity",
+    "invariant.identity",
+    "invariant.accessibility"
+  ],
+  "relatedImplementations": [
+    "implementation.openform-flow-browser"
+  ],
+  "extensions": {
+    "org.any-shape": {
+      "reference": "docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md",
+      "python": "proposed-not-implemented"
+    }
+  }
+}
