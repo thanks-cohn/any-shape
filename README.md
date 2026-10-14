@@ -95,9 +95,9 @@ The flagship language-independence goal is **JavaScript ↔ native Python, in bo
 
 The proposed production-oriented examples progress from **JavaScript ↔ native Python** (bidirectional interface, adaptive presentation, Submit/input/API equivalence), to **Avalonia C# desktop apps for Windows and Linux**, a standards-compliant **Chrome extension/native companion** integration, and independently verified **C++/Qt plus bounded C/ABI** implementations. The intent is a small portable semantic core with independently installable renderers and adapters, so future agents can recover and extend the underlying principles rather than depend on one framework. See [RFC-008](docs/PROPOSALS/FOUNDATIONAL_CROSS_PLATFORM_SHOWCASES_RFC_008.md). Platform packaging, store approval and native security requirements are distinct and not claimed to be bypassed.
 
-## First copyable reference app — OpenForm Studio (planned)
+## First copyable reference app — OpenForm Studio (browser implemented)
 
-A standalone, attractive, **15-question configurable HTML/CSS/JavaScript form** (comfortably supporting 10–20 questions), with working local answers/JSON/CSV export and optional API POST. Default appearance: **black text on white**; set `appearance.theme` in the simple JSON config to `dark` for **white text on black**, with a standard system font. Its independent native Python form will prove actual UI/input/API/adaptation parity. Full Codex implementation brief: [Handoff 004](docs/CODEX/CODEX_HANDOFF_004_OPENFORM_REFERENCE_AND_PYTHON_TRANSFERENCE.md). Not yet implemented.
+A standalone, attractive, **15-question configurable HTML/CSS/JavaScript form** (comfortably supporting 10–20 questions), with working local answers/JSON/CSV export and optional API POST. Default appearance: **black text on white**; set `appearance.theme` in the simple JSON config to `dark` for **white text on black**, with a standard system font. Its independent native Python form will prove actual UI/input/API/adaptation parity. Full Codex implementation brief: [Handoff 004](docs/CODEX/CODEX_HANDOFF_004_OPENFORM_REFERENCE_AND_PYTHON_TRANSFERENCE.md). Browser source now implemented in `examples/openform/`; native Python and independent end-to-end parity remain future work.
 
 ## Working browser example — OpenForm Studio
 
