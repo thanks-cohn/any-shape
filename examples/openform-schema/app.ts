@@ -26,7 +26,38 @@ function makeField(f:SchemaConfig["sections"][number]["fields"][number]){
 function rowField(label:string,type:string,value:string,onChange:(value:string)=>void){const d=node("div");d.className="field";const l=node("label",label),input=node("input") as HTMLInputElement;input.type=type;input.value=value;input.addEventListener("input",()=>onChange(input.value));d.append(l,input);return d}
 function renderItems(host:HTMLElement){const h=node("h2","Line items");host.append(h);state.items.forEach((item,index)=>{const r=node("div");r.className="item";const heading=node("h3","Item "+(index+1));r.append(heading);const fields=node("div");fields.className="row";fields.append(rowField("Description","text",item.description,v=>{item.description=v;save()}),rowField("Quantity","number",String(item.quantity),v=>{item.quantity=Math.max(0,Number(v)||0);save();renderTotals()}),rowField("Unit price","number",String(item.unitPrice),v=>{item.unitPrice=Math.max(0,Number(v)||0);save();renderTotals()}));r.append(fields);const remove=node("button","Remove item");remove.type="button";remove.addEventListener("click",()=>{state.items.splice(index,1);if(!state.items.length)state.items.push({id:newId(),description:"",quantity:1,unitPrice:0});save();render()});r.append(remove);host.append(r)});const add=node("button","+ Add line item");add.type="button";add.addEventListener("click",()=>{if(state.items.length>=50){announce("Maximum 50 line items.");return}state.items.push({id:newId(),description:"",quantity:1,unitPrice:0});save();render()});host.append(add);const totals=node("div");totals.id="totals";totals.className="totals";host.append(totals);renderTotals()}
 function renderTotals(){const box=$("totals");if(!box)return;const t=total();box.replaceChildren(node("p","Subtotal: "+currency(t.subtotalCents)),node("p","Tax: "+currency(t.taxCents)),Object.assign(node("p","Estimated total: "+currency(t.totalCents)),{className:"amount"}))}
-function renderReview(host:HTMLElement){host.append(node("h2","Review before submitting"),node("p","Check your details and total, then submit."));const pre=node("pre");pre.textContent=JSON.stringify({answers:state.answers,items:state.items,estimate:total()},null,2);host.append(pre)}
+function renderReview(host:HTMLElement){
+ const t=total();
+ const heading=node("div");heading.className="review-intro";heading.append(node("p","FINAL CHECK"),node("h2","Review before submitting"),node("p","Please confirm your details and estimated total. You can go back to make changes before submitting."));host.append(heading);
+ for(const section of config.sections.filter(s=>s.id!=="review")){
+  const panel=node("section");panel.className="review-panel";panel.append(node("h3",section.title));
+  const list=node("dl");list.className="review-details";
+  for(const field of section.fields){
+   const row=node("div");row.className="review-detail";
+   const value=state.answers[field.id];
+   let formatted=value==null||value===""?"Not provided":Array.isArray(value)?value.join(", "):typeof value==="object"?JSON.stringify(value):String(value);
+   if(field.type==="date"&&typeof value==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(value)){
+    const parts=value.split("-");formatted=parts[1]+"/"+parts[2]+"/"+parts[0];
+   }
+   row.append(node("dt",field.label),node("dd",formatted));list.append(row);
+  }
+  if(section.id==="estimate"){
+   const items=node("div");items.className="review-items";items.append(node("h4","Line items"));
+   state.items.forEach((item,index)=>{
+    const line=node("div");line.className="review-item";
+    const title=node("div");title.append(node("strong",item.description.trim()||"Item "+(index+1)),node("span",String(item.quantity)+" × "+currency(Math.round(item.unitPrice*100))));
+    line.append(title,node("strong",currency(Math.round(item.quantity*item.unitPrice*100))));items.append(line);
+   });panel.append(list,items);
+   const sums=node("dl");sums.className="review-totals";
+   for(const [label,amount] of [["Subtotal",t.subtotalCents],["Tax",t.taxCents],["Estimated total",t.totalCents]]){
+    const row=node("div");row.append(node("dt",label),node("dd",currency(amount)));if(label==="Estimated total")row.className="review-grand-total";sums.append(row);
+   }
+   panel.append(sums);
+  }else panel.append(list);
+  host.append(panel);
+ }
+ const foot=node("p","Your information will be sent to the destinations configured for this form. Confirm the information above before selecting Submit response.");foot.className="review-foot";host.append(foot);
+}
 function render(){document.documentElement.dataset.theme=config.appearance.theme;document.body.classList.toggle("respondent-mode",state.published);$("appearance").setAttribute("value",config.appearance.theme);($("appearance") as HTMLSelectElement).value=config.appearance.theme;$("title").textContent=config.title;$("description").textContent=config.description;$("publish").textContent=state.published?"Published locally":"Publish locally";const sec=config.sections[state.stage];$("fields").replaceChildren(node("h2",sec.title));for(const field of sec.fields)$("fields").append(makeField(field));if(sec.id==="estimate")renderItems($("fields"));if(sec.id==="review")renderReview($("fields"));$("steps").replaceChildren();config.sections.forEach((s,i)=>{const b=node("button",(i+1)+". "+s.title);b.type="button";if(i===state.stage)b.setAttribute("aria-current","step");b.addEventListener("click",()=>{state.stage=i;save();render()});$("steps").append(b)});($("back") as HTMLButtonElement).disabled=state.stage===0;$("next").textContent=state.stage===config.sections.length-1?"Submit response":"Continue";($("next") as HTMLButtonElement).disabled=!state.published&&state.stage===config.sections.length-1;}
 function check(){const section=config.sections[state.stage];for(const f of section.fields){const input=document.getElementById("field-"+f.id) as HTMLInputElement|null;const val=String(state.answers[f.id]??"");const bad=(f.required&&!val.trim())||(f.type==="email"&&val&&input&&!input.checkValidity());if(bad){const err=document.querySelector('[data-error="'+f.id+'"]') as HTMLElement;err.textContent="Please provide a valid answer.";err.hidden=false;input?.focus();return false}}return true}
 async function submit(){const record={schemaVersion:1,formId:config.id,id:newId(),submittedAt:new Date().toISOString(),answers:{...state.answers,items:state.items.map(x=>({...x})),estimate:total()}};const next=$("next") as HTMLButtonElement;next.disabled=true;const result=await dispatchDestinations(record,config.connections,{storageKey:RESP});next.disabled=false;if(!result.success){announce("Delivery incomplete: "+formatDeliveryResults(result.results)+". Retrying may duplicate a previously completed effect.");return}state.answers={};state.items=[{id:newId(),description:"",quantity:1,unitPrice:0}];state.stage=0;save();render();announce("Submission accepted by configured destinations: "+formatDeliveryResults(result.results))}
