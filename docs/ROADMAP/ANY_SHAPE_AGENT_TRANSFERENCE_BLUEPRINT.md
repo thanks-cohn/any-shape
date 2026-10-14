@@ -1,0 +1,184 @@
+# Any-Shape — Agent Transference Blueprint and Session-Recovery Handoff
+
+**Status:** Proposed technical program, written 2026-10-14 from the owner's stated long-term intent. Do not confuse this blueprint with implemented or independently validated functionality.
+**First read:** [Long-Horizon Vision](../IDENTITY/ANY_SHAPE_LONG_HORIZON_VISION.md). Also read repository `AGENTS.md`, `README.md`, [Forever Works manifest](../../forever/manifest.json), RFC-009 through RFC-013, and the actual source/tests before making changes.
+
+## Mission for the next unfamiliar agent
+
+Any-Shape is intended to become a **small, universal, agent-accessible continuity infrastructure** that allows unfamiliar software to be understood, abstracted, reconstructed, verified, and maintained across languages and graphical environments. Treat the three browser forms as a compact explanatory corpus, not as the definition of supported program types. The first profound cross-platform proof should be a faithful native **Avalonia/C# application working on pinned Ubuntu and Windows reference environments**, supported by independent **Python/Qt** experiments.
+
+User priorities: **fast agent comprehension and easy local adoption**, highly professional responsive aesthetics, working controls and effect wiring, reproducible tests, minimal mandatory dependencies, and a future automated drift/repair loop. Avoid unrelated enterprise account infrastructure at this stage, without weakening trust boundaries or misrepresenting public deployment.
+
+## Architecture in one page
+
+```text
+Unknown repo or ZIP
+    |
+    v
+Source reconnaissance and safe execution
+    | runtime, code, UI, dependencies, capabilities, effects
+    v
+Forever Works semantic abstraction (+ versioned Any-Shape interface extensions)
+    | intent, stable IDs, domain types, state machine, operation/effect graph
+    | external contracts, presentation/orientation, permissions, unknowns
+    v
+Portable evidence and representative fixtures
+    | actual DOM/native actions, observations, API/file/local results
+    v
+Capability-based example retrieval and target-environment selection
+    | JS basics, JS complex UI, TS typed effects, Avalonia, Python,
+    | selected observed failure cases
+    v
+Native reconstruction with replaceable language/UI/effect adapters
+    | Qt/Python, Avalonia/C#/XAML, future platforms
+    v
+Independent conformance and adaptive UI diagnostics
+    | semantic behavior; actual effects; accessibility; varying windows;
+    | scaling, themes, errors, dependencies, packaging
+    v
+Drift detection -> bounded repair -> rerun -> evidence -> human gate if needed
+    |
+    v
+Cold-agent handoff (contracts, state, provenance, test traces, unknowns)
+```
+
+## Small shared standard, not a monolithic engine
+
+The **core** should define application identity/capability contracts; stable action IDs; typed inputs and outputs; lifecycle and state transitions; effect intents and observed receipts; authority and secrets constraints; presentation obligations; adapter descriptors; version migrations; diagnostic/evidence records; and discovery endpoints for agents. Prefer JSON Schema or other explicit, portable standard formats where suitable; validate the precise supported version/draft.
+
+The **optional adapters** supply execution: browser DOM binding, Qt signals, Avalonia commands and XAML, HTTP/network, local storage, file/document generation, databases, queue/webhook/event buses, graphics/media, platform-specific capabilities and future unknown effect types. No adapter should redefine business semantics or silently suppress unsupported effects. Expose namespaced, versioned extension descriptors with capability matching and a minimal dependency budget.
+
+The **agent-facing entrypoint** should eventually allow discover -> inspect -> plan -> dry-run -> authorized apply -> observe -> verify -> diagnose -> repair -> handoff; it must be possible to run entirely locally and with synthetic fixtures. This sequence and API are proposed design targets, not existing general-purpose public SDK calls. Human and agent operations go through the same guards and permissions.
+
+### Canonical operation-to-effect chain
+
+```text
+meaningful trigger (click/keyboard/timer/webhook/agent)
+  -> source-specific binding
+  -> logical operation ID + typed arguments + initiator
+  -> preconditions/authorization/validation/revisions
+  -> deterministic state transition
+  -> ordered/dependent effect obligations
+  -> target-specific effect adapters
+  -> observed receipts, responses, failures, partial outcomes
+  -> user-visible feedback and resulting state
+  -> independent replayable parity evidence
+```
+
+Preserve *what the action causes*, not syntactic similarity of handlers. For network effects, verify actual method/path, destination identity, payload schema, relevant headers, errors, receipts, retry/idempotency policy and authorization. Include document creation, filesystem operations and other effect types as needed; never let current webhook/form examples become the closed universe of supported operations.
+
+## Reference-environment strategy: familiarity as a teaching instrument
+
+**Initial candidate baselines:** Ubuntu **24.04 LTS** and a specifically pinned Windows **11** edition/build, targeting Avalonia C#/XAML; Windows 10 is an optional legacy case if evidence and support requirements justify it. These are proposed choices, not verified builds and not fixed requirements for all adopters.
+
+Rationale: intentionally pick widely used, extensively documented environments familiar to many developers and plausibly to coding agents; do **not** claim precise training coverage for an unknown model. They provide agents with an understandable *reference*, a known toolchain, and a reproducible demonstration.
+
+For every baseline, record machine/VM/container image and checksums where possible, OS version/build, CPU architecture, .NET SDK/runtime, Avalonia packages, Linux display backend (X11/Wayland), font availability, display scaling/DPI, packaging method, locale and input methods, window-manager factors, expected network/service fixtures, and exact commands to reproduce the test.
+
+**Two simultaneous timelines:** pin a *historical reference* to reproduce old evidence; maintain a *rolling verification target* for current systems. New platform evidence can be promoted without erasing prior records. A pinned environment is an educational anchor, not the definition of the semantic standard.
+
+## Corpus policy: minimal breadth, maximal depth
+
+Start with these **three actual browser source examples**:
+1. `examples/openform/` — plain JavaScript **Studio**: ordinary form, field identities, validation, submit, appearance, local/external delivery.
+2. `examples/openform-flow/` — plain JavaScript **Flow**: no-code authoring, advanced field types, conditional questions, repeatable groups, navigation and connections.
+3. `examples/openform-schema/` — TypeScript-authored **Schema**: typed source, compiled JS, structured estimates, calculations, review, drafts and destinations.
+
+Then create **three separate, truly native Python/Qt reconstructions**, using approved source-neutral fixtures. Do not count a WebView as a native GUI result. Build a single especially thorough **browser/Electron -> Avalonia** reconstruction, and later an **unfamiliar fourth project** in a different domain to test generalization. Add carefully selected failures/repairs and examples from further languages only when they teach new principles.
+
+Each corpus item needs discoverable metadata: capabilities, source/target, tested platform, semantic invariants, action/effect graph, source fixtures, verified output, known limitations, provenance and confidence, requirements/dependency costs, evidence timestamp, and specific failure/repair patterns. Retrieval should pick a small relevant subset for a new target task.
+
+## Mandatory staged gates and order of execution
+
+### Gate A — Verify original browser implementations
+
+Run the three forms in actual browsers and inspect narrow, medium, wide, maximized and resized views; light/dark, zoom, text length, keyboard, focus and any accessible navigation. Confirm **published respondent page contains only title, description, questions/sections, navigation and submit feedback**, not Connections, editor panels, edit toggles or management controls. Confirm the author page still works and is not misrepresented as authenticated.
+
+Run existing Playwright and unit checks, repair defects, and preserve failures/traces. **Do not claim a passing build from code parsing.**
+
+### Gate B — Test real local/HTTP effects before conversion
+
+Build an independent local HTTP/webhook receiver with controlled responses: accepted, 400/401/403 validation/auth rejection, 429 rate limiting, 500/503 failures, timeouts, network unavailable and malformed reply where relevant. Capture actual request method/path/headers/body and delivery order. Test all intended connection modes, multiple destinations, partial successes, local persistence/export, and safe synthetic test messages. Protect test data and do not invoke real third-party services without authorization.
+
+Identify defects that cannot be reliably repaired with simple retries. For example, a successful local write followed by remote failure may duplicate the saved record on resubmit. **Production-quality delivery requires idempotency and durable receipts/outbox where applicable**, not just reassuring UI text. Clearly distinguish request sent, response accepted, and downstream effect completed.
+
+Freeze only **verified** source behavior into neutral fixtures, document intended behavior that differs, and report UNKNOWN for unobservable integrations.
+
+### Gate C — Implement the minimal neutral action/effect model
+
+Build an actual, bounded, versioned action/effect registry and schema tied to the pinned Forever Works model—not a duplicate sprawling ontology. Expose a simple discoverable CLI or JSON inspection path for agents. Complete one vertical slice end-to-end from source action to verified effect receipt. Record human-friendly meaning, machine-readable contract, adapter binding, observation and test fixture; keep the schema extensible and the browser dependency footprint minimal.
+
+### Gate D — Reconstruct in native Python
+
+For each form, build working Qt controls, portable domain logic, responsive layouts, theme presentation, validation, state, and destination effects. Replay the same neutral fixtures independently on source and target. Record each accepted difference, PASS/FAIL/UNKNOWN and environment. Do not simply rewrite DOM events into Python syntax; produce the same authorized logical consequences.
+
+### Gate E — Demonstrate Avalonia desktop portability
+
+Choose a bounded but authentic browser/Electron source interface (not a contrived static mock). Produce Avalonia/C#/XAML controls with shared application/domain logic, native windows, keyboard interaction, panels and actual adapters. Test on pinned Ubuntu 24.04 LTS and Windows 11 environments, including real resizing and scaled fonts/displays. Compare both against the verified source. Report any toolkit/platform differences. Keep .NET/Avalonia dependencies in the optional target adapter; the semantic standard itself should not require them.
+
+### Gate F — Detect and repair drift
+
+Define drift classes: behavior, state/data schema, endpoint/effect, UI hierarchy/orientation, accessibility, performance/resource, toolchain/dependency, operating-system/platform, trust/permissions and packaging. Capture changes to known inputs/contracts/environments. Identify failing invariants, likely source/target locations, severity, repair boundaries and rollback path. Attempt low-risk local repair, rerun independent evidence, and only promote verified fixes.
+
+### Gate G — Test genuine generalization
+
+Give a cold agent a previously unseen fourth project and the **neutral standard, API, corpus index and relevant example fixtures**, not the solution's source mapping. Measure whether it can discover the novel application's obligations and produce an acceptable reconstruction. Record isolation limitations. Repair the *standard* when possible rather than accumulating a one-off special-case rule for every project.
+
+## Human verification as a first-class, scoped result
+
+Introduce a proposed evidence marker:
+```json
+{
+  "needsHumanVerification": true,
+  "reasonCodes": ["AESTHETIC_REVIEW", "UNOBSERVED_NATIVE_BEHAVIOR"],
+  "reviewInstructions": "Compare hierarchy, typography, focus and task orientation at the prescribed window sizes.",
+  "automatedEvidenceRefs": ["test-run-or-trace-id"],
+  "verificationStatus": "UNKNOWN",
+  "targetEnvironmentRef": "reference-ubuntu-24.04"
+}
+```
+
+This is **illustrative schema, not an implemented record**. A human check is a targeted evaluation task, not a generic obstacle or rubber stamp. Even if automation becomes very strong, unknown or impactful effects must not be silently certified.
+
+## Diagnostics and self-maintenance
+
+Instrumentation should give an agent enough context to answer *what broke and why*, rather than a binary "test failed." Capture operation ID, component/source binding, expected transition/effect, actual sanitized trace, environment fingerprint, request/response or storage receipt, UI tree/accessibility snapshot, geometry and visual-difference references, exception provenance, repro steps and dependency version. Redact secrets and live private submission answers by default.
+
+Verification should be **automatable, composable, fast enough to rerun, and repeatable**; historical fixture results should be append-only or otherwise auditable. Detection/repair should use bounded privileges and self-checks. Do not create hidden background autonomy or conflate a code change with tested recovery.
+
+## Bloat budget and dependency design
+
+- Protect existing standalone browser CSS/diagnostics v0.1 and the three examples from needless rewrites.
+- Use standard HTML/CSS/JS and TypeScript compilation as a development tool, not a browser runtime requirement.
+- Treat Qt and Avalonia as optional demonstration/target adapters; do not force them on browser consumers.
+- Make the semantic core compact and versioned; modularize effects and platform bindings.
+- Prefer **three deep, maintained examples + an indexed set of failure cases** to a large shallow catalog.
+- A new library/dependency needs a documented reason, scope, license, pin, failure/replacement path, and measurable benefit.
+- Keep human documentation concise at the entrypoint; link to deep spec/evidence instead of dumping it into every prompt.
+
+## Evidence reporting
+
+For each operation or reconstruction, record:
+- **Origin:** application, version/commit, fixture and observed source behavior.
+- **Target:** language/UI stack, operating-system reference and dependency pin.
+- **Continuity dimensions:** semantics, transitions, output, effect, visual hierarchy, keyboard, resize and platform delivery.
+- **Truth:** implementation status separately from test status; independently observed PASS/FAIL/UNKNOWN/UNSUPPORTED.
+- **Reproduction:** exact commands and synthetic data; sanitized logs, screenshots and traces.
+- **Deviation:** known information loss, failures, human-review flags, repair attempts, accept/reject decision.
+
+Do not claim the standard is established by merely writing RFCs. The proof is that an unfamiliar agent can execute it and succeed independently.
+
+## Immediate next Codex run — precise brief
+
+1. Inspect and preserve the current repository; consult `AGENTS.md`, README, this blueprint and the long-horizon vision.
+2. Run all three browser apps, repair real workflow and responsive/aesthetic defects, and test author-only Connections versus completely clean published respondent views.
+3. Establish a safe local webhook/HTTP receiver and exercise success, rejection, partial failure, retries and delivery evidence; repair misleading or broken behavior.
+4. Verify TypeScript build from source rather than relying on manually checked-in runtime output. Inspect automated tests for outdated selectors and fix failures.
+5. Produce a credible, versioned original-app action/effect baseline with neutral fixtures for all three references, indexed for future agents.
+6. Link new source facts to human docs and valid Forever Works records with review/provenance/evidence. Document what remains UNKNOWN.
+7. **Only after this baseline**, start one real native Python/Qt vertical slice. Do not undertake a sweeping unverified rewrite or prematurely declare full portability.
+8. Leave a cold-agent summary with commands, exact observed results, remaining blockers, and the next small independently testable milestone.
+
+**Project identity to preserve:** Any-Shape is a foundation for enduring graphical software, not a form-only project, an Avalonia-only project, or a screenshot converter. The owner's lifetime horizon is self-sustaining software whose identity and legitimate behavior can survive its own tools and authors.
+
+**Handoff rule:** If this conversation is lost, this blueprint and its companion vision should suffice to recover the intended destination, the order of operations, the priority tradeoffs, the limitations of today's implementation, and how to verify real progress.
