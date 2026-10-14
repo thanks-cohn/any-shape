@@ -86,3 +86,7 @@ Read [Software Built to Endure](docs/VISION/SOFTWARE_BUILT_TO_ENDURE.md) for Any
 ## Flagship example under development — Any-Shape Transference
 
 Our intended public showcase: submit an authorized browser application to an agent, reconstruct its essential behavior as a **native Python desktop interface**, and compare real inputs, Submit actions, HTTP endpoints, validation, state changes and accessible responsive adaptation across both versions. The guiding rule is **transfer the adaptation obligation, not the original CSS/JavaScript machinery**. See [RFC-005](docs/PROPOSALS/INTERFACE_PORTABILITY_RFC_005.md) for API/control parity and [RFC-006](docs/PROPOSALS/ADAPTIVE_TRANSFERENCE_RFC_006.md) for native presentation and agent-driven conversion. This is planned, not implemented.
+
+## Bidirectional portability proof
+
+The flagship language-independence goal is **JavaScript ↔ native Python, in both directions**: demonstrate real fields, Submit operations, API/endpoint compatibility, accessible adaptive layouts and preserved user orientation in both implementations. This should be an understandable visual showcase backed by independent functional tests, not a source-code transpilation trick. The neutral contracts also prepare for **C and C++** (including native C++/Qt UI), as separate future targets. Read [RFC-007](docs/PROPOSALS/LANGUAGE_PORTABILITY_STRATEGY_RFC_007.md). These directions are planned; a general automatic converter is not shipped.
