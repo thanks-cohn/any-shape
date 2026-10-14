@@ -197,5 +197,9 @@
         }
       ]
     }
-  ]
+  ],
+  "destinations": {
+    "mode": "local",
+    "url": ""
+  }
 }
