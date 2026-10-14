@@ -32,10 +32,20 @@ export async function dispatchDestinations(record,config,{storageKey,onResult}={
  const spec=normalizeDestinations(config),results=[];
  for(const target of spec.targets.filter(t=>t.enabled)){
   try{const result=target.kind==="local"?saveLocal(record,storageKey):await postRecord(target.url,record);
-   const outcome={id:target.id,required:target.required,...result};results.push(outcome);onResult?.(outcome);
-  }catch(error){const outcome={id:target.id,required:target.required,kind:target.kind,status:"failed",error:String(error.message||error)};results.push(outcome);onResult?.(outcome)}
+   const outcome={id:target.id,label:target.label,required:target.required,...result};results.push(outcome);onResult?.(outcome);
+  }catch(error){const outcome={id:target.id,label:target.label,required:target.required,kind:target.kind,status:"failed",error:String(error.message||error)};results.push(outcome);onResult?.(outcome)}
  }
  return {results,success:!results.some(x=>x.required&&x.status!=="accepted"),partial:results.some(x=>x.status==="accepted")&&results.some(x=>x.status==="failed")};
+}
+/** Human-readable delivery receipts; retain stable IDs in machine-readable results. */
+export function formatDeliveryResults(results=[]){
+ return results.map(x=>{
+  const name=x.label||x.id||"Unknown destination";
+  const channel=x.kind==="http"?"HTTP webhook":x.kind==="local"?"local storage":"destination";
+  const state=x.status==="accepted"?"accepted":"failed";
+  const reason=x.error?" ("+x.error+")":"";
+  return name+" ["+channel+"]: "+state+reason;
+ }).join("; ");
 }
 export function createDestinationSettings({getConfig,onSave,cssClass="outline"}){
  const button=document.createElement("button");button.type="button";button.className=cssClass;button.textContent="Connections";button.id="connectionsButton";
