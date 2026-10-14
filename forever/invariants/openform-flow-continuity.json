@@ -1,0 +1,28 @@
+{
+  "foreverVersion": "0.1",
+  "id": "invariant.openform-flow-continuity",
+  "kind": "invariant",
+  "name": "Advanced form editing, publishing and presentation continuity",
+  "statement": "Editing and publishing an authored form must not silently alter stable field identities or their answer meanings. Responsive layout preserves the user's headings, current section and usable controls; light and dark modes preserve legibility. Native target realizations preserve observable submit, validation, conditional, repeatable and response-export semantics rather than copying DOM machinery.",
+  "severity": "high",
+  "scope": [
+    "intent.any-shape"
+  ],
+  "changePolicy": "foundational for OpenForm Flow reference; owner acceptance required for authoritative policy",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "User request for second broadly usable no-code form with advanced answer types, add/remove/edit until satisfied, publish locally; docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md",
+    "confidence": 0.88,
+    "reviewStatus": "unreviewed"
+  },
+  "relatedCapabilities": [
+    "capability.openform-flow",
+    "capability.contextual-reflow"
+  ],
+  "extensions": {
+    "org.any-shape": {
+      "verificationStatus": "unverified",
+      "humanGuide": "docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md"
+    }
+  }
+}
