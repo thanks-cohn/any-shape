@@ -141,3 +141,50 @@ This progression is explanatory, not a claim that responsive CSS by itself solve
 **Testing obligation:** evaluate narrow, intermediate, wide and maximized windows; font scaling/zoom, long labels, focus, keyboard operation, navigation, responsive hierarchy and absence of page-level overflow that makes ordinary tasks inaccessible. Record automated evidence, observed limitations and targeted human aesthetic-review requirements. The result must remain sensible and presentable even as its geometry changes.
 
 This addendum establishes why overflow and window-size behavior are the starting point of Any-Shape's philosophy—not its ultimate limit.
+
+## Addendum — The Cold-Agent Miracle, Conventional Projects, and Mobile Reach
+
+**Owner clarification, 2026-10-14.** The elegance of Any-Shape lies in the possibility that **one compact repository or installable continuity package can teach an unfamiliar AI agent how to understand, reconstruct, and verify an entirely unfamiliar application**. Give an agent an arbitrary repository and Any-Shape's meaning contracts, corpus index, API and working precedents; it should have a concrete, economical procedure for creating a professional, functioning application in another language or toolkit—without the user having to describe each window, button, integration and desired consequence.
+
+The ambition is deliberately bigger than today's demonstrations. It is not yet a verified claim of automatic conversion of any app in record time. Any-Shape should measure the labor, elapsed time, token consumption, dependency costs, exceptions, human review and correctness of each conversion instead of inventing those outcomes. It should also remain an **ordinary package that a person can inspect and reuse**, not machinery locked into one agent, one SaaS, one training corpus or one proprietary format. The eventual distribution mechanism—npm, Python package, CLI, self-contained ZIP, language-neutral SDK or a combination—remains open until experiments show what adopters actually need. A package is a distribution vehicle; the portable contracts and observed evidence are the product's identity.
+
+### Conventional native outputs, not captive artifacts
+
+**Avalonia/C# desktop reconstructions must yield normal .NET projects**: a discoverable `.sln` or `.slnx` and `.csproj`, clear C# source, Avalonia `.axaml` views, documented dependencies, restore/build/run/test instructions, version pins and independent functional/visual evidence. Their outputs should be openable and maintainable in Microsoft Visual Studio or appropriate .NET IDEs, and buildable using the standard .NET CLI on supported target environments. VS tooling enhances XAML editing and preview but must not be required for the application to function.
+
+This is an explicit *human inheritance* requirement: a developer must be able to open, comprehend, edit, compile, debug and maintain the application, including its integration adapters, without Any-Shape or the originating AI being present. Do not generate mysterious binaries, proprietary project wrappers or one-off agent-owned formats as the only deliverable. Portability includes **ordinary developer workflow continuity**, not merely runtime equivalence.
+
+A common Avalonia source base can reduce duplicated effort between Windows and Linux, but independently test each pinned environment, native service adapter, fonts, scaling and package output. The project must never equate `dotnet build` succeeding with end-to-end behavioral parity or polished presentation.
+
+### Phones are first-class future destinations
+
+Any-Shape must **also support reconstruction into real Android and iOS phone applications**, with touch-first, small-screen, portrait/landscape, keyboard/IME, safe-area, accessibility, lifecycle, offline and operating-system permission behavior. These dimensions make phones an especially valuable continuation of the Principle of Presentational Continuity, not an unrelated product line.
+
+**Candidate mobile reference stacks, not yet selected or implemented:**
+- **React Native + Expo + TypeScript** — strong overlap with browser/JavaScript inputs; a common Android/iOS ecosystem and approachable project structure. Evaluate whether its conventions encourage clear native interaction/effect mappings rather than fragile web assumptions.
+- **Flutter + Dart** — cohesive declarative UI and broad Android/iOS/desktop/web reach; useful as an independent target that tests whether the contracts survive a much different language/rendering model.
+- **Avalonia mobile** — an additional .NET-aligned candidate worth evaluating where its supported platform capabilities and tooling meet the task; do not assume desktop parity automatically extends to phones.
+
+Start with **one carefully verified, ordinary Android project** and one selected cross-platform mobile case (Android and iOS) rather than implementing every framework simultaneously. Keep the choice evidence-driven: agent familiarity and publicly documented examples, reproducibility, output editability, actual native functionality, dependency footprint, build availability and platform test coverage. Do not pin a framework permanently until a tested reference case establishes its usefulness.
+
+Mobile reference environments must pin **Android SDK/API, emulator/device profile, build tools, Gradle/Java where relevant, app framework and architecture**. An iOS baseline additionally requires a supported Apple/Xcode/macOS build/signing environment for genuine iOS build and device/simulator evidence; a Linux-only CI runner cannot establish full iOS compatibility. Preserve historical pins, then retest against newer supported platforms.
+
+### Unified source-to-destination promise
+
+The same neutral project understanding should enable the agent to **choose an appropriate output target** among web, desktop and mobile, retrieving only the relevant verified examples and adapters:
+
+```text
+Unknown repository or ZIP
+      + Any-Shape contracts / indexed compact examples
+      -> discover intent, UI, operations, state, effects, constraints
+      -> record Forever Works continuity and unknowns
+      -> choose ordinary target project type + pinned environment
+      -> reconstruct, run, inspect, exercise, compare, repair
+      -> hand over editable sources, real builds and evidence
+```
+
+**The core abstraction is shared; platform-specific obligations are not erased.** A desktop hover state may become a mobile long-press or explicit affordance; local filesystem paths may become document providers or sandbox storage; responsive layout becomes safe-area and touch adaptation. Such changes must be intentional, documented and verified. A perfect visual screenshot that does not preserve legitimate outcomes is insufficient; so is a functioning app whose interface is inaccessible at an ordinary phone size.
+
+**Acceptance ambition:** a cold agent is given a previously unfamiliar project plus a small Any-Shape release bundle. Without special undocumented prompts or prior project knowledge, it can identify the essential obligations, explain its decisions, construct a familiar IDE-editable application for a pinned desktop or mobile environment, demonstrate meaningful end-to-end operations, diagnose divergences, mark the uncertain parts for human verification, and leave a reproducible handoff.
+
+The principle is modest in mechanism but large in consequence: **one enduring foundation should make many kinds of software easier to rebuild and preserve—without requiring every future user to teach an agent the same engineering lessons again.**
