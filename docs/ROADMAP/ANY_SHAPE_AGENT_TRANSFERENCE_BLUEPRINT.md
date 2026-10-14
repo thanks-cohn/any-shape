@@ -263,3 +263,34 @@ A compact machine-readable lesson should identify: source and target app/commit/
 The experiment measures more than whether one Chrome extension can yield Android and Avalonia projects in one or a few agent runs. Over successive unfamiliar projects, it should test whether an accumulating but **small, curated, evidence-backed corpus** measurably improves reconstruction accuracy, diagnostic quality, portability and human maintenance cost. This provides a credible avenue for reproducible software-engineering and HCI research, including comparisons against a cold agent without the package and with ordinary project documentation.
 
 **Recovery priority:** If chat history is lost, do **not** start by manually porting a flagship app. First verify the three existing browser forms and webhook/effect test laboratory, repair current CI and layout failures, build minimal general semantic inspection and evidence tooling, freeze a genuine independent extension, and only then run a cold-agent reconstruction with independently measured outcomes. Feed confirmed lessons back to Forever Works through reviewable proposals.
+
+
+## Reference Corpus 0.2 — Beyond Forms (proposed, 2026-10-14)
+
+**Owner-directed expansion principle:** Before giving a genuinely unfamiliar Chrome extension to a cold reconstruction agent, develop a **small number of more demanding, independently verified reference applications** that extend Any-Shape's general-purpose API, semantic contracts, diagnostic infrastructure and continuity evidence. The goal is not to prepare hardcoded conversion answers or simply accumulate samples. It is to ensure that the agent recognizes unfamiliar *classes of obligations* and can discover, implement and verify them without the user describing every individual behavior.
+
+**Governing rule: Every new example must earn its place by exposing a distinct reusable capability or previously unmodeled failure.** Prefer a small, deep, carefully tested corpus over dozens of attractive but shallow interfaces. Keep the future flagship Chrome extension outside this corpus, without prewritten target translations or hidden project-specific hints.
+
+### Three candidate examples, in learning order
+
+1. **Portable File Explorer (first priority).** A compact, professional, responsive interface with folder hierarchy, file/record metadata, search and filtering, multiple selection, keyboard navigation, copy/move/rename, undo where feasible, and explicit outcome/failure feedback. Use a browser-safe virtual filesystem or sandbox fixture as the original; real native filesystem permissions and side effects belong in separately authorized platform adapters. **Teaches:** hierarchical identity and relationships, operation preconditions, permissions, storage effects, selection, effect receipts, native-platform adaptation, responsive navigation, recoverable failure and safe undo boundaries.
+
+2. **Interactive Workflow Board (second).** A restrained kanban/list interface with draggable and keyboard-operable cards, editing, filtering, persistence, ordering and undo/redo. **Teaches:** complex UI gestures normalized into logical commands, deterministic state transitions, accessible pointer/touch/keyboard equivalents, responsive reflow from wide board to compact list, replayable command histories and drift detection.
+
+3. **Media Library and Player (optional third, justified by API gaps).** A small playlist/media interface with play/pause/seek, load/failure states, resource handling and lifecycle transitions. **Teaches:** asynchronous effects, time-dependent state, background/pause/resume constraints, media permissions, resource availability, and platform-specific capabilities without pretending identical runtime behavior.
+
+These are **proposed research specimens, not shipped implementations or a commitment to build all three**. Avoid expanding them into large independent consumer products before the experimental purpose is proven.
+
+### Build sequence and acceptance
+
+- **First finish Verified Behavioral Baseline v1:** repair the three existing browser forms, run real browser tests, confirm professional presentation across window sizes and independently verify success/rejection/partial HTTP effect receipts. Keep actual observed facts and proposed contracts separate.
+- **Then implement one minimal agent-readable continuity vertical slice:** an inspectable capability/action/state/effect representation; a stable discovery entrypoint; permitted adapters; structured diagnostics; neutral replayable fixtures; Forever Works-compatible provenance and status. Do not design a universal API purely from speculation or create conflicting canonical Forever Works record kinds.
+- **Implement the File Explorer against this real API**, not against an app-specific shortcut. Derive and verify generalized filesystem-like commands and permission-dependent effects; use the results to refine the abstraction. Test narrow/intermediate/wide layouts, keyboard and touch equivalents, error states, and durability.
+- Add the Workflow Board **only if** it exercises previously uncovered interaction/state/undo dimensions. Add the Media example **only if** it exposes meaningful asynchronous or lifecycle gaps.
+- Maintain a **capability-indexed corpus**: each case advertises demonstrated invariants, source/target stack, environment pins, required and optional adapters, runnable commands, approved fixtures, independent observations, PASS/FAIL/UNKNOWN, known limitations, and genuine lessons learned. Cold agents should retrieve the smallest relevant subset instead of reading every example.
+- **Keep the flagship trial honest:** freeze an independently developed Chrome extension and present it as unfamiliar source plus a general-purpose Any-Shape package to a cold agent. No embedded extension-specific reconstruction templates, mapping tables or evaluator secrets.
+- Turn validated cross-example insights into **reviewable Forever Works proposals**, not silent schema changes or unbounded example proliferation.
+
+**Acceptance question:** Can an unfamiliar agent inspect a new application's operations and say, *“I recognize the obligations, know how to model and adapt them, and can prove which effects survived”*—rather than simply, *“I have seen this app before”*?
+
+**Architectural reminder:** Any-Shape remains a lean, platform-neutral **agent guidance and verification foundation**. JavaScript, Python, Avalonia, React Native and future adapters are illustrative destinations; none should dictate the core ontology or be mandatory merely to read its contracts.
