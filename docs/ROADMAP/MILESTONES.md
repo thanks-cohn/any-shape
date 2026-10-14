@@ -172,3 +172,7 @@ See [RFC-005 — Interface Portability](../PROPOSALS/INTERFACE_PORTABILITY_RFC_0
 ## First public reference application — OpenForm Studio
 
 [Codex Handoff 004](../CODEX/CODEX_HANDOFF_004_OPENFORM_REFERENCE_AND_PYTHON_TRANSFERENCE.md) defines the initial useful standalone web product: a professional, generic 15-question intake form, customizable to 10–20 fields through JSON alone, with working answer collection/export and optional API integration. Visual design defaults to legible black-on-white and also supports white-on-black by `appearance.theme` in JSON; use standard system typography. Its native Python counterpart must preserve field/action IDs, actual Submit/endpoint semantics, responsive orientation and both themes. This is an implementation task, not a shipped reference yet.
+
+## Three successive browser-to-native proof applications
+
+Follow [RFC-009](../PROPOSALS/THREE_FORM_TRANSFERENCE_LADDER_RFC_009.md): verify existing JavaScript Studio and Flow; add third, independently useful TypeScript + standards-based schema-driven form with minimal runtime dependencies; reconstruct **three** genuinely native Python/Qt applications; evaluate behavior, validation, state, design intent, native resizing and same endpoint/request/response contracts where an actual backend is configured. The source apps and native candidates must each have their own human-readable intent, canonical Forever Works records and independent conformance evidence. Pending work must not be treated as passing, and no WebView-only program counts as native proof.
