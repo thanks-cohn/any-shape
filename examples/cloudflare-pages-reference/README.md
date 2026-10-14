@@ -21,7 +21,7 @@ The public page sends a submission to `POST /api/submit`. A successful R2 bindin
 
 The response shows `submissionId`, `recordUrl`, and separate `effects.r2`, `effects.d1` and `effects.webhook` statuses. `200` means all configured effects succeeded; `207` means one or more failed, and **the write may be partial**. `503` means no effects configured. The example currently generates a new UUID on every POST, so retries make new records rather than providing exactly-once delivery.
 
-R2-only storage currently returns a usable object key in the POST receipt, **not a working opaque-ID record URL**. The GET resolver currently requires D1; this gap is explicitly tested and must be solved before claiming independent R2-only URL retrieval. A stable public JSON URL is also a design target, not yet a private authenticated product API.
+The R2-only route writes a small second lookup object at `lookup/<submissionId>.json` and can resolve `/api/submissions/<submissionId>` without D1. This doubles R2 write operations per submission, a deliberately simple reference design rather than an optimized billion-submission architecture. The record URL works in simulated-binding tests; live Wrangler/Cloudflare integration has not yet been verified. The GET example is not yet a private authenticated product API.
 
 ## Acceptance matrix — required before claiming end-to-end success
 
