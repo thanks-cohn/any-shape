@@ -68,3 +68,29 @@ Canonical records: intent, capabilities, invariants, constraints, implementation
 ## Codex task
 
 Implement a self-contained, attractive, understandable flagship demo without breaking the existing v0.1 library. Prefer a `examples/portability/` or `demos/portability/` directory with clear run scripts. Validate canonical models, run independent HTTP/state tests, test browser workflows, generate accessible human-readable comparison artifacts, measure feasibility and record exact evidence/limits in a new handoff report. Preserve current API contracts. If the full scope is too large, deliver an honestly bounded vertical slice rather than documentation-only scaffolding.
+
+## Exact control-to-operation parity (mandatory flagship requirement)
+
+A submit button is not merely a visual element. It is a semantic action wired to an input collection, validation procedure, permitted state transition, transport call and observable result. The JavaScript and Python implementations MUST implement the same external operation contract.
+
+- Every input has a stable semantic field ID, label, value type, normalization rules, empty-value behavior, required/optional status, validation constraints and accessibility semantics.
+- Editing a field changes the same logical draft-state field in either implementation. Submitting sends the same named fields and equivalent typed values to the same HTTP method/path and request schema. Field order or browser-specific serialization must not silently change domain meaning.
+- Clicking **Submit**, pressing Enter in the appropriate form context, and invoking the authorized programmatic action MUST reach the same domain operation, after the same validation and permission checks. Visual paths and agent paths cannot bypass one another's rules.
+- Both implementations return equivalent successful states, error codes, field-level error mapping, revision handling and confirmation feedback. If exact response byte equality is not meaningful (e.g. timestamps or header ordering), define normalized semantic equality explicitly.
+- Form draft values, submitted values, persisted state and server responses are distinct; tests must cover each. Avoid inventing persistence if the approved contract only specifies transient state.
+- A programmatic client can use the identical documented endpoint, JSON schema, authentication/authorization conditions and operation IDs regardless of whether the server implementation is JavaScript or Python.
+- Accessibility includes properly associated labels, keyboard activation, focus management, error announcements and predictable form behavior. Never require hover to recover essential fields or feedback.
+- The tests MUST exercise actual browser control events and network requests, not just independently constructed API test payloads. Intercept/observe the outgoing request, compare it to expected normalized contract and verify the receiving server's state.
+- Include negative cases: missing and invalid values, multiple rapid submissions, stale revision, unauthorized invocation, Enter activation, browser reload/navigation and retry behavior as applicable to the declared contract.
+
+### Required end-to-end sample
+
+For example, if the interface exposes field `readingDensity` and action `preferences.save`, then choosing `compact` and clicking **Save** in either interface should produce an equivalent request (e.g. `PATCH /api/preferences` with `{"readingDensity":"compact","expectedRevision":0}`, once formally adopted). The same operation called through the Agent API must use the same validation and authority boundary and produce the same logical resulting state. This JSON is illustrative; adopt a single versioned schema and test it, rather than hardcoding two different payload shapes.
+
+### Additional acceptance tests
+
+P-013: Browser-generated requests from actual form interactions in both apps are schema-equal after only explicitly permitted canonicalization.
+P-014: Input typing, selection, reset, submit, validation failure and confirmation map to the same stable field/action IDs and state transitions across both apps.
+P-015: Authorized Agent API invocation of the same operation yields equivalent state changes and error semantics; unauthorized calls fail consistently.
+P-016: An independent test client can switch JavaScript/Python base URLs without changing method, path, schema or interpretation of responses.
+P-017: Native no-JS form fallback is either contract-conformant or explicitly documented as an alternative transport with identical domain semantics; tests do not falsely claim that HTML form encoding is JSON.
