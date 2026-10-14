@@ -188,3 +188,29 @@ Unknown repository or ZIP
 **Acceptance ambition:** a cold agent is given a previously unfamiliar project plus a small Any-Shape release bundle. Without special undocumented prompts or prior project knowledge, it can identify the essential obligations, explain its decisions, construct a familiar IDE-editable application for a pinned desktop or mobile environment, demonstrate meaningful end-to-end operations, diagnose divergences, mark the uncertain parts for human verification, and leave a reproducible handoff.
 
 The principle is modest in mechanism but large in consequence: **one enduring foundation should make many kinds of software easier to rebuild and preserve—without requiring every future user to teach an agent the same engineering lessons again.**
+
+
+## Addendum — The flagship is the cold-agent reconstruction, not the example application
+
+**Owner-directed governing clarification, 2026-10-14.** The three existing forms are the first learning and verification corpus. A later useful application (a collection library, Chrome extension, or another genuinely worthwhile program) may provide the next demonstration input. **But Any-Shape's flagship achievement is not that the team hand-builds that app on Chrome, Android, iOS, Windows and Linux. It is that a previously unfamiliar agent, given the original functioning application plus a general-purpose Any-Shape package, independently constructs and verifies appropriate native counterparts.**
+
+This is an essential anti-hardcoding invariant. Do not write bespoke conversion rules, target source trees or special fixtures whose only purpose is to make one named flagship application appear easy to port. Build the origin as an ordinary, standalone product; record its authentic observed behavior using independent probes; freeze an identified version. Deliver to a **cold agent** the original source/repository or ZIP and a **versioned, generally applicable** Any-Shape bundle—not a prepared line-by-line recipe for that application's destination implementations.
+
+The Any-Shape bundle should teach *how to reconstruct* through:
+
+- Forever Works-compatible, language-neutral project, capability and invariant records with provenance, explicit intent versus inference, and documented unknowns;
+- a compact, indexed set of deeply verified reference applications and failure/repair examples;
+- an agent-discoverable API/CLI for inspect, explain, plan, trace, test, diagnose and handoff, with explicit authorization for any real mutation or effect;
+- portable contracts for identity, domain objects, presentation and responsive relationships, actions, validation, state, external effects and the evidence required to claim fidelity;
+- replaceable browser, extension, desktop and mobile adapters and pinning guidance without coupling the core to their frameworks;
+- independent conformance fixtures and clear human-verification markers.
+
+**Distribution is separate from meaning:** npm may be the initial agent tooling/package delivery, but the neutral formats must remain readable without Node.js. Python/PyPI and other bindings, standalone archives, and perhaps C-compatible interfaces may be added when they help, without creating conflicting semantic authorities.
+
+**Demonstration sequence:** validate the existing three form origins and actual effects; prove a compact continuity package and an agent-readable action/effect model; select and freeze one genuine Chrome extension; then give it to a single cold agent with the general Any-Shape release. Request an **Android-ready native mobile project** (React Native/Expo initially a candidate), then a normal **Avalonia/C# project** for pinned Windows and Linux. Expand to genuine iOS generation and its required macOS/Xcode verification when available. Generated outputs should be ordinary editable IDE projects, not proprietary or prebuilt ports. Application-store submission readiness and actual external approval must be reported separately.
+
+**Scientific honesty:** do not contaminate the trial by writing application-specific Android/Avalonia solutions into the corpus beforehand, leaking evaluator fixtures to the reconstructor, or counting a WebView or superficial screenshot copy as a native reconstruction. Record isolation quality, environment/version pins, elapsed time, tool/token cost, human interventions, builds, platform checks, real event/effect traces, responsive and accessible presentation, failures, repairs, unresolved unknowns and narrowly scoped human review. Repeat on at least one **genuinely unfamiliar second project** before making generality claims.
+
+**Success criterion:** the agent demonstrates *transferable understanding* of a previously unfamiliar application, not memorization of a known conversion. The agent may adapt platform-specific mechanisms appropriately and must label unsupported or unobservable source capabilities rather than pretend complete parity.
+
+> **The flagship is not the demonstration app. The flagship is Any-Shape enabling a cold agent to reconstruct that app faithfully and independently.**
