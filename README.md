@@ -189,3 +189,7 @@ The repository carries the [Forever Works](vendor/forever-works/) standard, sche
 ---
 
 **Any-Shape — Preserve the meaning. Transfer the behavior. Rebuild the form.**
+
+## Recover the full vision after a lost session
+
+**Start with [Long-Horizon Vision](docs/IDENTITY/ANY_SHAPE_LONG_HORIZON_VISION.md) and [Agent Transference Blueprint](docs/ROADMAP/ANY_SHAPE_AGENT_TRANSFERENCE_BLUEPRINT.md).** These two durable handoff documents preserve the owner's intent and deep architectural decisions: Any-Shape as the agent-first graphical/interface continuity specialization of Forever Works; a compact, high-explanatory-power corpus; native Avalonia (Ubuntu 24.04/Windows 11 reference baselines) and Python proofs; operation/effect equivalence; professional responsive UI; historical pins and rolling verification; automated drift detection, bounded repair, human-verification markers, and the exact test-before-convert sequence. Both explicitly distinguish aspirations from current implementation.
