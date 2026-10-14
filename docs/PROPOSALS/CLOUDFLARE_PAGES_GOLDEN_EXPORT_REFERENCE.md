@@ -104,3 +104,18 @@ For D1, ship a **small, explicit SQL schema/migration**, binding declaration and
 **Minimal configuration doctrine:** Two small working adapter examples in one indexed reference corpus are better than building a general-purpose database abstraction or introducing mandatory storage into every exported app. An agent should understand when and why to select R2, D1, both, or neither, and apply the documented Pages/Wrangler pattern in an unfamiliar app.
 
 **Implementation status:** Proposed and documented here only. Neither the R2 nor D1 persistence example has been implemented and independently exercised as part of the current website export ZIP.
+
+
+### First-class, reusable JSON record URLs
+
+**Owner's additional objective:** Every accepted form submission should be addressable as a stable individual JSON resource, so *any later program* can consume the raw response data independently of the original form UI. R2 is the first reference mechanism for this capability; D1 can demonstrate an equivalent logical retrieval contract backed by SQL. Avoid tying the portable record identity to an ephemeral object filename or a particular hosting provider.
+
+Example: after persistence, `POST /api/submit` may return a structured receipt containing `submissionId`, `status`, and a canonical `recordUrl` such as `https://forms.example.com/api/submissions/<opaque-id>`. A minimal `GET /api/submissions/:id` Pages Function would read the corresponding R2 object (or D1 row, according to configured storage mode), and return `Content-Type: application/json` with a stable, versioned envelope containing form identity, submission identity, timestamp, and original answer data. The reference must establish what remains immutable, whether revisions exist, and how 404, revoked access, malformed IDs, and unavailable storage are reported.
+
+For R2, use a safe unique object key of the form `submissions/<safe-form-id>/submission-<cryptographically-random-id>-<utc-timestamp>.json`, coupled to the stable `submissionId` via an explicit, documented deterministic mapping or small index. **Do not generate an opaque URL that cannot actually be resolved later.** Do not rely on merely guessing filenames from timestamps. If immutable source records are preferred, document retention, deletion, and replacement semantics.
+
+**Security boundary:** Form answers may contain email addresses, documents, or other private data. A stable URL is not by itself authorization. Default to **private, authenticated retrieval**, or a securely signed, time-limited share URL if deliberately enabled by the owner. Publicly accessible raw JSON must be an explicit opt-in with a warning about downstream sharing, indexing, and retention. Avoid exposing R2 buckets publicly just to implement record URLs. The receipt handed to respondents must not automatically disclose a privileged read credential.
+
+**Future interoperability proof:** A *second unrelated test application* retrieves a permitted submission by URL, validates the versioned JSON contract, and processes an answer field without invoking the form or its editor. Include independent HTTP retrieval, access-denial, wrong-ID, and persistence/restart tests. This proves the owner's deeper intent: one application may generate reusable structured data upon which other independent products can build.
+
+**Status:** Design requirement for the proposed reference, not a currently implemented or verified public URL feature.
