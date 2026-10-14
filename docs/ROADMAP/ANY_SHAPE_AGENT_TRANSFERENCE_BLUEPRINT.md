@@ -212,3 +212,28 @@ Do not claim the standard is established by merely writing RFCs. The proof is th
 Packaging choices (npm, Python, portable CLI archive, ZIP, multi-language adapters) are **deliberately undecided**. Select by measured cold-agent adoption experience rather than personal language preference. The package must be operable offline for meaningful local examples and should not demand cloud inference, proprietary services or full mobile/desktop toolchains merely to *inspect* a project.
 
 **Next precedence rule:** The new desktop/mobile output contracts are not permission to leap over the existing verification gates. Source browser applications and webhook effects must be observed and frozen as acceptance fixtures before claiming cross-target equivalence. Add mobile as a tracked M9 cross-medium branch and Avalonia/IDE interoperability as an acceptance condition on the desktop transference gate. Add an unseen-source mobile or desktop project to the later generalization evaluation.
+
+
+## Flagship acceptance gate — Unprepared source, general-purpose package, cold agent
+
+**This gate is normative for the proposed showcase, not an already passed milestone.** The forms remain initial teaching/fixture references, while the eventual flagship is the **agent's independent conversion of a real, not specially prepared Chrome extension** into functioning target-platform applications.
+
+### Anti-hardcoding protocol
+
+1. Develop a real, ordinary standalone Chrome extension with useful functionality and natural platform-specific capabilities. Its development must not embed predetermined target-language implementations or application-specific conversion annotations merely to help this showcase.
+2. Establish an independent source baseline: capture real workflows, domain identities, validation, state, permissions, network/file effects, responsive behavior, errors, and evidence. Freeze the extension's commit/release and fixture version.
+3. Release an **application-agnostic** Any-Shape bundle with a Forever Works-compatible neutral specification, small indexed canonical corpus, discovery/diagnostic tooling, conformance contracts, versioned adapters, environment pins and offline readable documentation. Prefer npm first if pragmatic; keep all semantic records portable for later Python and other bindings.
+4. Give **one cold agent** only the frozen original project/repository/ZIP, Any-Shape package, a selected target and authorized build/test environment. No hand-authored target solutions, private mapping hints or evaluator answers. Report the strength of actual isolation rather than claiming a blind trial without enforced boundaries.
+5. First request an editable, buildable Android project with real device/emulator verification and separately evaluated Google Play submission readiness; then request a standard Avalonia/C# solution for pinned Windows and Ubuntu Linux. iOS is a future target requiring genuine supported Apple toolchain/device or simulator evidence. Do not equate store readiness, store submission or approval.
+6. The agent must **discover -> abstract -> select precedents -> reconstruct -> execute -> compare effects -> diagnose drift -> repair within authority -> generate handoff**. It must preserve underlying obligations while adapting platform-specific capabilities (e.g., browser capture versus Android share intents) and documenting losses.
+7. Independent reviewers/evaluators check actual domain semantics, state, validation, file/data/network effect receipts, visual coherence across sizes, keyboard/touch/a11y, packaging and dependency versions. Report PASS, FAIL, UNKNOWN, UNSUPPORTED, and `needsHumanVerification` with exact scope and evidence.
+8. Log wall-clock duration, compute/token/tools budget, number of human interventions, repair iterations, compilation/runtime results and reproducibility. Faster is better **only if correctness and quality hold**.
+9. Run a second cold trial on a different, previously unseen application domain. Rework general contracts when necessary, not one-off per-app conversion rules.
+
+### Failure conditions
+
+A hand-ported Android/desktop copy presented as an agent conversion; source-tailored scaffolding installed in the package; a hidden prewritten conversion map; test harnesses that never observe real external effects; screenshots substituted for working controls; conflating running on one OS with verified operation on every OS; a claim of store approval without platform review; an agent that can only succeed with elaborate application-specific prompting; or a growing pile of bespoke adapters masquerading as a small general-purpose core.
+
+**Progression:** verified forms and webhook/side-effect evidence -> minimal semantic discovery/continuity package -> cold Chrome extension trial -> Android proof -> Avalonia Windows/Linux proof -> independent generalization and drift/repair evaluation. The original milestone map's M0–M11 gates still apply; do not leapfrog baseline verification.
+
+**Interpretation rule:** The showcase product may change or even be replaced. The transferable, independently verifiable method is what Any-Shape exists to demonstrate.
