@@ -13,6 +13,7 @@
       "capabilities/interoperability.json",
       "capabilities/layout-observability.json",
       "capabilities/multi-medium.json",
+      "capabilities/openform-flow.json",
       "capabilities/openform-reference.json",
       "capabilities/permission-checking.json",
       "capabilities/portable-adoption.json",
@@ -66,6 +67,7 @@
       "implementations/diagnostics.json",
       "implementations/independent-evaluator.json",
       "implementations/openform-browser.json",
+      "implementations/openform-flow-browser.json",
       "implementations/python-proof.json",
       "implementations/python-selfcheck.json"
     ],
@@ -80,6 +82,7 @@
       "invariants/measured-truth.json",
       "invariants/no-js.json",
       "invariants/no-loss.json",
+      "invariants/openform-flow-continuity.json",
       "invariants/openform-orientation.json",
       "invariants/privacy.json",
       "invariants/recoverability.json",
