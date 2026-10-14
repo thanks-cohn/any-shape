@@ -53,3 +53,5 @@ The browser already implements a useful authoring experience; **the native Pytho
 ## Destination settings (implemented browser slice)
 
 Click **Destinations** in the top toolbar. Select **Save on this device**, **Send to URL (POST)**, or **Save locally and send to URL**, then save. You can optionally send a **real synthetic test request** to an endpoint you control. Endpoint URLs must be HTTPS (or localhost HTTP for development), allow browser CORS, and accept a JSON POST with the standard response envelope. If endpoint delivery fails, a visible error is displayed; partial delivery can occur in dual mode. Do not put secret tokens in the exported form JSON or send sensitive personal information to a public test webhook. For secured webhooks, use a backend relay. Local Publish still does not host the form publicly. See [RFC-012 portable destinations](../../docs/PROPOSALS/PORTABLE_DESTINATIONS_CONTRACT_RFC_012.md).
+
+The **View saved responses** sidebar control opens a local JSON viewer for submitted records. It shows this browser's local records only, not responses sent exclusively to an endpoint or records stored on another device.
