@@ -1,0 +1,38 @@
+{
+  "foreverVersion": "0.1",
+  "id": "capability.openform-reference",
+  "kind": "capability",
+  "name": "Portable twenty-question editable form reference",
+  "statement": "Provide a useful generic form, editable through accessible controls and context editing, with stable question identities, major answer types, dynamic sections, local publishing, JSON configuration, local response capture/export and optionally configured API submission. Preserve transferable meaning across future native GUI implementations.",
+  "criticality": "important",
+  "status": "implemented-browser-scope; native-transference-proposed",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "User request for generic 20-question editor, monochrome themes, adaptive aesthetics and Python transference; docs/EXAMPLES/OPENFORM_CONTINUITY.md; implementation mapping pending owner review",
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed"
+  },
+  "relatedInvariants": [
+    "invariant.openform-orientation",
+    "invariant.identity",
+    "invariant.accessibility",
+    "invariant.shared-rules"
+  ],
+  "relatedImplementations": [
+    "implementation.openform-browser"
+  ],
+  "verification": [
+    {
+      "type": "manual-probe",
+      "expected": "Inspect actual browser example with twenty questions; edit a label, add a field and section, publish, enter answers, submit, export and reimport. Verify that theme and viewport changes preserve meaning. Execution currently unverified.",
+      "command": "npm run dev; open http://127.0.0.1:4173/examples/openform/"
+    }
+  ],
+  "extensions": {
+    "org.any-shape": {
+      "reference": "docs/EXAMPLES/OPENFORM_CONTINUITY.md",
+      "nativePython": "not-implemented",
+      "status": "source-implemented-unverified"
+    }
+  }
+}
