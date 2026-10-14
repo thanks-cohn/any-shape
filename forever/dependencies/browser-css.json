@@ -1,0 +1,37 @@
+{
+  "foreverVersion": "0.1",
+  "id": "dependency.browser-css",
+  "kind": "dependency",
+  "dependencyName": "Native browser CSS and semantic HTML",
+  "dependencyType": "platform-capability",
+  "currentImplementation": "implementation.css-core",
+  "purpose": "Render layout and accessible markup in browser environments.",
+  "reasonSelected": "It is the native deployment surface and minimizes runtime machinery.",
+  "requiredCapabilities": [
+    "capability.contextual-reflow",
+    "capability.semantic-interaction",
+    "capability.portable-adoption"
+  ],
+  "protectedInvariants": [
+    "invariant.identity",
+    "invariant.context",
+    "invariant.no-loss",
+    "invariant.accessibility"
+  ],
+  "replacementClassification": "SEMANTIC",
+  "replacementRequirements": [
+    "requirement.same-observable-behavior",
+    "requirement.accessible-semantics"
+  ],
+  "compatibilityObligations": [
+    "compatibility.public-api-v01"
+  ],
+  "historicalContext": "HTML/CSS output is the browser contract; source authoring language may be replaced.",
+  "deprecationState": "active",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
