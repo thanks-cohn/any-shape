@@ -1,130 +1,191 @@
 # Any-Shape
 
-**Preserve human and agent comprehension and operation across changing forms, media and resources.**
+### Preserve what software *means* when everything around it changes.
 
-> The form may change. The identity must remain.
+**An open research and engineering project for reconstructing software across languages, interfaces, platforms, and generations of tools—without losing its purpose, behavior, or human experience.**
 
-## Mission
-Any-Shape enables information and operations to remain comprehensible, accessible, attractive where practical, and functionally available to humans and programmatic agents as medium, geometry, constraints, input methods and computational resources change. The form may change; meaning, essential functions and trustworthiness must remain.
+> **The form may change. The identity must remain.**  
+> **A press here should have the same authorized consequence there.**
 
-Browser resizing/overflow is an implemented example, not the mission or permanent technological boundary. Logical fields, records, objects and authorized operations may have browser, desktop, text, agent or editor realizations; each must preserve meaning and declare unsupported scope. Human and programmatic actions must obey the same validation, authority and state transitions. The current browser library remains protected; broader capabilities are proposals or scoped reconstruction proofs, not production support claims.
+Imagine giving an AI agent a browser application and saying: **“Rebuild this as a real native Python application. Keep it beautiful. Keep the inputs and validation. Make its buttons, state changes, generated data, API requests, and external integrations work the same way.”**
 
-**First intended adopter:** Pop-Quiz.ai. **Ownership:** standalone general-purpose library, never coupled to Pop-Quiz.ai. Other prospective adopters may use plain HTML/CSS/JS, TypeScript, or framework wrappers.
+Today, doing that reliably requires more than translating JavaScript into Python. An agent must understand what the application *is*, why its controls exist, how effects propagate, what counts as the same behavior, what may legitimately differ on a new platform, and how to prove the result works.
 
-## Start here — reading order for humans and agents
+**Any-Shape exists to make those obligations discoverable, transferable, testable, and eventually reusable across many kinds of software.**
 
-Begin with [project essence](docs/IDENTITY/PROJECT_ESSENCE.md), [ontology](docs/IDENTITY/ONTOLOGY_AND_SEMANTICS.md), [human and agent faces](docs/IDENTITY/HUMAN_AND_AGENT_FACES.md), [transformation](docs/IDENTITY/TRANSFORMATION_AND_DEGRADATION.md), and [acceptance](docs/RECONSTRUCTION/CONFORMANCE_AND_ACCEPTANCE.md). The [next-agent handoff](docs/RECONSTRUCTION/NEXT_AGENT_HANDOFF.md) gives exact status and commands. Then inspect the [canonical model](forever/manifest.json), [capability map](docs/IDENTITY/CAPABILITY_AND_INVARIANT_MAP.md), [mechanisms](docs/IDENTITY/MECHANISMS_VS_MEANING.md) and [cold reconstruction handbook](docs/RECONSTRUCTION/COLD_START_RECONSTRUCTION.md).
+This repository is a **working browser laboratory plus an evolving research specification**, not a claim that a general-purpose automatic software converter is already finished.
 
-For the protected browser specialization, retain this reading path:
-1. [PURPOSE](docs/FOUNDATION/PURPOSE.md): why the project must exist, permanent promises, boundaries.
-2. [CONTRACTS](docs/FOUNDATION/CONTRACTS.md): observable behavior and acceptance criteria.
-3. [ARCHITECTURE](docs/ARCHITECTURE.md): replaceable technical choices, modules, stable seams.
-4. [RECOVERY](docs/RECOVERY.md): rebuilding from purpose if dependencies or code disappear.
-5. [PUBLIC API](docs/API/CURRENT_API_V0_1.md): implemented 0.1 classes, tokens, diagnostics and limitations.
-6. [CODEX HANDOFF](docs/CODEX/CODEX_HANDOFF_001.md): implementation request, priorities, proof requirements.
+## Why this matters
 
-## Foundational axioms
-1. Identity survives transformation.
-2. Content determines composition.
-3. Relationships outrank coordinates.
-4. Legibility and operability are non-negotiable.
-5. Adaptation must be verifiable.
-6. The browser's native layout is the primary engine; JavaScript is optional progressive enhancement.
-7. Fail gracefully, never conceal essential content to fit an aesthetic.
-8. Purpose and observable behavior outrank frameworks, dependencies, and specific source code.
+Software regularly becomes difficult to preserve when a framework, device, dependency, language, platform, or original development team disappears. Interfaces may be copied while their essential interactions fail; generated applications may appear convincing but call the wrong endpoint, discard validation, change data shapes, or silently lose state.
 
-## Scope
-- Design tokens, fluid geometry and type, container-aware primitives, compositional components.
-- Semantic HTML, keyboard and touch access, responsive images, localization robustness.
-- Debug and agent-observable layout diagnostics with redaction-safe outputs.
-- Automated matrix testing including screenshots, structural assertions, zoom/text stress, and accessibility.
-- A live laboratory for demonstrating good and broken layouts.
-- Recoverable documentation: invariants, usage, decision logs, replaceability and dependency inventory.
+Any-Shape proposes an alternative: **preserve the application's identity and observable obligations as first-class, inspectable knowledge**, then reconstruct the implementation with independent evidence.
 
-## Non-goals
-- Claiming mathematical perfection at every width or arbitrary content size.
-- Automatically judging beauty with a single score.
-- Rebuilding React, CSS, DOM, or the browser's rendering pipeline.
-- Requiring a hosted service, runtime analytics, accounts, or proprietary APIs.
-- Omitting necessary controls or hiding real information just to avoid scrolling.
+For a **student**, it is a place to experiment with JavaScript, TypeScript, Python-oriented reconstruction contracts, native-interface design, schemas, responsive behavior, and reproducible testing.
 
-## Status
+For a **professor or researcher**, it offers an evolving set of controlled case studies about software evolution, cross-language equivalence, UI adaptation, program comprehension, AI-assisted migration, and the limits of automated reconstruction. The intended method distinguishes implementation, observation, inference, and verified equivalence.
 
-**Universal identity and preservation model:** owner-stated mission, canonical Forever Works records and extensive cold reconstruction documentation. [Handoff 002 evidence](docs/CODEX/IMPLEMENTATION_REPORT_002.md) records actual upstream validation/audit, a separate Python proof and independent evaluation. The proof is not a production universal engine; technical proposals remain unreviewed and strict blind isolation/manual aesthetics remain unknown.
-**Core 0.1 implemented:** portable CSS primitives, container-aware cards, semantic navigation and form examples, and opt-in privacy-safe diagnostics. No runtime dependencies or build step. Package publication is not asserted. See [implementation evidence](docs/CODEX/IMPLEMENTATION_REPORT_001.md) for exact tests, engines, failed attempts and remaining manual checks.
+For a **developer or agent builder**, it is a practical starting point for an application model in which control-to-effect wiring, validation, data shape, accessibility, appearance, error handling, and integrations can be discovered instead of reverse-engineered from disconnected screenshots.
 
-## Develop and adopt
+For a **maintainer**, it is an experiment in software that can be inherited cold, repaired, modernized, and independently evaluated even when the original authors are unavailable.
 
-Model validation: `npm run check:forever`. Independent proof evaluation: `node scripts/evaluate-reconstruction.mjs`. The unmodified upstream standard/schemas/CLI are pinned and licensed in `vendor/forever-works/`; [dependency atlas](docs/RECONSTRUCTION/DEPENDENCY_AND_FAILURE_ATLAS.md) explains replacement proof. The full preservation corpus is in the source repository; the npm package remains the browser slice, not an assertion of universal agent support.
+## Try the three browser applications
 
-Requires Node >=22 (CI uses 24):
+All three are source-implemented and served by the repository's local development server. They are **progressively harder examples of the same preservation problem**, not limits on what Any-Shape may eventually support.
+
+| Example | Source | What it teaches | Run it |
+| --- | --- | --- | --- |
+| **OpenForm Studio** | Plain JavaScript | A configurable **20-question** form: stable field identities, accessible controls, validation, editing, JSON/CSV exports, and submission effects | [Example](examples/openform/) |
+| **OpenForm Flow** | Plain JavaScript | A more capable no-code form builder: matrices, ranking, ratings, conditional questions, repeatable groups, navigation, and publish state | [Example](examples/openform-flow/) |
+| **OpenForm Schema** | TypeScript → browser JavaScript | Typed source, structured applications, repeatable estimate items, calculated totals, drafts, review, and configurable delivery destinations | [Example](examples/openform-schema/) |
+
+### Run locally
+
+**Requirements:** Node.js 22 or newer. No hosted font, account, or external frontend framework is required to use these browser demonstrations.
 
 ```sh
+git clone https://github.com/thanks-cohn/any-shape.git
+cd any-shape
 npm ci
-npx playwright install --with-deps chromium firefox webkit
-npm run check
-npm run test:recovery
-npm run test:package
+npm run build:openform-schema
 npm run dev
 ```
 
-The static laboratory is served on port 4173 at `/examples/`; `/examples/broken.html` contains intentional failures. The server binds to loopback and serves only consumer assets. Without any Node tooling, serve `examples/` and `src/` together with any static server. No account, remote assets or diagnostic module is required by the CSS layout.
+The server listens at **http://127.0.0.1:4173**. Open:
 
-On the Debian amd64 cloud host without root, use `npm run prepare:cloud` instead of `install --with-deps`, then use the browser-cache variables documented in [DEPENDENCIES](docs/DEPENDENCIES.md). Firefox needs an execution sandbox exception on this host; this is a host restriction, not an application failure.
+- **Studio:** http://127.0.0.1:4173/examples/openform/?edit=1
+- **Flow:** http://127.0.0.1:4173/examples/openform-flow/?edit=1
+- **Schema:** http://127.0.0.1:4173/examples/openform-schema/?edit=1
 
-Copy `src/any-shape.css` into an HTML project or import `@any-shape/core/css` from a locally installed tarball. Optional ESM diagnostics are exported from `@any-shape/core`; type declarations and a closed JSON Schema ship with the package. `npm run test:package` builds a tarball and tests it in an external consumer, without publishing it.
+The **`?edit=1`** URL is the authoring view, where you can configure and publish. After **Publish locally**, the ordinary URL without `?edit=1` is intended to show only the professional respondent interface: title, description, sections, questions, navigation, validation, and submission feedback. No editing toolbar or sidebar.
 
-Tests produce JSON, screenshots and failure traces under ignored `artifacts/` and `test-results/`. Screenshots are review candidates; do not blindly approve them as goldens. Read the [dependency and recovery register](docs/DEPENDENCIES.md) for browser caches, system-library requirements and runner replacement. New agents should begin with [NEXT_AGENT](docs/CODEX/NEXT_AGENT.md), then the foundational reading order above.
+This is a **local development workflow**, not authenticated publishing or a hosted public form service. The author route is a convenience, not an access-control mechanism.
 
-## Agent entrypoint
-Read `AGENTS.md` before editing. Implement against behavior contracts; keep docs synchronized with observed reality.
+### Connect responses to destinations
 
-## Long-term architectural vision
+The browser examples use a small shared [destination adapter](examples/shared/destinations.js) with an author-only **Connections** window. The first adapter set supports:
 
-Read [Software Built to Endure](docs/VISION/SOFTWARE_BUILT_TO_ENDURE.md) for Any-Shape's guiding approach to language-neutral continuity, dual human/agent interfaces, low-cost upkeep, and independently verifiable reconstruction. This is a **future-oriented architectural vision**, distinct from currently implemented v0.1 capabilities. The staged acceptance criteria live in the [milestone roadmap](docs/ROADMAP/MILESTONES.md).
+- Local browser response storage and export.
+- Named HTTPS JSON POST destinations, including webhook receivers that accept direct browser requests.
+- More than one enabled destination, optional/required delivery flags, and visible per-destination success or failure.
+- An explicit synthetic test request to an endpoint you control.
 
-## Flagship example under development — Any-Shape Transference
+**Caution:** Client-side JSON is visible to people receiving the form. Never place secret webhook tokens or private API keys in it. Cross-origin receivers must support CORS. HTTP acceptance does not prove downstream processing, and partial delivery may require deduplication before retry. Private integrations, reliable queues, signed webhooks, multi-user collection, and public hosting require additional server-side adapters.
 
-Our intended public showcase: submit an authorized browser application to an agent, reconstruct its essential behavior as a **native Python desktop interface**, and compare real inputs, Submit actions, HTTP endpoints, validation, state changes and accessible responsive adaptation across both versions. The guiding rule is **transfer the adaptation obligation, not the original CSS/JavaScript machinery**. See [RFC-005](docs/PROPOSALS/INTERFACE_PORTABILITY_RFC_005.md) for API/control parity and [RFC-006](docs/PROPOSALS/ADAPTIVE_TRANSFERENCE_RFC_006.md) for native presentation and agent-driven conversion. This is planned, not implemented.
+See [RFC-012](docs/PROPOSALS/PORTABLE_DESTINATIONS_CONTRACT_RFC_012.md) and [RFC-013](docs/PROPOSALS/MULTI_DESTINATION_ADAPTER_REFERENCE_RFC_013.md).
 
-## Bidirectional portability proof
+## The experiment: can an agent transfer the *application*, not just the code?
 
-The flagship language-independence goal is **JavaScript ↔ native Python, in both directions**: demonstrate real fields, Submit operations, API/endpoint compatibility, accessible adaptive layouts and preserved user orientation in both implementations. This should be an understandable visual showcase backed by independent functional tests, not a source-code transpilation trick. The neutral contracts also prepare for **C and C++** (including native C++/Qt UI), as separate future targets. Read [RFC-007](docs/PROPOSALS/LANGUAGE_PORTABILITY_STRATEGY_RFC_007.md). These directions are planned; a general automatic converter is not shipped.
+The planned next step is to reconstruct **each of the three browser applications as a genuinely native Python/Qt application**—not a WebView displaying the original webpage.
 
-## Cross-platform reference ladder
+The target must preserve accepted consequences:
 
-The proposed production-oriented examples progress from **JavaScript ↔ native Python** (bidirectional interface, adaptive presentation, Submit/input/API equivalence), to **Avalonia C# desktop apps for Windows and Linux**, a standards-compliant **Chrome extension/native companion** integration, and independently verified **C++/Qt plus bounded C/ABI** implementations. The intent is a small portable semantic core with independently installable renderers and adapters, so future agents can recover and extend the underlying principles rather than depend on one framework. See [RFC-008](docs/PROPOSALS/FOUNDATIONAL_CROSS_PLATFORM_SHOWCASES_RFC_008.md). Platform packaging, store approval and native security requirements are distinct and not claimed to be bypassed.
+| Continuity to demonstrate | What must survive |
+| --- | --- |
+| **Meaning** | Domain objects, intent, question identities, user goals |
+| **Behavior** | Working buttons, editing, validation, navigation, conditional logic |
+| **State** | Current step, inputs, drafts, persistence, transitions |
+| **Effects** | File exports, saved records, generated results, actual HTTP calls, errors |
+| **Presentation** | Readable, professional light/dark UI, accessibility, responsive orientation |
+| **Trust** | Declared permissions, safe boundaries, honest unsupported states |
+| **Evidence** | Independent tests, real effect traces, PASS / FAIL / UNKNOWN results |
 
-## First copyable reference app — OpenForm Studio (browser implemented)
+For example, a browser's `submit` listener and a Qt button signal are different mechanisms. They can nevertheless represent the same logical action. **The source gesture, normalized operation, preconditions, state change, external effect, and observed outcome should be traceable end to end.**
 
-A standalone, attractive, **15-question configurable HTML/CSS/JavaScript form** (comfortably supporting 10–20 questions), with working local answers/JSON/CSV export and optional API POST. Default appearance: **black text on white**; set `appearance.theme` in the simple JSON config to `dark` for **white text on black**, with a standard system font. Its independent native Python form will prove actual UI/input/API/adaptation parity. Full Codex implementation brief: [Handoff 004](docs/CODEX/CODEX_HANDOFF_004_OPENFORM_REFERENCE_AND_PYTHON_TRANSFERENCE.md). Browser source now implemented in `examples/openform/`; native Python and independent end-to-end parity remain future work.
+The long-term goal is a **language- and renderer-neutral agent API** enabling an agent to discover an application, inspect its capabilities, model its operation/effect graph, plan a reconstruction, implement adapters, verify outcomes, and report deviations. This API is a **research and development target**, not a production-shipped universal converter.
 
-## Working browser example — OpenForm Studio
+The three forms are a **teaching ladder**, not a closed ontology. If the model generalizes, a future unknown fourth application—a different domain, platform, or interaction medium—should be describable and evaluated without hardcoding its peculiarities into the core.
 
-[Launch through the local static server](examples/openform/) · [User and copy guide](examples/openform/README.md) · [Human/agent design and continuity guide](docs/EXAMPLES/OPENFORM_CONTINUITY.md)
+## What is implemented, proposed, and still unverified?
 
-The browser-side first reference is now source-implemented: a standalone, **20-question** configurable general intake form with radio circles, multiple-choice checkboxes, dropdowns, short/long text, date, URL, numeric and range inputs; right-click and visible accessible Edit controls; `+ Add question` and `+ Add section / embed`; JSON import/export; black-on-white and white-on-black themes driven by configuration; local-only Publish and response JSON/CSV export. Layout reflows from two columns to one at constrained widths, preserving readable section headings and controls. External embed sections use a strict HTTPS player allowlist and sandbox. `npm run dev`, then open `/examples/openform/`.
+| Area | Status |
+| --- | --- |
+| Browser CSS primitives, opt-in diagnostics, original responsive laboratory | **Implemented**; historical tests and reports documented |
+| OpenForm Studio, Flow, and Schema browser source | **Implemented in source**; independent end-to-end verification still required |
+| Shared browser destination settings and local/HTTPS adapter | **Implemented in source**; receiver and failure-mode coverage must be independently exercised |
+| Three native Python/Qt equivalents | **Planned; not shipped** |
+| General action/effect registry and agent-facing transference API | **Specified; not shipped as a universal API** |
+| Arbitrary-project migration, high-fidelity automated conversion, cross-platform installers | **Long-term research goals** |
 
-**Evidence boundary:** Source and configuration passed static parsing checks (20 questions). New browser tests are committed at `tests/browser/openform.spec.js`, but have not yet been executed in this work session; full cross-browser usability and manual aesthetic approval remain pending. No native Python OpenForm implementation or verified API-endpoint transference has yet been delivered. The canonical Forever Works records `capability.openform-reference`, `invariant.openform-orientation` and `implementation.openform-browser` preserve purpose, design identity and scoped implementation status.
+**Do not equate code existing with passing tests.** The browser examples have committed tests, but new scenarios, actual endpoint delivery, cross-browser layout, keyboard/a11y, and native parity require observed evidence. Some features (such as file attachment metadata and typed acknowledgments) deliberately do **not** constitute true file upload or verified digital signatures.
 
-## Second working browser reference — OpenForm Flow
+## Reproduce and challenge the results
 
-[OpenForm Flow](examples/openform-flow/) is a separate, advanced, no-code form studio alongside [OpenForm Studio](examples/openform/). Its source implements diverse question types (including rating, ranking, matrix, scales, date/time, file-reference metadata and typed acknowledgment), conditional question visibility, repeatable sections, multi-step respondent navigation, plus-sign creation, edit/remove/reorder controls, theme configuration and **Publish locally** to activate local answer submission/export. No external frontend packages or hosted fonts are required. To run: `npm run dev` and open `/examples/openform-flow/`. See [user guide](examples/openform-flow/README.md) and [human/agent continuity guide](docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md); `forever/manifest.json` indexes the source-implemented capability, invariant and implementation records. **Browser tests are committed but were not executed by this editing session; manual aesthetics and native Python equivalence are not yet proven.** Publishing is local-only, not public web hosting; file inputs do not upload bytes and typed signatures are not identity-verified.
+```sh
+# Verify the protected browser library, type definitions, and browser tests.
+npm run check
 
-## Next proof: three-form JavaScript/TypeScript → native Python ladder
+# Validate the actual pinned Forever Works records and conventions.
+npm run check:forever
 
-[RFC-009](docs/PROPOSALS/THREE_FORM_TRANSFERENCE_LADDER_RFC_009.md) defines three escalating source applications and three separate **native Python/Qt** counterparts: (1) vanilla JS OpenForm Studio (standard intake), (2) vanilla JS OpenForm Flow (no-code authoring, branches, matrices and repeaters), (3) proposed TypeScript OpenForm Schema (typed schema-driven calculations, nested structured data, validation and endpoint contracts). The third form and all three native equivalents are **future implementation work**, not shipped. Its purpose is to teach cold agents transferable semantics, native UX reconstruction and independently testable API/data/state continuity while preserving the lightweight v0.1 library.
+# Check the reconstruction and continuity experiments.
+node scripts/evaluate-reconstruction.mjs
+npm run test:forever
 
-## The wiring must survive
+# Run focused browser checks after installing Playwright browsers.
+npx playwright install
+npx playwright test tests/browser/openform.spec.js tests/browser/openform-flow.spec.js tests/browser/openform-schema.spec.js
+npx playwright test tests/browser/published-form-surface.spec.js
+```
 
-[RFC-010 — Event–Effect Continuity](docs/PROPOSALS/EVENT_EFFECT_CONTINUITY_RFC_010.md) makes **a press here means the same thing there** a formal reconstruction requirement. The intended standard maps browser DOM gestures and native Python GUI signals to stable logical actions, typed arguments, guards, state transitions, declared and **observed** storage/HTTP/file effects and user-visible outcomes. An unfamiliar agent should be able to trace each control → action → effect → test fixture → Python counterpart without the original author's explanation. The API and three native implementations are **proposed future work**, not claimed shipped functionality.
+If a test fails, retain its trace and fix or document the defect; never turn an unobserved behavior into a passing claim. See [the milestone roadmap](docs/ROADMAP/MILESTONES.md), [test/acceptance model](docs/RECONSTRUCTION/CONFORMANCE_AND_ACCEPTANCE.md), and the [existing evidence reports](docs/CODEX/).
 
-## Plug-and-play response destinations (initial browser implementation)
+A particularly important next experiment is an **independent local HTTP/webhook receiver** with controlled success, error, timeout, and partial-failure cases. The resulting verified contracts should be established **before** asking Codex to reproduce those effects in Python.
 
-The advanced [OpenForm Flow](examples/openform-flow/) now includes a **Destinations** settings dialog for local response saving, direct JSON POST to a configurable permitted HTTPS endpoint, or both, with an explicit test request and visible delivery status. Destination configuration travels in exported form JSON. These are public-browser-capable adapters, **not** private credential storage, guaranteed webhook delivery or public hosting. The architectural standard is [RFC-012](docs/PROPOSALS/PORTABLE_DESTINATIONS_CONTRACT_RFC_012.md), specifying future transport-neutral effects, security, receipts, idempotency, and language-specific adapters. Native Python and TypeScript reference counterparts remain to be built.
+## Start here if you are an AI agent
 
-## Three forms: author settings versus published respondent experience
+**Read [AGENTS.md](AGENTS.md) first.** This repository intentionally records why the software exists, not merely how one implementation happens to work.
 
-All three browser references now have source-implemented **author-only connections/settings** with a shared lightweight destination adapter and themed dialog. Authors can add up to 12 named local-storage or HTTPS JSON POST destinations, enable/disable/remove them, mark deliveries required or optional, and deliberately test an endpoint they control. Configurations export with the form JSON. **Publishing locally deliberately removes the header, toolbar, editing/connection controls, and sidebar**; the respondent sees only the title, description, question sections, navigation and feedback. For a draft or to change settings, explicitly open the author route with `?edit=1`; the plain URL is the clean form surface after publication. No credential manager, public hosting, guaranteed delivery or external webhook signing is claimed. Browser source paths: `/examples/openform/`, `/examples/openform-flow/`, and the new `/examples/openform-schema/` (TypeScript source with browser JavaScript output; run `npm run build:openform-schema` to regenerate). Existing browser CI and manual visual review must be run before a production quality claim.
+Suggested cold-start path:
 
-The shared settings and publisher/respondent boundaries are recorded in [RFC-013 — Multi-Destination Adapter Reference](docs/PROPOSALS/MULTI_DESTINATION_ADAPTER_REFERENCE_RFC_013.md), including its limitations: author mode is a UI convention rather than authentication, and real public service publication requires separate protected author hosting and secret-safe backend delivery.
+1. [Project essence](docs/IDENTITY/PROJECT_ESSENCE.md) — why continuity matters.
+2. [Ontology and semantics](docs/IDENTITY/ONTOLOGY_AND_SEMANTICS.md) — what is preserved.
+3. [Human and agent faces](docs/IDENTITY/HUMAN_AND_AGENT_FACES.md) — who must be able to operate the system.
+4. [Canonical Forever Works manifest](forever/manifest.json) — versioned entities, invariants, capabilities, implementations, provenance, and evidence.
+5. [RFC-009: three-form transference ladder](docs/PROPOSALS/THREE_FORM_TRANSFERENCE_LADDER_RFC_009.md) — controlled examples and acceptance gates.
+6. [RFC-010: event–effect continuity](docs/PROPOSALS/EVENT_EFFECT_CONTINUITY_RFC_010.md) — why a press here must mean the same thing there.
+7. [RFC-011: generalized agent transference](docs/PROPOSALS/GENERALIZED_AGENT_TRANSFERENCE_API_RFC_011.md) — an open-ended model beyond forms.
+8. [RFC-012 and RFC-013](docs/PROPOSALS/PORTABLE_DESTINATIONS_CONTRACT_RFC_012.md) — configurable side effects and delivery adapters.
+9. [Reconstruction handbook](docs/RECONSTRUCTION/COLD_START_RECONSTRUCTION.md) — bounded blind-reconstruction methodology and evidence separation.
+
+**Agent operating rule:** Inspect the actual current source and tests; identify accepted behavior separately from proposals; do not invent endpoints or credentials; preserve the protected 0.1 library; implement real vertical slices; independently verify; leave machine-readable and human-readable handoff evidence. Follow Forever Works provenance and status conventions.
+
+## Research questions
+
+- How can the intent and observable semantics of an application be represented independently of its original implementation?
+- Which behaviors genuinely survive language and GUI-toolkit changes, and which require carefully documented adaptation?
+- Can event/action/effect descriptions preserve causal wiring across JavaScript, TypeScript, Python, C#, C++, and future runtimes?
+- How should an agent reason about unknown, partially observable, or privileged behavior without hallucinating equivalence?
+- Can a small set of carefully instrumented examples teach an agent principles that generalize to an **unseen application**?
+- How can interface quality and user orientation be evaluated alongside functional correctness?
+- Can an application remain maintainable when its original developers, frameworks, and tooling no longer exist?
+
+These are **testable research directions**, not claimed solved problems. Contributions that improve fixtures, independent evaluation, native reconstruction, accessibility, clarity of contracts, or extensibility are valuable.
+
+## Architecture: small core, expandable horizons
+
+Any-Shape's existing distributable core is a lightweight standards-first browser specialization: [`src/any-shape.css`](src/any-shape.css) and optional diagnostics. It is not coupled to the OpenForm examples.
+
+The proposed broader architecture uses **small semantic contracts, explicit adapters, versioned schemas, portable evidence, and independently replaceable implementations**. It should be possible to add a new destination, language, device, runtime, or effect category without turning earlier examples into special cases—or forcing every adopter to install unnecessary dependencies.
+
+The repository carries the [Forever Works](vendor/forever-works/) standard, schemas, and audit tooling as a pinned dependency with provenance. Follow the exact canonical record kinds and do not confuse proposed extensions with an already standardized production API.
+
+**Possible future horizons:** native desktop and mobile interfaces, browser extensions and companions, CLI and server applications, document pipelines, distributed systems, embedded interfaces, AI-accessible tools, and environments we cannot yet predict.
+
+## Project principles
+
+1. **Purpose before syntax.** Preserve why software exists, not its incidental implementation.
+2. **Consequences before screenshots.** A control is defined by what it legitimately accomplishes.
+3. **People and agents both matter.** Accessibility, beauty, orientation, inspectability, and authorized operation are complementary.
+4. **Minimal dependency, maximum replaceability.** External libraries are choices, not the identity.
+5. **Unknown is not success.** Unsupported and unverified behavior must remain visible.
+6. **Reconstruction requires evidence.** Build, exercise, compare, repair, and record.
+7. **The standard must outgrow its examples.** Forms and Python are the beginning, not the boundary.
+
+## License and participation
+
+[MIT License](LICENSE). The best contribution is one that makes Any-Shape easier to **understand, test, extend, independently reconstruct, or challenge**. Begin with a runnable example, a documented invariant, a verified behavior, or an honest failure.
+
+---
+
+**Any-Shape — Preserve the meaning. Transfer the behavior. Rebuild the form.**
