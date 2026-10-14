@@ -1,0 +1,14 @@
+{
+  "foreverVersion": "0.1",
+  "id": "decision.native-first",
+  "kind": "decision",
+  "name": "Use standards-native layout before scripting",
+  "statement": "CSS and semantic HTML are the execution baseline; diagnostics are optional.",
+  "rationale": "Native flow provides resilient, portable and accessible behavior with less state and lower overhead.",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
