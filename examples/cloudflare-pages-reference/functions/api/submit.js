@@ -1,20 +1,38 @@
+import {fileObjectKey} from './file-routing.js';
 // Reference implementation: Cloudflare Pages Functions with optional R2, D1 and webhook.
 // Each destination reports its own outcome; HTTP 200 means all enabled effects succeeded.
 export async function onRequestPost({ request, env }) {
   let input;
+  let attachments=[];
   try {
+    if ((request.headers.get("content-type")||"").includes("multipart/form-data")) {
+      if (Number(request.headers.get("content-length")||0)>10_000_000) return json({error:"payload_too_large"},413);
+      const fd=await request.formData();
+      input=JSON.parse(String(fd.get("submission")||"null"));
+      attachments=fd.getAll("files").filter(v=>typeof v!=="string" && v.name && v.size);
+      if (attachments.length>10 || attachments.some(f=>f.size>5_000_000) || attachments.reduce((n,f)=>n+f.size,0)>10_000_000) return json({error:"attachments_too_large"},413);
+    } else {
     if (Number(request.headers.get("content-length") || 0) > 65536) return json({error:"payload_too_large"},413);
     const raw = await request.text();
     if (raw.length > 65536) return json({error:"payload_too_large"},413);
     input = JSON.parse(raw);
+    }
   } catch { return json({error:"invalid_json"},400); }
   if (!input || typeof input !== "object" || Array.isArray(input) ||
       !/^[a-zA-Z0-9_-]{1,64}$/.test(input.formId || "") ||
       !input.answers || typeof input.answers !== "object" || Array.isArray(input.answers))
     return json({error:"invalid_submission"},400);
+  if(attachments.length && !env.SUBMISSIONS_R2)return json({error:"attachment_storage_not_configured"},503);
   const id = crypto.randomUUID();
   const createdAt = new Date().toISOString();
-  const record = {schemaVersion:1,submissionId:id,formId:input.formId,createdAt,answers:input.answers};
+  const record = {schemaVersion:1,submissionId:id,formId:input.formId,createdAt,answers:input.answers,files:[]};
+  for(const file of attachments){
+    const fileKey=fileObjectKey({formId:input.formId,submissionId:id,name:file.name,type:file.type});
+    try {
+      await env.SUBMISSIONS_R2.put(fileKey,await file.arrayBuffer(),{httpMetadata:{contentType:file.type||"application/octet-stream"}});
+      record.files.push({name:file.name,type:file.type||"application/octet-stream",size:file.size,r2Key:fileKey});
+    } catch {return json({error:"attachment_upload_failed",submissionId:id,uploaded:record.files.length},503);}
+  }
   const key = "submissions/" + input.formId + "/submission-" + id + "-" + createdAt.replace(/[:.]/g,"-") + ".json";
   const effects = {};
   const payload = JSON.stringify(record);
