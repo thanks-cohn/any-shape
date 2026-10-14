@@ -100,3 +100,7 @@ Future agent reconstruction should read the neutral config and the canonical For
 This is a standards-native, standalone browser implementation; cross-browser and screen-reader execution of this new reference has not yet been recorded. Form draft, theme and local response persistence are client-side. Imported JSON should be reviewed before use; the embed allowlist prevents arbitrary origins, not every risk of a third-party provider. There is no silent publishing to a website, permission bypass, or arbitrary remote form ingestion.
 
 See [human-and-agent design intent](../../docs/EXAMPLES/OPENFORM_CONTINUITY.md), [Codex handoff 004](../../docs/CODEX/CODEX_HANDOFF_004_OPENFORM_REFERENCE_AND_PYTHON_TRANSFERENCE.md), and the canonical `forever/` implementation/capability/invariant records referenced in the main manifest.
+
+## Editor and respondent pages
+
+After **Publish locally**, the ordinary `/examples/openform/` URL presents a clean form containing only title, description, sections, questions, Submit and feedback. No author settings, editing toggle or sidebar appears. Reopen `/examples/openform/?edit=1` to enter author mode for changes and connections. The author-only **Connections** dialog supports multiple named local/HTTPS destinations; secret tokens must not be embedded in client JSON. This is local publication, not internet hosting.
