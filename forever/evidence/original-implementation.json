@@ -1,0 +1,17 @@
+{
+  "foreverVersion": "0.1",
+  "id": "evidence.original-implementation",
+  "kind": "evidence",
+  "type": "historical-report",
+  "source": "docs/CODEX/IMPLEMENTATION_REPORT_001.md",
+  "statementSupported": "The original v0.1 reported 87 browser checks, unit checks and recovery checks; this is NOT independent reconstruction evidence.",
+  "confidence": 0.8,
+  "timestampVersion": "2026-10-13",
+  "immutableReference": "fc19093548b2c03827633b8682630f249be190c1",
+  "provenance": {
+    "sourceType": "imported",
+    "sourceReference": "docs/CODEX/IMPLEMENTATION_REPORT_001.md",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
