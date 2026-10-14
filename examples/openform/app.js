@@ -1,3 +1,4 @@
+import {downloadWebsite} from "../shared/website-export.js";
 import {createDestinationSettings,dispatchDestinations,formatDeliveryResults,legacyDestinationToTargets} from "../shared/destinations.js";
 /* OpenForm Studio: standards-native browser editor; no runtime dependencies. */
 const $=id=>document.getElementById(id);
@@ -58,3 +59,5 @@ $("exportResponses").addEventListener("click",()=>download("openform-responses.j
 $("deleteResponses").addEventListener("click",()=>{if(!confirm("Delete all responses saved in this browser?"))return;localStorage.removeItem(RESP);updateCount();announce("Local responses deleted.");});
 async function init(){let base;try{const r=await fetch("./form.config.json");if(!r.ok)throw Error("HTTP "+r.status);base=validateConfiguration(await r.json());}catch{const fallback=el("p",{text:"OpenForm needs a local web server to load form.config.json. Run npm run dev from the repository root and visit /examples/openform/."});$("sections").replaceChildren(fallback);$("submitButton").disabled=true;return;}try{const saved=JSON.parse(localStorage.getItem(KEY)||"null");if(saved){config=validateConfiguration(saved.config);published=!!saved.published;}}catch{}config||=base;if(new URLSearchParams(location.search).get("edit")==="1"){published=false;persist()}render();}
 init();
+
+document.getElementById("exportWebsite").addEventListener("click",()=>downloadWebsite(config,config.destinations||legacyDestinationToTargets(config.submission?.mode==="http"?{mode:"endpoint",url:config.submission.endpoint}:{mode:"local"})));document.getElementById("exportWebsiteJson").addEventListener("click",()=>downloadWebsite(config,config.destinations||legacyDestinationToTargets(config.submission?.mode==="http"?{mode:"endpoint",url:config.submission.endpoint}:{mode:"local"}),"json"));
