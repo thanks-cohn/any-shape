@@ -93,3 +93,7 @@ Adapters are language-specific; obligations are not. Require a developer API and
 > Watch a JavaScript browser form become a native Python window; watch a Python-origin application become a browser app. Resize them, fill the same fields and press Submit. The layout can change, but the information, accessible operations and public API commitments survive. C and C++ are the next targets.
 
 Keep the showcase operable and visually compelling, with source/runtime indicators, side-by-side response traces, a simple fidelity matrix and honest unverified limits. Any-Shape demonstrates continuity through independent execution rather than marketing assertions.
+
+## Cross-platform production target
+
+The expanded reference ladder now includes **Avalonia C#/.NET for Windows and Linux**, a separately tested Chrome Manifest V3 extension/native-host integration, and compiled C/C++ targets. See [RFC-008 — Foundational Cross-Platform Showcases](FOUNDATIONAL_CROSS_PLATFORM_SHOWCASES_RFC_008.md). This expands, but does not displace, the first priority: independently proving JavaScript ↔ native Python transference in both directions with real forms, endpoints and adaptation behavior.
