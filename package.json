@@ -39,7 +39,8 @@
     "dev:webhook-lab": "node scripts/webhook-lab.mjs",
     "test:webhook-lab": "node --test tests/webhook-lab.test.mjs",
     "test:destinations": "node --test tests/destination-effects.test.mjs tests/webhook-lab.test.mjs",
-    "test:website-export": "node --test tests/website-export.test.mjs"
+    "test:website-export": "node --test tests/website-export.test.mjs",
+    "test:deployment-lab": "node --test tests/cloudflare-pages-reference.test.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0",
