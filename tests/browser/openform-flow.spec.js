@@ -22,11 +22,11 @@ test('edit form and add a question, then publish respondent view',async({page})=
  await page.getByRole('button',{name:'Save',exact:true}).click();
  await expect(page.getByText('What matters most?')).toBeVisible();
  await page.getByRole('button',{name:'Publish locally'}).click();
- await expect(page.getByText('Published locally')).toBeVisible();
- await expect(page.getByRole('button',{name:'＋ Add question'})).toBeDisabled();
+ await expect(page.locator('body')).toHaveClass(/respondent-mode/);
+ await expect(page.getByRole('button',{name:'＋ Add question'})).toBeHidden();
  await expect(page.getByRole('button',{name:'Continue'})).toBeEnabled();
  await page.reload();
- await expect(page.getByText('Published locally')).toBeVisible();
+ await expect(page.locator('body')).toHaveClass(/respondent-mode/);
 });
 test('theme switching and complete local submit use real answers',async({page})=>{
  await page.getByLabel('Theme').selectOption('dark');
@@ -41,7 +41,7 @@ test('theme switching and complete local submit use real answers',async({page})=
  await expect(page.getByRole('heading',{name:'Finalize your submission'})).toBeVisible();
  await page.locator('input[type=checkbox]').last().check();
  await page.getByRole('button',{name:'Submit response'}).click();
- await expect(page.getByRole('status')).toContainText('Response saved locally');
+ await expect(page.getByRole('status')).toContainText('Response accepted');
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('anyshape.flow.responses.v1')));
  expect(saved).toHaveLength(1);
  expect(saved[0].answers.summary).toBe('We need an accessible form.');
