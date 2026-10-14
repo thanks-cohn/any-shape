@@ -69,3 +69,8 @@ Then in an actual browser: export ZIP from each of the three editors, extract fi
 ## Intended default: GitHub → Cloudflare Pages (research target)
 
 The owner expects **Cloudflare Pages + `npx wrangler`**, with source files commit-ready for GitHub. See [the proposed single golden Pages deployment reference](../PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md). The target adds the smallest necessary `functions/api/submit.js` server-side JSON forwarding route to the exported respondent-only frontend, so the browser submits to same-origin `/api/submit` while that Function forwards to owner-selected permitted HTTPS webhooks. **Do not add D1, R2, databases or a broader cloud framework merely for this.** The static-only ZIP described earlier in this document is the *current implementation*, not proof that Pages Functions exporting, Wrangler deployment, or end-to-end forwarding already work. Those require implementation and independent testing before changing its readiness status.
+
+
+### Proposed optional Cloudflare storage and cross-app JSON retrieval examples
+
+The golden Pages reference now proposes **both** an R2 JSON-object storage example and a D1 SQL-row example, with independent tests and no mandatory database for webhook-only exports. A core research use case is a stable **URL per submitted JSON record**, retrievable through a documented versioned JSON interface by other authorized applications. A stored object is not automatically publicly accessible; authentication, sharing policy, retention and data minimization must be explicit. See [the golden reference proposal](../PROPOSALS/CLOUDFLARE_PAGES_GOLDEN_EXPORT_REFERENCE.md). These capabilities are **not yet implemented** in the current static export.
