@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "id": "openform-flow-reference",
+  "title": "Your next form, exactly how you need it.",
+  "description": "A beautiful, adaptable form with powerful question types and no account required.",
+  "appearance": {
+    "theme": "light"
+  },
+  "submission": {
+    "mode": "local"
+  },
+  "sections": [
+    {
+      "id": "contact",
+      "title": "Start with the basics",
+      "description": "A little context helps us understand your request.",
+      "questions": [
+        {
+          "id": "name",
+          "label": "Your name",
+          "type": "text",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "email",
+          "label": "Email for follow-up",
+          "type": "email",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "role",
+          "label": "Which best describes you?",
+          "type": "radio",
+          "required": false,
+          "help": "",
+          "options": [
+            "Student",
+            "Educator",
+            "Professional",
+            "Community member",
+            "Other"
+          ]
+        },
+        {
+          "id": "needs",
+          "label": "What are you interested in?",
+          "type": "multi",
+          "required": false,
+          "help": "",
+          "options": [
+            "Learning",
+            "Events",
+            "Services",
+            "Research",
+            "Collaboration",
+            "Other"
+          ]
+        },
+        {
+          "id": "topic",
+          "label": "What's this about?",
+          "type": "select",
+          "required": false,
+          "help": "",
+          "options": [
+            "General inquiry",
+            "Project",
+            "Feedback",
+            "Registration",
+            "Support",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "details",
+      "title": "Tell us more",
+      "description": "Help us understand what a useful outcome looks like.",
+      "questions": [
+        {
+          "id": "summary",
+          "label": "A short description",
+          "type": "textarea",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "scope",
+          "label": "How many people are involved?",
+          "type": "number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "budget",
+          "label": "Estimated amount",
+          "type": "currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "meeting",
+          "label": "Preferred date and time",
+          "type": "datetime-local",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "satisfaction",
+          "label": "How would you rate your experience?",
+          "type": "rating",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "confidence",
+          "label": "How confident are you?",
+          "type": "scale",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "priorities",
+          "label": "Rank your priorities",
+          "type": "rank",
+          "required": false,
+          "help": "",
+          "options": [
+            "Quality",
+            "Speed",
+            "Cost",
+            "Accessibility"
+          ]
+        },
+        {
+          "id": "assessment",
+          "label": "Evaluate the following aspects",
+          "type": "matrix",
+          "required": false,
+          "help": "",
+          "options": [
+            "Poor",
+            "Fair",
+            "Good",
+            "Excellent"
+          ],
+          "rows": [
+            "Clarity",
+            "Ease of use",
+            "Reliability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "title": "Finalize your submission",
+      "description": "You can return and change any answer before finishing.",
+      "questions": [
+        {
+          "id": "link",
+          "label": "Related website",
+          "type": "url",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "document",
+          "label": "Attach a supporting file (session only)",
+          "type": "file",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "explanation",
+          "label": "Additional context",
+          "type": "info",
+          "required": false,
+          "help": "This section can contain a short explanation or instructions without requesting an answer."
+        },
+        {
+          "id": "signature",
+          "label": "Type your name as a signature",
+          "type": "signature",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "consent",
+          "label": "I agree to submit this information",
+          "type": "checkbox",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ]
+}
