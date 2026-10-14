@@ -1,0 +1,30 @@
+{
+  "foreverVersion": "0.1",
+  "id": "dependency.playwright",
+  "kind": "dependency",
+  "dependencyName": "Playwright development test runner",
+  "dependencyType": "development-tool",
+  "currentImplementation": "implementation.browser-tests",
+  "purpose": "Exercise observable browser behavior across engines.",
+  "reasonSelected": "Automation of viewport, keyboard, accessibility and geometry fixtures.",
+  "requiredCapabilities": [
+    "capability.contextual-reflow",
+    "capability.semantic-interaction"
+  ],
+  "protectedInvariants": [
+    "invariant.measured-truth"
+  ],
+  "replacementClassification": "CAPABILITY",
+  "replacementRequirements": [
+    "requirement.same-test-coverage"
+  ],
+  "compatibilityObligations": [],
+  "historicalContext": "Never treat a test runner as part of project identity.",
+  "deprecationState": "active",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
