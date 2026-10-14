@@ -18,6 +18,15 @@ test('TypeScript reference launches, theme responds, and structured totals calcu
  await expect(page.locator('#totals')).toContainText('$30.00');
  await page.getByRole('button',{name:'Next'}).click();
  await expect(page.getByRole('heading',{name:'Review before submitting'})).toBeVisible();
+ await expect(page.locator('.review-panel')).toHaveCount(2);
+ await expect(page.locator('.review-details')).toContainText(['Your name','Example User','Email for updates']);
+ await expect(page.locator('.review-items')).toContainText('Line items');
+ await expect(page.locator('.review-grand-total')).toContainText('$30.00');
+ await expect(page.locator('#fields pre')).toHaveCount(0);
+ for(const width of [375,768,1280]){
+  await page.setViewportSize({width,height:800});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+ }
  await page.getByRole('button',{name:'Submit response'}).click();
  await expect(page.getByRole('status')).toContainText('Submission accepted');
  const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('anyshape.schema.responses.v1')));
