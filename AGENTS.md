@@ -68,3 +68,7 @@ The Cloudflare Pages reference includes two **optional, separately testable** st
 
 
 **Cloudflare R2 test prerequisite nuance:** For the default Pages Function → R2 binding path, an existing bound bucket is enough; public bucket access and browser CORS are not required. A separately chosen public raw-object test may use an existing public bucket, and direct browser R2 requests must allow the actual deployed Pages origin (not the GitHub code-hosting repository). Keep setup minimal, prefer synthetic data, and distinguish a Pages `/api/submissions/<id>` URL from a public R2 object URL. See the golden reference and deployment lab README.
+
+## Preserved future research: Keepsake multiplatform agent economy
+
+Read [Keepsake Cross-Platform Agent Economics](docs/RESEARCH/KEEPSAKE_CROSS_PLATFORM_AGENT_ECONOMICS.md) for the owner's longer-term flagship: verified original Chrome Keepsake → Android (React Native/Expo), plus **one shared Avalonia/C# desktop implementation** independently verified on Windows and Linux. Measure agent runs, human intervention, fidelity, regression evidence and long-term agent-led maintenance. Standardize independently reproducible release verification; do not hardcode Keepsake as the ontology. **Do not detour current three-form Cloudflare acceptance work for this research yet.**
