@@ -1,0 +1,37 @@
+{
+  "foreverVersion": "0.1",
+  "id": "implementation.openform-browser",
+  "kind": "implementation",
+  "technology": "Plain HTML, standard CSS and ECMAScript browser application",
+  "version": "0.1.0-reference",
+  "type": "module",
+  "replaceability": "SEMANTIC",
+  "sourceLocations": [
+    "examples/openform/index.html",
+    "examples/openform/style.css",
+    "examples/openform/app.js",
+    "examples/openform/form.config.json"
+  ],
+  "satisfiesCapabilities": [
+    "capability.openform-reference",
+    "capability.contextual-reflow"
+  ],
+  "compatibilityContracts": [],
+  "claims": [],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "User request for generic 20-question editor, monochrome themes, adaptive aesthetics and Python transference; docs/EXAMPLES/OPENFORM_CONTINUITY.md; implementation mapping pending owner review",
+    "confidence": 0.9,
+    "reviewStatus": "unreviewed"
+  },
+  "extensions": {
+    "org.any-shape": {
+      "status": "source-present-unverified",
+      "limitations": [
+        "Local-only default; no production backend",
+        "No native Python counterpart yet",
+        "No independent browser/visual verification recorded"
+      ]
+    }
+  }
+}
