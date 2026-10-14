@@ -4,13 +4,23 @@
   "description": "Portable CSS layout primitives and opt-in, redaction-safe layout diagnostics",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "exports": {
-    ".": { "types": "./src/diagnostics.d.ts", "import": "./src/diagnostics.js" },
+    ".": {
+      "types": "./src/diagnostics.d.ts",
+      "import": "./src/diagnostics.js"
+    },
     "./css": "./src/any-shape.css",
     "./schema": "./src/diagnostic.schema.json"
   },
-  "files": ["src", "examples", "LICENSE", "docs"],
+  "files": [
+    "src",
+    "examples",
+    "LICENSE",
+    "docs"
+  ],
   "scripts": {
     "dev": "node scripts/serve.js",
     "test:unit": "node --test tests/unit.test.js tests/server.test.js",
@@ -23,7 +33,9 @@
     "check:forever": "node scripts/validate-forever.mjs",
     "test:browser:isolated": "playwright test --config scripts/browser-isolated.config.mjs",
     "test:forever": "node --test tests/forever.test.mjs",
-    "prepack": "npm run test:unit && npm run typecheck"
+    "prepack": "npm run test:unit && npm run typecheck",
+    "build:openform-schema": "node scripts/build-openform-schema.mjs",
+    "check:openform-schema": "npm run build:openform-schema && node --check examples/openform-schema/app.js"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0",
