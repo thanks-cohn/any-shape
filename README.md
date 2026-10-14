@@ -82,3 +82,7 @@ Read `AGENTS.md` before editing. Implement against behavior contracts; keep docs
 ## Long-term architectural vision
 
 Read [Software Built to Endure](docs/VISION/SOFTWARE_BUILT_TO_ENDURE.md) for Any-Shape's guiding approach to language-neutral continuity, dual human/agent interfaces, low-cost upkeep, and independently verifiable reconstruction. This is a **future-oriented architectural vision**, distinct from currently implemented v0.1 capabilities. The staged acceptance criteria live in the [milestone roadmap](docs/ROADMAP/MILESTONES.md).
+
+## Flagship example under development — Any-Shape Transference
+
+Our intended public showcase: submit an authorized browser application to an agent, reconstruct its essential behavior as a **native Python desktop interface**, and compare real inputs, Submit actions, HTTP endpoints, validation, state changes and accessible responsive adaptation across both versions. The guiding rule is **transfer the adaptation obligation, not the original CSS/JavaScript machinery**. See [RFC-005](docs/PROPOSALS/INTERFACE_PORTABILITY_RFC_005.md) for API/control parity and [RFC-006](docs/PROPOSALS/ADAPTIVE_TRANSFERENCE_RFC_006.md) for native presentation and agent-driven conversion. This is planned, not implemented.
