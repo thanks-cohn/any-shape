@@ -21,6 +21,8 @@ export async function onRequestPost({ request, env }) {
   if (env.SUBMISSIONS_R2) {
     try {
       await env.SUBMISSIONS_R2.put(key,payload,{httpMetadata:{contentType:"application/json"}});
+      // Small immutable ID index permits an R2-only record URL lookup.
+      await env.SUBMISSIONS_R2.put("lookup/"+id+".json",JSON.stringify({key}),{httpMetadata:{contentType:"application/json"}});
       effects.r2 = {status:"accepted",key};
     } catch { effects.r2 = {status:"failed"}; }
   }
