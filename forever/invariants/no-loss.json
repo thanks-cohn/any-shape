@@ -1,0 +1,23 @@
+{
+  "foreverVersion": "0.1",
+  "id": "invariant.no-loss",
+  "kind": "invariant",
+  "name": "No invisible essential information",
+  "statement": "Essential content and controls remain reachable and readable; wrapping or scroll is preferred to clipping, accidental omission, or shrinking below usable bounds.",
+  "scope": [
+    "intent.any-shape"
+  ],
+  "verification": [],
+  "changePolicy": "foundational",
+  "severity": "critical",
+  "relatedCapabilities": [
+    "capability.contextual-reflow",
+    "capability.semantic-interaction"
+  ],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
