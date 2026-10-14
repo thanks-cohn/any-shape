@@ -1,3 +1,4 @@
+import {downloadWebsite} from "../shared/website-export.js";
 import {createDestinationSettings,dispatchDestinations,formatDeliveryResults,legacyDestinationToTargets} from "../shared/destinations.js";
 import {attachDestinations, normalizeDestination, saveLocalResponse, sendToEndpoint} from "./destinations.js";
 /* OpenForm Flow — standards-native, dependency-free interactive reference. */
@@ -69,3 +70,5 @@ $("exportData").addEventListener("click",()=>download("openform-flow-responses.j
 $("clearData").addEventListener("click",()=>{if(confirm("Permanently delete local responses for this example?")){localStorage.removeItem(RESP);render();message("Stored responses deleted.")}});
 async function init(){try{const r=await fetch("./form.config.json");if(!r.ok)throw Error("HTTP "+r.status);model=validate(await r.json());try{const saved=JSON.parse(localStorage.getItem(DRAFT)||"null");if(saved){model=validate(saved.model);mode=["edit","preview","published"].includes(saved.mode)?saved.mode:"edit";}}catch{}if(new URLSearchParams(location.search).get("edit")==="1"){mode="edit";save()}render();}catch(err){message("Cannot load form configuration: "+err.message+". Serve this directory through a local HTTP server.");$("next").disabled=true;}}
 init();
+
+document.getElementById("exportWebsite").addEventListener("click",()=>downloadWebsite(model,model.connections||legacyDestinationToTargets(model.destinations||{mode:"local"})));document.getElementById("exportWebsiteJson").addEventListener("click",()=>downloadWebsite(model,model.connections||legacyDestinationToTargets(model.destinations||{mode:"local"}),"json"));
