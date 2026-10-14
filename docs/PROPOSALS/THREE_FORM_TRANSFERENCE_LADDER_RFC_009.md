@@ -109,3 +109,7 @@ T3-010: The manifest and documentation permit a subsequent agent to inspect, und
 ## Governing principle
 
 > **The three examples should teach the spirit through progressively harder evidence: neither a browser toolkit nor Python is the application. Its purpose, human experience, verified operations and external contracts are what survive the transfer.**
+
+## Required wiring equivalence
+
+The fundamental standard for all three forms is [RFC-010 — Event–Effect Continuity](EVENT_EFFECT_CONTINUITY_RFC_010.md). **The same press must produce the same authorized consequences**, not only resemble the same screen: the source DOM event and Python/Qt signal bind to one stable action ID, typed arguments, guarded state transitions, declared side-effect intents, observed storage/HTTP/file outcomes and matching user-visible errors. Include a navigable mapping and independent action/effect fixtures for each migrated control. This is a proposed contract and test target, not an already implemented native event-transfer API.
