@@ -11,6 +11,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:webhook-lab
       - run: npm run check
       - run: npm run check:forever
       - run: npm run test:forever
