@@ -1,0 +1,13 @@
+{
+  "foreverVersion": "0.1",
+  "id": "compatibility.public-api-v01",
+  "kind": "compatibility",
+  "name": "Current consumer-facing v0.1 compatibility",
+  "statement": "Preserve documented CSS classes, tokens, package entry points and diagnostic JSON behavior or provide an explicit tested migration.",
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
