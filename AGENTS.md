@@ -43,3 +43,8 @@ Default branch is main. Follow repository settings and user direction; avoid uns
 ## Owner's long-range intent and next-agent recovery
 
 Before undertaking broad architecture, Avalonia/Python conversion, or new examples, read [docs/IDENTITY/ANY_SHAPE_LONG_HORIZON_VISION.md](docs/IDENTITY/ANY_SHAPE_LONG_HORIZON_VISION.md) and [docs/ROADMAP/ANY_SHAPE_AGENT_TRANSFERENCE_BLUEPRINT.md](docs/ROADMAP/ANY_SHAPE_AGENT_TRANSFERENCE_BLUEPRINT.md). These documents preserve the owner's agent-first, low-bloat, responsive-UI, behavior-and-effect continuity mission and stage gates if chat history is unavailable. Never treat stated future goals as completed work. Test original browser sources and real webhook effects independently before asserting native transference.
+
+
+## Flagship anti-hardcoding invariant
+
+**Do not hand-build a flagship Chrome extension's Android, iOS or Avalonia counterparts and present them as Any-Shape-generated.** The flagship is an honest cold-agent reconstruction trial: frozen independently developed source app + general portable Any-Shape package + target constraints -> agent-developed ordinary projects -> independent functional/effect/visual/platform evidence. Do not pre-install per-app conversion recipes, leak evaluator answers, or substitute screenshots/WebViews for native functionality. Read the flagship addendum in the long-horizon vision and its acceptance gate in the transference blueprint. Keep the existing forms as the *learning corpus*, not the flagship outcome. Mark this entire challenge as proposed until actually run and independently verified.
