@@ -94,3 +94,7 @@ P-014: Input typing, selection, reset, submit, validation failure and confirmati
 P-015: Authorized Agent API invocation of the same operation yields equivalent state changes and error semantics; unauthorized calls fail consistently.
 P-016: An independent test client can switch JavaScript/Python base URLs without changing method, path, schema or interpretation of responses.
 P-017: Native no-JS form fallback is either contract-conformant or explicitly documented as an alternative transport with identical domain semantics; tests do not falsely claim that HTML form encoding is JSON.
+
+## Native adaptive transference follow-on
+
+[RFC-006 — Adaptive Transference and Agent-Driven Application Reconstruction](ADAPTIVE_TRANSFERENCE_RFC_006.md) extends this fixed JavaScript/Python API parity example to **actual native Python/Qt widgets**, preservation of human orientation under resizing, and an authorized agent workflow that inspects a supplied browser application and reconstructs a verified desktop realization. RFC-005 remains the narrower endpoint/form parity contract; RFC-006 does not imply a production converter already exists.
