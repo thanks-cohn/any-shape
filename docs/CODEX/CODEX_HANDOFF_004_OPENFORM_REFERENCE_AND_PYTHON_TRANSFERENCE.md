@@ -1,6 +1,6 @@
 # Codex Handoff 004 — OpenForm: reusable 10–20 question form and native Python proof
 
-**Status:** Owner-requested implementation brief; implementation not yet claimed.
+**Status:** Browser OpenForm reference source implemented at `examples/openform/`; independent browser execution, manual visual approval and native Python transference remain unverified/unimplemented. The requirements below are both the original brief and the next-agent acceptance checklist.
 **Date:** 2026-10-13
 **Repo:** thanks-cohn/any-shape, main
 **Read:** AGENTS.md; docs/FOUNDATION/CONTINUITY_OF_ORIENTATION.md; docs/IDENTITY/; docs/PROPOSALS/INTERFACE_PORTABILITY_RFC_005.md; ADAPTIVE_TRANSFERENCE_RFC_006.md; LANGUAGE_PORTABILITY_STRATEGY_RFC_007.md; FOUNDATIONAL_CROSS_PLATFORM_SHOWCASES_RFC_008.md; docs/ROADMAP/MILESTONES.md. Preserve browser v0.1.
@@ -109,3 +109,9 @@ Create a single versioned neutral contract and independent fixture suite:
 6. A completed Codex implementation report and next-agent inheritance instructions committed to `main`.
 
 Do not merely scaffold. Protect existing v0.1 API and browser tests. Favor built-in browser standards and proven native toolkit capabilities rather than recreating whole UI frameworks. If scope is large, deliver a robust functioning vertical slice before optional enhancements; do not claim unfinished stages are ready.
+
+## Browser implementation handoff (2026-10-13)
+
+Files now present: `examples/openform/index.html`, `style.css`, `app.js`, `form.config.json`, and `README.md`; human-readable meaning and native mapping at `docs/EXAMPLES/OPENFORM_CONTINUITY.md`. Canonical Forever Works records `capability.openform-reference`, `invariant.openform-orientation`, and `implementation.openform-browser` are indexed in `forever/manifest.json` with unreviewed agent-proposed provenance and **no unsupported passing evidence claims**. New tests are `tests/browser/openform.spec.js`. Static JS parsing and the count of 20 default questions were checked, but full browser executions/visual inspection are not yet established by those static checks. The root GitHub Actions Verify contracts workflow is the appropriate CI verification path.
+
+For the next agent: run the new tests in Chromium/Firefox/WebKit, investigate any failures, evaluate wide/narrow layouts and both monochrome themes with screenshots and keyboard review, then lock down the neutral HTTP/form state fixture. Only then author a *native* PySide6/Qt implementation that reads the same schema and produces equivalent inputs, actions, records, errors and endpoint behavior; do not use a WebView as the proof. Reconcile actual findings into canonical evidence after execution, never fabricate PASS.
