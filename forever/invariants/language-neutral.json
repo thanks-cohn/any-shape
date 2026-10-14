@@ -1,0 +1,22 @@
+{
+  "foreverVersion": "0.1",
+  "id": "invariant.language-neutral",
+  "kind": "invariant",
+  "name": "Language-neutral project identity",
+  "statement": "Any language or architecture can reimplement the system if it produces equivalent observable user experiences and passes independent conformance tests; browser-delivered output may remain HTML/CSS.",
+  "scope": [
+    "intent.any-shape"
+  ],
+  "verification": [],
+  "changePolicy": "foundational",
+  "severity": "critical",
+  "relatedCapabilities": [
+    "capability.portable-adoption"
+  ],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
