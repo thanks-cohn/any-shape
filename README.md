@@ -90,3 +90,7 @@ Our intended public showcase: submit an authorized browser application to an age
 ## Bidirectional portability proof
 
 The flagship language-independence goal is **JavaScript ↔ native Python, in both directions**: demonstrate real fields, Submit operations, API/endpoint compatibility, accessible adaptive layouts and preserved user orientation in both implementations. This should be an understandable visual showcase backed by independent functional tests, not a source-code transpilation trick. The neutral contracts also prepare for **C and C++** (including native C++/Qt UI), as separate future targets. Read [RFC-007](docs/PROPOSALS/LANGUAGE_PORTABILITY_STRATEGY_RFC_007.md). These directions are planned; a general automatic converter is not shipped.
+
+## Cross-platform reference ladder
+
+The proposed production-oriented examples progress from **JavaScript ↔ native Python** (bidirectional interface, adaptive presentation, Submit/input/API equivalence), to **Avalonia C# desktop apps for Windows and Linux**, a standards-compliant **Chrome extension/native companion** integration, and independently verified **C++/Qt plus bounded C/ABI** implementations. The intent is a small portable semantic core with independently installable renderers and adapters, so future agents can recover and extend the underlying principles rather than depend on one framework. See [RFC-008](docs/PROPOSALS/FOUNDATIONAL_CROSS_PLATFORM_SHOWCASES_RFC_008.md). Platform packaging, store approval and native security requirements are distinct and not claimed to be bypassed.
