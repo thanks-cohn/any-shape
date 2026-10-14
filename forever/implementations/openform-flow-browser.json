@@ -1,0 +1,36 @@
+{
+  "foreverVersion": "0.1",
+  "id": "implementation.openform-flow-browser",
+  "kind": "implementation",
+  "type": "module",
+  "technology": "Native HTML/CSS/JavaScript form studio",
+  "version": "0.1.0-reference",
+  "replaceability": "SEMANTIC",
+  "sourceLocations": [
+    "examples/openform-flow/index.html",
+    "examples/openform-flow/style.css",
+    "examples/openform-flow/app.js",
+    "examples/openform-flow/form.config.json"
+  ],
+  "satisfiesCapabilities": [
+    "capability.openform-flow"
+  ],
+  "claims": [],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "User request for second broadly usable no-code form with advanced answer types, add/remove/edit until satisfied, publish locally; docs/EXAMPLES/OPENFORM_FLOW_CONTINUITY.md",
+    "confidence": 0.88,
+    "reviewStatus": "unreviewed"
+  },
+  "extensions": {
+    "org.any-shape": {
+      "status": "source-implemented-unverified",
+      "limits": [
+        "Local publication only",
+        "No native Python counterpart",
+        "No verified remote backend",
+        "No audited accessibility or browser conformance"
+      ]
+    }
+  }
+}
