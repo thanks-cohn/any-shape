@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "id": "openform-reference",
+  "title": "Project & Feedback Intake",
+  "description": "A flexible place to share ideas, projects and requests. Adapt the questions to your needs.",
+  "appearance": {
+    "theme": "light",
+    "font": "system",
+    "density": "comfortable"
+  },
+  "submission": {
+    "mode": "local",
+    "endpoint": ""
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About you",
+      "description": "Start with the basics.",
+      "questions": [
+        {
+          "id": "name",
+          "label": "Your name",
+          "type": "text",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "email",
+          "label": "Email address",
+          "type": "email",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "organization",
+          "label": "Organization or school",
+          "type": "text",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "reason",
+          "label": "Reason for contacting us",
+          "type": "radio",
+          "required": true,
+          "options": [
+            "Project",
+            "Feedback",
+            "Question",
+            "Event",
+            "Other"
+          ],
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "project",
+      "title": "Your project",
+      "description": "Describe what you have in mind.",
+      "questions": [
+        {
+          "id": "title",
+          "label": "Project or request title",
+          "type": "text",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "message",
+          "label": "Tell us about your idea or request",
+          "type": "textarea",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "topic",
+          "label": "Topic or category",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Education",
+            "Community",
+            "Technology",
+            "Art and design",
+            "Business",
+            "Other"
+          ],
+          "help": ""
+        },
+        {
+          "id": "audience",
+          "label": "Who is this for?",
+          "type": "text",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "priority",
+          "label": "Priority",
+          "type": "radio",
+          "required": false,
+          "options": [
+            "Low",
+            "Normal",
+            "High"
+          ],
+          "help": ""
+        },
+        {
+          "id": "timeline",
+          "label": "Preferred timeline",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Flexible",
+            "This month",
+            "Within three months",
+            "Later"
+          ],
+          "help": ""
+        },
+        {
+          "id": "followup",
+          "label": "How should we respond?",
+          "type": "select",
+          "required": false,
+          "options": [
+            "No follow-up",
+            "Email"
+          ],
+          "help": ""
+        },
+        {
+          "id": "website",
+          "label": "Related website",
+          "type": "url",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "scope",
+          "label": "Estimated scope",
+          "type": "radio",
+          "required": false,
+          "options": [
+            "Small",
+            "Medium",
+            "Large",
+            "Not sure"
+          ],
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "details",
+      "title": "Additional details",
+      "description": "Optional context helps us understand your request.",
+      "questions": [
+        {
+          "id": "budget",
+          "label": "Estimated budget (optional)",
+          "type": "number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "label": "Preferred start date",
+          "type": "date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "interests",
+          "label": "Areas of interest",
+          "type": "checkboxes",
+          "required": false,
+          "options": [
+            "Learning",
+            "Research",
+            "Collaboration",
+            "Creative work",
+            "Events"
+          ],
+          "help": ""
+        },
+        {
+          "id": "readiness",
+          "label": "How ready is your idea?",
+          "type": "range",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "attachment",
+          "label": "Link to relevant material",
+          "type": "url",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "extra",
+          "label": "Additional details",
+          "type": "textarea",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "contact",
+          "label": "May we contact you?",
+          "type": "checkbox",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ]
+}
