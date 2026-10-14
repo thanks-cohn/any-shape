@@ -60,8 +60,8 @@ test('published form validates and stores a real response locally', async ({page
 });
 
 test('embedding only permits vetted HTTPS media; export stays local', async ({page}) => {
-  await page.getByRole('button', {name:'+ Add section / embed'}).click();
   page.once('dialog', d=>d.accept());
+  await page.getByRole('button', {name:'+ Add section / embed'}).click();
   // Dialog confirmation opens before the editor.
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.getByLabel('Embed URL (https; trusted providers only)').fill('https://www.youtube-nocookie.com/embed/abc123');
