@@ -1,0 +1,26 @@
+import {test,expect} from '@playwright/test';
+test.beforeEach(async({page})=>{await page.goto('/examples/openform-schema/?edit=1');await page.evaluate(()=>localStorage.clear());await page.reload()});
+test('TypeScript reference launches, theme responds, and structured totals calculate',async({page})=>{
+ await expect(page.getByRole('heading',{name:'Project Proposal & Estimate'})).toBeVisible();
+ await page.getByRole('button',{name:'Publish locally'}).click();
+ await expect(page.locator('body')).toHaveClass(/respondent-mode/);
+ await expect(page.locator('header')).toBeHidden();
+ await expect(page.locator('aside')).toBeHidden();
+ await page.locator('#field-contactName').fill('Example User');
+ await page.locator('#field-contactEmail').fill('example@example.test');
+ await page.locator('#field-category').selectOption('Community');
+ await page.locator('#field-summary').fill('A community research project');
+ await page.getByRole('button',{name:'Next'}).click();
+ await page.getByRole('button',{name:'+ Add line item'}).click();
+ await expect(page.locator('.item')).toHaveCount(2);
+ await page.locator('.item').first().locator('input[type=number]').first().fill('2');
+ await page.locator('.item').first().locator('input[type=number]').last().fill('15');
+ await expect(page.locator('#totals')).toContainText('$30.00');
+ await page.getByRole('button',{name:'Next'}).click();
+ await expect(page.getByRole('heading',{name:'Review before submitting'})).toBeVisible();
+ await page.getByRole('button',{name:'Submit response'}).click();
+ await expect(page.getByRole('status')).toContainText('Submission accepted');
+ const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('anyshape.schema.responses.v1')));
+ expect(stored).toHaveLength(1);
+ expect(stored[0].answers.estimate.totalCents).toBe(3000);
+});
