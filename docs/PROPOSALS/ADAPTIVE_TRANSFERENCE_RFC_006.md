@@ -156,3 +156,7 @@ Phase A does not establish Phase C. A successful Phase C does not establish univ
 ## 12. Codex handoff criteria
 
 Build a visually compelling, understandable demo while retaining the existing v0.1 browser library. Do not merely scaffold. Use existing RFC-005 as the HTTP/form parity baseline, and this RFC for adaptive native transference. Provide installation/run instructions, stable API contracts, a native Qt implementation, reproducible evidence and explicit limits. If PySide6 cannot be installed in the environment, do not falsely claim native tests succeeded; retain verifiable source and report the blocker. Avoid adding Qt as a required dependency of the browser-only npm package. Prefer canonical Forever Works records in the existing format; do not silently promote proposed technical decisions to owner-approved intent.
+
+## Bidirectional priority and compiled-language future
+
+The first public proof must ultimately operate in **both directions**: JavaScript browser → native Python and native Python → standards-native JavaScript browser, with independent origins and contract verification to avoid circular copying. C++/Qt is the next native GUI target; C is a separate bounded core/ABI target. The detailed order and tests are in [RFC-007 — Bidirectional Language Transference](LANGUAGE_PORTABILITY_STRATEGY_RFC_007.md). RFC-006 remains the focused web-to-native adaptive demonstration, not proof that reverse conversion already works.
