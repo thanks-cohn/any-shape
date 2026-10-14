@@ -70,3 +70,7 @@ Tests produce JSON, screenshots and failure traces under ignored `artifacts/` an
 
 ## Agent entrypoint
 Read `AGENTS.md` before editing. Implement against behavior contracts; keep docs synchronized with observed reality.
+
+## Long-term architectural vision
+
+Read [Software Built to Endure](docs/VISION/SOFTWARE_BUILT_TO_ENDURE.md) for Any-Shape's guiding approach to language-neutral continuity, dual human/agent interfaces, low-cost upkeep, and independently verifiable reconstruction. This is a **future-oriented architectural vision**, distinct from currently implemented v0.1 capabilities. The staged acceptance criteria live in the [milestone roadmap](docs/ROADMAP/MILESTONES.md).
