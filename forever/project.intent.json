@@ -1,0 +1,47 @@
+{
+  "foreverVersion": "0.1",
+  "id": "intent.any-shape",
+  "kind": "intent",
+  "name": "Any-Shape purpose",
+  "statement": "Preserve the meaning, usability and recognizable visual identity of an interface while its geometry and environment change.",
+  "purpose": [
+    "Enable context-sensitive reflow rather than fixed screen templates.",
+    "Keep content and actions understandable, accessible and reachable across practical display shapes.",
+    "Provide observable, privacy-safe evidence of layout failures so independent implementations can be evaluated.",
+    "Make behavior recoverable independently of the original language, tools, library and author."
+  ],
+  "priorities": [
+    "meaning and interaction over pixel positions",
+    "accessible reflow and intrinsic composition",
+    "language-neutral behavioral conformance",
+    "browser-native operation with graceful fallback",
+    "low resource cost and no mandatory telemetry"
+  ],
+  "nonGoals": [
+    "guarantee aesthetic perfection under all geometries",
+    "replicate exactly matching pixels on different rendering systems",
+    "replace HTML or the browser layout engine",
+    "require a specific frontend framework or runtime",
+    "conceal primary content to satisfy a viewport"
+  ],
+  "supportedEnvironments": [
+    "standards-compliant browsers and equivalent interface-rendering systems; implementation adapters may vary"
+  ],
+  "status": "active",
+  "relatedCapabilities": [
+    "capability.contextual-reflow",
+    "capability.semantic-interaction",
+    "capability.layout-observability",
+    "capability.portable-adoption"
+  ],
+  "relatedConstraints": [
+    "constraint.accessible-fallback",
+    "constraint.offline-core"
+  ],
+  "provenance": {
+    "sourceType": "agent-proposed",
+    "sourceReference": "docs/FOUNDATION/PURPOSE.md and docs/FOUNDATION/CONTRACTS.md; owner confirmation pending",
+    "confidence": 0.9,
+    "reviewStatus": "pending"
+  }
+}
