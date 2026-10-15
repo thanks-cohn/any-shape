@@ -85,3 +85,7 @@ Documents may be added **additively**. The profile can later be formalized into 
 ## Immediate next step
 
 Build a **generic extension intake/analyzer** first: read `manifest.json`, inventory scripts/assets/permissions/entrypoints and message/storage/API dependencies, emit a normalized intermediate representation and an evidence/UNKNOWN ledger. Next, create two **generator adapters** from that representation: Avalonia/C# for Windows and Linux, and React Native for Android as an initial preference. Include an explicit manual-adaptation queue for browser-only permissions, UI intent and unverifiable side effects. Test with small synthetic, unrelated extension fixtures before bringing in Keepsake or another real application. Do not equate generating compilable skeletons with functional reconstruction.
+
+## Foundational companion — do not ingest a real extension yet
+
+The [source-blind foundation](EXTENSION_RECONSTRUCTION_STANDARD_V0_1.md) is the primary generic contract for EIR, API, anti-overfitting and validation gates. This pipeline document describes the later workflow. **Do not inspect Keepsake or other production extension source during initial design/fixture development.**
