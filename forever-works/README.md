@@ -43,3 +43,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## Research basis for target isolation
 
 [Drift, Negative Transfer and Target Isolation](RESEARCH_DRIFT_TRANSFER_AND_TARGET_ISOLATION.md) defines the relevant research terminology, proposed Forever Works-compatible metadata, anti-contamination checks, and empirical comparisons of single-run and sequential reconstruction. **Research hypotheses are not yet demonstrated safeguards.**
+
+## Extension input and production output convention
+
+[Workspace and production directory contract](EXTENSION_WORKSPACE_CONVENTION.md) defines generic `extensions/<extension-id>/` inputs, `productions/<extension-id>/<target>/` promoted outputs and immutable run evidence. Keepsake is only a possible future extension ID, not a hardcoded special case.
