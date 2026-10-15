@@ -1,0 +1,97 @@
+{
+  "jobId": "companion-ecosystem",
+  "products": [
+    {
+      "id": "record-console",
+      "relationship": "new",
+      "targets": [
+        {
+          "id": "windows",
+          "status": "REVIEW_REQUIRED",
+          "runtime": "NOT_RUN"
+        },
+        {
+          "id": "linux",
+          "status": "REVIEW_REQUIRED",
+          "runtime": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "id": "browser-assistant",
+      "relationship": "assistant",
+      "targets": [
+        {
+          "id": "browser-extension",
+          "status": "UNSUPPORTED",
+          "runtime": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "id": "mobile-companion",
+      "relationship": "companion",
+      "targets": [
+        {
+          "id": "android",
+          "status": "REVIEW_REQUIRED",
+          "runtime": "NOT_RUN"
+        }
+      ]
+    }
+  ],
+  "productOrder": [
+    "record-console",
+    "browser-assistant",
+    "mobile-companion"
+  ],
+  "graph": {
+    "nodes": 21,
+    "edges": 44
+  },
+  "androidSourceStatus": "UNSUPPORTED",
+  "extensionSourceStatus": "OBSERVED",
+  "extensionSourceHash": "c29d65f251f57a954e24cfbbe75235cb913d4827513688bd8960cb81f8859fa1",
+  "releaseEligible": false,
+  "session": "2026-10-15-session-02",
+  "implementationHead": "fe070902440c2e20a201898d35506f73ac3b86a7",
+  "tests": {
+    "foundation": {
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0
+    },
+    "legacyPipeline": {
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0
+    },
+    "nativeCompilerIntegration": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "unit": {
+      "passed": 4
+    },
+    "typecheck": "PASS",
+    "destinations": {
+      "passed": 5
+    },
+    "websiteExport": {
+      "passed": 3
+    },
+    "foreverFixtures": {
+      "passed": 4
+    },
+    "canonicalRecords": {
+      "status": "FAIL",
+      "invalidRecords": 2,
+      "auditFindings": 14,
+      "upstreamIntegrity": "PASS"
+    }
+  },
+  "nativeRuntime": "NOT_RUN",
+  "productionOutputs": false,
+  "realExtensionUsed": false
+}

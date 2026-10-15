@@ -1,138 +1,119 @@
-# Session 01 — generic three-target pipeline foundation
+# Session 02 — source-neutral specifications and multi-product planning
 
-Written 2026-10-15 at approximately 04:56 CDT (09:56 UTC). Implementation began at 04:32:23 CDT (09:32:23 UTC); approximately 24 minutes elapsed. Branch: `main`. Implementation HEAD at handoff authoring: `a1b46f15a165df63a8501c81f2c8bf43b1dafe41`. Working tree was clean before adding this handoff/results. This handoff is committed immediately afterward; locate its exact successor commit with `git log -1 --format=fuller -- codex/HANDOFF_LATEST.md`. No implementation is left only as an uncommitted edit.
+Started **2026-10-15 05:17:57 CDT (10:17:57 UTC)**. Handoff authored around **05:42 CDT (10:42 UTC), approximately 24 minutes elapsed**, with feature work complete and verification finished. Branch `main`. Implementation HEAD at authoring: `fe070902440c2e20a201898d35506f73ac3b86a7`. Working tree was clean before adding this handoff, archived Session 01 handoff and result receipt. The successor commit containing this file is identified by `git log -1 --format=fuller -- codex/HANDOFF_LATEST.md`; final push/remote verification is reported in the session response.
 
-## Start here
+## Read in order and preserve the mission
 
-Read this file, `AGENTS.md`, `codex/BUILD_GENERIC_THREE_TARGET_PIPELINE.md`, then `reconstruction/extension-pipeline/README.md`. Continue in this checkout on `main`; do not create a worktree or reset local progress. The assignment is intentionally larger than one session. **No reconstructed production application exists yet.**
+1. `forever-works/PROPOSALS/ANY_SHAPE_UNIVERSAL_SOFTWARE_RECONSTITUTION.md` — permanent source-neutral, purpose-directed mission, not a claim of universal implemented conversion.
+2. This handoff.
+3. `codex/NEXT_RUN_SOURCE_NEUTRAL_FOUNDATION.md` — this bounded session's priorities.
+4. `reconstruction/specifications/README.md` — current executable operator/API contract and limitations.
 
-### Saved commits and remote
+The repository began this session at the prior pushed `ed137da`. A clean fast-forward fetched owner documents through `dfb2ab3`. Existing code/work and owner documents were preserved. No worktree, destructive rename, reset or force push was used. The previous handoff is archived at `codex/handoffs/2026-10-15-session-01.md` and in Git history.
 
-Both implementation commits were successfully pushed to `origin/main` using the existing platform Git authentication:
+## Saved implementation commits
 
-- `46c0a0adb51b71917b080cea48049e05dd1c7baf` — safe intake, reviewed EIR and isolated candidate workflow.
-- `a1b46f15a165df63a8501c81f2c8bf43b1dafe41` — native compiler verification, reproducible tooling/cache, operator docs and CI.
+- `5747889` — source-neutral job schemas, bounded loader, adapter interfaces/catalog, Chrome/EIR compatibility wrappers, derivation planner, three concrete job fixtures and initial tests.
+- `fe070902440c2e20a201898d35506f73ac3b86a7` — modular/security hardening, typed adapter descriptor schema, selective target context, deterministic product order, incompatibility handling, remaining tests, operator docs and CI.
 
-The handoff commit is created and pushed after writing this file; the final session response records its hash and observed push result. No force push/reset or credential extraction was used. For recovery, fetch `origin/main`; a local `artifacts/pipeline-progress.bundle` and checksum are also exported after the handoff commit. If a new cloud snapshot loses ignored local artifacts, the committed code, fixtures, tests, toolchain pins and this handoff are remotely recoverable. Native caches are optional and can be recreated; fresh-task snapshot restoration itself was not tested.
+A normal push of these commits was initiated before this handoff; the handoff is committed and pushed immediately afterward, and the final response verifies the actual remote HEAD. Recover through `origin/main`; ignored local caches/artifacts are not required to recover code. A Git bundle/checksum is refreshed after the final handoff commit as an additional local recovery artifact. Fresh-machine snapshot restoration was not tested.
 
-## Bounded goal completed
+## Completed working behavior
 
-Implemented a generic safe-intake → static-observation → EIR review → target plan → isolated native-host skeleton → architecture/compiler evidence workflow. The focus was foundational infrastructure that can fail honestly, not invented extension functionality.
+This session prioritized source-neutral foundations over new native widgets or a source-specific converter. The actual runnable increment is:
 
-Concrete behavior:
+- **Versioned root/module schemas**: `specificationVersion: "0.1"`; distinct source/job/product/target/run identities; safe source paths and immutable hashes; provenance/access/unknowns; independent requested products and targets; preserve/transform/exclude/add; accepted/requested/inferred/observed requirements; invariants, target UX/security/authority/data; explicit interactions/API access/scope, acceptance cases, product dependencies, declared incompatibilities, owner review and namespaced extensions.
+- **Bounded modular loader**: local root-relative JSON references; module identities/pins, stable traversal, shared-DAG deduplication; cycle, traversal, symlink/hardlink, duplicate identity, conflicting reference/pin and override rejection. Defaults are configurable: 64 files, reference depth 12, 4 MiB/file, 16 MiB total, 200000 JSON nodes, JSON depth 64. Accepting a modular job requires all module pins. Exact byte receipts and canonical resolved specification hashes are separate.
+- **Actual CLI**: `npm run reconstitute -- adapters|validate|plan|context|from-extension ...`. Plan attempts can be retained immutably with `--run <id>`; identity collisions cannot overwrite an older extension run. Structured errors preserve codes rather than claiming unsupported inputs succeeded.
+- **Source/target catalogs**: JSON-schema-validated immutable metadata plus typed JS role interfaces; input/output IDs are open strings rather than enums tied to one platform. Builtin composition is separate from neutral validators/planner. A synthetic new target was registered and planned without modifying the core/schema.
+- **Genuine first source adapter**: wraps the existing bounded Chrome inspector/analyzer, preserving original source hashes and EIR v1. It never executes imported code or copies browser permissions into product grants. Specification-only input carries declared owner requirements, not fake observed app behavior. Android source/binary and desktop source/binary adapters are metadata-only **UNSUPPORTED**.
+- **First target adapter**: wraps existing Avalonia machinery only for reviewed legacy EIR **incomplete hosts**; it refuses to coerce a generic specification into accepted EIR. Native generic semantics, real companion behavior and browser-extension generation remain unimplemented. Browser output is advertised as planned/unsupported.
+- **Relationship-aware plans**: separately identified new/adapted/reconstructed/assistant/companion/integrated/extended products, deterministic dependency order, target-specific context, acceptance coverage, source-parity-vs-specified-outcome obligations and explicit blockers. Each runtime/build/effect/permission/release gate in generic plans is NOT_RUN. Unknown namespace interpreters, integrations, sources, adapters and pins remain visible; no namespace can silently grant authority or change safety.
+- **Traceability graph**: source observations → requested/accepted requirements → products → target plans → declared acceptance cases; integration contracts are separate nodes. Syntax evidence is labeled as such, never behavioral parity. `context --product ... --target ...` excludes other targets' assumptions even when products share invariants.
+- **Backward-compatible bridge**: `from-extension` emits reviewable defaults while retaining source identity/hash and old target defaults in an adapter. It starts unreviewed and requires scoped source access; old review strings are not generic owner approval. Nonportable legacy capability IDs get stable encoded IDs with an explicit mapping. EIR is never rewritten.
+- **Shared utilities**: moved safety/canonical JSON/file helpers into `reconstruction/core/` with old import-path exports intact. Canonical algorithms and error codes remain; portable filesystem-root splitting was corrected. Legacy engine fingerprints now include shared helper sources. Historical run readers/manifests/hashes remain available; old generation outputs are not overwritten.
+- **Permanent docs/CI**: provider-independent operator/API guide, root entrypoint, compatibility guide and additive P001 history; new foundation suite added to the existing CI job. No canonical `forever/` or vendored Forever Works standard was changed. Remote CI outcomes were not observed.
 
-- `npm run pipeline -- inspect|analyze|plan|review|generate|verify|package|promote|status|run ...` is a coherent structured-JSON CLI. `run` first checkpoints and stops for review; with `--contract <hash>` it resumes generation/verification for all three targets, optionally `--build`.
-- Inputs: `extensions/<slug>/source/manifest.json`. Traversal is read-only and bounded; imported JS is never executed or treated as agent instructions. Rejects unsafe slugs/paths, ancestor/file symlinks, hardlinks, nonregular files, case collisions, malformed manifests and input quotas. Defaults: 4096 entries, depth 24, 8 MiB/file, 64 MiB total, 200000 analyzed syntax nodes.
-- Full inventory file hashes and canonical JSON bind source, analysis, reviewed contract, engine/lockfile fingerprint, candidates and target reports. Immutable checkpoint writes reuse identical content and reject collisions. Source changes invalidate downstream operations while history remains inspectable. Stage failures and recovery context are retained.
-- Acorn/parse5 discover actual syntax for APIs/events/messages/storage/imports, HTML surfaces/roles/assets and commands. Observed syntax and inferred capabilities remain separate. Browser DOM/privilege dependencies have explicit unsupported/unknown target gaps. Dynamic/unparsed/missing artifacts remain unknown rather than guessed.
-- Project-local EIR v1 JSON Schema validates portable source/capability/authority/state/message/UI/evidence/target fields, namespaced future extensions and references. Review needs a named reviewer and one disposition for every capability; preserved/corrected obligations need invariants, UI semantics and acceptance cases. Review cannot rewrite original observations/source/unknowns. This is a local reviewer assertion, not authenticated approval. No canonical Forever Works schema/model was modified.
-- `TargetAdapter` / `AvaloniaAdapter` produce three **INCOMPLETE** standalone hosts, each containing its own Domain project and host, SDK/Avalonia pins, traceability/context, product manifest and instructions. Desktop/window and Android/activity/single-view sources are distinct; no sibling product dependency or imported extension code. Every screen explicitly says reconstruction is incomplete. No extension capability is implemented.
-- Conservative lexical architecture lint rejects OS/UI imports in Domain, cross-target APIs, forbidden packages/project edges and certain unsafe MSBuild/native constructs. It is not a full C#/MSBuild analyzer/security sandbox.
-- Real .NET compiler invocation captures target/build-host identity, source/contract/engine hashes, dependency-lock hashes, command, exit status and output. `bin`/`obj` are excluded from input hashing/linting. Repeated builds work with retained NuGet packages.
-- `package`/`promote` always fail closed for current candidates. Even forged all-PASS records cannot bypass missing trusted independent evaluator integration. No command currently writes `productions/`.
+## Exact changed paths
 
-## Changed paths
+Neutral core/adapters: `reconstruction/core/{safety.mjs,files.mjs}`, `reconstruction/adapters/{contracts.mjs,registry.mjs,builtins.mjs,adapter-v0.1.schema.json}`.
 
-Core and workflow:
+Specification/planning: `reconstruction/specifications/{validate.mjs,load.mjs,cli.mjs,README.md}`, `schemas/{specifications-v0.1.schema.json,module-v0.1.schema.json}`, `tests/{foundation.test.mjs,modules.test.mjs,cli.test.mjs}`; `reconstruction/derivations/{plan.mjs,context.mjs}`.
 
-- `reconstruction/extension-pipeline/src/safety.mjs`
-- `reconstruction/extension-pipeline/src/inspect.mjs`
-- `reconstruction/extension-pipeline/src/analyze.mjs`
-- `reconstruction/extension-pipeline/src/contract.mjs`
-- `reconstruction/extension-pipeline/src/adapter.mjs`
-- `reconstruction/extension-pipeline/src/workspace.mjs`
-- `reconstruction/extension-pipeline/bin/any-shape.mjs`
-- `reconstruction/extension-pipeline/schemas/eir-v1.schema.json`
-- `reconstruction/extension-pipeline/samples/popup-basic.eir.json`
-- `reconstruction/extension-pipeline/tests/analysis.test.mjs`
-- `reconstruction/extension-pipeline/tests/safety.test.mjs`
-- `reconstruction/extension-pipeline/tests/workspace.test.mjs`
-- `reconstruction/extension-pipeline/tests/native-build.mjs`
-- `reconstruction/extension-pipeline/fixtures/download-manager/{manifest.json,worker.js,policy.js,ui/options.html,ui/options.js}`
+Adapter implementations: `reconstruction/sources/{chrome-extension.mjs,specification.mjs,planned.mjs,legacy-specification.mjs}`, `reconstruction/targets/{avalonia.mjs,planned.mjs}`.
 
-Tooling/docs: `package.json`, `package-lock.json`, `.github/workflows/verify.yml`, `.gitignore`, root `README.md`, `extensions/README.md`, pipeline `README.md`, `forever-works/periods/P001_EARLY_EXPERIMENTAL.md` (addendum only), `resources/avalonia/{README.md,CACHE_STRATEGY.md,toolchains.json}`, and `resources/avalonia/bootstrap/{activate.sh,install-dotnet.py,prefetch.sh,preflight.mjs}`. This handoff and the adjacent dated result JSON are operational-only; they are not permanent standards or generator inputs.
+Fixtures: `specifications/companion-ecosystem/{specifications.json,modules/domain.json}`, `specifications/android-adaptation/specifications.json`, `specifications/extension-compatibility/specifications.json`.
 
-## Actual verification
+Compatibility/docs: `reconstruction/extension-pipeline/src/{safety.mjs,workspace.mjs}`, its `README.md`, root `package.json` and `README.md`, `.github/workflows/verify.yml`, `forever-works/{README.md,SOURCE_NEUTRAL_DERIVATION_FOUNDATION.md,periods/P001_EARLY_EXPERIMENTAL.md}`. No dependencies/lockfile changes were needed. Operational-only handoff/results are under `codex/` and are not generator inputs or permanent format concepts.
 
-All commands below were executed, not merely added to CI. CI workflows were updated but remote CI outcomes were not observed during this session.
+## Tests and commands actually executed
 
-| Command/check | Actual outcome |
+| Check | Actual result this session |
 | --- | --- |
-| `npm run test:pipeline` | **65 passed, 0 failed/skipped**, final run after `npm ci`. Includes three different fixture architectures, malicious input, schema/review, immutable resume, architecture, CLI orchestration, source/evidence tampering and false promotion. |
-| After activation: `npm run test:pipeline:native` | **1 integration test passed, 0 failed/skipped**. Real Linux and Windows RID builds, repeated cached builds, then invalid C# required to produce real compiler errors for each. No runtime/behavioral claim. |
+| `npm run test:foundation` | **65 passed, 0 failed/skipped**. Schema/reference/identity/security tests, three input architectures, modular pins/DAG/cycles/quotas, scoped contexts, unknown adapters, false target proof/authority, true CLI/checkpoint collisions, legacy mapping and deterministic planning. |
+| `npm run test:pipeline` | **65 passed, 0 failed/skipped**, before and after extraction. Existing release refusal and architecture/source tests unchanged. |
+| Activated `npm run test:pipeline:native` | **1 real compiler integration test passed, 0 failed/skipped**, final run 15.2 s. Linux and Windows RID hosts compile, repeat using cache, then deliberately invalid C# produces real compiler failures. Windows is cross-compilation on Linux; no native runtime proof. |
 | `npm run test:unit` | **4 passed**. |
 | `npm run typecheck` | **PASS**. |
-| `npm run test:destinations` | **5 passed**, including a real independent local HTTP receiver. |
+| `npm run test:destinations` | **5 passed**, including controlled actual HTTP receiver effects. |
 | `npm run test:website-export` | **3 passed**. |
 | `npm run test:forever` | **4 passed**. |
-| `AS_CHROMIUM_PATH=/usr/bin/chromium npm run test:package` | **PASS**, external JS/CSS/schema/type/static-adopter smoke. |
-| Same override, `npm run test:recovery` | **PASS**, replacement harness and accessibility probe. |
-| Saved install script executed end-to-end | **PASS**: frozen `npm ci`, SDK reuse without download, activated writable runtime, desktop seed restore already up-to-date. |
-| SDK acquisition | **PASS**: .NET 10.0.402 archive SHA-512 matched Microsoft official release metadata; SDK installed outside Git. |
-| Template inspection/bootstrap | Avalonia.Templates 12.1.4 installed; actual `avalonia.xplat --help` inspected. Existing `--no-restore` flag was invalid; removed after checking template post-actions. Desktop-only seed restore passed and repeat restored from cache. |
-| `npm run dev`, `npm run dev:webhook-lab` plus functional HTTP checks | All three form routes returned HTML; synthetic POST returned 202 and appeared in independent receiver `/events`. These loopback services were started in this session; restart if needed. |
+| `npm run pipeline -- status synthetic-download-smoke session-two` | **PASS**: prior saved run still readable after utility extraction; source hash/history preserved. |
+| `node scripts/validate-forever.mjs forever artifacts/onboarding/forever-session02` | **FAIL, same pre-existing record defects**: 2 invalid verification.type values, 14 audit findings. Upstream hash integrity PASS; CLI valid true; schema valid false. No records modified. |
 | `git diff --check` | **PASS** before implementation commits. |
 
-Target build matrix for latest retained coordinated run `synthetic-download-smoke/session-two`:
-
-| Target | Architecture | Compiler | Native runtime / install / effects / accessibility / release |
-| --- | --- | --- | --- |
-| Linux | PASS | PASS, linux-x64, SDK 10.0.402 / Avalonia 12.1.4, zero warnings/errors | NOT_RUN; incomplete host only |
-| Windows | PASS | PASS, win-x64 **cross-compiled on Linux**, zero warnings/errors | NOT_RUN; no Windows runner |
-| Android | PASS | FAIL: **NETSDK1147**, Android workload missing | NOT_RUN; no workload/SDK/device/signing baseline |
-
-Exact coordinated command (exit 1 is expected from the Android build failure):
+CLI demonstrations actually executed:
 
 ```sh
-npm run pipeline -- run synthetic-download-smoke session-two \
-  --contract 14855796395d6ec0c5bbc028cc7a247fb28521537988efc0f33ee6d98c53dd9c --build
+npm run reconstitute -- adapters
+npm run reconstitute -- validate specifications/companion-ecosystem/specifications.json
+npm run reconstitute -- plan specifications/companion-ecosystem/specifications.json --run session-02
+npm run reconstitute -- context specifications/companion-ecosystem/specifications.json --product mobile-companion --target android
+npm run reconstitute -- plan specifications/android-adaptation/specifications.json
+npm run reconstitute -- plan specifications/extension-compatibility/specifications.json
+npm run reconstitute -- from-extension runs/synthetic-download-smoke/session-two/eir.json --job legacy-review-job --product legacy-native-product
 ```
 
-This fixture's reviewer explicitly deferred every capability. It is a host/tooling test, not owner acceptance or a converted download manager.
+The retained companion demo has **3 products / 4 target plans, 21 graph nodes, 44 edges**:
 
-### Other existing checks and limits
+| Product | Relationship | Target plan result |
+| --- | --- | --- |
+| record-console | new | Windows/Linux REVIEW_REQUIRED (fixture is unreviewed) |
+| browser-assistant | assistant | Browser-extension UNSUPPORTED (no output generator) |
+| mobile-companion | companion | Android REVIEW_REQUIRED (missing/unauthorized integration) |
 
-- `node scripts/validate-forever.mjs forever artifacts/onboarding/forever`: **FAIL**, two invalid `verification[0].type` enums in `capabilities/openform-reference.json` and `invariants/openform-orientation.json`; upstream integrity PASS, CLI valid true, published schema invalid, **14 audit findings**. These records were not changed.
-- `npm run test:deployment-lab`: **FAIL before tests execute**, existing syntax error at `tests/cloudflare-pages-reference.test.mjs:11` (missing `)`); not repaired in this pipeline task.
-- `AS_CHROMIUM_PATH=/usr/bin/chromium npm run test:browser:isolated -- --project=chromium --workers=2`: **41 passed, 5 failed** (Flow receiver/local submit, Schema interaction, Studio submit/status and embedding). Failures include stale/ambiguous selectors, timeouts and missing expected status. **Caveat:** this onboarding run overlapped a temporary schema build/restore, so rerun on a fixed source tree before treating it as a clean baseline or diagnosing all failures. The tracked generated JS was restored to its original content before pipeline implementation. No browser application logic was changed.
-- Pinned Playwright download attempts returned HTTP 403 `Domain forbidden` at `cdn.playwright.dev`. Full pinned Chromium/Firefox/WebKit matrix remains unrun. System Chromium was available. No TLS/signature/checksum checks were disabled.
+Every generic runtime/effect/release check is NOT_RUN. Android descriptor source status is UNSUPPORTED without pretending to parse absent files. Existing Chrome fixture status is OBSERVED, hash `c29d65f251f57a954e24cfbbe75235cb913d4827513688bd8960cb81f8859fa1`, static syntax only. No production output was created.
 
-## Local environment and artifacts
+## Environment and retained evidence
+
+Use the current isolated checkout on `main`, not a new worktree. Dependencies are already installed. Native test activation:
 
 ```sh
 cd /workspace/any-shape
 export AVALONIA_CACHE_DIR=/workspace/.toolchains
 export DOTNET_INSTALL_DIR="$AVALONIA_CACHE_DIR/dotnet"
 source resources/avalonia/bootstrap/activate.sh
-node resources/avalonia/bootstrap/preflight.mjs
+npm run test:foundation
 npm run test:pipeline
 npm run test:pipeline:native
 ```
 
-Activation uses writable `DOTNET_CLI_HOME`, `XDG_RUNTIME_DIR`, temporary and NuGet directories; **do not overwrite HOME**. Without writable XDG runtime, .NET first-time NuGet mutex initialization failed against read-only `/home/agent/.dotnet`; activation fixed it. Cache ~1.2 GiB retained outside Git; no archive publication or offline/fresh-machine guarantee. Python 3.12.14, Node 24.19.0 were available. `install-dotnet.py` reuses this matching SDK or recreates it with the pinned official hash.
+The prior verified SDK 10.0.402 / Avalonia 12.1.4 cache was reused. Do not change HOME; activation supplies writable runtime/CLI/NuGet paths. No new secrets, network domains, SDK downloads or environment configuration edits were needed in this session.
 
-Ignored local evidence: `artifacts/pipeline-session-01/` (test/build/bootstrap/browser logs, checkpoint/status, target summary), `runs/synthetic-download-smoke/session-one/` and `session-two/`; synthetic inputs at `extensions/synthetic-download-smoke/source/`. `session-two` is the final engine-fingerprinted run. If these ignored paths are absent on a fresh checkout, rerun the committed synthetic tests; they are not required code inputs.
+Ignored evidence is under `artifacts/source-neutral-session-02/` (CLI receipts/plans/context/catalog, summaries, old-run read, foundation/legacy/native test logs, record-validator failure). Generic immutable attempt: `runs/companion-ecosystem/session-02/`. Session 01's extension runs/cache remain. Ignored artifacts are useful local evidence, not necessary code inputs; committed synthetic tests reconstruct the demonstrations if they are absent in a new task. Dated result receipt: `codex/handoffs/2026-10-15-session-02-results.json`.
 
-Cloud draft saved **install_script**, **start_skill**, and requested Playwright network domains `cdn.playwright.dev`, `playwright.download.prss.microsoft.com`; unrelated presets/secrets were preserved. Latest install instructions were actually executed successfully. Draft saving is not publication: review/save in environment settings, then publish when desired. No fresh-task snapshot validation was done. No new secrets are required for the implemented local workflow.
+Browser matrix and deployment-lab checks were **not rerun**: no browser application code changed. Session 01 reported 41 browser passes/5 failures during overlapping build/restore, so it was not a clean fixed-source baseline; deployment-lab had a syntax error. Keep those unresolved reports distinct from this session's passing foundation/legacy/native tests. Android workload/device and Windows/Linux GUI runtime checks were not provisioned or executed; last session's Android build attempt reported NETSDK1147. No new native application behavior is claimed.
 
-## What remains incomplete / risky
+## Remaining limitations / next small ordered tasks
 
-1. No semantic code synthesis: generator emits honest native host scaffolds only. State/messages/behavioral obligations are presently reviewable descriptive fields, not an executable typed domain model. Avoid app-specific native recipes or hardcoding the future real extension.
-2. No independent held-out behavioral evaluator/attestation or real packaging/promotion path; release refusal is intentional. Local reviewer names are not authenticated identity.
-3. Android workload/SDK/JDK/emulator/device, Windows runtime runner, Linux GUI runtime, accessibility and installation/signing/update/recovery checks are unavailable/unrun. No production outputs exist.
-4. Static parsing does not establish causal behavior. Aliases/dynamic imports/remote services and CSS/TS/JSX/Wasm parsing need bounded adapters and explicit unknowns. Unknown dispositions need richer review before accepting executable behavior.
-5. Filesystem safety assumes quiescent inputs; no protection against a concurrent malicious writer. Dependency lint is lexical and has known dynamic-language/MSBuild escape limits; it is not a sandbox for hostile build code. Do not execute imported extension code.
-6. Existing browser/record/deployment-test defects remain separate; do not disable checks to make CI green. Native CI job was added but remote results need inspection.
-
-## Next small ordered tasks (one more 30-minute run)
-
-1. Fetch `main`, read this handoff and run the **65-test** pipeline suite plus activated compiler integration once; retain their actual results. Inspect new remote CI job failures if any, without redoing all completed setup.
-2. Choose **one bounded, generic supported behavior vertical slice** (for example a reviewed portable state transition/persistence contract) across at least two synthetic sources. Add a typed schema/independent stimulus-oracle fixture and negative cases **before** generating behavior. Keep observed source facts, owner decisions and target implementation separate. Do not hand-port a flagship.
-3. Implement that neutral domain behavior and a real Linux host adapter driven by the reviewed contract, with actual effect/persistence/error probes. Keep other capabilities/targets incomplete; add meaningful compiler/domain tests. Do not flip `releaseEligible` based on compilation.
-4. Separately provision/pin Android workload + JDK/SDK only if the session budget allows; otherwise leave exact reproducible missing requirements. Compare emitted Android host against the actual official 12.1.4 template before claiming compatibility. No Windows/Android runtime PASS without those runners.
-5. Add a trusted, independently scoped evidence-import/attestation design before allowing promotion. Bind proofs to current artifact/contract/source/target hashes and every accepted requirement. Missing/borrowed/forged evidence must still fail closed.
-6. At minute 20 assess scope, minute 25 stop features and verify, by minute 28 commit an updated handoff, push when permitted, and report before 30 minutes. Existing browser/record repair is a separate bounded task unless it blocks the selected slice.
+1. **Neutral owner review/contract checkpoint**: schema review fields are local assertions, not authenticated authorization or a durable accepted-contract transition API. Add an explicit immutable review step bound to exact specification/module/source hashes, with per-requirement/unknown/interaction dispositions. Test stale changes, false source approval, missing pins and incompatible dispositions; do not copy source privileges.
+2. **One executable semantic vertical slice**: data/state/messages/effects are descriptive requirements, not an executable typed domain model. Define one small, generic portable transition/effect contract and held-out stimulus/oracle fixtures for two unrelated jobs (specification-only plus Chrome). Implement real domain/effect behavior before claiming reconstruction or building more decorative hosts. Never add a flagship-specific recipe.
+3. **Second genuine source adapter**: Android/desktop source/binary entries currently advertise only planned metadata. A bounded parser for a controlled source project can inventory/provenance-link actual facts without executing it. Binary analysis and privileged APIs stay unsupported until deliberately implemented and independently tested.
+4. **Generic target realization**: new jobs currently plan only. The Avalonia bridge requires reviewed EIR v1; generic specs are not auto-coerced into EIR. Browser output is unsupported. Add target-specific implementations only after accepted neutral semantics; keep per-target Android lifecycle/storage/touch/runtime obligations distinct.
+5. **Independent proof/release**: generic plans and owner assertions are not proof. Existing compiler/architecture checks and fail-closed promotion remain; trusted evaluator attestation, current-artifact binding, actual APIs/permissions, install/update/recovery, packaging/signing and native runtime/accessibility remain unimplemented/unrun.
+6. **Further foundation hardening**: JSON modules support whole local documents, not arbitrary JSON Pointer/remote references or override precedence. Unknown namespaces block affected plans until an interpreter exists. Descriptor evidence/version metadata is not cryptographic adapter attestation; trusted adapter code is installed developer code, not a sandbox for source uploads. Filesystem operations assume quiescent inputs. Schema root/module definitions currently repeat shared sections; maintain matching versions or refactor with tests before expanding substantially.
+7. **Verification discipline**: inspect remote CI after push; do not treat local tests as observed CI. Existing record/browser/deployment defects are separate. On a new 30-minute run, start clock, run focused baselines once, pick one bounded task above, stop features around minute 25, commit/push handoff by minute 28, report before minute 30.
 
 ## Copy-ready continuation prompt
 
-> Work in thanks-cohn/any-shape on main. Read codex/HANDOFF_LATEST.md and codex/BUILD_GENERIC_THREE_TARGET_PIPELINE.md, then continue from the saved commits without redoing completed intake/EIR/orchestration/toolchain work. Respect AGENTS.md and keep source uploads untrusted/read-only. Use a 30-minute session: verify the 65 pipeline tests and activated real compiler integration, then implement one generic reviewed semantic/domain-and-effect vertical slice with independent negative tests. Current outputs are incomplete hosts; never claim extension reconstruction or three-platform runtime success from scaffold compilation. Preserve fail-closed release gates and canonical Forever Works compatibility. Begin verification/handoff at minute 25, commit and push progress plus an updated codex/HANDOFF_LATEST.md by minute 28, and report before minute 30.
+> Work in thanks-cohn/any-shape on main. Read forever-works/PROPOSALS/ANY_SHAPE_UNIVERSAL_SOFTWARE_RECONSTITUTION.md, codex/HANDOFF_LATEST.md and codex/NEXT_RUN_SOURCE_NEUTRAL_FOUNDATION.md in order. Preserve the source-neutral specification/adapters/planner and the unchanged Chrome/EIR v1 workflow; do not rebuild completed foundations or introduce provider-specific permanent formats. Run the 65 foundation tests, 65 legacy pipeline tests and activated real compiler integration once. Choose one bounded next step, preferably an immutable generic review/accepted-contract checkpoint bound to document/module/source hashes, or a small typed domain/effect vertical slice with independent negative fixtures. Current generic products are plans only, planned source parsers/browser output are unsupported, native hosts are incomplete, and release promotion remains blocked. Use a 30-minute budget: verify/save at minute 25, commit and push an updated handoff by minute 28, then report before minute 30.
