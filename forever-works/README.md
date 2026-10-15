@@ -23,3 +23,7 @@ Mark each claim **OWNER-INTENT**, **SOURCE-INSPECTED**, **LIVE-OBSERVED**, **TES
 It is an agent-readable *continuity and reconstruction brief* which describes functionality without dictating architecture. It is not a generated code substitute, a perfect specification, proof that three editors work, or permission to weaken access controls. Future conformance MUST compare an independently implemented replacement against explicitly scoped black-box fixtures, declared security constraints, and human experience.
 
 **Change control:** Preserve historical records, append new evidence with dates/IDs, write explicit owner-approved PRESERVE/CORRECT/EXCLUDE decisions, and never promote PROPOSED/UNKNOWN to verified without a traceable test.
+
+## Pipeline begun during P001
+
+[Pipeline 001 — Chrome extension to Android and Avalonia](PIPELINE_CHROME_EXTENSION_TO_NATIVE.md) is a proposed generic reconstruction pipeline. Keepsake is the intended first source, not a hardcoded exception. The extension source has not yet been identified; no native builds have been produced or tested.
