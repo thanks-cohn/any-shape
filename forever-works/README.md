@@ -31,3 +31,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## Source-blind generic pipeline contract
 
 [Extension Reconstruction Profile v0.1](EXTENSION_RECONSTRUCTION_STANDARD_V0_1.md) sets the neutral API, proposed Extension Intent Representation, anti-overfitting safeguards, target adapters and independent qualification gates **before** the pipeline sees any production extension. It is a DESIGN PROPOSAL; no converter or native release is claimed.
+
+## First implemented pipeline substrate
+
+[Dependency-free extension intake prototype](../reconstruction/extension-pipeline/README.md) now exists as a separate source-neutral module with synthetic fixtures. **Implementation is not evidence of executed tests or native parity.** Its output contract and replacement rationale are documented beside its code.
