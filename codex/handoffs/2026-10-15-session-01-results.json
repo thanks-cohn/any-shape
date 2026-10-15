@@ -1,0 +1,58 @@
+{
+  "session": "2026-10-15-01",
+  "implementationHead": "a1b46f15a165df63a8501c81f2c8bf43b1dafe41",
+  "pipelineTests": {
+    "passed": 65,
+    "failed": 0,
+    "skipped": 0
+  },
+  "nativeCompilerIntegration": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Linux/Windows RID compile/repeat/invalid-C# detection, not native runtime"
+  },
+  "targets": {
+    "windows": {
+      "architecture": "PASS",
+      "build": "PASS",
+      "buildHost": {
+        "os": "linux",
+        "architecture": "x64"
+      },
+      "runtime": "NOT_RUN",
+      "releaseEligible": false,
+      "evidencePath": "evidence/windows/7fd61ab58652f10c7a22806791ed51ebb91c9a7423c88aae52159d70fa17a53c.json"
+    },
+    "linux": {
+      "architecture": "PASS",
+      "build": "PASS",
+      "buildHost": {
+        "os": "linux",
+        "architecture": "x64"
+      },
+      "runtime": "NOT_RUN",
+      "releaseEligible": false,
+      "evidencePath": "evidence/linux/03b4149b29301ef1991e9a8297c3762ffd45dc43c6ac3237aa16ddaa7003b6b4.json"
+    },
+    "android": {
+      "architecture": "PASS",
+      "build": "FAIL",
+      "buildHost": {
+        "os": "linux",
+        "architecture": "x64"
+      },
+      "runtime": "NOT_RUN",
+      "releaseEligible": false,
+      "evidencePath": "evidence/android/e2fc04c2f9e24c221f5d2f0f62bae9d909cccf2a1ad6e6fad12458efc3e10954.json"
+    }
+  },
+  "productionOutputs": false,
+  "realExtensionUsed": false,
+  "limitations": [
+    "incomplete host skeletons; no extension behavior",
+    "Android workload absent (NETSDK1147)",
+    "all native runtime/install/effect/release checks NOT_RUN",
+    "trusted independent evaluator not configured; promotion blocked"
+  ]
+}
