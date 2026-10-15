@@ -64,3 +64,7 @@ The project should not be described as a finished platform, nor should its scope
 ## Reading dependencies
 
 [Project identity](../IDENTITY_AND_DECISIONS.md) → [System atlas](../SYSTEM_ATLAS.md) → [Verified evidence](../CASE_001_FLOW_LIVE_EVIDENCE.md) → [Reconstruction contract](../RECONSTRUCTION_CONTRACT.md) → current HEAD/source/tests. A cold agent should report any divergence between this period and current HEAD before making changes.
+
+## Added during this period — native reconstruction pipeline proposal
+
+[Pipeline 001](../PIPELINE_CHROME_EXTENSION_TO_NATIVE.md) specifies owner-intended migration of Chrome extensions to Android and C# Avalonia Windows/Linux native applications. **Status: proposed**; discovery of the first target (Keepsake) and all actual implementation, independent platform tests and production gates remain pending. This is a **phase of work inside P001**, not a new historical period simply because work began.
