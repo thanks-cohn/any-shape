@@ -55,3 +55,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## Executable source-neutral foundation
 
 The [v0.1 specification implementation](../reconstruction/specifications/README.md) now validates bounded modular owner jobs, wraps the existing Chrome source adapter, advertises unsupported source/target families honestly, and plans separately identified requested products. Reconstruction and companion/assistant outcomes have different proof obligations. This is planning infrastructure, not evidence of universal semantic generation or production conversion; canonical Forever Works remains unchanged.
+
+## Cross-project decision and implementation order
+
+[Source-Neutral Ecosystems — Decision Record and Roadmap](DECISION_RECORD_SOURCE_NEUTRAL_ECOSYSTEM_ROADMAP.md) captures the evolving owner vision, many-to-many ecosystem arrangements, the distinction between job-level `specifications.json` and Forever Works durable meaning, the correct home for each concept, and the staged standards→implementation→evidence loop. Read this before proposing breaking schema changes or narrowing the project to a platform/toolkit.
