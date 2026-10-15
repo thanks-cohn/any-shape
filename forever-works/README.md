@@ -27,3 +27,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## Pipeline begun during P001
 
 [Pipeline 001 — Chrome extension to Android and Avalonia](PIPELINE_CHROME_EXTENSION_TO_NATIVE.md) is a proposed generic reconstruction pipeline. Keepsake is a possible later evaluation case; the pipeline starts with generic extension intake and synthetic cross-extension fixtures. The extension source has not yet been identified; no native builds have been produced or tested.
+
+## Source-blind generic pipeline contract
+
+[Extension Reconstruction Profile v0.1](EXTENSION_RECONSTRUCTION_STANDARD_V0_1.md) sets the neutral API, proposed Extension Intent Representation, anti-overfitting safeguards, target adapters and independent qualification gates **before** the pipeline sees any production extension. It is a DESIGN PROPOSAL; no converter or native release is claimed.
