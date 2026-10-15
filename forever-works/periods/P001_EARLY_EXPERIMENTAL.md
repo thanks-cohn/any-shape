@@ -80,3 +80,7 @@ The [Avalonia three-target isolation contract](../AVALONIA_THREE_TARGET_ISOLATIO
 ## P001 addendum — research-framed interference controls (2026-10-15)
 
 [Drift, Negative Transfer and Target Isolation](../RESEARCH_DRIFT_TRANSFER_AND_TARGET_ISOLATION.md) adds established research terminology and a proposed controlled comparison: unstructured one-run vs scoped/checked one-run vs scoped sequential runs. It does not claim the documented format has yet prevented agent cross-target errors in a live experiment.
+
+## P001 addendum — extension-agnostic input/output naming
+
+[Workspace convention](../EXTENSION_WORKSPACE_CONVENTION.md) specifies `extensions/<extension-id>/` sources and independently gated `productions/<extension-id>/windows|linux|android/` products, with runs retained separately. **Documented; generation and promotion enforcement not yet implemented.**
