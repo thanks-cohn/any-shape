@@ -1,0 +1,159 @@
+{
+  "specificationVersion": "0.1",
+  "jobId": "extension-compatibility",
+  "purpose": "Reviewable compatibility job for the existing three-target extension experiment.",
+  "sources": [
+    {
+      "id": "popup-basic",
+      "type": "chrome-extension-source",
+      "path": "reconstruction/extension-pipeline/fixtures/popup-basic",
+      "contentHash": "c29d65f251f57a954e24cfbbe75235cb913d4827513688bd8960cb81f8859fa1",
+      "original": {
+        "name": "Synthetic Popup Fixture",
+        "version": "0.1"
+      },
+      "provenance": {
+        "origin": "owner",
+        "reference": "Reviewable defaults translated from the historical extension workflow; not automatic owner acceptance."
+      },
+      "access": {
+        "authorization": "declared",
+        "scope": [
+          "read-only-synthetic-source"
+        ],
+        "reference": "Synthetic fixture author."
+      },
+      "unknowns": [
+        "Static syntax observations do not establish runtime success, complete behavior, authority, data models, or owner intent. Aliases, generated code, event ordering, dynamic calls and external services need review."
+      ]
+    }
+  ],
+  "requestedProducts": [
+    {
+      "id": "popup-native",
+      "purpose": "Reconstruct accepted extension obligations on explicitly requested native targets.",
+      "relationship": "reconstruct",
+      "sourceIds": [
+        "popup-basic"
+      ],
+      "relatedProductIds": [],
+      "targets": [
+        {
+          "id": "windows",
+          "adapter": "avalonia",
+          "requirements": {
+            "ux": [],
+            "security": [],
+            "authority": [],
+            "data": []
+          },
+          "constraints": [
+            "Retain target-specific host behavior and independent evaluation."
+          ]
+        },
+        {
+          "id": "linux",
+          "adapter": "avalonia",
+          "requirements": {
+            "ux": [],
+            "security": [],
+            "authority": [],
+            "data": []
+          },
+          "constraints": [
+            "Retain target-specific host behavior and independent evaluation."
+          ]
+        },
+        {
+          "id": "android",
+          "adapter": "avalonia",
+          "requirements": {
+            "ux": [],
+            "security": [],
+            "authority": [],
+            "data": []
+          },
+          "constraints": [
+            "Retain target-specific host behavior and independent evaluation."
+          ]
+        }
+      ],
+      "preserve": [
+        "cap-1153dc7540e3d86b",
+        "cap-563ea06d3b85bdf9",
+        "cap-f4f7807a0f67777e"
+      ],
+      "transform": [],
+      "exclude": [],
+      "add": [],
+      "invariants": [],
+      "acceptance": [],
+      "provenance": {
+        "origin": "owner",
+        "reference": "Reviewable defaults translated from the historical extension workflow; not automatic owner acceptance."
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "id": "cap-1153dc7540e3d86b",
+      "kind": "capability",
+      "statement": "Review observed icon",
+      "claim": "inferred",
+      "provenance": {
+        "origin": "analysis",
+        "reference": "eir-v1:cap-1153dc7540e3d86b"
+      },
+      "evidence": [
+        "popup-basic.obs-1153dc7540e3d86b"
+      ]
+    },
+    {
+      "id": "cap-563ea06d3b85bdf9",
+      "kind": "capability",
+      "statement": "Review observed popup",
+      "claim": "inferred",
+      "provenance": {
+        "origin": "analysis",
+        "reference": "eir-v1:cap-563ea06d3b85bdf9"
+      },
+      "evidence": [
+        "popup-basic.obs-563ea06d3b85bdf9"
+      ]
+    },
+    {
+      "id": "cap-f4f7807a0f67777e",
+      "kind": "capability",
+      "statement": "Review observed storage",
+      "claim": "inferred",
+      "provenance": {
+        "origin": "analysis",
+        "reference": "eir-v1:cap-f4f7807a0f67777e"
+      },
+      "evidence": [
+        "popup-basic.obs-f4f7807a0f67777e"
+      ]
+    }
+  ],
+  "acceptanceCases": [],
+  "interactions": [],
+  "dependencies": [],
+  "review": {
+    "status": "unreviewed",
+    "reviewer": null,
+    "unresolved": [
+      "Confirm source access, capability dispositions, target UX, authority, acceptance and release obligations."
+    ]
+  },
+  "provenance": {
+    "origin": "owner",
+    "reference": "Reviewable defaults translated from the historical extension workflow; not automatic owner acceptance."
+  },
+  "extensions": {
+    "org.any-shape.legacy": {
+      "eirFormatVersion": 1,
+      "eirExtensionId": "popup-basic",
+      "sourceHash": "c29d65f251f57a954e24cfbbe75235cb913d4827513688bd8960cb81f8859fa1"
+    }
+  }
+}

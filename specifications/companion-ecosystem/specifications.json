@@ -1,0 +1,251 @@
+{
+  "specificationVersion": "0.1",
+  "jobId": "companion-ecosystem",
+  "purpose": "Synthetic source-neutral multi-product planning demonstration.",
+  "sources": [],
+  "requestedProducts": [
+    {
+      "id": "record-console",
+      "purpose": "Review records explicitly selected by the user.",
+      "relationship": "new",
+      "sourceIds": [],
+      "relatedProductIds": [],
+      "targets": [
+        {
+          "id": "windows",
+          "adapter": "avalonia",
+          "requirements": {
+            "ux": [
+              "ux.desktop"
+            ],
+            "security": [
+              "security.local"
+            ],
+            "authority": [
+              "authority.read"
+            ],
+            "data": [
+              "data.records"
+            ]
+          },
+          "constraints": [
+            "Only target-specific evidence can establish runtime success."
+          ]
+        },
+        {
+          "id": "linux",
+          "adapter": "avalonia",
+          "requirements": {
+            "ux": [
+              "ux.desktop"
+            ],
+            "security": [
+              "security.local"
+            ],
+            "authority": [
+              "authority.read"
+            ],
+            "data": [
+              "data.records"
+            ]
+          },
+          "constraints": [
+            "Only target-specific evidence can establish runtime success."
+          ]
+        }
+      ],
+      "preserve": [],
+      "transform": [],
+      "exclude": [],
+      "add": [
+        "cap.review"
+      ],
+      "invariants": [
+        "invariant.consent"
+      ],
+      "acceptance": [
+        "case.review"
+      ],
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    },
+    {
+      "id": "browser-assistant",
+      "purpose": "Search only the records shared through the declared interface.",
+      "relationship": "assistant",
+      "sourceIds": [],
+      "relatedProductIds": [
+        "record-console"
+      ],
+      "targets": [
+        {
+          "id": "browser-extension",
+          "adapter": "browser-extension",
+          "requirements": {
+            "ux": [
+              "ux.desktop"
+            ],
+            "security": [
+              "security.local"
+            ],
+            "authority": [
+              "authority.read"
+            ],
+            "data": [
+              "data.records"
+            ]
+          },
+          "constraints": [
+            "Only target-specific evidence can establish runtime success."
+          ]
+        }
+      ],
+      "preserve": [],
+      "transform": [],
+      "exclude": [],
+      "add": [
+        "cap.search"
+      ],
+      "invariants": [
+        "invariant.consent"
+      ],
+      "acceptance": [
+        "case.search"
+      ],
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    },
+    {
+      "id": "mobile-companion",
+      "purpose": "Review approved records in a touch-oriented companion.",
+      "relationship": "companion",
+      "sourceIds": [],
+      "relatedProductIds": [
+        "record-console"
+      ],
+      "targets": [
+        {
+          "id": "android",
+          "adapter": "avalonia",
+          "requirements": {
+            "ux": [
+              "ux.mobile"
+            ],
+            "security": [
+              "security.local"
+            ],
+            "authority": [
+              "authority.read"
+            ],
+            "data": [
+              "data.records"
+            ]
+          },
+          "constraints": [
+            "Only target-specific evidence can establish runtime success."
+          ]
+        }
+      ],
+      "preserve": [],
+      "transform": [],
+      "exclude": [],
+      "add": [
+        "cap.mobile"
+      ],
+      "invariants": [
+        "invariant.consent"
+      ],
+      "acceptance": [
+        "case.mobile"
+      ],
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    }
+  ],
+  "requirements": [],
+  "acceptanceCases": [],
+  "interactions": [
+    {
+      "id": "transfer.browser",
+      "from": {
+        "kind": "product",
+        "id": "record-console"
+      },
+      "to": {
+        "kind": "product",
+        "id": "browser-assistant"
+      },
+      "purpose": "Share only approved records through a declared interface.",
+      "data": [
+        "data.records"
+      ],
+      "api": {
+        "status": "missing",
+        "reference": null
+      },
+      "authorization": {
+        "status": "review-required",
+        "scope": [],
+        "reviewReference": null
+      },
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    },
+    {
+      "id": "transfer.mobile",
+      "from": {
+        "kind": "product",
+        "id": "record-console"
+      },
+      "to": {
+        "kind": "product",
+        "id": "mobile-companion"
+      },
+      "purpose": "Share only approved records through a declared interface.",
+      "data": [
+        "data.records"
+      ],
+      "api": {
+        "status": "missing",
+        "reference": null
+      },
+      "authorization": {
+        "status": "review-required",
+        "scope": [],
+        "reviewReference": null
+      },
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    }
+  ],
+  "dependencies": [],
+  "review": {
+    "status": "unreviewed",
+    "reviewer": null,
+    "unresolved": [
+      "Review requirements and permitted integration APIs."
+    ]
+  },
+  "provenance": {
+    "origin": "owner",
+    "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+  },
+  "extensions": {},
+  "modules": [
+    {
+      "id": "domain",
+      "path": "modules/domain.json",
+      "sha256": "5ad652d47d5fe0a47da2c7eeee8738b7300c948efaa7a34c18d6e6aab09d029a"
+    }
+  ]
+}

@@ -43,7 +43,9 @@
     "test:deployment-lab": "node --test tests/cloudflare-pages-reference.test.mjs",
     "pipeline": "node reconstruction/extension-pipeline/bin/any-shape.mjs",
     "test:pipeline": "node --test reconstruction/extension-pipeline/tests/*.test.mjs",
-    "test:pipeline:native": "node --test reconstruction/extension-pipeline/tests/native-build.mjs"
+    "test:pipeline:native": "node --test reconstruction/extension-pipeline/tests/native-build.mjs",
+    "reconstitute": "node reconstruction/specifications/cli.mjs",
+    "test:foundation": "node --test reconstruction/specifications/tests/*.test.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0",

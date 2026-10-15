@@ -1,0 +1,146 @@
+{
+  "moduleVersion": "0.1",
+  "moduleId": "domain",
+  "requirements": [
+    {
+      "id": "cap.review",
+      "kind": "capability",
+      "statement": "Review records explicitly selected by the user.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "cap.search",
+      "kind": "capability",
+      "statement": "Search only the records shared through the declared interface.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "cap.mobile",
+      "kind": "capability",
+      "statement": "Review approved records in a touch-oriented companion.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "invariant.consent",
+      "kind": "invariant",
+      "statement": "Never transfer records without explicit consent.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "data.records",
+      "kind": "data",
+      "statement": "Approved record IDs and descriptions; private fields excluded.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "ux.desktop",
+      "kind": "ux",
+      "statement": "Keyboard navigation and readable resizable desktop layout.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "ux.mobile",
+      "kind": "ux",
+      "statement": "Touch/back navigation and suspend/resume affordances.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "security.local",
+      "kind": "security",
+      "statement": "No network exposure or source privilege inheritance by default.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    },
+    {
+      "id": "authority.read",
+      "kind": "authority",
+      "statement": "Read only the owner-approved transfer scope after runtime access verification.",
+      "claim": "requested",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      },
+      "evidence": []
+    }
+  ],
+  "acceptanceCases": [
+    {
+      "id": "case.review",
+      "requirements": [
+        "cap.review",
+        "invariant.consent"
+      ],
+      "stimulus": "Present synthetic approved and denied records.",
+      "expected": "Show approved records and omit denied ones.",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    },
+    {
+      "id": "case.search",
+      "requirements": [
+        "cap.search",
+        "invariant.consent"
+      ],
+      "stimulus": "Present synthetic approved and denied records.",
+      "expected": "Search cannot reveal unshared records.",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    },
+    {
+      "id": "case.mobile",
+      "requirements": [
+        "cap.mobile",
+        "invariant.consent"
+      ],
+      "stimulus": "Present synthetic approved and denied records.",
+      "expected": "Mobile review preserves scope and consent.",
+      "provenance": {
+        "origin": "owner",
+        "reference": "Synthetic fixture author; demonstration only, not production or release approval."
+      }
+    }
+  ]
+}

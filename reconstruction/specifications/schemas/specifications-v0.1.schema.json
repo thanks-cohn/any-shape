@@ -1,0 +1,811 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://any-shape.local/schemas/specifications-v0.1.json",
+  "type": "object",
+  "properties": {
+    "specificationVersion": {
+      "const": "0.1"
+    },
+    "jobId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "type": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contentHash": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "original": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "version"
+            ],
+            "additionalProperties": false
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "enum": [
+                  "owner",
+                  "source",
+                  "analysis"
+                ]
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "origin",
+              "reference"
+            ],
+            "additionalProperties": false
+          },
+          "access": {
+            "type": "object",
+            "properties": {
+              "authorization": {
+                "enum": [
+                  "declared",
+                  "review-required",
+                  "denied"
+                ]
+              },
+              "scope": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "reference": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "authorization",
+              "scope",
+              "reference"
+            ],
+            "additionalProperties": false
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "extensions": {
+            "type": "object",
+            "propertyNames": {
+              "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "path",
+          "contentHash",
+          "original",
+          "provenance",
+          "access",
+          "unknowns"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "requestedProducts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relationship": {
+            "enum": [
+              "reconstruct",
+              "port",
+              "adapt",
+              "companion",
+              "assistant",
+              "integrate",
+              "extend",
+              "new"
+            ]
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "relatedProductIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "maxLength": 64
+                },
+                "adapter": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "maxLength": 64
+                },
+                "requirements": {
+                  "type": "object",
+                  "properties": {
+                    "ux": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+                        "maxLength": 128
+                      },
+                      "uniqueItems": true
+                    },
+                    "security": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+                        "maxLength": 128
+                      },
+                      "uniqueItems": true
+                    },
+                    "authority": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+                        "maxLength": 128
+                      },
+                      "uniqueItems": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+                        "maxLength": 128
+                      },
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "ux",
+                    "security",
+                    "authority",
+                    "data"
+                  ],
+                  "additionalProperties": false
+                },
+                "constraints": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "extensions": {
+                  "type": "object",
+                  "propertyNames": {
+                    "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "adapter",
+                "requirements",
+                "constraints"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "preserve": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "transform": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "add": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "invariants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "acceptance": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "enum": [
+                  "owner",
+                  "source",
+                  "analysis"
+                ]
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "origin",
+              "reference"
+            ],
+            "additionalProperties": false
+          },
+          "extensions": {
+            "type": "object",
+            "propertyNames": {
+              "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "purpose",
+          "relationship",
+          "sourceIds",
+          "relatedProductIds",
+          "targets",
+          "preserve",
+          "transform",
+          "exclude",
+          "add",
+          "invariants",
+          "acceptance",
+          "provenance"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+            "maxLength": 128
+          },
+          "kind": {
+            "enum": [
+              "capability",
+              "invariant",
+              "constraint",
+              "data",
+              "ux",
+              "security",
+              "authority"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "enum": [
+              "requested",
+              "accepted",
+              "inferred",
+              "observed"
+            ]
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "enum": [
+                  "owner",
+                  "source",
+                  "analysis"
+                ]
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "origin",
+              "reference"
+            ],
+            "additionalProperties": false
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "extensions": {
+            "type": "object",
+            "propertyNames": {
+              "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "statement",
+          "claim",
+          "provenance",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "acceptanceCases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+            "maxLength": 128
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "stimulus": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected": {
+            "type": "string",
+            "minLength": 1
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "enum": [
+                  "owner",
+                  "source",
+                  "analysis"
+                ]
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "origin",
+              "reference"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "requirements",
+          "stimulus",
+          "expected",
+          "provenance"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "interactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+            "maxLength": 128
+          },
+          "from": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "source",
+                  "product"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "maxLength": 64
+              }
+            },
+            "required": [
+              "kind",
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "to": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "source",
+                  "product"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "maxLength": 64
+              }
+            },
+            "required": [
+              "kind",
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+              "maxLength": 128
+            },
+            "uniqueItems": true
+          },
+          "api": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "enum": [
+                  "declared",
+                  "missing",
+                  "unknown"
+                ]
+              },
+              "reference": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "reference"
+            ],
+            "additionalProperties": false
+          },
+          "authorization": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "enum": [
+                  "approved",
+                  "review-required",
+                  "denied"
+                ]
+              },
+              "scope": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "reviewReference": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "scope",
+              "reviewReference"
+            ],
+            "additionalProperties": false
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "origin": {
+                "enum": [
+                  "owner",
+                  "source",
+                  "analysis"
+                ]
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "origin",
+              "reference"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "from",
+          "to",
+          "purpose",
+          "data",
+          "api",
+          "authorization",
+          "provenance"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
+            "maxLength": 128
+          },
+          "productId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "dependsOnProductId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "productId",
+          "dependsOnProductId",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "unreviewed",
+            "accepted"
+          ]
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "status",
+        "reviewer",
+        "unresolved"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "enum": [
+            "owner",
+            "source",
+            "analysis"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "origin",
+        "reference"
+      ],
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$"
+      }
+    }
+  },
+  "required": [
+    "specificationVersion",
+    "jobId",
+    "purpose",
+    "sources",
+    "requestedProducts",
+    "requirements",
+    "acceptanceCases",
+    "interactions",
+    "dependencies",
+    "review",
+    "provenance"
+  ],
+  "additionalProperties": false
+}
