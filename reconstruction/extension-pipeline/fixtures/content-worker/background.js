@@ -1,0 +1,1 @@
+// Synthetic fixture, intentionally inert.
