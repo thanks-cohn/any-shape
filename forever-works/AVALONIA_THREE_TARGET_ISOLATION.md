@@ -123,3 +123,7 @@ React Native Android remains a **separate contrastive reconstruction** from the 
 ## Handoff milestone
 
 Before a real extension, implement a project-local typed target-support matrix schema, a boundary linter, fixture-specific cross-target conformance reports, and a simple synthetic Avalonia sample that genuinely runs on each OS. Freeze evidence and only then measure one-run versus sequential-run outcomes. Add observations to P001 as dated addenda; open a new Period only for a substantial historical change.
+
+## Research terminology and validation plan
+
+See [Drift, Negative Transfer and Target Isolation](RESEARCH_DRIFT_TRANSFER_AND_TARGET_ISOLATION.md) for distinctions between negative transfer, context interference, specification drift, architectural erosion, product-line variability and independently testable prevention mechanisms. The shared Avalonia framework does not confer automatic cross-target behavioral equivalence.
