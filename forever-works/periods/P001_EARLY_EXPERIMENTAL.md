@@ -84,3 +84,7 @@ The [Avalonia three-target isolation contract](../AVALONIA_THREE_TARGET_ISOLATIO
 ## P001 addendum — extension-agnostic input/output naming
 
 [Workspace convention](../EXTENSION_WORKSPACE_CONVENTION.md) specifies `extensions/<extension-id>/` sources and independently gated `productions/<extension-id>/windows|linux|android/` products, with runs retained separately. **Documented; generation and promotion enforcement not yet implemented.**
+
+## P001 addendum — executable generic pipeline foundation (2026-10-15)
+
+**TESTED-LOCAL, bounded infrastructure evidence:** `reconstruction/extension-pipeline/` now implements bounded read-only intake, Acorn/parse5 static observations, a project-local EIR schema/review path, target plans, immutable attempt checkpoints, three standalone incomplete Avalonia hosts, conservative architecture lint, compiler evidence and fail-closed release commands. Three unrelated synthetic architectures exercise intake. The portable contract and Forever Works concept mapping do not modify the canonical standard. Generated hosts contain no reconstructed extension behavior and are visibly marked incomplete. SDK 10.0.402 SHA-512 was verified; Linux and Windows RID hosts compiled on Linux. Android compilation reported missing workload NETSDK1147. No native runtime, effect parity, independent held-out evaluator, installable product or production release is claimed. See the pipeline operator guide for current tests and limits; historical proposal statuses above remain preserved.

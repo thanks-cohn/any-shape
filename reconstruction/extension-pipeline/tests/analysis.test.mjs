@@ -53,3 +53,11 @@ test('review requires every capability, identity, and acceptance requirements fo
   assert.equal(contract.review.status,'unreviewed');
   decisions[0].disposition='preserve';assert.throws(()=>acceptContract(contract,{reviewer:'owner',decisions}),{code:'INCOMPLETE_REQUIREMENTS'});
 });
+test('static analysis has a bounded node budget',async()=>{
+  await assert.rejects(()=>analyzeExtension(fixture('download-manager'),{extensionId:'bounded',analysisNodes:1}),{code:'ANALYSIS_LIMIT'});
+});
+test('published unreviewed sample remains schema-valid and bound to its synthetic source',async()=>{
+  const sample=JSON.parse(await readFile(fileURLToPath(new URL('../samples/popup-basic.eir.json',import.meta.url)),'utf8'));
+  const {contract}=await analyzeExtension(fixture('popup-basic'),{extensionId:'popup-basic'});
+  assert(validateContract(sample).valid);assert.deepEqual(sample,contract);
+});

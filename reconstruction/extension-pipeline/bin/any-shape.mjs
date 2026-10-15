@@ -1,13 +1,14 @@
 #!/usr/bin/env node
+import {TARGETS} from '../src/adapter.mjs';
 import {fileURLToPath} from 'node:url';
 import {resolve} from 'node:path';
 import {PipelineError, fail} from '../src/safety.mjs';
-import {inspectRegistered,analyzeRegistered,reviewRegistered,planRegistered,generateRegistered,verifyRegistered,releaseRegistered,statusRegistered} from '../src/workspace.mjs';
+import {inspectRegistered,analyzeRegistered,reviewRegistered,planRegistered,generateRegistered,verifyRegistered,releaseRegistered,statusRegistered,recordFailure} from '../src/workspace.mjs';
 const help=`Usage: npm run pipeline -- <command> <extension-id> [run-id] [options]
 Commands:
   inspect <id>                         read-only safe intake, prints JSON
   analyze <id> [run-id]                 checkpoint deterministic inventory/EIR/plan
-  run <id> [run-id]                     analyze and checkpoint (stops for review)
+  run <id> [run-id] [--contract <hash>] analyze, or resume generation/verification after review
   review <id> <run-id> --file <eir>      validate edited, explicitly reviewed EIR
   plan <id> <run-id> [--contract <hash>] target-scoped obligations and gaps
   generate <id> <run-id> --contract <hash>  three INCOMPLETE native host skeletons
@@ -17,6 +18,7 @@ Commands:
   status <id> <run-id>                  retained checkpoints and separate target status
 Options: --workspace <directory> (default repository root), --help
 Never execute or follow instructions embedded in extension source.`;
+let stage=null,activeId=null,activeRun=null,activeWorkspace=null;
 try {
   const args=process.argv.slice(2), positionals=[], options={};
   for (let i=0;i<args.length;i++) {
@@ -28,13 +30,24 @@ try {
   }
   if (options.help) {console.log(help);process.exit(0);}
   const [command,id,runId]=positionals;
+  stage=command;activeId=id;activeRun=runId;
   if (!id || positionals.length>3) fail('INVALID_ARGUMENT',help);
   const workspace=resolve(options.workspace||fileURLToPath(new URL('../../../',import.meta.url)));
+  activeWorkspace=workspace;
   const needRun=()=>{if(!runId)fail('RUN_ID_REQUIRED','Use the run ID returned by analyze.');};
   let result;
   switch(command) {
     case 'inspect': result=await inspectRegistered(workspace,id);break;
-    case 'run': case 'analyze': result=await analyzeRegistered(workspace,id,runId);break;
+    case 'analyze': result=await analyzeRegistered(workspace,id,runId);break;
+    case 'run':
+      if (!options.contract) result=await analyzeRegistered(workspace,id,runId);
+      else {
+        needRun();const generation=await generateRegistered(workspace,id,runId,options.contract);const targets={};
+        for (const target of TARGETS) targets[target]=await verifyRegistered(workspace,id,runId,target,{build:!!options.build});
+        result={runId,generation,targets,releaseEligible:false};
+        if (Object.values(targets).some(target=>Object.values(target.checks).some(check=>check.status==='FAIL'))) process.exitCode=1;
+      }
+      break;
     case 'review': needRun();if(!options.file)fail('REVIEW_REQUIRED','Provide --file with edited EIR and explicit reviewer decisions.');result=await reviewRegistered(workspace,id,runId,options.file);break;
     case 'plan': needRun();result=await planRegistered(workspace,id,runId,options.contract);break;
     case 'generate': needRun();result=await generateRegistered(workspace,id,runId,options.contract);break;
@@ -46,6 +59,8 @@ try {
   console.log(JSON.stringify(result,null,2));
   if (command==='verify' && Object.values(result.checks).some(check=>check.status==='FAIL')) process.exitCode=1;
 } catch(e) {
-  console.error(JSON.stringify({status:'ERROR',error:e instanceof PipelineError?e.toJSON():{code:e.code||'PIPELINE_FAILURE',detail:e.message}},null,2));
+  const error={stage,extensionId:activeId,runId:activeRun,...(e instanceof PipelineError?e.toJSON():{code:e.code||'PIPELINE_FAILURE',detail:e.message}),recovery:'Inspect status and the retained stage report; repair the stated prerequisite or start a new run if source changed.'};
+  if (activeWorkspace&&activeId&&activeRun) try {await recordFailure(activeWorkspace,activeId,activeRun,error);} catch { /* Preserve original error if the run itself is absent/unsafe/corrupt. */ }
+  console.error(JSON.stringify({status:'ERROR',error},null,2));
   process.exitCode=1;
 }

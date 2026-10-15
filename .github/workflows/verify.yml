@@ -11,6 +11,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:pipeline
       - run: npm run test:website-export
       - run: npm run test:destinations
       - run: npm run check
@@ -30,3 +31,20 @@ jobs:
             artifacts/
             test-results/
             docs/CODEX/evidence/002/
+  pipeline-native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.402'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: pipeline-nuget-${{ runner.os }}-${{ hashFiles('resources/avalonia/toolchains.json') }}
+      - run: npm ci
+      - run: npm run test:pipeline:native

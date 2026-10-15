@@ -7,3 +7,10 @@ artifacts/
 .browser-tools/
 __pycache__/
 *.pyc
+
+# Local extension input and immutable pipeline attempts may contain private data.
+/extensions/*/source/
+/runs/
+/productions/
+/resources/avalonia/.cache/
+/resources/avalonia/avalonia-nuget-cache.tar.gz*

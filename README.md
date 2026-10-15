@@ -223,3 +223,7 @@ The intended **default deployment target** for a complete exported application i
 ## Future flagship: Keepsake verified transference research
 
 The [Keepsake Cross-Platform Agent Economics research charter](docs/RESEARCH/KEEPSAKE_CROSS_PLATFORM_AGENT_ECONOMICS.md) preserves the intended next phase after verified form deployment: reconstruct the original Chrome extension into an Android application and a **shared C# / Avalonia desktop application** for Windows and Linux, with real independent per-platform acceptance tests. Its research measures agent runs, duplicated work, behavioral parity, human verification burden, and agent-led long-term release maintenance. This is a **future research target, not a completed multiplatform port**.
+
+## Generic extension reconstruction pipeline
+
+Place an authorized unpacked extension at `extensions/<extension-id>/source/` and run `npm run pipeline -- run <extension-id>`. The [pipeline operator guide](reconstruction/extension-pipeline/README.md) covers safe static intake, evidence-linked EIR review, isolated Windows/Linux/Android candidate hosts and target-specific verification. `npm run test:pipeline` runs its security and workflow tests. Current generation produces explicitly **incomplete native scaffolds**, not equivalent reconstructed applications; release promotion is blocked until independent gates exist.

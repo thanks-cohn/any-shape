@@ -2,7 +2,7 @@ import {parse as parseJS} from 'acorn';
 import {parse as parseHTML} from 'parse5';
 import {posix} from 'node:path';
 import {inspectExtension} from './inspect.mjs';
-import {readTree, digest, resourcePath} from './safety.mjs';
+import {readTree, digest, resourcePath, fail} from './safety.mjs';
 
 function member(node) {
   if (node?.type === 'Identifier') return node.name;
@@ -13,14 +13,20 @@ function member(node) {
   }
   return null;
 }
-function walk(node, fn) {
+function walk(node, fn, budget) {
   if (!node || typeof node !== 'object') return;
-  if (typeof node.type === 'string') fn(node);
+  if (typeof node.type === 'string') {
+    if (--budget.remaining < 0) fail('ANALYSIS_LIMIT', 'Static analysis node budget exceeded.');
+    fn(node);
+  }
   for (const [key, value] of Object.entries(node)) {
     if (['loc', 'start', 'end'].includes(key)) continue;
-    if (Array.isArray(value)) value.forEach(x => walk(x, fn));
-    else if (value && typeof value === 'object') walk(value, fn);
+    if (Array.isArray(value)) value.forEach(x => walk(x, fn, budget));
+    else if (value && typeof value === 'object') walk(value, fn, budget);
   }
+}
+function objectKeys(node) {
+  return node?.type==='ObjectExpression' ? node.properties.filter(p=>p.type==='Property'&&!p.computed).map(p=>p.key.name||p.key.value).filter(x=>typeof x==='string').sort() : null;
 }
 const literal = node => node?.type === 'Literal' && typeof node.value === 'string' ? node.value : null;
 const targets = ['windows', 'linux', 'android'];
@@ -29,10 +35,11 @@ export async function analyzeExtension(root, {extensionId = 'unregistered', ...o
   const tree = await readTree(root, options.limits);
   if (digest(tree.map(({content,...f})=>f)) !== inventory.source.sha256) throw new Error('Source changed during analysis');
   const files = new Set(tree.map(f=>f.path)), observations = [], unknowns = [], edges = [];
+  const observationIds=new Set(), budget={remaining:options.analysisNodes ?? 200000};
   function observe(kind, path, line, detail) {
     const data = {kind, source:{path,line}, detail, claim:'observed'};
     const id = 'obs-' + digest(data).slice(0,16);
-    if (!observations.some(x=>x.id===id)) observations.push({id,...data});
+    if (!observationIds.has(id)) { observationIds.add(id); observations.push({id,...data}); }
     return id;
   }
   function reference(path, line, value, kind) {
@@ -61,7 +68,7 @@ export async function analyzeExtension(root, {extensionId = 'unregistered', ...o
       if (node.type !== 'CallExpression') return;
       const api=member(node.callee);
       if (api && /^(chrome|browser)\./.test(api)) {
-        const detail={api,arguments:node.arguments.map(x=>literal(x)).filter(x=>x!==null)};
+        const detail={api,arguments:node.arguments.map(x=>literal(x)).filter(x=>x!==null),payloadKeys:objectKeys(node.arguments[0]),flow:api.endsWith('.addListener')?'event-listener':/\.(sendMessage|connect|postMessage)$/.test(api)?'message-producer':api.includes('.storage.')?'state-access':'api-call'};
         observe('browser-api',path,line,detail);
       }
       if (api === 'fetch' || api === 'navigator.sendBeacon' || api === 'importScripts' || api === 'require') {
@@ -70,13 +77,15 @@ export async function analyzeExtension(root, {extensionId = 'unregistered', ...o
       }
       if (api && /^(localStorage|sessionStorage)\./.test(api)) observe('web-storage',path,line,{api,key:literal(node.arguments[0])});
       if (!api && node.callee?.type === 'MemberExpression') unknowns.push({code:'DYNAMIC_CALL',path,line,reason:'Computed or aliased call requires manual inspection.'});
-    });
+    },budget);
   }
   for (const file of tree) {
+    if (/\.(css|ts|tsx|jsx|wasm)$/.test(file.path)) unknowns.push({code:'UNANALYZED_ASSET',path:file.path,line:1,reason:'Asset inventoried and hashed; this language is not statically analyzed by the current parser adapters.'});
     if (/\.(m?js|cjs)$/.test(file.path)) script(file.content.toString('utf8'),file.path);
     if (/\.html?$/.test(file.path)) {
       const html=parseHTML(file.content.toString('utf8'),{sourceCodeLocationInfo:true});
       const visit=node=>{
+        if (--budget.remaining<0) fail('ANALYSIS_LIMIT', 'Static analysis node budget exceeded.');
         if (node.tagName) {
           const attrs=Object.fromEntries((node.attrs||[]).map(x=>[x.name,x.value]));
           const line=node.sourceCodeLocation?.startLine||1;
@@ -91,6 +100,7 @@ export async function analyzeExtension(root, {extensionId = 'unregistered', ...o
       visit(html);
     }
   }
+  for (const command of inventory.commands) observe('browser-command','manifest.json',1,command);
   for (const surface of inventory.surfaces) observe('surface', 'manifest.json',1,surface);
   for (const permission of [...inventory.permissions.api,...inventory.permissions.optional]) observe('permission','manifest.json',1,{permission});
   for (const host of [...inventory.permissions.hosts,...inventory.permissions.optionalHosts]) observe('host-permission','manifest.json',1,{host});

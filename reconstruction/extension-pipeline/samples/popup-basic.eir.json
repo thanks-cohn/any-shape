@@ -1,0 +1,200 @@
+{
+  "capabilities": [
+    {
+      "acceptance": [],
+      "authority": [],
+      "claim": "inferred",
+      "description": "Review observed icon",
+      "evidence": [
+        "obs-1153dc7540e3d86b"
+      ],
+      "id": "cap-1153dc7540e3d86b",
+      "invariants": [],
+      "messages": [],
+      "permittedEffects": [],
+      "state": [],
+      "targets": {
+        "android": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        },
+        "linux": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        },
+        "windows": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        }
+      },
+      "uiSemantics": []
+    },
+    {
+      "acceptance": [],
+      "authority": [],
+      "claim": "inferred",
+      "description": "Review observed popup",
+      "evidence": [
+        "obs-563ea06d3b85bdf9"
+      ],
+      "id": "cap-563ea06d3b85bdf9",
+      "invariants": [],
+      "messages": [],
+      "permittedEffects": [],
+      "state": [],
+      "targets": {
+        "android": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        },
+        "linux": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        },
+        "windows": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        }
+      },
+      "uiSemantics": []
+    },
+    {
+      "acceptance": [],
+      "authority": [],
+      "claim": "inferred",
+      "description": "Review observed storage",
+      "evidence": [
+        "obs-f4f7807a0f67777e"
+      ],
+      "id": "cap-f4f7807a0f67777e",
+      "invariants": [],
+      "messages": [],
+      "permittedEffects": [],
+      "state": [],
+      "targets": {
+        "android": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        },
+        "linux": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        },
+        "windows": {
+          "reason": "Observed syntax is insufficient to infer a tested native implementation.",
+          "scope": "target-host",
+          "support": "unknown"
+        }
+      },
+      "uiSemantics": []
+    }
+  ],
+  "extensionId": "popup-basic",
+  "extensions": {},
+  "format": "any-shape-eir",
+  "inventoryHash": "07b3aea8753771821e224f66c0fdb490eb3ccfd5e112d224086e0b94fe3bf136",
+  "observations": [
+    {
+      "claim": "observed",
+      "detail": {
+        "kind": "icon",
+        "path": "icon.svg",
+        "source": "manifest.icons.16"
+      },
+      "id": "obs-1153dc7540e3d86b",
+      "kind": "surface",
+      "source": {
+        "line": 1,
+        "path": "manifest.json"
+      }
+    },
+    {
+      "claim": "observed",
+      "detail": {
+        "kind": "popup",
+        "path": "popup.html",
+        "source": "manifest.action.default_popup"
+      },
+      "id": "obs-563ea06d3b85bdf9",
+      "kind": "surface",
+      "source": {
+        "line": 1,
+        "path": "manifest.json"
+      }
+    },
+    {
+      "claim": "observed",
+      "detail": {
+        "id": null,
+        "inputType": null,
+        "label": null,
+        "role": null,
+        "tag": "label"
+      },
+      "id": "obs-cbc97a71d584b4ea",
+      "kind": "ui-element",
+      "source": {
+        "line": 1,
+        "path": "popup.html"
+      }
+    },
+    {
+      "claim": "observed",
+      "detail": {
+        "id": null,
+        "inputType": null,
+        "label": "Value",
+        "role": null,
+        "tag": "input"
+      },
+      "id": "obs-cc59b5754c77c2e3",
+      "kind": "ui-element",
+      "source": {
+        "line": 1,
+        "path": "popup.html"
+      }
+    },
+    {
+      "claim": "observed",
+      "detail": {
+        "permission": "storage"
+      },
+      "id": "obs-f4f7807a0f67777e",
+      "kind": "permission",
+      "source": {
+        "line": 1,
+        "path": "manifest.json"
+      }
+    }
+  ],
+  "resourceGraph": [],
+  "review": {
+    "decisions": [],
+    "reviewer": null,
+    "status": "unreviewed"
+  },
+  "schemaVersion": 1,
+  "source": {
+    "license": "UNKNOWN",
+    "manifestVersion": 3,
+    "name": "Synthetic Popup Fixture",
+    "sha256": "c29d65f251f57a954e24cfbbe75235cb913d4827513688bd8960cb81f8859fa1",
+    "version": "0.1"
+  },
+  "unknowns": [
+    {
+      "code": "STATIC_ANALYSIS_LIMIT",
+      "line": 1,
+      "path": "manifest.json",
+      "reason": "Static syntax observations do not establish runtime success, complete behavior, authority, data models, or owner intent. Aliases, generated code, event ordering, dynamic calls and external services need review."
+    }
+  ]
+}

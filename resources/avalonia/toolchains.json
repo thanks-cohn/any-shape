@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "candidate-lock-not-tested",
+  "status": "linux-and-windows-crosscompile-scaffold-tested-android-workload-missing",
   "avaloniaVersion": "12.1.4",
   "templatesPackage": "Avalonia.Templates",
   "dotnetSdkChannel": "10.0",
@@ -11,5 +11,11 @@
     "android"
   ],
   "cacheDirectory": ".cache/avalonia",
-  "notes": "Pinned Avalonia version confirmed on NuGet 2026-10-15; environment/toolchain combination unverified. Record SDK full version and resolved hashes when bootstrapped."
+  "notes": "2026-10-15: SDK archive SHA-512 verified against Microsoft release metadata. Avalonia 12.1.4 generated hosts compile for linux-x64 and win-x64 on Linux. No native runtime, installed package or extension parity verified. Android build reports NETSDK1147 (missing workload).",
+  "dotnetSdkVersion": "10.0.402",
+  "dotnetSdkLinuxX64": {
+    "version": "10.0.402",
+    "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.402/dotnet-sdk-10.0.402-linux-x64.tar.gz",
+    "sha512": "1904a98dda2db34ba78ba3c4fb1b224455329af91c341d83547843c1839e112b04ae699ee92fa2449a8f62249196a938723078c0c60b9f65c88539d5687729c2"
+  }
 }

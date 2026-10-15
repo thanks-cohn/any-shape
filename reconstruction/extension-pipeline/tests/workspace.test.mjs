@@ -85,3 +85,14 @@ test('CLI emits structured errors and resumable run IDs',async t=>{
   const bad=call('inspect','../escape');assert.equal(bad.status,1);assert.equal(JSON.parse(bad.stderr).error.code,'INVALID_ID');
   const unknown=call('inspect',id,'--wat');assert.equal(JSON.parse(unknown.stderr).error.code,'INVALID_ARGUMENT');
 });
+test('resumed orchestration verifies every target and retains stage failures',async t=>{
+  const {root,id}=await setup(t);const run=await analyzeRegistered(root,id);const accepted=await review(root,id,run.runId);
+  const call=(...args)=>spawnSync(process.execPath,[cli,...args,'--workspace',root],{encoding:'utf8'});
+  const result=call('run',id,run.runId,'--contract',accepted.contractHash);assert.equal(result.status,0,result.stderr);
+  const report=JSON.parse(result.stdout);assert.deepEqual(Object.keys(report.targets),TARGETS);
+  for (const target of TARGETS) assert.equal(report.targets[target].checks.build.status,'NOT_RUN');
+  const invalid=call('generate',id,run.runId);assert.equal(invalid.status,1);
+  const error=JSON.parse(invalid.stderr).error;assert.equal(error.stage,'generate');assert.equal(error.code,'CONTRACT_HASH_REQUIRED');
+  const {readdir}=await import('node:fs/promises');const failures=await readdir(join(root,'runs',id,run.runId,'failures'));assert(failures.length>0);
+  const status=await statusRegistered(root,id,run.runId);assert.equal(status.evidenceReports.android[0].checks.build,'NOT_RUN');
+});

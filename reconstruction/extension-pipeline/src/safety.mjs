@@ -20,7 +20,7 @@ export function slug(value) {
   return value;
 }
 export function resourcePath(value) {
-  if (typeof value !== 'string' || value.length > 1024 || !value || isAbsolute(value) || /[\\:%?#\x00-\x1f\x7f]/.test(value) || value.split('/').some(x => !x || x === '.' || x === '..' || /[. ]$/.test(x))) fail('UNSAFE_RESOURCE', 'Resource must be an ordinary package-relative path.', {path: String(value).slice(0, 200)});
+  if (typeof value !== 'string' || value.length > 1024 || !value || isAbsolute(value) || /[\\:%?#<>"|\x00-\x1f\x7f\u202a-\u202e\u2066-\u2069]/.test(value) || value.split('/').some(x => !x || x === '.' || x === '..' || /[. ]$/.test(x) || /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(?:\.|$)/i.test(x))) fail('UNSAFE_RESOURCE', 'Resource must be an ordinary package-relative path.', {path: String(value).slice(0, 200)});
   return value;
 }
 // Reject links at EVERY component, including ancestor directories. This is not a
@@ -40,7 +40,7 @@ export async function safePath(root, parts = [], {missing = false} = {}) {
   return full;
 }
 export const DEFAULT_LIMITS = Object.freeze({files: 4096, bytes: 64 * 1024 * 1024, fileBytes: 8 * 1024 * 1024, depth: 24});
-export async function readTree(root, limits = {}) {
+export async function readTree(root, limits = {}, {excludeDirectories = []} = {}) {
   limits = {...DEFAULT_LIMITS, ...limits};
   const dir = await safePath(root);
   if (!(await lstat(dir)).isDirectory()) fail('INVALID_SOURCE', 'Source must be a directory.');
@@ -52,11 +52,12 @@ export async function readTree(root, limits = {}) {
       if (++entries > limits.files) fail('INPUT_LIMIT', 'Input entry limit exceeded.');
       const name = path ? path + '/' + child.name : child.name;
       resourcePath(name);
+      if (child.name.includes('*') || child.name !== child.name.normalize('NFC')) fail('MISLEADING_PATH', 'Input filenames must be normalized and cannot contain wildcard characters.', {path:name});
       const folded = name.toLowerCase();
       if (names.has(folded)) fail('PATH_COLLISION', 'Case-insensitive path collision.', {path: name});
       names.add(folded);
       const full = await safePath(dir, [name]), st = await lstat(full);
-      if (st.isDirectory()) { await visit(name, depth + 1); continue; }
+      if (st.isDirectory()) { if (!excludeDirectories.includes(child.name)) await visit(name, depth + 1); continue; }
       if (!st.isFile()) fail('NON_REGULAR_FILE', 'Only regular files and directories are accepted.', {path: name});
       if (st.nlink > 1) fail('HARDLINK_REJECTED', 'Hard-linked source files are forbidden.', {path: name});
       if (st.size > limits.fileBytes || total + st.size > limits.bytes) fail('INPUT_LIMIT', 'Input byte limit exceeded.', {path: name});
