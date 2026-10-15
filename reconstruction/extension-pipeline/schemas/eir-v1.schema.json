@@ -1,0 +1,448 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://any-shape.local/schemas/eir-v1.json",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "any-shape-eir"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "extensionId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifestVersion": {
+          "enum": [
+            2,
+            3
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "manifestVersion",
+        "sha256",
+        "license"
+      ],
+      "additionalProperties": false
+    },
+    "inventoryHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "line": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "path",
+              "line"
+            ],
+            "additionalProperties": false
+          },
+          "detail": {
+            "type": "object"
+          },
+          "claim": {
+            "const": "observed"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "source",
+          "detail",
+          "claim"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "resourceGraph": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "present": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "kind",
+          "line",
+          "present"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "enum": [
+              "observed",
+              "inferred",
+              "owner-approved",
+              "unknown"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "invariants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "permittedEffects": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "authority": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "state": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "uiSemantics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "acceptance": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "targets": {
+            "type": "object",
+            "properties": {
+              "windows": {
+                "type": "object",
+                "properties": {
+                  "support": {
+                    "enum": [
+                      "applicable",
+                      "not-applicable",
+                      "unsupported",
+                      "unknown"
+                    ]
+                  },
+                  "scope": {
+                    "enum": [
+                      "shared-domain",
+                      "shared-ui",
+                      "target-host"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "support",
+                  "scope",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "linux": {
+                "type": "object",
+                "properties": {
+                  "support": {
+                    "enum": [
+                      "applicable",
+                      "not-applicable",
+                      "unsupported",
+                      "unknown"
+                    ]
+                  },
+                  "scope": {
+                    "enum": [
+                      "shared-domain",
+                      "shared-ui",
+                      "target-host"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "support",
+                  "scope",
+                  "reason"
+                ],
+                "additionalProperties": false
+              },
+              "android": {
+                "type": "object",
+                "properties": {
+                  "support": {
+                    "enum": [
+                      "applicable",
+                      "not-applicable",
+                      "unsupported",
+                      "unknown"
+                    ]
+                  },
+                  "scope": {
+                    "enum": [
+                      "shared-domain",
+                      "shared-ui",
+                      "target-host"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "support",
+                  "scope",
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "windows",
+              "linux",
+              "android"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "claim",
+          "evidence",
+          "invariants",
+          "permittedEffects",
+          "authority",
+          "state",
+          "messages",
+          "uiSemantics",
+          "acceptance",
+          "targets"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "code",
+          "path",
+          "line",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "unreviewed",
+            "accepted"
+          ]
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capabilityId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "disposition": {
+                "enum": [
+                  "preserve",
+                  "correct",
+                  "exclude",
+                  "defer"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "capabilityId",
+              "disposition",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "status",
+        "reviewer",
+        "decisions"
+      ],
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9.-]*$"
+      }
+    }
+  },
+  "required": [
+    "format",
+    "schemaVersion",
+    "extensionId",
+    "source",
+    "inventoryHash",
+    "observations",
+    "resourceGraph",
+    "capabilities",
+    "unknowns",
+    "review",
+    "extensions"
+  ],
+  "additionalProperties": false
+}

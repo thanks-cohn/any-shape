@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Synthetic File Queue",
+  "version": "1.0.0",
+  "license": "MIT",
+  "permissions": ["downloads", "storage", "alarms"],
+  "optional_permissions": ["notifications"],
+  "background": {"service_worker": "worker.js", "type": "module"},
+  "options_ui": {"page": "ui/options.html", "open_in_tab": true},
+  "commands": {"queue-current": {"description": "Queue current download"}}
+}
