@@ -121,3 +121,23 @@ Work iteratively, make substantial working commits, run tests (and report actual
 ## Final report format
 
 Provide: changed files/commits; architecture decisions and WHY; exact commands/test results; per-platform build/runtime/packaging status; sample fixture results; known gaps and security limitations; path and commands for owner's extension upload; next small actionable steps. Never use universal-conversion or production-ready language without supporting proof.
+
+## Mandatory 30-minute execution budget and survivable handoff
+
+**This is a hard operational constraint for Codex sessions.** The owner reports that long sessions can stall near 35 minutes. **Stop feature work at 25 minutes**, using the remaining ~5 minutes for tests, commits, and a complete handoff. **Do not continue exploratory implementation past 25 minutes** if doing so threatens saving progress. At or before **30 minutes elapsed**, commit everything useful and publish the handoff; never rely on a last-second message at 35 minutes.
+
+**Start-of-run:** note start time, select one bounded deliverable that can realistically be implemented, tested and committed within this budget, inspect previous handoff if present, and execute. If near deadline, prioritize save/commit/report instead of extra features. Commit incrementally during the work, not only at the end. If work takes multiple sessions, continue over successive 30-minute runs; do not pretend one run can implement the full requested pipeline.
+
+**Mandatory durable handoff file:** `codex/HANDOFF_LATEST.md` (updated each run), with dated immutable snapshots if useful under `codex/handoffs/`. This is operational-only Codex workflow data and must not contaminate the permanent architecture or Forever Works standard. Each handoff MUST state:
+
+1. Timestamp, elapsed time, branch, HEAD SHA and any uncommitted changes.
+2. Goal chosen for this run; what was completed, including exact changed paths and concrete working behavior.
+3. Exact tests/build commands **actually executed**, with pass/fail/not-run outcomes and concise diagnostics. Never treat committed test code as executed evidence.
+4. What is incomplete, blocked, risky, or unsupported; per-target Windows/Linux/Android verification status.
+5. Exact next **small** ordered tasks for the next 30-minute run, dependencies and acceptance checks.
+6. A concise copy-ready continuation prompt instructing the next agent to read this file and resume without redoing prior work.
+7. Commits pushed to the intended branch (if permitted); if pushing is unavailable, state where commits exist and how to recover them.
+
+**Deadline protocol:** At ~20 minutes, assess remaining work and begin handoff notes. At ~25 minutes, stop starting new features, run fast relevant tests, finalize code, save and commit. At ~28 minutes, update and commit `HANDOFF_LATEST.md`; complete the user-visible summary **before 30 minutes**. If a blocking tool operation or environment failure prevents a normal finish, immediately save a partial handoff with exact recovery steps, rather than gambling on the 35-minute stall point.
+
+**Do not use scheduled/background execution** to pretend the agent will autonomously continue; the owner can start the next run using the saved continuation prompt. The handoff is required **even if all work appears complete**.
