@@ -1,6 +1,6 @@
 # Pipeline 001 — Chrome Extension → Native Applications
 
-**Status:** PROPOSED pipeline foundation; implementation and production certification NOT YET COMPLETE. **Period:** P001 (Early Experimental). **Execution phases:** discovery → extraction → native reconstruction → effect verification → production hardening. **First intended subject:** Keepsake (source repository not yet identified). **Goal:** apply to any authorized Chrome extension with explicit feature/support boundaries; do not specialize the standard for Keepsake.
+**Status:** PROPOSED pipeline foundation; implementation and production certification NOT YET COMPLETE. **Period:** P001 (Early Experimental). **Execution phases:** discovery → extraction → native reconstruction → effect verification → production hardening. **Initial subject:** no specific extension is required. Keepsake is a possible **later evaluation fixture**, not the pipeline's foundation. **Goal:** accept arbitrary authorized Chrome extensions as inputs, explicitly detect unsupported capabilities, and reconstruct selected functionality on target platforms without project-specific assumptions.
 
 ## Mission
 
@@ -40,7 +40,7 @@ For each selected capability record: stable ID, purpose, initiating actor/intent
 | Browser permissions | Android manifest/runtime permission and platform policy review | OS permission/security boundary and user consent |
 | Browser UI identity | Semantic and aesthetic guidance, native interaction | Same semantic intent rendered by Avalonia |
 
-**Platform decision record required:** Evaluate **Kotlin native vs React Native/Expo** for Android against actual extension needs, lifecycle, storage, capture/share integrations, maintainer skills and build reproducibility; avoid prejudging the choice. **Avalonia/C#** is the requested common Windows/Linux desktop route. A shared semantic contract is mandatory; **shared source code across JS/Android/C# is optional**, never an excuse to ship browser wrappers.
+**Platform decision record required:** Evaluate **Kotlin native vs React Native/Expo** for Android against actual extension needs, lifecycle, storage, capture/share integrations, maintainer skills and build reproducibility; avoid prejudging the choice. **Avalonia/C#** is the initial requested common Windows/Linux desktop route; React Native is the initial Android preference, not a language-neutral core requirement. A shared semantic contract is mandatory; **shared source code across JS/Android/C# is optional**, never an excuse to ship browser wrappers.
 
 ### Phase 4 — Reconstruction and build
 
@@ -73,15 +73,15 @@ Documents may be added **additively**. The profile can later be formalized into 
 
 ## Concrete milestone gates
 
-- **G0 / discover:** correct Keepsake repo/version established, manifest and capability inventory mapped.
-- **G1 / contract:** representative source behavior demonstrated, owner approves selected features and known deviations.
-- **G2 / Android:** Android-native installable build, selected functions independently checked on device/emulator.
-- **G3 / Avalonia:** Windows and Linux native builds with platform-specific runtime/installer verification.
-- **G4 / continuity:** repeat pipeline for a *second unrelated extension* without editing the pipeline for Keepsake-specific assumptions.
+- **G0 / generic intake:** ingest a provided extension source tree or unpacked extension and identify manifest, version, permissions and entrypoints without extension-specific configuration.
+- **G1 / analysis:** infer candidate capabilities, construct source atlas and portable behavior contract, and require owner review of unverified or security-sensitive claims.
+- **G2 / Android adapter:** React Native/Expo as the initial preferred output path, with target-specific native modules where necessary; other frameworks/languages remain eligible. Build and independently check on emulator/device.
+- **G3 / desktop adapter:** C# Avalonia output targeting Windows and Linux, each independently built and runtime-verified.
+- **G4 / breadth:** run on multiple structurally different extensions (e.g., popup-only, content-script, downloads/storage, background worker); report unsupported browser-only behaviors explicitly and measure manual intervention, without project-specific modifications to the core pipeline.
 - **G5 / production:** release, permissions/security, migration/rollback and ongoing operations accepted per platform.
 
-**A pipeline is only extension-generic after G4.** Keepsake passing proves one subject, not universal compatibility.
+**A pipeline is only demonstrated to generalize after G4.** Passing with one extension, including Keepsake if it is selected later, does not prove universal capability. Unsupported extensions must produce a truthful capability-gap report rather than an invented conversion.
 
 ## Immediate next step
 
-Identify Keepsake's exact source repository/branch and its manifest. Run an inventory, not a conversion. Mark all unsupported privileged browser capabilities UNKNOWN until their native alternatives and security implications are explicitly tested. Then produce its first capability ledger and the three-platform mapping before selecting the Android language.
+Build a **generic extension intake/analyzer** first: read `manifest.json`, inventory scripts/assets/permissions/entrypoints and message/storage/API dependencies, emit a normalized intermediate representation and an evidence/UNKNOWN ledger. Next, create two **generator adapters** from that representation: Avalonia/C# for Windows and Linux, and React Native for Android as an initial preference. Include an explicit manual-adaptation queue for browser-only permissions, UI intent and unverifiable side effects. Test with small synthetic, unrelated extension fixtures before bringing in Keepsake or another real application. Do not equate generating compilable skeletons with functional reconstruction.
