@@ -8,10 +8,10 @@
 
 ## Reading order (minimum sufficient package)
 
-1. [IDENTITY_AND_DECISIONS.md](IDENTITY_AND_DECISIONS.md): mission, stakeholders, boundaries, design reasoning, intended flexibility.
-2. [SYSTEM_ATLAS.md](SYSTEM_ATLAS.md): current file/module roles; interfaces, ownership, dependencies and known seams.
-3. [CASE_001_FLOW_LIVE_EVIDENCE.md](CASE_001_FLOW_LIVE_EVIDENCE.md): chronology, live evidence, defects, exact reproduction.
-4. [RECONSTRUCTION_CONTRACT.md](RECONSTRUCTION_CONTRACT.md): target-neutral obligations, cold-agent task, acceptance criteria, uncertainty ledger.
+1. [PERIODS.md](PERIODS.md): additive periods, active P001, provenance and supersession rules.\n2. [IDENTITY_AND_DECISIONS.md](IDENTITY_AND_DECISIONS.md): mission, stakeholders, boundaries, design reasoning, intended flexibility.
+3. [SYSTEM_ATLAS.md](SYSTEM_ATLAS.md): current file/module roles; interfaces, ownership, dependencies and known seams.
+4. [CASE_001_FLOW_LIVE_EVIDENCE.md](CASE_001_FLOW_LIVE_EVIDENCE.md): chronology, live evidence, defects, exact reproduction.
+5. [RECONSTRUCTION_CONTRACT.md](RECONSTRUCTION_CONTRACT.md): target-neutral obligations, cold-agent task, acceptance criteria, uncertainty ledger.
 5. `../AGENTS.md`, `../forever/manifest.json`, `../docs/IDENTITY/`, `../docs/RECONSTRUCTION/`, and `../vendor/forever-works/UPSTREAM.json` for authoritative legacy standards and source provenance.
 
 ## Evidence discipline
