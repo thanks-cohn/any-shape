@@ -76,3 +76,7 @@ The project should not be described as a finished platform, nor should its scope
 ## P001 addendum — multi-target isolation hypothesis (2026-10-15)
 
 The [Avalonia three-target isolation contract](../AVALONIA_THREE_TARGET_ISOLATION.md) records an owner-requested **single-run** Windows/Linux/Android architecture with explicit shared-semantics versus target-implementation boundaries, anti-contamination checks and independently evaluated targets. **PROPOSED, NOT YET TESTED**. React Native Android remains a separate comparison. This modifies the proposed run strategy, not the historical live Flow evidence.
+
+## P001 addendum — research-framed interference controls (2026-10-15)
+
+[Drift, Negative Transfer and Target Isolation](../RESEARCH_DRIFT_TRANSFER_AND_TARGET_ISOLATION.md) adds established research terminology and a proposed controlled comparison: unstructured one-run vs scoped/checked one-run vs scoped sequential runs. It does not claim the documented format has yet prevented agent cross-target errors in a live experiment.
