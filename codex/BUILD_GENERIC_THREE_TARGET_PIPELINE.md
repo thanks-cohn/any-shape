@@ -103,7 +103,7 @@ Keep permanent docs generic and discoverable. Update root `AGENTS.md` only for t
 
 **Phase E:** execute independent regression suite; clean up documentation, make user workflow concise, and leave a cold-agent handoff with precise remaining blockers.
 
-Work iteratively, make substantial working commits, run tests (and report actual command/output), do not stop at plans or empty classes. If environmental constraints prevent target builds, implement everything realistically possible without falsifying results and leave precise reproducible steps for a Windows/Linux/Android-capable build host.
+Work iteratively, make substantial working commits, run tests (and report actual command/output), do not conclude at plans or empty classes. If environmental constraints prevent target builds, implement everything realistically possible without falsifying results and leave precise reproducible steps for a Windows/Linux/Android-capable build host.
 
 ## Acceptance checklist
 
@@ -124,7 +124,7 @@ Provide: changed files/commits; architecture decisions and WHY; exact commands/t
 
 ## Mandatory 30-minute execution budget and survivable handoff
 
-**This is a hard operational constraint for Codex sessions.** The owner reports that long sessions can stall near 35 minutes. **Stop feature work at 25 minutes**, using the remaining ~5 minutes for tests, commits, and a complete handoff. **Do not continue exploratory implementation past 25 minutes** if doing so threatens saving progress. At or before **30 minutes elapsed**, commit everything useful and publish the handoff; never rely on a last-second message at 35 minutes.
+**This is a hard operational constraint for Codex sessions.** The owner reports that long sessions can stall near 35 minutes. **At 25 minutes, transition from feature development to verification, commits, and handoff preparation**, using the remaining ~5 minutes for tests, commits, and a complete handoff. **Prioritize handoff completion over exploratory implementation after 25 minutes** if doing so threatens saving progress. At or before **30 minutes elapsed**, commit everything useful and publish the handoff; never rely on a last-second message at 35 minutes.
 
 **Start-of-run:** note start time, select one bounded deliverable that can realistically be implemented, tested and committed within this budget, inspect previous handoff if present, and execute. If near deadline, prioritize save/commit/report instead of extra features. Commit incrementally during the work, not only at the end. If work takes multiple sessions, continue over successive 30-minute runs; do not pretend one run can implement the full requested pipeline.
 
@@ -138,6 +138,6 @@ Provide: changed files/commits; architecture decisions and WHY; exact commands/t
 6. A concise copy-ready continuation prompt instructing the next agent to read this file and resume without redoing prior work.
 7. Commits pushed to the intended branch (if permitted); if pushing is unavailable, state where commits exist and how to recover them.
 
-**Deadline protocol:** At ~20 minutes, assess remaining work and begin handoff notes. At ~25 minutes, stop starting new features, run fast relevant tests, finalize code, save and commit. At ~28 minutes, update and commit `HANDOFF_LATEST.md`; complete the user-visible summary **before 30 minutes**. If a blocking tool operation or environment failure prevents a normal finish, immediately save a partial handoff with exact recovery steps, rather than gambling on the 35-minute stall point.
+**Deadline protocol:** At ~20 minutes, assess remaining work and begin handoff notes. At ~25 minutes, prioritize verification and handoff preparation, run fast relevant tests, finalize code, save and commit. At ~28 minutes, update and commit `HANDOFF_LATEST.md`; complete the user-visible summary **before 30 minutes**. If a blocking tool operation or environment failure prevents a normal finish, immediately save a partial handoff with exact recovery steps, rather than gambling on the 35-minute stall point.
 
 **Do not use scheduled/background execution** to pretend the agent will autonomously continue; the owner can start the next run using the saved continuation prompt. The handoff is required **even if all work appears complete**.
