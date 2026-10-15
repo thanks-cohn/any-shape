@@ -47,3 +47,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## Extension input and production output convention
 
 [Workspace and production directory contract](EXTENSION_WORKSPACE_CONVENTION.md) defines generic `extensions/<extension-id>/` inputs, `productions/<extension-id>/<target>/` promoted outputs and immutable run evidence. Keepsake is only a possible future extension ID, not a hardcoded special case.
+
+## Full Any-Shape project proposal
+
+[**Any-Shape: Universal Software Reconstitution and Purpose-Directed Derivation**](PROPOSALS/ANY_SHAPE_UNIVERSAL_SOFTWARE_RECONSTITUTION.md) is the foundational, source-neutral and target-neutral research/product vision: arbitrary authorized inputs, large modular specifications, faithful reconstructions, companions, assistants and integrations, target-isolated verification, long-horizon inheritance, economic motivation, research comparisons, and honest implementation status. This proposal is non-normative; the current Chrome-extension workflow is its first bounded engineering proof.
