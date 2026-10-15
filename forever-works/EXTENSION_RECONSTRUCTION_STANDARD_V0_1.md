@@ -134,3 +134,7 @@ The pipeline retains a **semantic causal model and evidentiary history** as the 
 | B1 | Android mobile (separate run) | React Native / JS or TS | Android build, install, device/emulator behavior, effects, touch/accessibility |
 
 Runs A3 and B1 are **independent reconstructions of one accepted domain contract**, not a port of one generated output into the other. All runs must declare shared semantics, permitted platform adaptations, target-specific limitations, dependency graphs, the WHY/WHAT/HOW of adapters, and evaluator PASS/FAIL/UNKNOWN. Compare maintenance surface, human/agent usability, visual coherence, reconstruction effort, runtime/performance, dependency burden and integration fidelity. No approach wins based on code generation or screenshots alone. No real extension is admitted before the source-blind foundation and synthetic fixtures are established. Future platforms/languages remain open.
+
+## Coordinated Avalonia run — approved experiment design
+
+The [three-target isolation design](AVALONIA_THREE_TARGET_ISOLATION.md) adds **an alternative experimental execution arrangement**: produce Windows, Linux and Android Avalonia outputs in one coordinated run, separated by enforced target boundaries and per-target evidence. The earlier run matrix lists outputs, not a permanent requirement for independent agent sessions. React Native Android remains a separate contrastive run. Compare coordinated vs sequential approaches experimentally; do not presume either wins.
