@@ -68,3 +68,7 @@ The project should not be described as a finished platform, nor should its scope
 ## Added during this period — native reconstruction pipeline proposal
 
 [Pipeline 001](../PIPELINE_CHROME_EXTENSION_TO_NATIVE.md) specifies owner-intended migration of Chrome extensions to Android and C# Avalonia Windows/Linux native applications. **Status: proposed**; generic source intake/analysis and all actual implementation, independent platform tests and production gates remain pending. This is a **phase of work inside P001**, not a new historical period simply because work began.
+
+## P001 addendum — portable extension pipeline bootstrap (2026-10-15)
+
+**SOURCE-INSPECTED / IMPLEMENTED IN REPO, NOT YET TEST-EXECUTED:** `reconstruction/extension-pipeline/` introduces a dependency-free Node.js read-only extension manifest intake library, CLI, and two synthetic fixtures (popup-only; content-script/background-worker). It inventories declared surfaces, listed resources, permissions and browser-coupling warnings. It does **not** analyze arbitrary JavaScript runtime behavior, generate Android/Avalonia applications, or prove conversion correctness. See its [README](../../reconstruction/extension-pipeline/README.md). Node was selected because the existing repository already requires it; a future agent may replace it if the versioned inventory contract and file-safety outcomes hold. No third-party runtime package added. This is one additive development event within P001, not a new Period.
