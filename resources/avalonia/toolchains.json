@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate-lock-not-tested",
+  "avaloniaVersion": "12.1.4",
+  "templatesPackage": "Avalonia.Templates",
+  "dotnetSdkChannel": "10.0",
+  "androidWorkload": "android",
+  "supportedOutputs": [
+    "windows",
+    "linux",
+    "android"
+  ],
+  "cacheDirectory": ".cache/avalonia",
+  "notes": "Pinned Avalonia version confirmed on NuGet 2026-10-15; environment/toolchain combination unverified. Record SDK full version and resolved hashes when bootstrapped."
+}
