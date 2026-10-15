@@ -26,4 +26,4 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 
 ## Pipeline begun during P001
 
-[Pipeline 001 — Chrome extension to Android and Avalonia](PIPELINE_CHROME_EXTENSION_TO_NATIVE.md) is a proposed generic reconstruction pipeline. Keepsake is the intended first source, not a hardcoded exception. The extension source has not yet been identified; no native builds have been produced or tested.
+[Pipeline 001 — Chrome extension to Android and Avalonia](PIPELINE_CHROME_EXTENSION_TO_NATIVE.md) is a proposed generic reconstruction pipeline. Keepsake is a possible later evaluation case; the pipeline starts with generic extension intake and synthetic cross-extension fixtures. The extension source has not yet been identified; no native builds have been produced or tested.
