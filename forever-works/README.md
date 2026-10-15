@@ -39,3 +39,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## One-run Avalonia multi-target experiment
 
 [Three-target isolation contract](AVALONIA_THREE_TARGET_ISOLATION.md) proposes one coordinated Avalonia/C# generation run for Windows, Linux and Android, with target-scoped APIs, architectural checks, and independent per-OS evaluation. React Native remains a separate comparison. This is owner-directed research design, not implemented proof.
+
+## Research basis for target isolation
+
+[Drift, Negative Transfer and Target Isolation](RESEARCH_DRIFT_TRANSFER_AND_TARGET_ISOLATION.md) defines the relevant research terminology, proposed Forever Works-compatible metadata, anti-contamination checks, and empirical comparisons of single-run and sequential reconstruction. **Research hypotheses are not yet demonstrated safeguards.**
