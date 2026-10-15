@@ -35,3 +35,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## First implemented pipeline substrate
 
 [Dependency-free extension intake prototype](../reconstruction/extension-pipeline/README.md) now exists as a separate source-neutral module with synthetic fixtures. **Implementation is not evidence of executed tests or native parity.** Its output contract and replacement rationale are documented beside its code.
+
+## One-run Avalonia multi-target experiment
+
+[Three-target isolation contract](AVALONIA_THREE_TARGET_ISOLATION.md) proposes one coordinated Avalonia/C# generation run for Windows, Linux and Android, with target-scoped APIs, architectural checks, and independent per-OS evaluation. React Native remains a separate comparison. This is owner-directed research design, not implemented proof.
