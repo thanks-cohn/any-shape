@@ -11,7 +11,8 @@ import {slug, safePath, resourcePath, fail, json, digest, sha256, readTree} from
 
 async function engineFingerprint() {
   const files=await readTree(fileURLToPath(new URL('.',import.meta.url)));
-  return digest({files:files.map(({content,...file})=>file),lockfile:sha256(await readFile(new URL('../../../package-lock.json',import.meta.url)))});
+  const shared=await readTree(fileURLToPath(new URL('../../core/',import.meta.url)));
+  return digest({files:files.map(({content,...file})=>file),shared:shared.map(({content,...file})=>file),lockfile:sha256(await readFile(new URL('../../../package-lock.json',import.meta.url)))});
 }
 
 export async function sourceRoot(workspace,id) {

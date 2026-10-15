@@ -1,5 +1,5 @@
 import {lstat, readdir, readFile, realpath} from 'node:fs/promises';
-import {resolve, join, relative, sep, isAbsolute} from 'node:path';
+import {resolve, join, relative, sep, isAbsolute,parse} from 'node:path';
 import {createHash} from 'node:crypto';
 
 export class PipelineError extends Error {
@@ -29,8 +29,9 @@ export async function safePath(root, parts = [], {missing = false} = {}) {
   const base = resolve(root), full = resolve(base, ...parts);
   const rel = relative(base, full);
   if (rel === '..' || rel.startsWith('..' + sep) || isAbsolute(rel)) fail('PATH_ESCAPE', 'Path escaped workspace.');
-  const components = full.split(sep).filter(Boolean);
-  let current = sep;
+  const filesystemRoot=parse(full).root;
+  const components = full.slice(filesystemRoot.length).split(sep).filter(Boolean);
+  let current = filesystemRoot;
   for (const component of components) {
     current = join(current, component);
     try { const st = await lstat(current); if (st.isSymbolicLink()) fail('SYMLINK_REJECTED', 'Symlinked input/output paths are forbidden.', {path: current}); }

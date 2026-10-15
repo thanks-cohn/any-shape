@@ -12,6 +12,7 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run test:pipeline
+      - run: npm run test:foundation
       - run: npm run test:website-export
       - run: npm run test:destinations
       - run: npm run check

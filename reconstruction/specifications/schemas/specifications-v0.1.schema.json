@@ -174,8 +174,8 @@
             "type": "array",
             "items": {
               "type": "string",
-              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
-              "maxLength": 128
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "maxLength": 64
             },
             "uniqueItems": true
           },
@@ -183,8 +183,8 @@
             "type": "array",
             "items": {
               "type": "string",
-              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
-              "maxLength": 128
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "maxLength": 64
             },
             "uniqueItems": true
           },
@@ -432,8 +432,8 @@
             "type": "array",
             "items": {
               "type": "string",
-              "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$",
-              "maxLength": 128
+              "minLength": 1,
+              "maxLength": 1024
             },
             "uniqueItems": true
           },
@@ -791,6 +791,55 @@
       "type": "object",
       "propertyNames": {
         "pattern": "^[a-z][a-z0-9-]*(?:\\.[a-z][a-z0-9-]*)+$"
+      }
+    },
+    "incompatibilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "productId",
+          "targetId",
+          "requirements",
+          "reason"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$"
+          },
+          "productId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 64
+          },
+          "targetId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requirements": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     }
   },

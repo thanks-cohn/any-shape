@@ -24,12 +24,14 @@ export async function loadSpecification(path,{limits={}}={}) {
     const snapshot={path,sha256:sha256(content),bytes:content.length};snapshots.push(snapshot);
     return {data,snapshot};
   }
+  resourcePath(basename(rootPath));
+  if(!rootPath.endsWith('.json'))fail('INVALID_SPECIFICATION_PATH','Root specification must be a JSON file.');
   const {data:root}=await read(basename(rootPath));validateDocument(root);
   const resolved=structuredClone(root);resolved.modules=[];
   const moduleExtensions=new Set(Object.keys(root.extensions||{}));
   async function visit(reference,depth) {
     resourcePath(reference.path);
-    if(depth>limits.depth||snapshots.length>=limits.files)fail('SPECIFICATION_LIMIT','Specification module count/depth budget exceeded.');
+    if(depth>limits.depth)fail('SPECIFICATION_LIMIT','Specification module depth budget exceeded.');
     if(active.has(reference.path))fail('MODULE_CYCLE','Cyclic module reference.',{path:reference.path});
     if(reference.path===basename(rootPath))fail('MODULE_CYCLE','A module cannot reference the root specification.');
     const folded=reference.path.toLowerCase();
@@ -40,6 +42,7 @@ export async function loadSpecification(path,{limits={}}={}) {
       if(existing.id!==reference.id||existing.pin!==reference.sha256)fail('MODULE_REFERENCE_CONFLICT','Repeated module reference has conflicting identity/hash.');
       return;
     }
+    if(snapshots.length>=limits.files)fail('SPECIFICATION_LIMIT','Specification module count budget exceeded.');
     if(moduleIds.has(reference.id)&&moduleIds.get(reference.id)!==reference.path)fail('DUPLICATE_MODULE_ID','Different module files claim the same ID.',{id:reference.id});
     moduleIds.set(reference.id,reference.path);active.add(reference.path);
     const {data:module,snapshot}=await read(reference.path);validateDocument(module,{module:true});
@@ -47,7 +50,7 @@ export async function loadSpecification(path,{limits={}}={}) {
     if(reference.sha256&&reference.sha256!==snapshot.sha256)fail('MODULE_HASH_MISMATCH','Module content differs from the pinned digest.',{path:reference.path});
     snapshot.moduleId=reference.id;snapshot.pinned=reference.sha256!==null;
     for(const nested of [...(module.modules||[])].sort((a,b)=>a.id.localeCompare(b.id)))await visit(nested,depth+1);
-    for(const section of SECTIONS) resolved[section].push(...(module[section]||[]));
+    for(const section of SECTIONS) (resolved[section]??=[]).push(...(module[section]||[]));
     for(const [namespace,value] of Object.entries(module.extensions||{})) {
       if(moduleExtensions.has(namespace))fail('MODULE_EXTENSION_CONFLICT','Modules cannot override extension namespaces.',{namespace});
       moduleExtensions.add(namespace);(resolved.extensions??={})[namespace]=value;

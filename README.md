@@ -227,3 +227,7 @@ The [Keepsake Cross-Platform Agent Economics research charter](docs/RESEARCH/KEE
 ## Generic extension reconstruction pipeline
 
 Place an authorized unpacked extension at `extensions/<extension-id>/source/` and run `npm run pipeline -- run <extension-id>`. The [pipeline operator guide](reconstruction/extension-pipeline/README.md) covers safe static intake, evidence-linked EIR review, isolated Windows/Linux/Android candidate hosts and target-specific verification. `npm run test:pipeline` runs its security and workflow tests. Current generation produces explicitly **incomplete native scaffolds**, not equivalent reconstructed applications; release promotion is blocked until independent gates exist.
+
+## Source-neutral product specifications
+
+The Chrome workflow is the first adapter, not a permanent source restriction. A versioned `specifications.json` can now request independent products related by reconstruction, adaptation, companionship, assistance, integration, extension or new purpose. Start with `npm run reconstitute -- validate specifications/companion-ecosystem/specifications.json`, then `plan` or `context`; see the [source-neutral operator/API guide](reconstruction/specifications/README.md). This implementation validates modular jobs, discovers honest adapter support, and creates traceable target plans. It does not claim universal conversion, native functionality or production readiness.

@@ -51,3 +51,7 @@ It is an agent-readable *continuity and reconstruction brief* which describes fu
 ## Full Any-Shape project proposal
 
 [**Any-Shape: Universal Software Reconstitution and Purpose-Directed Derivation**](PROPOSALS/ANY_SHAPE_UNIVERSAL_SOFTWARE_RECONSTITUTION.md) is the foundational, source-neutral and target-neutral research/product vision: arbitrary authorized inputs, large modular specifications, faithful reconstructions, companions, assistants and integrations, target-isolated verification, long-horizon inheritance, economic motivation, research comparisons, and honest implementation status. This proposal is non-normative; the current Chrome-extension workflow is its first bounded engineering proof.
+
+## Executable source-neutral foundation
+
+The [v0.1 specification implementation](../reconstruction/specifications/README.md) now validates bounded modular owner jobs, wraps the existing Chrome source adapter, advertises unsupported source/target families honestly, and plans separately identified requested products. Reconstruction and companion/assistant outcomes have different proof obligations. This is planning infrastructure, not evidence of universal semantic generation or production conversion; canonical Forever Works remains unchanged.

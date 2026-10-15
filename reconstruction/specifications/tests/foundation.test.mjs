@@ -110,3 +110,40 @@ test('adapter catalog exposes implementation state and supports new media withou
   const plan=await planDerivation(spec,{workspace,catalog});assert.equal(plan.products[0].targets[0].adapterId,'future-text');assert.notEqual(plan.products[0].targets[0].status,'UNSUPPORTED');
   assert.throws(()=>catalog.register('source',catalog.source('chrome-extension-source')),{code:'DUPLICATE_ADAPTER'});
 });
+test('namespaced extensions survive validation but cannot silently alter target safety',async()=>{
+  const spec=await base();spec.extensions={'org.example.auto-grant':{requested:true}};const validation=validateSpecification(spec);assert.equal(validation.uninterpretedExtensions[0].namespace,'org.example.auto-grant');
+  const plan=await planning(spec);for(const product of plan.products)for(const target of product.targets)assert(target.blockers.some(x=>x.code==='UNINTERPRETED_EXTENSION'));
+});
+test('source-provided root instructions cannot authorize a job',async()=>{const spec=await base();spec.provenance.origin='source';assert.throws(()=>validateSpecification(spec),{code:'UNTRUSTED_JOB_REQUEST'});});
+test('source adapters cannot smuggle permissions and target assessments cannot assert runtime PASS',async()=>{
+  const spec=(await loadSpecification(fixture('android-adaptation'))).specification;spec.sources[0].type='hostile-source';
+  class Hostile extends SourceAdapter {async inspect(){return {status:'OBSERVED',sourceHash:'0'.repeat(64),observations:[],authorityGranted:['all-data']};}}
+  const catalog=builtinAdapters();catalog.register('source',new Hostile({id:'hostile',kind:'source',version:'1',status:'implemented',types:['hostile-source'],limits:['test'],evidence:'adversarial fixture',requiresPath:false}));
+  await assert.rejects(()=>planDerivation(spec,{workspace,catalog}),{code:'SOURCE_AUTHORITY_SMUGGLING'});
+  class FalseProof extends TargetAdapter {assess(){return {status:'PASS'};}}
+  catalog.register('target',new FalseProof({id:'false-proof',kind:'target',version:'1',status:'implemented',types:['pretend'],limits:['test'],evidence:'adversarial fixture'}));
+  const neutral=await base();neutral.requestedProducts[0].targets[0].id='pretend';neutral.requestedProducts[0].targets[0].adapter='false-proof';await assert.rejects(()=>planDerivation(neutral,{workspace,catalog}),{code:'INVALID_ADAPTER_RESULT'});
+});
+test('excluded requirements cannot reappear as mandatory target authority',async()=>{const spec=await base();spec.requestedProducts[0].exclude=['authority.read'];assert.throws(()=>validateSpecification(spec),{code:'EXCLUDED_REQUIREMENT_REUSED'});});
+test('irrelevant acceptance cases do not cover a product capability',async()=>{const spec=await base();spec.requestedProducts[0].acceptance=['case.mobile'];const plan=await planning(spec);assert(plan.products[0].targets[0].blockers.some(x=>x.code==='ACCEPTANCE_COVERAGE_REQUIRED'&&x.requirementId==='cap.review'));});
+test('source and product namespaces remain distinct even for identical numeric slugs',async()=>{
+  const spec=(await loadSpecification(fixture('android-adaptation'))).specification;spec.sources[0].id='123';spec.requestedProducts[0].id='123';spec.requestedProducts[0].sourceIds=['123'];
+  const plan=await planning(spec);assert(plan.graph.nodes.some(x=>x.id==='source:123'));assert(plan.graph.nodes.some(x=>x.id==='product:123'));
+});
+test('product execution order is deterministic and places origins before companions',async()=>{
+  const spec=await base();spec.requestedProducts.reverse();const plan=await planning(spec);assert.equal(plan.productOrder[0],'record-console');assert(plan.productOrder.indexOf('record-console')<plan.productOrder.indexOf('browser-assistant'));assert(plan.productOrder.indexOf('record-console')<plan.productOrder.indexOf('mobile-companion'));
+});
+test('declared incompatibilities block only their product/target and remain traceable',async()=>{
+  const spec=await base();spec.incompatibilities=[{id:'conflict.desktop',productId:'record-console',targetId:'windows',requirements:['cap.review'],reason:'Synthetic native integration unavailable on this target.'}];
+  const plan=await planning(spec);const windows=plan.products[0].targets.find(x=>x.targetId==='windows'),linux=plan.products[0].targets.find(x=>x.targetId==='linux');assert.equal(windows.status,'UNSUPPORTED');assert(windows.blockers.some(x=>x.code==='DECLARED_INCOMPATIBILITY'));assert.notEqual(linux.status,'UNSUPPORTED');
+});
+test('target-local namespace extensions do not contaminate unrelated product plans',async()=>{
+  const spec=await base();spec.requestedProducts[2].targets[0].extensions={'org.example.mobile-policy':{requiresReview:true}};
+  const plan=await planning(spec);assert(plan.products[2].targets[0].blockers.some(x=>x.code==='UNINTERPRETED_EXTENSION'));assert(!plan.products[0].targets.some(target=>target.blockers.some(x=>x.code==='UNINTERPRETED_EXTENSION')));
+});
+test('legacy translation preserves numeric source IDs and maps nonportable capability IDs without changing EIR',async()=>{
+  const {contract}=await analyzeExtension(join(workspace,'reconstruction/extension-pipeline/fixtures/popup-basic'),{extensionId:'123'});
+  contract.capabilities[0].id='a legacy capability / arbitrary v1 ID';const original=structuredClone(contract);
+  const spec=specificationFromLegacyEir(contract);validateSpecification(spec);assert.equal(spec.sources[0].id,'123');assert.match(spec.requirements[0].id,/^legacy-[a-f0-9]+$/);assert.deepEqual(contract,original);
+  assert.equal(spec.extensions['org.any-shape.legacy'].capabilityIds[original.capabilities[0].id],spec.requirements[0].id);
+});
