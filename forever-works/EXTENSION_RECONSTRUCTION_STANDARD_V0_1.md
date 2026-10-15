@@ -1,6 +1,6 @@
 # Extension Reconstruction Profile v0.1 — Source-Blind Foundation
 
-**Home:** Any-Shape / `forever-works/`. **Period:** P001 — Early Experimental. **Status:** DESIGN PROPOSAL, **not implemented** or certified. **Scope:** general capability extraction and reconstruction from arbitrary *authorized* Chrome/Chromium extensions, with initially targeted **Android/React Native** and **Windows + Linux/C# Avalonia** outputs. Other languages, renderers, runtimes and destinations remain legitimate future adapters.
+**Home:** Any-Shape / `forever-works/`. **Period:** P001 — Early Experimental. **Status:** DESIGN PROPOSAL, **not implemented** or certified. **Scope:** general capability extraction and reconstruction from arbitrary *authorized* Chrome/Chromium extensions, with initial outputs **Windows/C# Avalonia**, **Linux/C# Avalonia**, **Android/C# Avalonia**, plus an **independent Android/React Native production-oriented run** from the same accepted semantic contract. Other languages, renderers, runtimes and destinations remain legitimate future adapters.
 
 > **We must design the system before supplying a real extension.** No Keepsake source or other production extension is permitted as design input for this initial foundation. A system that works only on one familiar extension is not a general reconstruction pipeline.
 
@@ -78,7 +78,7 @@ Continuity.record(periodId, contractVersion, decisions, results)
 
 ## 5. Output expectations
 
-- **Android v0 target:** React Native/Expo *when fit*, with justified native modules/prebuild or alternative Kotlin implementation when browser-like assumptions fail. Produce an Android app, not a disguised extension.
+- **Android v0 target A:** Avalonia/C# Android application reusing the desktop UI toolkit where appropriate; test mobile input, lifecycle, permissions, packaging and accessibility independently.\n- **Android v0 target B:** a separate React Native Android application (Expo if appropriate, native modules/prebuild where required). It must derive from the same neutral contract, not from the generated Avalonia code, and must meet real-app release requirements independently.
 - **Windows/Linux v0 target:** a common C# Avalonia solution with platform-specific packaging, OS integrations, permission boundaries and independent runtime verification on *both* platforms.
 - **Portable target family:** avoid encoding React/Avalonia into EIR. A third adapter (web, CLI, Swift, Flutter, etc.) must be possible without revising capability meaning.
 - **Always accompany generated source with:** contracts, uncovered behavior, build/test commands, asset/license ledger, environment and secret needs, migration plan, security/privacy findings and acceptance evidence.
@@ -119,5 +119,18 @@ The pipeline retains a **semantic causal model and evidentiary history** as the 
 2. Implement a read-only manifest/permission/entrypoint/asset intake CLI with fixture-only tests.
 3. Add a capability-ledger generator showing proven facts versus inferred behaviors.
 4. Implement `TargetAdapter.assess` independently for Android and desktop before generating applications.
-5. Build generic minimal output projects, exercise on targets, and develop withheld-fixture evaluator.
+5. Build generic minimal output projects for Windows Avalonia, Linux Avalonia, Android Avalonia, and separately Android React Native; exercise each on its target and develop a withheld-fixture evaluator.
 6. Record each phase's evidence in P001 addenda. No real extension ingestion until F0–F2 are reviewed.
+
+## Owner decision — comparative four-output first implementation (2026-10-15)
+
+**OWNER-INTENT, not yet implemented or tested.** The first full reconstruction experiment MUST intentionally exercise both rendering families:
+
+| Run | Target | Rendering and language | Independent proof |
+| --- | --- | --- | --- |
+| A1 | Windows desktop | Avalonia / C# | Windows build, install, runtime behavior, effects, UI/accessibility |
+| A2 | Linux desktop | Avalonia / C# | Linux build, install, runtime behavior, effects, UI/accessibility |
+| A3 | Android mobile | Avalonia / C# | Android build, install, device/emulator behavior, effects, touch/accessibility |
+| B1 | Android mobile (separate run) | React Native / JS or TS | Android build, install, device/emulator behavior, effects, touch/accessibility |
+
+Runs A3 and B1 are **independent reconstructions of one accepted domain contract**, not a port of one generated output into the other. All runs must declare shared semantics, permitted platform adaptations, target-specific limitations, dependency graphs, the WHY/WHAT/HOW of adapters, and evaluator PASS/FAIL/UNKNOWN. Compare maintenance surface, human/agent usability, visual coherence, reconstruction effort, runtime/performance, dependency burden and integration fidelity. No approach wins based on code generation or screenshots alone. No real extension is admitted before the source-blind foundation and synthetic fixtures are established. Future platforms/languages remain open.
