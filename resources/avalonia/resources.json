@@ -1,0 +1,28 @@
+{
+  "format": "any-shape-reusable-resource-pack",
+  "version": 1,
+  "identity": "avalonia",
+  "agentNeutral": true,
+  "extensionNeutral": true,
+  "documentationStatus": "proposed-not-verified",
+  "requiresExternalSdk": true,
+  "platforms": [
+    "windows",
+    "linux",
+    "android"
+  ],
+  "files": [
+    "AGENT.md",
+    "README.md",
+    "TOOLCHAIN.md",
+    "ARCHITECTURE.md",
+    "PLATFORM_MATRIX.md",
+    "ACCEPTANCE.md",
+    "SOURCES.md",
+    "forever-works/README.md",
+    "forever-works/CONTINUITY.md",
+    "forever-works/DECISIONS.md",
+    "forever-works/RESEARCH.md",
+    "forever-works/PERIOD_P001.md"
+  ]
+}
