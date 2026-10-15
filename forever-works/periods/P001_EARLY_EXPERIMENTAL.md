@@ -72,3 +72,7 @@ The project should not be described as a finished platform, nor should its scope
 ## P001 addendum — portable extension pipeline bootstrap (2026-10-15)
 
 **SOURCE-INSPECTED / IMPLEMENTED IN REPO, NOT YET TEST-EXECUTED:** `reconstruction/extension-pipeline/` introduces a dependency-free Node.js read-only extension manifest intake library, CLI, and two synthetic fixtures (popup-only; content-script/background-worker). It inventories declared surfaces, listed resources, permissions and browser-coupling warnings. It does **not** analyze arbitrary JavaScript runtime behavior, generate Android/Avalonia applications, or prove conversion correctness. See its [README](../../reconstruction/extension-pipeline/README.md). Node was selected because the existing repository already requires it; a future agent may replace it if the versioned inventory contract and file-safety outcomes hold. No third-party runtime package added. This is one additive development event within P001, not a new Period.
+
+## P001 addendum — multi-target isolation hypothesis (2026-10-15)
+
+The [Avalonia three-target isolation contract](../AVALONIA_THREE_TARGET_ISOLATION.md) records an owner-requested **single-run** Windows/Linux/Android architecture with explicit shared-semantics versus target-implementation boundaries, anti-contamination checks and independently evaluated targets. **PROPOSED, NOT YET TESTED**. React Native Android remains a separate comparison. This modifies the proposed run strategy, not the historical live Flow evidence.
