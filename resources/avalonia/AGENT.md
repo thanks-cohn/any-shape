@@ -15,3 +15,5 @@ Candidates go in runs/<extension-id>/<run-id>/candidates/<target>/. Approved and
 Document every significant module with WHY, WHAT, HOW TO REPLACE, PROOF. Preserve readable UTF-8 neutral contracts, independent fixture data, target-specific evidence, period provenance and uncertainty. If an SDK or device is unavailable, say NOT RUN instead of assuming success.
 
 Future continuity: Avalonia is an implementation choice, not an irreplaceable identity. If tooling changes, select alternatives and reprove original semantics; never claim that historical binaries will run forever.
+
+Before downloading, run `node bootstrap/preflight.mjs`. Prefer verified cached packages and `CACHE_STRATEGY.md`; never reinstall SDKs or templates merely because a new reconstruction begins. Package cache and signatures must be externally verified; do not claim offline-ready until an archive is actually stored and validated.
